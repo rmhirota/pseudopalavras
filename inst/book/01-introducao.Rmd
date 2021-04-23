@@ -6,3 +6,4 @@
 ## Organização do trabalho
 
 O relatório foi organizado em XX capítulos, além desta introdução. No Capítulo \@ref(metodologia), apresentamos as decisões metodológicas, procedimento de análise e organização dos dados. No Capítulo \@ref(resultados), apresentamos os principais resultados da análise, organizados de acordo com as questões norteadoras.
+

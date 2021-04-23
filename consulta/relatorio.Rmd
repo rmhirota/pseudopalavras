@@ -19,20 +19,20 @@ knitr::opts_chunk$set(echo = TRUE)
 
 __TÍTULO:__ <Controle ............”>  
 
-__PESQUISADOR:__ <(nome da pesquisador)>  
+__PESQUISADOR:__ Melina Klitzke Martins
 
-__ORIENTADOR:__ <(nome do orientador)>  
+__ORIENTADOR:__ Rosana Heringer, Flávio Carvalhaes
 
-__INSTITUIÇÃO:__ <Escola de Educação Física e Esporte (EEFE-USP)>
+__INSTITUIÇÃO:__ Universidade Federal do Rio de Janeiro
 
-__FINALIDADE DO PROJETO:__ <Mestrado, Doutorado, Publicação ou I. Científica>
+__FINALIDADE DO PROJETO:__ Doutorado
 
 __PARTICIPANTES DA ENTREVISTA:__ 
 
-- <pesquisador
-- Orientador do pesquisador
-- Nome do professor responsável (1)
-- Nome do professor responsável (2)
+- Melina Klitzke Martins
+- Flávio Carvalhaes
+- Monica Carneiro Sandoval 
+- Denise Aparecida Botter
 - Giovanna Vilar
 - Mariana Almeida
 - Renata Hirota
