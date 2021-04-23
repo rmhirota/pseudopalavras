@@ -1,0 +1,85 @@
+---
+title: "CENTRO DE ESTATÍSTICA APLICADA – CEA – USP"
+subtitle: "RELATÓRIO DE CONSULTA"
+author: 
+  - Giovanna Vilar
+  - Mariana Almeida
+  - Renata Hirota
+date: "`r format(Sys.Date(), '%B/%Y')`"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+
+__TÍTULO:__ <Controle ............”>  
+
+__PESQUISADOR:__ <(nome da pesquisador)>  
+
+__ORIENTADOR:__ <(nome do orientador)>  
+
+__INSTITUIÇÃO:__ <Escola de Educação Física e Esporte (EEFE-USP)>
+
+__FINALIDADE DO PROJETO:__ <Mestrado, Doutorado, Publicação ou I. Científica>
+
+__PARTICIPANTES DA ENTREVISTA:__ 
+
+- <pesquisador
+- Orientador do pesquisador
+- Nome do professor responsável (1)
+- Nome do professor responsável (2)
+- Giovanna Vilar
+- Mariana Almeida
+- Renata Hirota
+
+__DATA:__ 23/04/2020
+
+__FINALIDADE DA CONSULTA:__ <exemplo: (Auxiliar na organização do banco de dados.)>
+
+__RELATÓRIO ELABORADO POR:__ <Nome do aluno CEA>
+
+\newpage
+
+# Introdução
+
+- Descrição geral do projeto, incluindo a utilidade prática. 
+- Indicação do tipo de estudo: experimento laboratorial, estudo observacional,
+ensaio clínico, etc. 
+- Finalidade da entrevista: planejamento amostral, elaboração de questionário,
+crítica de análises realizadas, sugestão para análise, etc.
+
+# Descrição do estudo
+
+- Tipo de planejamento/amostragem (número de fatores, níveis, presença de dados
+incompletos, etc.). 
+- Identificação e número de unidades amostrais. 
+
+# Descrição das Variáveis e Processo de Coleta de Dados
+
+- Denominação e classificação das variáveis. 
+- Codificação. 
+- Tipo de questionários ou formulários. 
+- Forma de armazenagem de dados. 
+- Recursos computacionais disponíveis. 
+
+# Situação do Projeto 
+
+- Fase atual de implementação. 
+- Descrição e críticas às análises já realizadas. 
+- Recursos disponíveis. 
+- Limitações de custo e tempo. 
+- Problemas relacionados à coleta de dados. 
+
+# Conclusão 
+
+- Comentários sobre aspectos gerais do projeto: viabilidade, abrangência das 
+conclusões, etc. 
+- Considerações sobre a condução do projeto: desvios em relação ao objetivo.
+- Sugestões para análise estatística: modelos, técnicas apropriadas, etc.
+- Bibliografia apropriada para o pesquisador. 
+- Possibilidade de execução através do CEA ou outras alternativas.
