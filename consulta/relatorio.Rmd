@@ -92,7 +92,7 @@ No nível do curso, inicialmente a pesquisadora criou uma variável de seletivid
   
 - Seletividade (menos seletivo = 0 e mais seletivo=1)
   
-A base de dados foi construída e tratada inicialmente no software stata. O modelo testado também foi rodado nesse software
+Os dados originais estão armazenados em Excel e o modelo foi construído no software Stata
 
 - Denominação e classificação das variáveis. 
 - Codificação. 
@@ -102,7 +102,9 @@ A base de dados foi construída e tratada inicialmente no software stata. O mode
 
 # Situação do Projeto 
 
-O projeto encontra-se na fase de testes dos modelos multiníveis. 
+O projeto encontra-se na fase de testes dos modelos multiníveis. Após a entrevista com a pesquisadora algumas críticas à análise feita foram apontadas. Primeiramente, variáveis de nível 1 que podem ser estaticamente significantes foram excluídas do modelo testado. Anteriormente, um modelo de sobrevivência foi construído e seus resultados utilizados para determinar as variáveis a serem utilizadas nessa fase do estudo.Salientamos que essa não é uma tomada de decisão correta pois variáveis que não se mostraram significante na primeira etapa podem ser importantes na determinação do modelo multinível. São momentos e modelos diferentes, logo, todas as variáveis que a pesquisadora acredita que afeta a evasão do curso devem ser testadas.
+Além disso, as variáveis contínuas nota do ENEM e CRa possuem magnetudes muito distintas. O CRa é uma noite que varia de 0 à 10 enquanto as notas do ENEM estão em uma escala de 0 à 1000. Essa diferença entre as escalas pode desencadear erros de convergência durante os testes no software.
+Outro problema à análise realizada é a forma como as saídas do stata estão sendo apresentadas e analisadas
 
 - Fase atual de implementação. 
 - Descrição e críticas às análises já realizadas. 
@@ -110,7 +112,52 @@ O projeto encontra-se na fase de testes dos modelos multiníveis.
 - Limitações de custo e tempo. 
 - Problemas relacionados à coleta de dados. 
 
-# Conclusão 
+# Conclusão e respostas as perguntas da pesquisadora
+
+## 1.1 Comentários sobre aspectos gerais do projeto
+  
+
+## 1.2 Sugestões sobre as variáveis
+
+A primeira sugetão que oferecemos é incluir no modelo todas as variáveis com bom preenchimento (sem muitos MISSING) que a pesquisadora acredita que podem ter algum efeito na evasão do curso. Durante os testes dos modelos algumas vão mostrar-se significantes e outras não, porém, é importante testá-las. Além disso, também sugerimos o acrescimo de variáveis no nível 2. Por exemplo, o comportamento de evasão dos alunos parece ser diferente entre as áreas do conhecimento (Humanas, Exatas e Biológicas), logo, seria interessante construir essa variável categórica de curso.  
+A seguir, incluímos uma lista de variáveis a ser incluídas no estudo:  
+  
+- Renda Familiar, Nível 1  
+- Área do conhecimento do curso, Nível 2 (Humanas, Exatas e Biológicas)  
+- Média da nota do ENEM do curso, Nível 2  
+- Média do CRa do curso, Nível 2  
+  
+Por fim, destacamos a importância de padronizar as variáveis contínuas referentes à nota do ENEM, pois, como explicado anteriormente, as magnetudes distintas entre CRa e esse valor podem interferir na convergência matemática. A sugestão nesse relatório é tranformar os valores da variável de nota em números na escala de 0 à 10, a mesma utilizada no coeficiente de Rendimento acumulado por semestre
+
+## 1.3 Como construir o modelo?
+
+Passo 1: Ajuste do modelo sem variáveis independentes (modelo nulo) para calcular o coeficiente de correlação intraclasse e testar se as
+variâncias em diferentes cursos são homogêneas
+  
+Passo 2: Incluir as variáveis independentes uma de cada vez e verificar a significância e o BIC de cada modelo; sendo o modelo escolhido nesse primeiro passo o que apresentar o coeficiente significativo e o menor BIC (pode ser o AKAIKE?)
+  
+Passo 3: Acrescentar novas variáveis até que nenhuma outra seja significativa,
+chegando a um ou vários candidatos a modelo final
+  
+Passo 4: Fazer o diagnóstico dos candidatos a modelo final, verificando os
+pressupostos e a qualidade do ajuste
+  
+  Fonte: https://bdm.unb.br/bitstream/10483/10032/1/2014_AlexLuizMartinsMatheusdaRocha.pdf
+  
+## 1.4 Como interpretar o modelo?
+
+## 1.5 Exemplo de análise a partir da saída do software Stata
+
+## 1.6 Sugestões de como avaliar a qualidade do ajuste do modelo logistíco multinivel
+
+Quando construímos um modelo é sempre necessário checar a eficácia do mesmo. Além disso, precisa-se utilizar uma métrica para comparar diferentes modelos e encontrar qual o melhor para o conjunto de dados. Assim, esse tópico foca em apresentar medidas de desempenho para o ajuste da regressão logística multinível.
+
+Acurácia e Sensibilidade
+QQplot resíduos
+Máxima Verossimilhança
+
+
+## 1.4 Bibliografia
 
 - Comentários sobre aspectos gerais do projeto: viabilidade, abrangência das 
 conclusões, etc. 
