@@ -17,7 +17,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-__TÍTULO:__ <Controle ............”>  
+__TÍTULO:__ Fatores associados à evasão e conclusão de curso na UFRJ: análise de heterogeneidade
 
 __PESQUISADOR:__ Melina Klitzke Martins
 
@@ -33,19 +33,30 @@ __PARTICIPANTES DA ENTREVISTA:__
 - Flávio Carvalhaes
 - Monica Carneiro Sandoval 
 - Denise Aparecida Botter
+- Viviana Giampaoli
 - Giovanna Vilar
 - Mariana Almeida
 - Renata Hirota
 
 __DATA:__ 23/04/2020
 
-__FINALIDADE DA CONSULTA:__ <exemplo: (Auxiliar na organização do banco de dados.)>
+__FINALIDADE DA CONSULTA:__ Consultoria sobre o modelo logístico multinível; auxílio na pós-estimação do modelo e na interpretação dos coeficientes 
 
-__RELATÓRIO ELABORADO POR:__ <Nome do aluno CEA>
+
+__RELATÓRIO ELABORADO POR:__ 
+- Giovanna Vilar
+- Mariana Almeida
+- Renata Hirota
 
 \newpage
 
 # Introdução
+
+A evasão dos alunos no ensino superior é uma situação recorrente e estudada por diversos autores no campo da educação e das ciências sociais.Em suma, como as variações  nos ambientes acadêmicos moldam as experiências e os resultados dos alunos de diferentes  maneiras, as disparidades entre as distribuições dos estudantes em todas as áreas de estudo, ainda  que pequenas, podem contribuir para entender as desigualdades de resultados quanto à evasão de curso.
+Logo, o projeto busca analisar quais os fatores estão associados à evasão e conclusão de curso na UFRJ e como o efeito  desses fatores variam entre cursos.
+Para isso, será utilizado um modelo logístico multinivel (hierárquico),em que o nível 1 são os estudantes e o nível 2 são  os cursos. 
+A pesquisadora busca com a entrevista uma consultoria sobre o modelo logístico multinível e um auxílio na pós-estimação do modelo e na interpretação dos coeficientes.
+
 
 - Descrição geral do projeto, incluindo a utilidade prática. 
 - Indicação do tipo de estudo: experimento laboratorial, estudo observacional,
@@ -55,11 +66,33 @@ crítica de análises realizadas, sugestão para análise, etc.
 
 # Descrição do estudo
 
-- Tipo de planejamento/amostragem (número de fatores, níveis, presença de dados
-incompletos, etc.). 
+O estudo foi planejado como um modelo logístico multinivel (hierárquico),em que o nível 1 são os estudantes e o nível 2 são os cursos. A pesquisadora selecionou todos os cursos de modalidade presencial ofertados pela UFRJ e, a partir da volumetria, agrupou-os de acordo com o tipo de curso. Por exemplo, cursos como Letras-Espanhol, Letras-Inglês e Letras-Português foram agrupados no mesmo bloco. Ao fim desse agrupamento, foram obtidos 45 clusters. É importante destacar que o curso de medicina foi excluído da análise pois não era possível acompanhar esses ingressantes. Além disso, cada cluster possui um minímo de 30 observações.
+As unidades amostrais da pesquisa são os ingressantes no primeiro semestre do ano de 2014, um total de 4.480 observações. Todos esses alunos foram seguidos pelo número de matrícula até um ano e meio após o primeiro semestre de 2019. 
+Essa é uma pesquisa longitudinal mas, como informado pela pesquisadora, no modelo sugerido nesse relatório não será considerado esse planejamento
+
+- Tipo de planejamento/amostragem (número de fatores, níveis, presença de dados incompletos, etc.). 
 - Identificação e número de unidades amostrais. 
 
 # Descrição das Variáveis e Processo de Coleta de Dados
+
+A base de dados utilizada foi construída a partir dos microdados da coorte fornecidos pela Divisão de Registro de Estudante (DRE/ Pr1) da UFRJ. A maioria das informações são coletadas através do questionário socioeconômico, produzido e aplicado pela instituição no ato da pré-matrícula do estudante. O bom índice de  respostas, possivelmente, deve-se ao fato de que o estudante precisa apresentar o comprovante  da realização da pré-matrícula, exigido no ato de confirmação da matrícula presencial. O referido  questionário é composto por questões que abordam, entre outras informações, aspectos  socioeconômicos, culturais, escolares, de composição familiar e de escolha e expectativas sobre o  curso e sobre a instituição.
+A variável dependente (resposta) utilizada nessa análise éa evasão do curso no primeiro ano  (1° e 2° semestre), representada por 0 e 1 (0= não evadiu; 1= evadiu). O conceito de evasão aqui utilizado é o de evasão do  curso, que é aquela em que o aluno deixa o curso de origem por qualquer razão (LOBO, 2012). Essas variáveis foram construídas através da combinação da variável de tempo que o indivíduo  permaneceu no curso e a situação de matrícula em cada semestre – ativa, trancada, cancelada,  cancelado por conclusão de curso. Destacamos que apenas aqueles que tiveram suas matrículas no curso canceladas (exceto o cancelamento por conclusão de curso), é que foram considerados  evadidos.  
+Em um estudo multinivel as variáveis independentes são classificados em dois tipos: variáveis de nível 1 variáveis de nível 2. Aqui, as variáveis de nível 1 são as de origem dos estudantes:  
+  
+- Cor/Raça (0 = brancos e 1 = pretos e  pardos)  
+- Sexo (0 = feminino e 1 = masculino)  
+- Status socioeconômico da família (SES), mensurado pela maior escolaridade do pai ou da mãe (0 = menos que o ensino superior e 1= ensino superior)  
+- Nota no ENEM no ano de entrada    
+- Variável que diz respeito a questão “se foi a primeira opção de curso”  
+(0 = sim; 1 = não)  
+- Variável que diz respeito a questão “se a nota de corte influenciou na escolha do curso” (0 = não; 1= sim)  
+- Coeficiente de Rendimento acumulado por semestre (CRa), relacionado ao último semestre acompanhado  
+  
+No nível do curso, inicialmente a pesquisadora criou uma variável de seletividade de curso  utilizando a nota mediana do curso no Enem. Se a nota mediana do curso no Enem era maior que  a nota mediana no Enem de toda UFRJ, o curso é mais seletivo, se a nota  mediana do curso no Enem era menor que a nota mediana no Enem da UFRJ, o curso é menos  seletivo   
+  
+- Seletividade (menos seletivo = 0 e mais seletivo=1)
+  
+A base de dados foi construída e tratada inicialmente no software stata. O modelo testado também foi rodado nesse software
 
 - Denominação e classificação das variáveis. 
 - Codificação. 
@@ -68,6 +101,8 @@ incompletos, etc.).
 - Recursos computacionais disponíveis. 
 
 # Situação do Projeto 
+
+O projeto encontra-se na fase de testes dos modelos multiníveis. 
 
 - Fase atual de implementação. 
 - Descrição e críticas às análises já realizadas. 
