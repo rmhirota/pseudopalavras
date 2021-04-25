@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.7.13)  25 APR 2021 10:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.7.13)  25 APR 2021 10:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -597,7 +597,13 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 363.
 [4]
-Overfull \hbox (4.90422pt too wide) detected at line 401
+<modelo_aleatorio_v2.png, id=85, 383.18156pt x 255.20343pt>
+File: modelo_aleatorio_v2.png Graphic file (type png)
+<use modelo_aleatorio_v2.png>
+Package pdftex.def Info: modelo_aleatorio_v2.png  used on input line 418.
+(pdftex.def)             Requested size: 383.19815pt x 255.21448pt.
+[5 <./modelo_aleatorio_v2.png>]
+Overfull \hbox (4.90422pt too wide) detected at line 441
 \OML/lmm/m/it/10 logit\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 ^^Y[]\OT1/lmr/m/n/10 ) 
 = \OML/lmm/m/it/10 ^^L[] \OT1/lmr/m/n/10 + \OML/lmm/m/it/10 ^^L[] \OMS/lmsy/m/n
 /10 ^^C \OT1/lmr/m/n/10 1\OML/lmm/m/it/10 :urban[] \OT1/lmr/m/n/10 + \OML/lmm/m
@@ -610,37 +616,37 @@ MS/lmsy/m/n/10 ^^C \OT1/lmr/m/n/10 3\OML/lmm/m/it/10 :children[] \OT1/lmr/m/n/1
  :urban \OT1/lmr/m/n/10 + \OML/lmm/m/it/10 u[]
  []
 
-<modelo_slope_aleatorio_v1.png, id=85, 440.39531pt x 369.63094pt>
+<modelo_slope_aleatorio_v1.png, id=95, 440.39531pt x 369.63094pt>
 File: modelo_slope_aleatorio_v1.png Graphic file (type png)
 <use modelo_slope_aleatorio_v1.png>
-Package pdftex.def Info: modelo_slope_aleatorio_v1.png  used on input line 429.
+Package pdftex.def Info: modelo_slope_aleatorio_v1.png  used on input line 456.
 
 (pdftex.def)             Requested size: 440.39423pt x 369.63002pt.
-[5] [6 <./modelo_slope_aleatorio_v1.png>]
+[6 <./modelo_slope_aleatorio_v1.png>]
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 479.
-
-
-LaTeX Warning: Command \textendash invalid in math mode on input line 479.
+LaTeX Warning: Command \textendash invalid in math mode on input line 494.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 479.
+LaTeX Warning: Command \textendash invalid in math mode on input line 494.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 507.
+
+LaTeX Warning: Command \textendash invalid in math mode on input line 494.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 522.
 [7]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 507.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 522.
 (./relatorio.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 507.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 507.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 522.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 522.
 Package rerunfilecheck Info: File `relatorio.out' has not changed.
 (rerunfilecheck)             Checksum: 58D5BBA66C359F0909F2EE0B898CF96D;3057.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 507.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 522.
  ) 
 Here is how much of TeX's memory you used:
- 10778 strings out of 482419
- 155820 string characters out of 5945930
+ 10784 strings out of 482419
+ 155977 string characters out of 5945930
  403948 words of memory out of 5000000
- 26349 multiletter control sequences out of 15000+600000
+ 26354 multiletter control sequences out of 15000+600000
  577988 words of font info for 63 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  37i,6n,37p,903b,381s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -660,10 +666,10 @@ ublic/lm/lmr12.pfb><c:/Users/Windows 10/AppData/Roaming/TinyTeX/texmf-dist/font
 s/type1/public/lm/lmr17.pfb><c:/Users/Windows 10/AppData/Roaming/TinyTeX/texmf-
 dist/fonts/type1/public/lm/lmr7.pfb><c:/Users/Windows 10/AppData/Roaming/TinyTe
 X/texmf-dist/fonts/type1/public/lm/lmsy10.pfb>
-Output written on relatorio.pdf (7 pages, 239023 bytes).
+Output written on relatorio.pdf (7 pages, 269226 bytes).
 PDF statistics:
- 156 PDF objects out of 1000 (max. 8388607)
+ 157 PDF objects out of 1000 (max. 8388607)
  135 compressed objects within 2 object streams
  32 named destinations out of 1000 (max. 500000)
- 102 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 107 words of extra memory for PDF output out of 10000 (max. 10000000)
 

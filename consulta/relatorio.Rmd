@@ -164,27 +164,40 @@ No software Stata, esse índice é encontrado através do código __estat icc__
 Exemplo:  
 
 Ng et al. (2006) analisam uma subamostra de dados da pesquisa de fertilidade de Bangladesh de 1989 (Huq e Cleland 1990), que entrevistou 1.934 mulheres de Bangladesh sobre o uso de anticoncepcionais. As mulheres na amostra pertenciam a 60 distritos, identificadas pela variável district. Cada distrito
-continha áreas urbanas ou rurais (variável urban) ou ambas. A variável c_use é a resposta binária, com um valor de 1 indicando o uso de anticoncepcionais. Outras covariáveis incluem idade centrada na média e uma variável fatorial para o número de filhos. Considere um modelo de regressão logística padrão, alterado para ter efeitos aleatórios para cada distrito:
-
-$$ logit (\pi_{ij}) = \beta_0 + \beta_1*1.urban_{ij} + \beta_2*age_{ij} + \beta_3*1.children_{ij} + \beta_4*2.children_{ij} + \beta_5*3.children_{ij} + v_j*1.urban + u_{ij}$$ 
+continha áreas urbanas ou rurais (variável urban) ou ambas. A variável c_use é a resposta binária, com um valor de 1 indicando o uso de anticoncepcionais. Outras covariáveis incluem idade centrada na média e uma variável fatorial para o número de filhos. Considere um modelo de regressão logística:
+  
+$$ logit (\pi_{ij}) = \beta_0 + \beta_1*1.urban_{ij} + \beta_2*age_{ij} + \beta_3*1.children_{ij} + \beta_4*2.children_{ij} + \beta_5*3.children_{ij} + u_{ij}$$ 
   
 para j = 1,. . . , 60 distritos, com i = 1,. . . , $n_{j}$ mulheres no distrito j
 
-O objetivo de introduzir um coeficiente aleatório na variável binária urbana foi permitir efeitos aleatórios separados, dentro de cada distrito, para as áreas urbanas e rurais desse distrito. Logo, estamos levando em conta que dentro de cada distrito o corportamento dessa variável é diferente
-
 No software Stata a equação é dada por:  
-__melogit c_use i.urban age i.children, nofvlabel|| district: 1.urban covariance(unstructured)__
-
-OBS: Ao especificar a covariância (não estruturada) acima, dissemos ao melogit para permitir a correlação entre efeitos aleatórios no nível distrital
+__melogit c_use i.urban age i.children, nofvlabel|| district:__
 
 A próxima seção é uma tabela das estimativas de efeitos fixos. As estimativas representam os coeficientes de regressão. Estes não são padronizados e estão na escala logit. As estimativas são seguidas por seus erros padrão (SEs), p-valor e intervalos de confiança.
 O teste de razão de verossimilhança (LR) testa a hipótese nula de que os dois modelos, efeitos mistos e regressão logística fixa fornecem a mesma qualidade de ajuste. Como P < 0.001, há indicios para rejeitarmos a hipótese nula e utilizar, assim, o modelo misto.
 
 ```{r echo=FALSE}
+knitr::include_graphics("modelo_aleatorio_v2.png")
+```
+A última seção nos dá as estimativas de efeito aleatório. Isso representa o desvio padrão estimado do intercepto na escala logit. 
+Como ueremos a razão de chances em vez dos coeficientes na escala logit, podemos exponenciar as estimativas e os intervalos de confiança. Podemos fazer isso no Stata usando a opção OR. A tabela de estimativa relata os efeitos fixos e os componentes de variância estimados. Os efeitos fixos podem ser interpretados da mesma forma que a saída do logit tradicional.Transformando em razão de chances descobre-se que a chance das mulheres urbanas usarem anticoncepcionais é o dobra das mulheres em zona rural. Além disso, ter qualquer número de filhos aumentará as chances de três a quatro vezes em comparação com a categoria básica de não ter filhos. O uso de anticoncepcionais também diminui com a idade. 
+
+Caso seja do interesse da pesquisadora introduzir um coeficiente aleatório em alguma variável dependente pode-se reescrever o modelo com "random slopes", ou seja, os coeficientes da variável escolhida irão variar entre cada cluster
+Vampos aplicar essa ideia na variável binária urbana do exemplo anterior.O objetivo de introduzir um coeficiente aleatório na variável binária urbana é permitir efeitos aleatórios separados, dentro de cada distrito, para as áreas urbanas e rurais desse distrito.
+A expressão desse modelo pode ser descrita da seguinte forma:  
+
+$$ logit (\pi_{ij}) = \beta_0 + \beta_1*1.urban_{ij} + \beta_2*age_{ij} + \beta_3*1.children_{ij} + \beta_4*2.children_{ij} + \beta_5*3.children_{ij} + v_j*1.urban + u_{ij}$$ 
+
+para j = 1,. . . , 60 distritos, com i = 1,. . . , $n_{j}$ mulheres no distrito j
+
+No software Stata a equação é dada por:  
+__melogit c_use i.urban age i.children || district: i.urban, covariance(unstructured)__
+
+o modelo agora inclui um intercepto aleatório e um coeficiente aleatório em 1.urban. Além disso, ao especificar a covariância (não estruturada) acima, dissemos ao melogit para permitir a correlação entre efeitos aleatórios a nível distrital, ou seja, a correlação entre $u_j$ e $v_j$ é diferente de zero
+  
+```{r echo=FALSE}
 knitr::include_graphics("modelo_slope_aleatorio_v1.png")
 ```
-A última seção nos dá as estimativas de efeito aleatório. Isso representa o desvio padrão estimado do intercepto e da inclinação na escala logit. 
-Como ueremos a razão de chances em vez dos coeficientes na escala logit, podemos exponenciar as estimativas e os intervalos de confiança. Podemos fazer isso no Stata usando a opção OR. A tabela de estimativa relata os efeitos fixos e os componentes de variância estimados. Os efeitos fixos podem ser interpretados da mesma forma que a saída do logit tradicional.Transformando em razão de chances descobre-se que a chance das mulheres urbanas usarem anticoncepcionais é o dobra das mulheres em zona rural. Além disso, ter qualquer número de filhos aumentará as chances de três a quatro vezes em comparação com a categoria básica de não ter filhos. O uso de anticoncepcionais também diminui com a idade. 
 
 
 ## 1.5 Exemplo de análise a partir da saída do software Stata
