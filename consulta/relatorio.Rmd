@@ -150,16 +150,10 @@ pressupostos e a qualidade do ajuste
   Teste qui-quadrado de Wald: queremos testar a hipótese de que todos os coeficientes de regressão são zero.
   Se o teste indicar um p-valor < 0.001, então, temos evidências para negar essa hipótese. 
   
-## 1.4 Como interpretar o modelo?
+## 1.4 Como interpretar o modelo e exemplo de saída no software Stata
 
 Na regressão logística de efeitos mistos, os coeficientes fixos têm uma interpretação condicional aos efeitos aleatórios. No caso do estudo analisado, as interpretações estão condicionadas aos cursos.
 
-O ICC varia de 0 à 1 e indica o quanto da variação é explicada pela diferenças entre cursos. 
-Um ICC = 0 indica que os cursos são homogêneos entre si, ou seja, a evasão independe do curso; 
-Um ICC = 1 toda a variação pode ser explicada pela diferença entre os cursos;
-Ou seja, se o ICC = 0.12 significa que 12% da chance de evasão na UFRJ é explicada pela diferença entre os cursos e 88% da chance de evasão é explicada pelas diferenças dentro dos cursos
-É importante destacar que o ICC é encontrado quando rodamos um modelo "vazio", ou seja, apenas com o intercepto.
-No software Stata, esse índice é encontrado através do código __estat icc__
 
 Exemplo:  
 
@@ -200,10 +194,35 @@ knitr::include_graphics("modelo_slope_aleatorio_v1.png")
 ```
 
 
-## 1.5 Exemplo de análise a partir da saída do software Stata
+## 1.5 A pós-estimação do modelo
 
-Probabilidades são uma boa escala para compreender intuitivamente os resultados; no entanto, elas não são lineares. Isso significa que um aumento de uma unidade em uma variável não é igual a um aumento constante na probabilidade - a mudança na probabilidade depende dos valores escolhidos para as outras variáveis pois, em modelos logísticos multivariados, os efeitos aleatórios também influenciam os resultados.Assim, se você mantiver tudo constante, a mudança na probabilidade do resultado sobre diferentes valores de sua variável de interesse só é verdadeira quando todas as variáveis são mantidas constantes e você está no mesmo grupo ou em um grupo com o mesmo efeito aleatório.
-Uma alternativa atraente é obter a probabilidade marginal média.
+Após o ajuste de um modelo de efeitos mistos logísticos com melogit pode-se encontrar diversas outras medidas e estatísticas. Os efeitos aleatórios não são fornecidos como estimativas quando o modelo é ajustado,logo, eles precisam ser previstos. Cálculo de correlações intraclasse e probabilidades de resposta positiva (=1) em cada cluster também pode ser de interesse.
+O ICC varia de 0 à 1 e indica o quanto da variação é explicada pela diferenças entre cursos. 
+Um ICC = 0 indica que os cursos são homogêneos entre si, ou seja, a evasão independe do curso; 
+Um ICC = 1 toda a variação pode ser explicada pela diferença entre os cursos;
+Ou seja, se o ICC = 0.12 significa que 12% da chance de evasão na UFRJ é explicada pela diferença entre os cursos e 88% da chance de evasão é explicada pelas diferenças dentro dos cursos
+É importante destacar que o ICC é encontrado quando rodamos um modelo "vazio", ou seja, apenas com o intercepto.
+No software Stata, esse índice é encontrado através do código __estat icc__
+Já as probabilidades são uma boa escala para compreender intuitivamente os resultados; no entanto, elas não são lineares. Isso significa que um aumento de uma unidade em uma variável não é igual a um aumento constante na probabilidade - a mudança na probabilidade depende dos valores escolhidos para as outras variáveis pois, em modelos logísticos multivariados, os efeitos aleatórios também influenciam os resultados.Assim, se você mantiver tudo constante, a mudança na probabilidade do resultado sobre diferentes valores de sua variável de interesse só é verdadeira quando todas as variáveis são mantidas constantes e você está no mesmo grupo ou em um grupo com o mesmo efeito aleatório.
+Uma alternativa atraente é obter a probabilidade marginal média. O passo a passo para encontrar esses valores será listado a seguir
+
+
+1) Estimação dos efeitos aleatórios e seus desvios padrões
+_predict_: cria uma nova variável contendo predições, como respostas médias; previsões lineares; densidade e funções de distribuição; erros padrão; e Pearson, desvio e resíduos de Anscombe
+EX: predict nome, reffects reses(nome)
+2) encontrar o valor da expressão logistica utilizando as estimativas encontradas em 1. Chamamos esse valor de x
+3) como o valor encontrado em 3 está na métrica de odds logarítmica, precisamos exponenciá-la para obter as probabilidades previstas
+$$ \frac{exp(x)}{1+exp(x)} $$
+
+-Exemplo com o modelo da pesquisadora (sem inclinações que variam entre os cursos)
+
+__melogit evasaoinc1 i.ses_fam1 i.masc i.cor2 i.primopcao i.notaescolha i.selet_curso c.enem_cmc c.ucra_cmc || juncurso:__
+
+1) predict pred_efeitos_aleat_re*, reffects 
+re1 = estimação da parte aleatório do intercepto
+2) generate $$prob\_curso = exp(pred\_efeitos\_aleat\_re1)/(1 + exp(pred\_efeitos\_aleat\_re1))$$ 
+
+prob_curso é a probabilidade média do aluno evadir no primeiro ano em cada curso
 
 ## 1.6 Sugestões de como avaliar a qualidade do ajuste do modelo logistíco multinivel
 
