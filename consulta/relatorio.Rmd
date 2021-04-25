@@ -161,30 +161,31 @@ Ou seja, se o ICC = 0.12 significa que 12% da chance de evasão na UFRJ é expli
 É importante destacar que o ICC é encontrado quando rodamos um modelo "vazio", ou seja, apenas com o intercepto.
 No software Stata, esse índice é encontrado através do código __estat icc__
 
-Exemplo:
-Suponha que estimamos um modelo logístico de efeitos mistos, prevendo remissão (sim = 1, não = 0) de um paciente. Permitimos que a interceptação varie aleatoriamente para cada médico, ou seja, temos um modelo logistico multinivel cujo nível 1 é paciente e o nível 2 é médico.
-Usamos o comando xtmelogit para estimar o modelo com il6, crp e longofstay como variáveis independentes de nível de paciente, estágio de câncer como uma variável categórica independente de nível de paciente (I, II, III ou IV), experiência como variável de nível de médico preditor contínuo e uma interceptação aleatória por did, ID do médico.
+Exemplo:  
 
-$$ melogit remission il6 crp i.cancerstage lengthofstay experience || did:$$
+Ng et al. (2006) analisam uma subamostra de dados da pesquisa de fertilidade de Bangladesh de 1989 (Huq e Cleland 1990), que entrevistou 1.934 mulheres de Bangladesh sobre o uso de anticoncepcionais. As mulheres na amostra pertenciam a 60 distritos, identificadas pela variável district. Cada distrito
+continha áreas urbanas ou rurais (variável urban) ou ambas. A variável c_use é a resposta binária, com um valor de 1 indicando o uso de anticoncepcionais. Outras covariáveis incluem idade centrada na média e uma variável fatorial para o número de filhos. Considere um modelo de regressão logística padrão, alterado para ter efeitos aleatórios para cada distrito:
+
+$$ logit (\pi_{ij}) = \beta_0 + \beta_1*1.urban_{ij} + \beta_2*age_{ij} + \beta_3*1.children_{ij} + \beta_4*2.children_{ij} + \beta_5*3.children_{ij} + v_j*1.urban + u_{ij}$$ 
+  
+para j = 1,. . . , 60 distritos, com i = 1,. . . , $n_{j}$ mulheres no distrito j
+
+O objetivo de introduzir um coeficiente aleatório na variável binária urbana foi permitir efeitos aleatórios separados, dentro de cada distrito, para as áreas urbanas e rurais desse distrito. Logo, estamos levando em conta que dentro de cada distrito o corportamento dessa variável é diferente
+
+No software Stata a equação é dada por:  
+__melogit c_use i.urban age i.children, nofvlabel|| district: 1.urban covariance(unstructured)__
+
+OBS: Ao especificar a covariância (não estruturada) acima, dissemos ao melogit para permitir a correlação entre efeitos aleatórios no nível distrital
 
 A próxima seção é uma tabela das estimativas de efeitos fixos. As estimativas representam os coeficientes de regressão. Estes não são padronizados e estão na escala logit. As estimativas são seguidas por seus erros padrão (SEs), p-valor e intervalos de confiança.
 O teste de razão de verossimilhança (LR) testa a hipótese nula de que os dois modelos, efeitos mistos e regressão logística fixa fornecem a mesma qualidade de ajuste. Como P < 0.001, há indicios para rejeitarmos a hipótese nula e utilizar, assim, o modelo misto.
 
 ```{r echo=FALSE}
-knitr::include_graphics("exemplo_stata_log.png")
+knitr::include_graphics("modelo_slope_aleatorio_v1.png")
 ```
-A última seção nos dá as estimativas de efeito aleatório. Isso representa o desvio padrão estimado do intercepto na escala logit. Se houvesse outros efeitos aleatórios, como inclinações aleatórias, eles também apareceriam aqui.
-Como ueremos a razão de chances em vez dos coeficientes na escala logit, podemos exponenciar as estimativas e os intervalos de confiança. Podemos fazer isso no Stata usando a opção OR. Observe que não é necessário reescrever o modelo. Além disso, observe que as estimativas dos parâmetros de efeitos aleatórios não mudam. Este não é o desvio padrão em torno da estimativa da constante exponenciada, ainda é para a escala logit.
+A última seção nos dá as estimativas de efeito aleatório. Isso representa o desvio padrão estimado do intercepto e da inclinação na escala logit. 
+Como ueremos a razão de chances em vez dos coeficientes na escala logit, podemos exponenciar as estimativas e os intervalos de confiança. Podemos fazer isso no Stata usando a opção OR. A tabela de estimativa relata os efeitos fixos e os componentes de variância estimados. Os efeitos fixos podem ser interpretados da mesma forma que a saída do logit tradicional.Transformando em razão de chances descobre-se que a chance das mulheres urbanas usarem anticoncepcionais é o dobra das mulheres em zona rural. Além disso, ter qualquer número de filhos aumentará as chances de três a quatro vezes em comparação com a categoria básica de não ter filhos. O uso de anticoncepcionais também diminui com a idade. 
 
-```{r}
-knitr::include_graphics("tabela_1_mixed_ex.png")
-```
-```{r}
-knitr::include_graphics("tabela_2_mixed_ex.png")
-
-```
-
-Intepretação (??)
 
 ## 1.5 Exemplo de análise a partir da saída do software Stata
 
