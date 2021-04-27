@@ -40,8 +40,8 @@ __PARTICIPANTES DA ENTREVISTA:__
 
 __DATA:__ 23/04/2020
 
-__FINALIDADE DA CONSULTA:__ Consultoria sobre o modelo logístico multinível; auxílio na pós-estimação do modelo e na interpretação dos coeficientes 
-
+__FINALIDADE DA CONSULTA:__ Consultoria sobre o modelo logístico multinível; 
+auxílio na validação e interpretação do modelo
 
 __RELATÓRIO ELABORADO POR:__ 
   
@@ -51,7 +51,7 @@ __RELATÓRIO ELABORADO POR:__
 
 \newpage
 
-# Introdução
+# 1 Introdução
 
 - [x] Descrição geral do projeto, incluindo a utilidade prática. 
 - [x] Indicação do tipo de estudo: experimento laboratorial, estudo 
@@ -74,11 +74,10 @@ A metodologia utilizada pela pesquisadora é um modelo logístico multinivel
 (hierárquico), em que as variáveis de nível 1 são relacionadas às 
 características dos estudantes e as variáveis de nível 2 são relacionadas aos
 cursos. A pesquisadora busca com a entrevista uma consultoria sobre o modelo
-logístico multinível e auxílio na pós-estimação do modelo e na interpretação dos
-coeficientes.
+logístico multinível e auxílio na validação e interpretação do modelo.
 
 
-# Descrição do estudo
+# 2 Descrição do estudo
 
 - [ ] Tipo de planejamento/amostragem (__número de fatores__, níveis, presença de dados incompletos, etc.). 
 - [x] Identificação e número de unidades amostrais. 
@@ -107,7 +106,7 @@ acompanhamento. Além disso, outro argumento a favor da exclusão apontado pela
 pesquisa é a baixa taxa de evasão observada no curso.
 
 
-# Descrição das variáveis e processo de coleta de dados
+# 3 Descrição das variáveis e processo de coleta de dados
 
 - [x] Denominação e classificação das variáveis. 
 - [ ] Codificação. (precisa?)
@@ -115,7 +114,7 @@ pesquisa é a baixa taxa de evasão observada no curso.
 - [x] Forma de armazenagem de dados. 
 - [x] Recursos computacionais disponíveis. 
 
-## Origem dos dados 
+## 3.1 Origem dos dados 
 
 A base de dados utilizada foi construída a partir dos microdados da coorte
 fornecidos pela Divisão de Registro de Estudante (DRE/Pr1) da UFRJ. A maioria 
@@ -129,7 +128,7 @@ O questionário é composto por questões que abordam, entre outras informaçõe
 aspectos socioeconômicos, culturais, escolares, de composição familiar e de 
 escolha e expectativas sobre o curso e sobre a instituição.
 
-## Variáveis
+## 3.2 Variáveis
 
 A variável dependente (resposta) utilizada nessa análise é a evasão do curso no
 primeiro ano  (1° e 2° semestre), representada por 0 e 1 (0 = não evadiu; 1 =
@@ -169,7 +168,7 @@ Os dados originais estão armazenados em Excel e o modelo foi construído no
 software Stata
 
 
-# Situação do Projeto 
+# 4 Situação do Projeto 
 
 - [x] Fase atual de implementação. 
 - [x] Descrição e críticas às análises já realizadas. 
@@ -197,59 +196,90 @@ muito distintas. O CRa é uma nota que varia de 0 a 10, enquanto que as notas do
 ENEM estão em uma escala de 0 a 1000. Essa diferença entre as escalas pode
 desencadear erros de convergência durante os testes no software.
 
-Outro problema relacionado a análise realizada é a forma como as saídas do Stata
-estão sendo apresentadas e analisadas
+Outro problema relacionado à análise realizada é a forma como as saídas do Stata
+estão sendo apresentadas e analisadas.
 
 
 
-# Conclusão e respostas as perguntas da pesquisadora
+# 5 Conclusão e respostas às perguntas da pesquisadora
 
-## 1.1 Comentários sobre aspectos gerais do projeto
+## 5.1 Comentários sobre aspectos gerais do projeto
 
-No aspecto geral, sugerimos testar interações entre as variáveis de nível 1, como por exemplo $x_1$ e $x_2$. Se a interação está presente e é significativa, o efeito de $x_1$ na resposta média depende do nível de $x_2$ e analogamente o efeito de $x_2$ na resposta média depende do nível de $x_1$
-(faz sentido? se sim, devemos sugerir interação entre quais variaveis?)
+No aspecto geral, sugerimos testar interações entre as variáveis de nível 1, 
+como por exemplo $x_1$: Cor/Raça e $x_2$: Status socioeconômico da família 
+(SES). Se a interação está presente e é significativa, o efeito de $x_1$ na 
+resposta média depende do nível de $x_2$ e, analogamente, o efeito de $x_2$ na
+resposta média depende do nível de $x_1$.
 
 
-## 1.2 Sugestões sobre as variáveis
+## 5.2 Sugestões sobre as variáveis
 
-A primeira sugetão oferecida é incluir no modelo todas as variáveis com bom preenchimento (sem grande volumetria de MISSING) que a pesquisadora acredita que podem ter algum efeito na evasão do curso. Durante os testes dos modelos algumas vão mostrar-se significantes e outras não, porém, é importante testá-las. Além disso, também sugerimos o acrescimo de variáveis no nível 2. Por exemplo, o comportamento de evasão dos alunos parece ser diferente entre as áreas do conhecimento (Humanas, Exatas e Biológicas), logo, seria interessante construir essa variável categórica de curso.  
-A seguir, incluímos uma lista de variáveis a serem incluídas no estudo:  
+A primeira sugetão oferecida é incluir no modelo todas as variáveis com bom
+preenchimento (sem grande volumetria de dados faltantes) que a pesquisadora 
+acredita que podem ter algum efeito na evasão do curso. Durante os testes dos
+modelos, algumas podem se mostrar significantes e outras não, porém, é 
+importante testá-las. 
+
+Além disso, também sugerimos o acréscimo de variáveis no 
+nível 2. Por exemplo, o comportamento de evasão dos alunos parece ser diferente
+entre as áreas do conhecimento (Humanas, Exatas e Biológicas), logo, seria
+interessante construir essa variável categórica de curso.  
+
+A seguir, incluímos uma lista de variáveis que podem ser incluídas no estudo:  
   
-- Renda Familiar, _Nível 1_  
+- Renda Familiar, _Nível 1_ 
 - Área do conhecimento do curso, _Nível 2_ (Humanas, Exatas e Biológicas)  
 - Média da nota no ENEM do curso, _Nível 2_  
 - Média do CRa do curso, _Nível 2_  
   
-Por fim, destacamos a importância de padronizar as variáveis contínuas referentes à nota do ENEM, pois, como explicado anteriormente, as magnitudes distintas entre CRa e esse valor podem interferir na convergência matemática. A sugestão nesse relatório é tranformar os valores da variável de nota em números na escala de 0 à 10, a mesma utilizada no coeficiente de rendimento acumulado por semestre
+Por fim, destacamos a importância de padronizar as variáveis contínuas 
+referentes à nota do ENEM, pois, como explicado anteriormente, as magnitudes
+distintas entre CRa e esse valor podem interferir na convergência matemática. 
+Sugerimos que os valores da variável de nota seham transformados em números na
+escala de 0 a 10, a mesma utilizada no coeficiente de rendimento acumulado por
+semestre.
 
-## 1.3 Como construir o modelo?
+## 5.3 Construção do modelo
 
-Existem algumas formas de construir um modelo. A seguir, montamos um roteiro para essa etapa
+Existem algumas formas de construir um modelo. A seguir, montamos um roteiro 
+para essa etapa.
 
-__Passo 1__: Ajuste do modelo sem variáveis independentes (modelo nulo) para calcular o coeficiente de correlação intraclasse e testar se as
-variâncias em diferentes cursos são homogêneas
+__Passo 1__: Ajuste do modelo sem variáveis independentes (modelo nulo) para
+calcular o coeficiente de correlação intraclasse e testar se as variâncias em
+diferentes cursos são homogêneas;
   
-__Passo 2__: Incluir as variáveis independentes uma de cada vez e verificar a significância e o BIC de cada modelo; sendo o modelo escolhido nesse primeiro passo o que apresentar o coeficiente significativo e o menor BIC (pode ser o AKAIKE?)
+__Passo 2__: Incluir as variáveis independentes uma de cada vez e observar a
+significância das variáveis incluídas e uma medida de critério de informação com 
+penalização da complexidade do modelo, como o BIC ou AIC; o modelo escolhido 
+nesse primeiro passo será o modelo com variáveis que sejam significativas e que 
+tenha o menor BIC/AIC;
   
-__Passo 3__: Acrescentar novas variáveis até que nenhuma outra seja significativa, chegando a um ou vários candidatos a modelo final
+__Passo 3__: Acrescentar novas variáveis até que nenhuma outra seja 
+significativa, chegando a um ou vários candidatos a modelo final;
   
 __Passo 4__: Fazer o diagnóstico dos candidatos a modelo final, verificando os
-pressupostos e a qualidade do ajuste
+pressupostos e a qualidade do ajuste.
   
-  Fonte: https://bdm.unb.br/bitstream/10483/10032/1/2014_AlexLuizMartinsMatheusdaRocha.pdf
+Fonte: https://bdm.unb.br/bitstream/10483/10032/1/2014_AlexLuizMartinsMatheusdaRocha.pdf
   
-  
-\newpage
 
-## 1.4 Como interpretar o modelo e exemplo de saída no software Stata
+## 5.4 Interpretação do modelo
 
-Na regressão logística de efeitos mistos, os coeficientes fixos têm uma interpretação condicional aos efeitos aleatórios. No caso do estudo analisado, as interpretações estão condicionadas aos cursos.
+Na regressão logística de efeitos mistos, os coeficientes fixos têm uma
+interpretação condicional aos efeitos aleatórios. No caso do estudo analisado, 
+as interpretações estão condicionadas aos cursos.
 
 
 __Exemplo__:  
 
-Ng et al. (2006) analisam uma subamostra de dados da pesquisa de fertilidade de Bangladesh de 1989 (Huq e Cleland 1990), que entrevistou 1.934 mulheres de Bangladesh sobre o uso de anticoncepcionais. As mulheres na amostra pertenciam a 60 distritos, identificadas pela variável district. Cada distrito
-continha áreas urbanas ou rurais (variável urban) ou ambas. A variável c_use é a resposta binária, com um valor de 1 indicando o uso de anticoncepcionais. Outras covariáveis incluem idade centrada na média e uma variável fatorial para o número de filhos. Considere um modelo de regressão logística:
+Ng et al. (2006) analisam uma subamostra de dados da pesquisa de fertilidade de
+Bangladesh de 1989 (Huq e Cleland 1990), que entrevistou 1.934 mulheres de
+Bangladesh sobre o uso de anticoncepcionais. As mulheres na amostra pertenciam a
+60 distritos, identificadas pela variável district. Cada distrito continha áreas
+urbanas ou rurais (variável urban) ou ambas. A variável `c_use` é a resposta 
+binária, com um valor de 1 indicando o uso de anticoncepcionais. Outras 
+covariáveis incluem idade centrada na média e uma variável fatorial para o 
+`número de filhos. Considere um modelo de regressão logística:
   
 $$ logit (\pi_{ij}) = (\beta_0 +u_{0j})+ \beta_1*1.urban_{ij} + \beta_2*age_{ij} + \beta_3*1.children_{ij} + \beta_4*2.children_{ij} + \beta_5*3.children_{ij} $$ 
   
@@ -259,18 +289,39 @@ No software Stata a equação é dada por:
 
 __melogit c_use i.urban age i.children || district:__
 
-Abaixo incluímos uma tabela das estimativas de efeitos fixos. As estimativas representam os coeficientes de regressão, estes não são padronizados e estão na escala logit. As estimativas são seguidas por seus erros padrão (SEs), p-valor e intervalos de confiança.
-O teste de razão de verossimilhança (LR) testa a hipótese nula de que os dois modelos, efeitos mistos e regressão logística fixa fornecem a mesma qualidade de ajuste. Como P < 0.001, há indicios para rejeitarmos a hipótese nula e utilizar, assim, o modelo misto.
+Abaixo incluímos uma tabela das estimativas de efeitos fixos. As estimativas
+representam os coeficientes de regressão, estes não são padronizados e estão na
+escala logit. As estimativas são seguidas por seus erros padrão (SEs), p-valor e
+intervalos de confiança.
+
+O teste de razão de verossimilhança (LR) testa a hipótese nula de que os dois
+modelos, efeitos mistos e regressão logística fixa fornecem a mesma qualidade de
+ajuste. Como P < 0.001, há indicios para rejeitarmos a hipótese nula e utilizar,
+assim, o modelo misto.
 
 ```{r echo=FALSE}
 knitr::include_graphics("modelo_aleatorio_v2.png")
 ```
-\newpage
-  
-A segunda seção nos dá as estimativas de efeito aleatório. Isso representa o desvio padrão estimado do intercepto na escala logit. 
-Como queremos a razão de chances em vez dos coeficientes na escala logit, podemos exponenciar as estimativas e os intervalos de confiança. Podemos fazer isso no Stata usando a opção OR. A tabela de estimativa relata os efeitos fixos e os componentes de variância estimados. Os efeitos fixos podem ser interpretados da mesma forma que a saída do logit tradicional.Transformando em razão de chances descobre-se que a chance das mulheres urbanas usarem anticoncepcionais é o dobro das mulheres em zona rural. Além disso, ter qualquer número de filhos aumentará as chances de três a quatro vezes em comparação com a categoria básica de não ter filhos. O uso de anticoncepcionais também diminui com a idade. 
 
-Caso seja do interesse da pesquisadora introduzir um coeficiente aleatório em alguma variável dependente pode-se reescrever o modelo com "random slopes", ou seja, os coeficientes da variável escolhida irão variar entre cada cluster.
+  
+A segunda seção nos dá as estimativas de efeito aleatório. Isso representa o 
+desvio padrão estimado do intercepto na escala logit. 
+
+Como queremos a razão de chances em vez dos coeficientes na escala logit, 
+podemos exponenciar as estimativas e os intervalos de confiança. Podemos fazer 
+isso no Stata usando a opção OR. A tabela de estimativa relata os efeitos fixos 
+e os componentes de variância estimados. Os efeitos fixos podem ser 
+interpretados da mesma forma que a saída do logit tradicional. Transformando em
+razão de chances, descobre-se que a chance das mulheres urbanas usarem
+anticoncepcionais é o dobro das mulheres em zona rural. Além disso, ter qualquer
+número de filhos aumentará as chances de três a quatro vezes em comparação com a
+categoria básica de não ter filhos. O uso de anticoncepcionais também diminui 
+com a idade. 
+
+Caso seja do interesse da pesquisadora introduzir um coeficiente aleatório em 
+alguma variável dependente, pode-se reescrever o modelo com "random slopes", ou
+seja, os coeficientes da variável escolhida vão variar entre clusters.
+
 Vamos aplicar essa ideia na variável binária urbana do exemplo anterior.
 A expressão desse modelo pode ser descrita da seguinte forma:  
 
@@ -290,7 +341,7 @@ knitr::include_graphics("modelo_slope_aleatorio_v1.png")
 ```
 
 
-## 1.5 A pós-estimação do modelo
+## 5.5 Validação do modelo
 
 Após o ajuste de um modelo logístico multinivel com melogit pode-se encontrar diversas outras medidas e estatísticas. Os efeitos aleatórios não são fornecidos como estimativas quando o modelo é ajustado,logo, eles precisam ser previstos. O cálculo de correlações intraclasse e probabilidades de resposta positiva (=1) em cada cluster também pode ser de interesse.
 O ICC varia de 0 à 1 e indica o quanto da variação é explicada pela diferenças entre cursos.  
@@ -350,7 +401,7 @@ rxb* = estimação da parte aleatório do intercepto + parte constante do modelo
 prob_curso é a probabilidade média do aluno evadir no primeiro ano em cada curso ($\beta_{0j}$)
 
 
-## 1.6 Sugestões de como avaliar a qualidade do ajuste do modelo logistíco multinivel
+## 5.6 Sugestões de como avaliar a qualidade do ajuste do modelo logistíco multinivel
 
 __Curva ROC__
 
@@ -378,7 +429,7 @@ O software Stata apresenta na parte superior da saída (log likelihood) a veross
 (https://bdm.unb.br/bitstream/10483/8038/1/2013_AmandaPereiraFerraz.pdf)
 
 
-## 1.4 Bibliografia
+## 5.7 Bibliografia
 
 - Comentários sobre aspectos gerais do projeto: viabilidade, abrangência das 
 conclusões, etc. 
