@@ -9,6 +9,7 @@ date: "`r format(Sys.Date(), '%B/%Y')`"
 output:
   pdf_document: default
   html_document: default
+urlcolor: blue
 ---
 
 ```{r setup, include=FALSE}
@@ -422,21 +423,26 @@ homens e mulheres, respectivamente
 curso ($\beta_{0j}$).
 
 
-## 5.5 Sugestões de como avaliar a qualidade do ajuste do modelo logistíco
-multinivel
-
-a. Curva ROC
-
-`predict mu if e(sample), mu`  
-`roctab observed_outcome mu // ROC CURVE & AUC`
-
-b. QQplot resíduos
+## 5.5 Qualidade do ajuste do modelo
 
 Quando construímos um modelo é sempre necessário checar a eficácia do mesmo. 
 Além disso, precisa-se utilizar uma métrica para comparar diferentes modelos e
 encontrar qual o melhor para o conjunto de dados. Assim, esse tópico foca em
 apresentar medidas de desempenho para o ajuste da regressão logística 
 multinível.
+
+a. Curva ROC
+
+A curva ROC pode auxiliar a visualizar quão bem o modelo classifica as 
+observações. Geralmente, observamos no eixo x a taxa de falsos positivos e no 
+eixo y a taxa de verdadeiros positivos.
+
+Há diversas formas de calcular os valores para a curva ROC no Stata, segundo
+descrito no 
+[site do software](https://www.stata.com/features/overview/receiver-operating-characteristic/).
+
+b. QQplot resíduos
+
 
 Podemos avaliar o ajuste do modelo realizando uma análise residual através de um
 gráfico (Pearson, deviance, Anscombe).
