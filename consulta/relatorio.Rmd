@@ -220,7 +220,7 @@ semestre.
 
 ### 5.1.2 Interação entre variáveis
 
-Por sim, sugerimos testar interações entre as variáveis de nível 1, como por 
+Por fim, sugerimos testar interações entre as variáveis de nível 1, como por 
 exemplo $x_1$: Cor/Raça e $x_2$: Status socioeconômico da família (SES). Se a
 interação está presente e é significativa, o efeito de $x_1$ na resposta média
 depende do nível de $x_2$ e, analogamente, o efeito de $x_2$ na resposta média
@@ -384,11 +384,11 @@ __`melogit evasaoinc1 i.ses_fam1 i.masc i.cor2 i.primopcao i.notaescolha i.selet
 
 1. `predict pred_efeitos_aleat_re*, reffects` 
 
-`pred_efeitos_aleat_re1`: estimação da parte aleatório do intercepto
+`pred_efeitos_aleat_re1`: estimação da parte aleatória do intercepto
 
 2. `generate rxb = _b[_cons] + pred_efeitos_aleat_re1`
 
-`rxb`: estimação da parte aleatório do intercepto + parte constante do modelo  
+`rxb`: estimação da parte aleatória do intercepto + parte constante do modelo  
 
 3. `generate prob\_curso = exp(rxb)/(1 + exp(rxb))`
 
@@ -403,7 +403,7 @@ comportamento do sexo na resposta.
 
 1. `predict pred_efeitos_aleat_re*, reffects`
 
-`pred_efeitos_aleat_re1`: estimação da parte aleatório do intercepto
+`pred_efeitos_aleat_re1`: estimação da parte aleatória do intercepto
 
 2. `generate rxb_masc  = (_b[_cons] + pred_efeitos_aleat_re1) + _b[i.masc]*1`
 
