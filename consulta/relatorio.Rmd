@@ -53,12 +53,6 @@ __RELATÓRIO ELABORADO POR:__
 
 # 1 Introdução
 
-- [x] Descrição geral do projeto, incluindo a utilidade prática. 
-- [x] Indicação do tipo de estudo: experimento laboratorial, estudo 
-observacional, ensaio clínico, etc. 
-- [x] Finalidade da entrevista: planejamento amostral, elaboração de 
-questionário, crítica de análises realizadas, sugestão para análise, etc.
-
 A evasão dos alunos no ensino superior é uma situação recorrente e estudada por
 diversos autores no campo da educação e das ciências sociais. Em suma, como as
 variações  nos ambientes acadêmicos moldam as experiências e os resultados dos
@@ -78,10 +72,6 @@ logístico multinível e auxílio na validação e interpretação do modelo.
 
 
 # 2 Descrição do estudo
-
-- [ ] Tipo de planejamento/amostragem (__número de fatores__, níveis, presença de dados incompletos, etc.). 
-- [x] Identificação e número de unidades amostrais. 
-
 
 Os dados foram analizados a partir de um modelo logístico multinivel 
 (hierárquico), em que as variáveis de nível 1 são relacionadas às 
@@ -108,13 +98,7 @@ pesquisa é a baixa taxa de evasão observada no curso.
 
 # 3 Descrição das variáveis e processo de coleta de dados
 
-- [x] Denominação e classificação das variáveis. 
-- [ ] Codificação. (precisa?)
-- [x] Tipo de questionários ou formulários. 
-- [x] Forma de armazenagem de dados. 
-- [x] Recursos computacionais disponíveis. 
-
-## 3.1 Origem dos dados 
+## 3.1 Base de dados 
 
 A base de dados utilizada foi construída a partir dos microdados da coorte
 fornecidos pela Divisão de Registro de Estudante (DRE/Pr1) da UFRJ. A maioria 
@@ -154,7 +138,7 @@ sim; 1 = não);
 - Variável que diz respeito à questão "se a nota de corte influenciou na escolha
 do curso" (0 = não; 1 = sim);
 - Coeficiente de Rendimento acumulado por semestre (CRa), relacionado ao último
-semestre acompanhado  
+semestre acompanhado.
   
 No nível do curso, inicialmente a pesquisadora criou uma variável de 
 seletividade de curso utilizando a nota mediana do curso no Enem com a seguinte
@@ -169,12 +153,6 @@ software Stata
 
 
 # 4 Situação do Projeto 
-
-- [x] Fase atual de implementação. 
-- [x] Descrição e críticas às análises já realizadas. 
-- [ ] (?) Recursos disponíveis. 
-- [ ] Limitações de custo e tempo. 
-- [ ] Problemas relacionados à coleta de dados. 
 
 O projeto encontra-se na fase de testes dos modelos multiníveis. Após a 
 entrevista com a pesquisadora, foram feitas algumas sugestões à análise já 
@@ -199,26 +177,23 @@ desencadear erros de convergência durante os testes no software.
 Outro problema relacionado à análise realizada é a forma como as saídas do Stata
 estão sendo apresentadas e analisadas.
 
-
-
 # 5 Conclusão e respostas às perguntas da pesquisadora
 
-## 5.1 Comentários sobre aspectos gerais do projeto
+De forma geral, o projeto está em um estado bastante avançado, de forma que os
+comentários a seguir se referem principalmente ao modelo escolhido pela 
+pesquisadora e sugestões para melhorar a análise. Os comentários foram divididos
+em seções tentando seguir uma ordem de precedência dos passos na análise 
+estatística.
 
-No aspecto geral, sugerimos testar interações entre as variáveis de nível 1, 
-como por exemplo $x_1$: Cor/Raça e $x_2$: Status socioeconômico da família 
-(SES). Se a interação está presente e é significativa, o efeito de $x_1$ na 
-resposta média depende do nível de $x_2$ e, analogamente, o efeito de $x_2$ na
-resposta média depende do nível de $x_1$.
+## 5.1 Sugestões sobre as variáveis
 
+### 5.1.1 Inclusão de variáveis
 
-## 5.2 Sugestões sobre as variáveis
-
-A primeira sugetão oferecida é incluir no modelo todas as variáveis com bom
+A primeira sugestão oferecida é incluir no modelo todas as variáveis com bom
 preenchimento (sem grande volumetria de dados faltantes) que a pesquisadora 
 acredita que podem ter algum efeito na evasão do curso. Durante os testes dos
 modelos, algumas podem se mostrar significantes e outras não, porém, é 
-importante testá-las. 
+importante testá-las.
 
 Além disso, também sugerimos o acréscimo de variáveis no 
 nível 2. Por exemplo, o comportamento de evasão dos alunos parece ser diferente
@@ -227,19 +202,30 @@ interessante construir essa variável categórica de curso.
 
 A seguir, incluímos uma lista de variáveis que podem ser incluídas no estudo:  
   
-- Renda Familiar, _Nível 1_ 
-- Área do conhecimento do curso, _Nível 2_ (Humanas, Exatas e Biológicas)  
-- Média da nota no ENEM do curso, _Nível 2_  
-- Média do CRa do curso, _Nível 2_  
-  
-Por fim, destacamos a importância de padronizar as variáveis contínuas 
-referentes à nota do ENEM, pois, como explicado anteriormente, as magnitudes
-distintas entre CRa e esse valor podem interferir na convergência matemática. 
-Sugerimos que os valores da variável de nota seham transformados em números na
+- Renda Familiar, _Nível 1_;
+- Área do conhecimento do curso, _Nível 2_ (Humanas, Exatas e Biológicas); 
+- Média da nota no ENEM do curso, _Nível 2_;
+- Média do CRa do curso, _Nível 2_.
+
+### 5.1.2 Padronização de variáveis
+
+Destacamos a importância de padronizar as variáveis contínuas referentes à nota 
+do ENEM, pois, como explicado anteriormente, as magnitudes distintas entre CRa e
+esse valor podem interferir na convergência matemática. 
+
+Sugerimos que os valores da variável de nota sejam transformados em números na
 escala de 0 a 10, a mesma utilizada no coeficiente de rendimento acumulado por
 semestre.
 
-## 5.3 Construção do modelo
+### 5.1.2 Interação entre variáveis
+
+Por sim, sugerimos testar interações entre as variáveis de nível 1, como por 
+exemplo $x_1$: Cor/Raça e $x_2$: Status socioeconômico da família (SES). Se a
+interação está presente e é significativa, o efeito de $x_1$ na resposta média
+depende do nível de $x_2$ e, analogamente, o efeito de $x_2$ na resposta média
+depende do nível de $x_1$.
+
+## 5.2 Construção do modelo
 
 Existem algumas formas de construir um modelo. A seguir, montamos um roteiro 
 para essa etapa.
@@ -263,31 +249,31 @@ pressupostos e a qualidade do ajuste.
 Fonte: https://bdm.unb.br/bitstream/10483/10032/1/2014_AlexLuizMartinsMatheusdaRocha.pdf
   
 
-## 5.4 Interpretação do modelo
+## 5.3 Interpretação do modelo
 
 Na regressão logística de efeitos mistos, os coeficientes fixos têm uma
 interpretação condicional aos efeitos aleatórios. No caso do estudo analisado, 
-as interpretações estão condicionadas aos cursos.
-
+as interpretações estão condicionadas aos cursos. O exemplo a seguir ilustra 
+como o modelo pode ser interpretado a partir da saída do software Stata.
 
 __Exemplo__:  
 
 Ng et al. (2006) analisam uma subamostra de dados da pesquisa de fertilidade de
 Bangladesh de 1989 (Huq e Cleland 1990), que entrevistou 1.934 mulheres de
 Bangladesh sobre o uso de anticoncepcionais. As mulheres na amostra pertenciam a
-60 distritos, identificadas pela variável district. Cada distrito continha áreas
-urbanas ou rurais (variável urban) ou ambas. A variável `c_use` é a resposta 
-binária, com um valor de 1 indicando o uso de anticoncepcionais. Outras 
+60 distritos, identificadas pela variável `district`. Cada distrito continha 
+áreas urbanas ou rurais (variável urban) ou ambas. A variável `c_use` é a 
+resposta binária, com um valor de 1 indicando o uso de anticoncepcionais. Outras 
 covariáveis incluem idade centrada na média e uma variável fatorial para o 
-`número de filhos. Considere um modelo de regressão logística:
+número de filhos. Considere um modelo de regressão logística:
   
 $$ logit (\pi_{ij}) = (\beta_0 +u_{0j})+ \beta_1*1.urban_{ij} + \beta_2*age_{ij} + \beta_3*1.children_{ij} + \beta_4*2.children_{ij} + \beta_5*3.children_{ij} $$ 
   
-para j = 1,. . . , 60 distritos, com i = 1,. . . , $n_{j}$ mulheres no distrito j
+para $j = 1,...,60$ distritos, com $i = 1,..., n_{j}$ mulheres no distrito $j$.
 
 No software Stata a equação é dada por:  
 
-__melogit c_use i.urban age i.children || district:__
+__`melogit c_use i.urban age i.children || district:`__
 
 Abaixo incluímos uma tabela das estimativas de efeitos fixos. As estimativas
 representam os coeficientes de regressão, estes não são padronizados e estão na
@@ -302,7 +288,6 @@ assim, o modelo misto.
 ```{r echo=FALSE}
 knitr::include_graphics("modelo_aleatorio_v2.png")
 ```
-
   
 A segunda seção nos dá as estimativas de efeito aleatório. Isso representa o 
 desvio padrão estimado do intercepto na escala logit. 
@@ -315,125 +300,180 @@ interpretados da mesma forma que a saída do logit tradicional. Transformando em
 razão de chances, descobre-se que a chance das mulheres urbanas usarem
 anticoncepcionais é o dobro das mulheres em zona rural. Além disso, ter qualquer
 número de filhos aumentará as chances de três a quatro vezes em comparação com a
-categoria básica de não ter filhos. O uso de anticoncepcionais também diminui 
+categoria base de não ter filhos. O uso de anticoncepcionais também diminui 
 com a idade. 
 
 Caso seja do interesse da pesquisadora introduzir um coeficiente aleatório em 
-alguma variável dependente, pode-se reescrever o modelo com "random slopes", ou
+alguma variável dependente, pode-se reescrever o modelo com _random slopes_, ou
 seja, os coeficientes da variável escolhida vão variar entre clusters.
 
 Vamos aplicar essa ideia na variável binária urbana do exemplo anterior.
 A expressão desse modelo pode ser descrita da seguinte forma:  
 
-$$ logit (\pi_{ij}) = (\beta_0 +u_{0j}) + (\beta_1 + u_{1j})*1.urban_{ij} + \beta_2*age_{ij} + \beta_3*1.children_{ij} + \beta_4*2.children_{ij} + \beta_5*3.children_{ij}$$ 
+$$ 
+logit (\pi_{ij}) = (\beta_0 +u_{0j}) + (\beta_1 + u_{1j})*1.urban_{ij} +
+\beta_2*age_{ij} + \beta_3*1.children_{ij} + \beta_4*2.children_{ij} + 
+\beta_5*3.children_{ij}
+$$ 
 
-para j = 1,. . . , 60 distritos, com i = 1,. . . , $n_{j}$ mulheres no distrito j
+para $j = 1,...,60$ distritos, com $i = 1,..., n_{j}$ mulheres no distrito $j$.
 
-No software Stata a equação é dada por:  
+No software Stata, a equação é dada por:  
 
-__melogit c_use i.urban age i.children || district: i.urban, covariance(unstructured)__
+__`melogit c_use i.urban age i.children || district: i.urban, covariance(unstructured)`__
 
-o modelo agora inclui um intercepto aleatório e um coeficiente aleatório em 1.urban pois acredita-se que o impacto dessa variável difere de distrito para distrito.
-Além disso, ao especificar a covariância (não estruturada) acima, dissemos ao melogit para permitir a correlação entre efeitos aleatórios a nível distrital, ou seja, a correlação entre $u_{0j}$ e $u_{1j}$ é diferente de zero
+O modelo agora inclui um intercepto aleatório e um coeficiente aleatório em 
+`1.urban` pois acredita-se que o impacto dessa variável difere de distrito para
+distrito. Além disso, ao especificar a covariância (não estruturada) acima, 
+permitimos a correlação entre efeitos aleatórios a nível distrital, ou seja, a
+correlação entre $u_{0j}$ e $u_{1j}$ é diferente de zero.
   
 ```{r echo=FALSE}
 knitr::include_graphics("modelo_slope_aleatorio_v1.png")
 ```
 
 
-## 5.5 Validação do modelo
+## 5.4 Validação do modelo
 
-Após o ajuste de um modelo logístico multinivel com melogit pode-se encontrar diversas outras medidas e estatísticas. Os efeitos aleatórios não são fornecidos como estimativas quando o modelo é ajustado,logo, eles precisam ser previstos. O cálculo de correlações intraclasse e probabilidades de resposta positiva (=1) em cada cluster também pode ser de interesse.
-O ICC varia de 0 à 1 e indica o quanto da variação é explicada pela diferenças entre cursos.  
-Um ICC = 0 indica que os cursos são homogêneos entre si, ou seja, a evasão independe do curso;  
-Um ICC = 1 toda a variação pode ser explicada pela diferença entre os cursos;  
-Ou seja, um ICC = 0.12 indicaria que 12% da chance de evasão na UFRJ é explicada pela diferença entre os cursos e 88% da chance de evasão é explicada pelas diferenças dentro dos cursos
-É importante destacar que o ICC é encontrado quando rodamos um modelo "vazio", ou seja, apenas com o intercepto.
-No software Stata, esse índice é encontrado através do código __estat icc__.  
-Já as probabilidades são uma boa escala para compreender intuitivamente os resultados. A seguir, um passo a passo para obter a probabilidade marginal média.
+Após o ajuste de um modelo logístico multinivel com __melogit__ pode-se 
+encontrar diversas outras medidas e estatísticas. Os efeitos aleatórios não são
+fornecidos como estimativas quando o modelo é ajustado, logo, eles precisam ser
+calculados. O cálculo de correlações intraclasse e probabilidades de resposta
+positiva (=1) em cada cluster também pode ser de interesse.
+
+O ICC varia de 0 a 1 e indica o quanto da variação é explicada pela diferenças 
+entre cursos.
+
+- Um ICC = 0 indica que os cursos são homogêneos entre si, ou seja, a evasão 
+independe do curso;  
+- Um ICC = 1 indica que toda a variação pode ser explicada pela diferença entre 
+os cursos.
+
+Ou seja, um ICC = 0.12 indicaria que 12% da chance de evasão na UFRJ é explicada
+pela diferença entre os cursos e 88% da chance de evasão é explicada pelas
+diferenças dentro dos cursos. É importante destacar que o ICC é encontrado 
+quando rodamos um modelo "vazio", ou seja, apenas com o intercepto.
+
+No software Stata, esse índice é encontrado através do código `__estat icc__`.  
+Já as probabilidades são uma boa escala para compreender intuitivamente os
+resultados. A seguir, definimos um passo a passo para obter a probabilidade 
+marginal média.
 
 
-__Passo 1__: Estimação dos efeitos aleatórios e seus desvios padrões  
+1. Estimação dos efeitos aleatórios e seus desvios padrões  
 
-_predict_: cria uma nova variável contendo predições, como respostas médias; previsões lineares; densidade e funções de distribuição; erros padrão; e Pearson, desvio e resíduos de Anscombe  
+`predict`: cria uma nova variável contendo predições, como respostas médias,
+previsões lineares, densidade e funções de distribuição, erros padrão, desvio e
+resíduos de Anscombe.
 
-__EX__: predict nome, reffects reses(nome)
-2) Encontrar o valor da expressão logistica utilizando as estimativas encontradas em 1. Chamamos esse valor de x
-3) Como o valor encontrado em 3 está na métrica de odds logarítmica, precisamos exponenciá-la para obter as probabilidades previstas
+Ex: predict nome, reffects reses(nome)
+
+2. Encontrar o valor da expressão logistica utilizando as estimativas 
+encontradas em 1. Chamamos esse valor de x
+
+3. Como o valor encontrado está na forma de logaritmo da chance, precisamos
+exponenciá-lo para obter as probabilidades previstas.
+
 $$ \frac{exp(x)}{1+exp(x)} $$
 
-Exemplo utilizando o modelo da pesquisadora (sem inclinações que variam entre os cursos)
+Exemplo utilizando o modelo da pesquisadora (sem inclinações que variam entre os
+cursos):
 
-__melogit evasaoinc1 i.ses_fam1 i.masc i.cor2 i.primopcao i.notaescolha i.selet_curso c.enem_cmc c.ucra_cmc || juncurso:__
+__`melogit evasaoinc1 i.ses_fam1 i.masc i.cor2 i.primopcao i.notaescolha i.selet_curso c.enem_cmc c.ucra_cmc || juncurso:`__
 
-1) predict pred_efeitos_aleat_re*, reffects  
+1. `predict pred_efeitos_aleat_re*, reffects` 
 
-pred_efeitos_aleat_re1 = estimação da parte aleatório do intercepto
+`pred_efeitos_aleat_re1`: estimação da parte aleatório do intercepto
 
-2) generate rxb = _b[_cons] + pred_efeitos_aleat_re1
+2. `generate rxb = _b[_cons] + pred_efeitos_aleat_re1`
 
-rxb = estimação da parte aleatório do intercepto + parte constante do modelo  
+`rxb`: estimação da parte aleatório do intercepto + parte constante do modelo  
 
-3) generate prob\_curso = exp(rxb)/(1 + exp(rxb))
+3. `generate prob\_curso = exp(rxb)/(1 + exp(rxb))`
 
-prob_curso é a probabilidade média do aluno evadir no primeiro ano em cada curso ($\beta_{0j}$)
-
-\newpage
-
-Se o interesse for encontrar as probabilidades estimadas por curso de acordo com as categorias das variáveis independentes os passos são os mesmos. Vamos substiruir a fórmula do modelo pelos valores encontrados para entender o comportamento do sexo na resposta
-
-1) predict pred_efeitos_aleat_re*, reffects  
-
-pred_efeitos_aleat_re1 = estimação da parte aleatório do intercepto
-
-2) generate rxb_masc  = (_b[_cons] + pred_efeitos_aleat_re1) + _b[i.masc]*1  
-
-   generate rxb_fem = _b[_cons] + pred_efeitos_aleat_re1 + _b[i.fem]*0
-
-rxb_masc e rxb_fem são as predições marginais do logaritimo da chance para homens e mulheres, respectivamente
-
-rxb* = estimação da parte aleatório do intercepto + parte constante do modelo + parte da variável sexo  
-
-3) generate prob\_curso\_masc = exp(rxb_masc)/(1 + exp(rxb_masc))  
-
-   generate prob\_curso\_fem = exp(rxb_fem)/(1 + exp(rxb_fem))
-
-prob_curso é a probabilidade média do aluno evadir no primeiro ano em cada curso ($\beta_{0j}$)
+`prob_curso`: a probabilidade média do aluno evadir no primeiro ano em cada 
+curso ($\beta_{0j}$)
 
 
-## 5.6 Sugestões de como avaliar a qualidade do ajuste do modelo logistíco multinivel
+Se o interesse for encontrar as probabilidades estimadas por curso de acordo 
+com as categorias das variáveis independentes, os passos são os mesmos. Vamos
+substiruir a fórmula do modelo pelos valores encontrados para entender o
+comportamento do sexo na resposta.
 
-__Curva ROC__
+1. `predict pred_efeitos_aleat_re*, reffects`
 
-predict mu if e(sample), mu
-roctab observed_outcome mu // ROC CURVE & AUC
+`pred_efeitos_aleat_re1`: estimação da parte aleatório do intercepto
 
-__QQplot resíduos__
+2. `generate rxb_masc  = (_b[_cons] + pred_efeitos_aleat_re1) + _b[i.masc]*1`
 
-Quando construímos um modelo é sempre necessário checar a eficácia do mesmo. Além disso, precisa-se utilizar uma métrica para comparar diferentes modelos e encontrar qual o melhor para o conjunto de dados. Assim, esse tópico foca em apresentar medidas de desempenho para o ajuste da regressão logística multinível
+   `generate rxb_fem = _b[_cons] + pred_efeitos_aleat_re1 + _b[i.fem]*0` 
 
-Podemos avaliar o ajuste do modelo realizando uma análise residual através de um gráfico (Pearson, deviance, Anscombe)
+`rxb_masc` e `rxb_fem` são as predições marginais do logaritimo da chance para
+homens e mulheres, respectivamente
 
+`rxb*` = estimação da parte aleatória do intercepto + parte constante do modelo 
++ parte da variável sexo  
 
+3. `generate prob_curso_masc = exp(rxb_masc)/(1 + exp(rxb_masc))`
 
-__Máxima Verossimilhança__
+   `generate prob_curso_fem = exp(rxb_fem)/(1 + exp(rxb_fem))`
 
-Por meio da deviance é possível medir o grau de desajuste do modelo. A deviance é definida por:
- $$Deviance = – 2 ln(L0) – [– 2 ln(L1)]  $$
- 
-em que L0 é a verossimilhança do modelo nulo, ou seja, sem a presença de
-covariáveis e L1 é a verossimilhança do modelo completo.
-Assim, tem-se que o modelo que apresentar a menor deviance é aquele que melhor se ajusta ao conjunto de dados.  
-O software Stata apresenta na parte superior da saída (log likelihood) a verossimilhança do modelo testado (L)
-
-(https://bdm.unb.br/bitstream/10483/8038/1/2013_AmandaPereiraFerraz.pdf)
+`prob_curso` é a probabilidade média do aluno evadir no primeiro ano em cada 
+curso ($\beta_{0j}$).
 
 
-## 5.7 Bibliografia
+## 5.5 Sugestões de como avaliar a qualidade do ajuste do modelo logistíco
+multinivel
 
-- Comentários sobre aspectos gerais do projeto: viabilidade, abrangência das 
-conclusões, etc. 
-- Considerações sobre a condução do projeto: desvios em relação ao objetivo.
-- Sugestões para análise estatística: modelos, técnicas apropriadas, etc.
-- Bibliografia apropriada para o pesquisador. 
-- Possibilidade de execução através do CEA ou outras alternativas.
+a. Curva ROC
+
+`predict mu if e(sample), mu`  
+`roctab observed_outcome mu // ROC CURVE & AUC`
+
+b. QQplot resíduos
+
+Quando construímos um modelo é sempre necessário checar a eficácia do mesmo. 
+Além disso, precisa-se utilizar uma métrica para comparar diferentes modelos e
+encontrar qual o melhor para o conjunto de dados. Assim, esse tópico foca em
+apresentar medidas de desempenho para o ajuste da regressão logística 
+multinível.
+
+Podemos avaliar o ajuste do modelo realizando uma análise residual através de um
+gráfico (Pearson, deviance, Anscombe).
+
+c. Máxima Verossimilhança
+
+Por meio da deviance é possível medir o grau de desajuste do modelo. A deviance 
+é definida por:
+
+$$
+Deviance = -2 ln(L_0) - [-2ln(L_1)]
+$$
+
+em que $L_0$ é a verossimilhança do modelo nulo, ou seja, sem a presença de
+covariáveis, e $L_1$ é a verossimilhança do modelo completo.
+
+Assim, tem-se que o modelo que apresentar a menor deviance é aquele que melhor 
+se ajusta ao conjunto de dados.
+
+O software Stata apresenta na parte superior da saída (log likelihood) a
+verossimilhança do modelo testado (L).
+
+
+## 5.6 Bibliografia
+
+FERRAZ, A.P. (2013). Avaliação do rendimento dos alunos em disciplinas ofertadas
+pelo departamento de estatística para outros cursos da universidade de Brasília:
+uma aplicação de regressão logística multinível. Brasília. 86p. Dissertação
+(Trabalho de conclusão de curso). Instituto de Ciências Exatas - UNB.
+
+ROCHA, A.L.M.M. (2014). Regressão logística multinível: uma aplicação de modelos 
+lineares generalizados mistos. Brasília. 87p. Dissertação (Trabalho de conclusão
+de curso). Instituto de Ciências Exatas - UNB.
+
+STATACORP (2013). Stata multilevel mixed-effects reference manual. Release 13.
+College  Station,  TX:  StataCorp  LP. Disponível em
+<[https://www.stata.com/manuals/memelogit.pdf](https://www.stata.com/manuals/memelogit.pdf)> Acesso em: 27 de abril de 2021.
+
+
+
