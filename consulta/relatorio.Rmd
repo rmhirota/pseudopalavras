@@ -97,9 +97,21 @@ acompanhamento. Além disso, outro argumento a favor da exclusão apontado pela
 pesquisa é a baixa taxa de evasão observada no curso.
 
 
-# 3 Descrição das variáveis e processo de coleta de dados
+# 3 Descrição de um Modelo Multinível
 
-## 3.1 Base de dados 
+Um modelo multínivel pode ser descrito da seguinte forma:
+
+$$ logit (\pi_{ij}) = (\beta_0 +u_{0j})+ \beta_1*X_{1ij} + \beta_2*X_{2ij} + \beta_3*X_{3ij} + \beta_4*X{4ij} + \beta_5*X_{5ij} + e_{ij} $$ 
+  
+para $j = 1,...,n$ clusters, com $i = 1,..., n_{j}$ observações no cluster $j$
+$u_{0j}$ é o efeito aleatório do intercepto cuja distribuição segue uma N(0,$\sigma_{u_{0j}}$)
+Já os coeficientes $\beta_0$,$\beta_1$,$\beta_2$,$\beta_3$,$\beta_4$ e $\beta_5$ são os efeitos fixos do modelo e $e_{ij}$ é o erro com distribuição N(0,$\sigma$)
+É importante destacar que componentes aleatórios podem ser acrescentados aos coeficientes das variáveis independentes
+
+
+# 4 Descrição das variáveis e processo de coleta de dados
+
+## 4.1 Base de dados 
 
 A base de dados utilizada foi construída a partir dos microdados da coorte
 fornecidos pela Divisão de Registro de Estudante (DRE/Pr1) da UFRJ. A maioria 
@@ -113,7 +125,7 @@ O questionário é composto por questões que abordam, entre outras informaçõe
 aspectos socioeconômicos, culturais, escolares, de composição familiar e de 
 escolha e expectativas sobre o curso e sobre a instituição.
 
-## 3.2 Variáveis
+## 4.2 Variáveis
 
 A variável dependente (resposta) utilizada nessa análise é a evasão do curso no
 primeiro ano  (1° e 2° semestre), representada por 0 e 1 (0 = não evadiu; 1 =
@@ -153,7 +165,7 @@ Os dados originais estão armazenados em Excel e o modelo foi construído no
 software Stata
 
 
-# 4 Situação do Projeto 
+# 5 Situação do Projeto 
 
 O projeto encontra-se na fase de testes dos modelos multiníveis. Após a 
 entrevista com a pesquisadora, foram feitas algumas sugestões à análise já 
@@ -178,7 +190,7 @@ desencadear erros de convergência durante os testes no software.
 Outro problema relacionado à análise realizada é a forma como as saídas do Stata
 estão sendo apresentadas e analisadas.
 
-# 5 Conclusão e respostas às perguntas da pesquisadora
+# 6 Conclusão e respostas às perguntas da pesquisadora
 
 De forma geral, o projeto está em um estado bastante avançado, de forma que os
 comentários a seguir se referem principalmente ao modelo escolhido pela 
@@ -186,9 +198,9 @@ pesquisadora e sugestões para melhorar a análise. Os comentários foram dividi
 em seções tentando seguir uma ordem de precedência dos passos na análise 
 estatística.
 
-## 5.1 Sugestões sobre as variáveis
+## 6.1 Sugestões sobre as variáveis
 
-### 5.1.1 Inclusão de variáveis
+### 6.1.1 Inclusão de variáveis
 
 A primeira sugestão oferecida é incluir no modelo todas as variáveis com bom
 preenchimento (sem grande volumetria de dados faltantes) que a pesquisadora 
@@ -208,7 +220,7 @@ A seguir, incluímos uma lista de variáveis que podem ser incluídas no estudo:
 - Média da nota no ENEM do curso, _Nível 2_;
 - Média do CRa do curso, _Nível 2_.
 
-### 5.1.2 Padronização de variáveis
+### 6.1.2 Padronização de variáveis
 
 Destacamos a importância de padronizar as variáveis contínuas referentes à nota 
 do ENEM, pois, como explicado anteriormente, as magnitudes distintas entre CRa e
@@ -218,7 +230,7 @@ Sugerimos que os valores da variável de nota sejam transformados em números na
 escala de 0 a 10, a mesma utilizada no coeficiente de rendimento acumulado por
 semestre.
 
-### 5.1.3 Interação entre variáveis
+### 6.1.3 Interação entre variáveis
 
 Por fim, sugerimos testar interações entre as variáveis de nível 1, como por 
 exemplo $x_1$: Cor/Raça e $x_2$: Status socioeconômico da família (SES). Se a
@@ -226,10 +238,13 @@ interação está presente e é significativa, o efeito de $x_1$ na resposta mé
 depende do nível de $x_2$ e, analogamente, o efeito de $x_2$ na resposta média
 depende do nível de $x_1$.
 
-## 5.2 Construção do modelo
+## 6.2 Construção do modelo e Medidas de desempenho
 
-Existem algumas formas de construir um modelo. A seguir, montamos um roteiro 
-para essa etapa.
+Quando construímos um modelo é sempre necessário checar a eficácia do mesmo. 
+Além disso, precisa-se utilizar uma métrica para comparar diferentes modelos e
+encontrar qual o melhor para o conjunto de dados. Assim, esse tópico foca em
+apresentar medidas de desempenho para o ajuste da regressão logística 
+multinível. A seguir, montamos um roteiro para essa etapa.
 
 __Passo 1__: Ajuste do modelo sem variáveis independentes (modelo nulo) para
 calcular o coeficiente de correlação intraclasse e testar se as variâncias em
@@ -244,6 +259,22 @@ significativas e que tenha o menor BIC/AIC, definidos como:
 $$AIC = -2ln(likelihood) + 2k$$
 $$BIC = -2ln(likelihood) + ln(N) k$$
 
+Por meio da _deviance_ também é possível medir o grau de desajuste do modelo. A 
+_deviance_ é definida por:
+
+$$
+Deviance = -2 ln(L_0) - [-2ln(L_1)]
+$$
+
+em que $L_0$ é a verossimilhança do modelo nulo, ou seja, sem a presença de
+covariáveis, e $L_1$ é a verossimilhança do modelo completo.
+
+Assim, tem-se que o modelo que apresentar a menor deviance é aquele que melhor 
+se ajusta ao conjunto de dados.
+
+O software Stata apresenta na parte superior da saída (log likelihood) o log da
+verossimilhança do modelo testado ($lnL_{*}$).
+
 sendo $k$ o número de parâmetros estimados e $N$ o número de observações.
 
   
@@ -253,8 +284,21 @@ significativa, chegando a um ou vários candidatos a modelo final;
 __Passo 4__: Fazer o diagnóstico dos candidatos a modelo final, verificando os
 pressupostos e a qualidade do ajuste.
 
+A curva ROC pode auxiliar a visualizar quão bem o modelo classifica as 
+observações. Geralmente, observamos no eixo x a taxa de falsos positivos e no 
+eixo y a taxa de verdadeiros positivos.
 
-## 5.3 Interpretação do modelo
+Há diversas formas de calcular os valores para a curva ROC no Stata, segundo
+descrito no 
+[site do software](https://www.stata.com/features/overview/receiver-operating-characteristic/).
+
+Por fim, podemos avaliar o ajuste do modelo realizando uma análise residual através de um
+gráfico dos resíduos estimados (Pearson, _deviance_, Anscombe) e os quantis da 
+distribuição teórica normal. Idealmente, os resíduos coincidem com os quantis, 
+formando uma linha diagonal pois eles seguem uma distribuição $e_{ij}$ ~ N(0,$\sigma$)
+
+
+## 6.3 Interpretação do modelo
 
 Na regressão logística de efeitos mistos, os coeficientes fixos têm uma
 interpretação condicional aos efeitos aleatórios. No caso do estudo analisado, 
@@ -262,7 +306,7 @@ as interpretações estão condicionadas aos cursos. O exemplo a seguir, extraí
 do manual do _Stata_, ilustra como o modelo pode ser interpretado a partir da 
 saída do software.
 
-__Exemplo__:  
+__Exemplo (1)__:  
 
 Ng et al. (2006) analisam uma subamostra de dados da pesquisa de fertilidade de
 Bangladesh de 1989 (Huq e Cleland 1990), que entrevistou 1.934 mulheres de
@@ -270,12 +314,22 @@ Bangladesh sobre o uso de anticoncepcionais. As mulheres na amostra pertenciam a
 60 distritos, identificadas pela variável `district`. Cada distrito continha 
 áreas urbanas ou rurais (variável urban) ou ambas. A variável `c_use` é a 
 resposta binária, com um valor de 1 indicando o uso de anticoncepcionais. Outras 
-covariáveis incluem idade centrada na média e uma variável fatorial para o 
-número de filhos. Considere um modelo de regressão logística:
+covariáveis incluem idade centrada na média e uma variável categorizada para o 
+número de filhos. 
+
+```{r echo=FALSE}
+df <- data.frame('Variável' = c('c_use','district','urban','age','children 1','children 2','children 3'),
+             'Label' = c('1 = Usa Contraceptivo','Distrito','Urbano ou Rural','Idade Centralizada','1 filho = 1','2 filhos = 1','3 filhos = 1')) 
+knitr::kable(df)
+```
+
+Considere um modelo de regressão logística:
   
 $$ logit (\pi_{ij}) = (\beta_0 +u_{0j})+ \beta_1*1.urban_{ij} + \beta_2*age_{ij} + \beta_3*1.children_{ij} + \beta_4*2.children_{ij} + \beta_5*3.children_{ij} $$ 
   
-para $j = 1,...,60$ distritos, com $i = 1,..., n_{j}$ mulheres no distrito $j$.
+para $j = 1,...,60$ distritos, com $i = 1,..., n_{j}$ mulheres no distrito $j$
+$u_{0j}$ é o efeito aleatório do intercepto cuja distribuição segue uma N(0,$\sigma_{u_{0j}}$)
+Já os coeficientes $\beta_0$,$\beta_1$,$\beta_2$,$\beta_3$,$\beta_4$ e $\beta_5$ são os efeitos fixos do modelo
 
 No software Stata a equação é dada por:  
 
@@ -296,7 +350,7 @@ knitr::include_graphics("modelo_aleatorio_v2.png")
 ```
   
 A segunda seção nos dá a estimativa de variância do componente aleatório do
-intercepto na escala logit. 
+intercepto na escala logit ($\sigma_{u_{0j}}$). 
 
 Como queremos a razão de chances em vez dos coeficientes na escala logit, 
 podemos exponenciar as estimativas e os intervalos de confiança. Podemos fazer 
@@ -308,6 +362,8 @@ anticoncepcionais é o dobro das mulheres em zona rural. Além disso, ter qualqu
 número de filhos aumentará as chances de três a quatro vezes em comparação com a
 categoria base de não ter filhos. O uso de anticoncepcionais também diminui 
 com a idade. 
+
+__Exemplo (2)__  
 
 Caso seja do interesse da pesquisadora introduzir um coeficiente aleatório em 
 alguma variável dependente, pode-se reescrever o modelo com _random slopes_, ou
@@ -322,7 +378,9 @@ logit (\pi_{ij}) = (\beta_0 +u_{0j}) + (\beta_1 + u_{1j})*1.urban_{ij} +
 \beta_5*3.children_{ij}
 $$ 
 
-para $j = 1,...,60$ distritos, com $i = 1,..., n_{j}$ mulheres no distrito $j$.
+para $j = 1,...,60$ distritos, com $i = 1,..., n_{j}$ mulheres no distrito $j$
+$u_{0j}$ é o efeito aleatório do intercepto cuja distribuição segue uma N(0,$\sigma_{u_{0j}}$) e $u_{1j}$ é o efeito aleatório da variável urban cuja distribuição segue uma N(0,$\sigma_{u_{1j}}$) 
+Já os coeficientes $\beta_0$,$\beta_1$,$\beta_2$,$\beta_3$,$\beta_4$ e $\beta_5$ são os efeitos fixos do modelo
 
 No software Stata, a equação é dada por:  
 
@@ -332,14 +390,14 @@ O modelo agora inclui um intercepto aleatório e um coeficiente aleatório em
 `1.urban` pois acredita-se que o impacto dessa variável difere de distrito para
 distrito. Além disso, ao especificar a covariância (não estruturada) acima, 
 permitimos a correlação entre efeitos aleatórios a nível distrital, ou seja, a
-correlação entre $u_{0j}$ e $u_{1j}$ é diferente de zero.
+correlação entre $u_{0j}$ e $u_{1j}$ é diferente de zero ($\sigma_{u_{0j},u_{1j}}$.
   
 ```{r echo=FALSE}
 knitr::include_graphics("modelo_slope_aleatorio_v1.png")
 ```
 
 
-## 5.4 Validação do modelo
+## 6.4 Validação do modelo
 
 Após o ajuste de um modelo logístico multinivel com __melogit__ pode-se 
 encontrar diversas outras medidas e estatísticas. Os efeitos aleatórios não são
@@ -353,7 +411,9 @@ entre cursos.
 - Um ICC = 0 indica que os cursos são homogêneos entre si, ou seja, a evasão 
 independe do curso;  
 - Um ICC = 1 indica que toda a variação pode ser explicada pela diferença entre 
-os cursos.
+os cursos. A seguir, apresentamos a fórmula matemática da métrica para o exemplo (1)
+
+$$ ICC = \frac{\sigma_{u_{0j}}}{\sigma_{u_{0j}} + (\pi^2/3)} $$
 
 Ou seja, um ICC = 0.12 indicaria que 12% da chance de evasão na UFRJ é explicada
 pela diferença entre os cursos e 88% da chance de evasão é explicada pelas
@@ -365,6 +425,7 @@ A seguir, definimos um passo a passo para obter a probabilidade marginal média.
 
 
 1. Estimação dos efeitos aleatórios
+
 
 `predict`: cria uma nova variável contendo predições, como respostas médias,
 previsões lineares, densidade e funções de distribuição, erros padrão, desvio e
@@ -440,51 +501,10 @@ Lembrando que o efeito é fixo, logo, ele não varia por curso. Se há interesse
 variação dessa influência por curso, é necessário considerar a variável como um 
 fator aleatório. 
 
-## 5.5 Qualidade do ajuste do modelo
-
-Quando construímos um modelo é sempre necessário checar a eficácia do mesmo. 
-Além disso, precisa-se utilizar uma métrica para comparar diferentes modelos e
-encontrar qual o melhor para o conjunto de dados. Assim, esse tópico foca em
-apresentar medidas de desempenho para o ajuste da regressão logística 
-multinível.
-
-a. Curva ROC
-
-A curva ROC pode auxiliar a visualizar quão bem o modelo classifica as 
-observações. Geralmente, observamos no eixo x a taxa de falsos positivos e no 
-eixo y a taxa de verdadeiros positivos.
-
-Há diversas formas de calcular os valores para a curva ROC no Stata, segundo
-descrito no 
-[site do software](https://www.stata.com/features/overview/receiver-operating-characteristic/).
-
-b. QQplot resíduos
-
-Podemos avaliar o ajuste do modelo realizando uma análise residual através de um
-gráfico dos resíduos estimados (Pearson, _deviance_, Anscombe) e os quantis da 
-distribuição teórica normal. Idealmente, os resíduos coincidem com os quantis, 
-formando uma linha diagonal.
-
-c. Máxima Verossimilhança
-
-Por meio da _deviance_ é possível medir o grau de desajuste do modelo. A 
-_deviance_ é definida por:
-
-$$
-Deviance = -2 ln(L_0) - [-2ln(L_1)]
-$$
-
-em que $L_0$ é a verossimilhança do modelo nulo, ou seja, sem a presença de
-covariáveis, e $L_1$ é a verossimilhança do modelo completo.
-
-Assim, tem-se que o modelo que apresentar a menor deviance é aquele que melhor 
-se ajusta ao conjunto de dados.
-
-O software Stata apresenta na parte superior da saída (log likelihood) o log da
-verossimilhança do modelo testado ($lnL_{*}$).
 
 
-## 5.6 Bibliografia
+
+## 6.6 Bibliografia
 
 FERRAZ, A.P. (2013). Avaliação do rendimento dos alunos em disciplinas ofertadas
 pelo departamento de estatística para outros cursos da universidade de Brasília:
@@ -506,5 +526,6 @@ STATACORP (2013). Stata multilevel mixed-effects reference manual. Release 13.
 College  Station,  TX:  StataCorp  LP. Disponível em
 <[https://www.stata.com/manuals/memelogit.pdf](https://www.stata.com/manuals/memelogit.pdf)> Acesso em: 27 de abril de 2021.
 
-https://www.stata.com/manuals/rbicnote.pdf
+SITE STATA. BIC note — Calculating and interpreting BIC em: <[https://www.stata.com/manuals/rbicnote.pdf](https://www.stata.com/manuals/rbicnote.pdf)> Acesso em: 27 de abril de 2021
+
 
