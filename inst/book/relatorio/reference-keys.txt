@@ -2,4 +2,5 @@ introducao
 objetivo-e-questões-norteadoras
 organização-do-trabalho
 metodologia
+coleta-dos-dados
 resultados
