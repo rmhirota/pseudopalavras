@@ -101,13 +101,15 @@ pesquisa é a baixa taxa de evasão observada no curso.
 
 Um modelo multínivel pode ser descrito da seguinte forma:
 
-$$ logit (\pi_{ij}) = (\beta_0 +u_{0j})+ \beta_1*X_{1ij} + \beta_2*X_{2ij} + \beta_3*X_{3ij} + \beta_4*X{4ij} + \beta_5*X_{5ij} + e_{ij} $$ 
+$$ logit (\pi_{ij}) = (\beta_0 +u_{0j})+ \beta_1*X_{1ij} + \beta_2*X_{2ij} + \beta_3*X_{3ij} + \beta_4*X_{4ij} + \beta_5*X_{5ij} + e_{ij} $$ 
   
 para $j = 1,...,n$ clusters, com $i = 1,..., n_{j}$ observações no cluster $j$
 $u_{0j}$ é o efeito aleatório do intercepto cuja distribuição segue uma N(0,$\sigma_{u_{0j}}$)
+ 
 Já os coeficientes $\beta_0$,$\beta_1$,$\beta_2$,$\beta_3$,$\beta_4$ e $\beta_5$ são os efeitos fixos do modelo e $e_{ij}$ é o erro com distribuição N(0,$\sigma$)
 É importante destacar que componentes aleatórios podem ser acrescentados aos coeficientes das variáveis independentes
 
+\newpage
 
 # 4 Descrição das variáveis e processo de coleta de dados
 
@@ -162,8 +164,9 @@ classificado como menos seletivo
 - Seletividade (0 = menos seletivo; 1 = mais seletivo)
   
 Os dados originais estão armazenados em Excel e o modelo foi construído no 
-software Stata
+software `Stata`
 
+\newpage
 
 # 5 Situação do Projeto 
 
@@ -263,17 +266,17 @@ Por meio da _deviance_ também é possível medir o grau de desajuste do modelo.
 _deviance_ é definida por:
 
 $$
-Deviance = -2 ln(L_0) - [-2ln(L_1)]
+Deviance = -2 ln(likelihood_0) - [-2ln(likelihood_1)]
 $$
 
-em que $L_0$ é a verossimilhança do modelo nulo, ou seja, sem a presença de
-covariáveis, e $L_1$ é a verossimilhança do modelo completo.
+em que $likelihood_0$ é a verossimilhança do modelo nulo, ou seja, sem a presença de
+covariáveis, e $likelihood_1$ é a verossimilhança do modelo completo.
 
 Assim, tem-se que o modelo que apresentar a menor deviance é aquele que melhor 
 se ajusta ao conjunto de dados.
 
-O software Stata apresenta na parte superior da saída (log likelihood) o log da
-verossimilhança do modelo testado ($lnL_{*}$).
+O software `Stata` apresenta na parte superior da saída (log likelihood) o log da
+verossimilhança do modelo testado ($ln (likelihood_{*})$).
 
 sendo $k$ o número de parâmetros estimados e $N$ o número de observações.
 
@@ -286,24 +289,28 @@ pressupostos e a qualidade do ajuste.
 
 A curva ROC pode auxiliar a visualizar quão bem o modelo classifica as 
 observações. Geralmente, observamos no eixo x a taxa de falsos positivos e no 
-eixo y a taxa de verdadeiros positivos.
-
-Há diversas formas de calcular os valores para a curva ROC no Stata, segundo
+eixo y a taxa de verdadeiros positivos. 
+  
+Logo, quanto mais próxima do canto superior esquerdo está a curva, melhor a classificação do modelo pois menor a taxa de falsos positivos e maior a taxa de verdadeiros positivos.
+  
+Há diversas formas de calcular os valores para a curva ROC no `Stata`, segundo
 descrito no 
 [site do software](https://www.stata.com/features/overview/receiver-operating-characteristic/).
 
 Por fim, podemos avaliar o ajuste do modelo realizando uma análise residual através de um
 gráfico dos resíduos estimados (Pearson, _deviance_, Anscombe) e os quantis da 
 distribuição teórica normal. Idealmente, os resíduos coincidem com os quantis, 
-formando uma linha diagonal pois eles seguem uma distribuição $e_{ij}$ ~ N(0,$\sigma$)
+formando uma linha diagonal pois eles seguem uma distribuição 
+  $e_{ij}$ ~ N(0,$\sigma$)
 
+\newpage
 
 ## 6.3 Interpretação do modelo
 
 Na regressão logística de efeitos mistos, os coeficientes fixos têm uma
 interpretação condicional aos efeitos aleatórios. No caso do estudo analisado, 
 as interpretações estão condicionadas aos cursos. O exemplo a seguir, extraído
-do manual do _Stata_, ilustra como o modelo pode ser interpretado a partir da 
+do manual do `Stata`, ilustra como o modelo pode ser interpretado a partir da 
 saída do software.
 
 __Exemplo (1)__:  
@@ -327,11 +334,11 @@ Considere um modelo de regressão logística:
   
 $$ log (\frac{\pi_{ij}}{1-\pi_{ij}}) = (\beta_0 +u_{0j})+ \beta_1*1.urban_{ij} + \beta_2*age_{ij} + \beta_3*1.children_{ij} + \beta_4*2.children_{ij} + \beta_5*3.children_{ij} $$ 
   
-para $j = 1,...,60$ distritos, com $i = 1,..., n_{j}$ mulheres no distrito $j$
-$u_{0j}$ é o efeito aleatório do intercepto cuja distribuição segue uma N(0,$\sigma_{u_{0j}}$)
-Já os coeficientes $\beta_0$,$\beta_1$,$\beta_2$,$\beta_3$,$\beta_4$ e $\beta_5$ são os efeitos fixos do modelo enquanto $\pi_{ij}$ é a probabilidade do indíviduo i no cluster j apresentar resposta positiva (=1)
+para $j = 1,...,60$ distritos, com $i = 1,..., n_{j}$ mulheres no distrito $j$  
+$u_{0j}$ é o efeito aleatório do intercepto cuja distribuição segue uma distribuição N(0,$\sigma_{u_{0j}}$)  
+Já os coeficientes $\beta_0$,$\beta_1$,$\beta_2$,$\beta_3$,$\beta_4$ e $\beta_5$ são os efeitos fixos do modelo enquanto $\pi_{ij}$ é a probabilidade do indíviduo $i$ no cluster $j$ apresentar resposta positiva (=1)
 
-No software Stata a equação é dada por:  
+No software `Stata` a equação é dada por:  
 
 __`melogit c_use i.urban age i.children || district:`__
 
@@ -354,7 +361,7 @@ intercepto na escala logit ($\sigma_{u_{0j}}$).
 
 Como queremos a razão de chances em vez dos coeficientes na escala logit, 
 podemos exponenciar as estimativas e os intervalos de confiança. Podemos fazer 
-isso no Stata usando a opção OR. A tabela de estimativa relata os efeitos fixos 
+isso no `Stata` usando a opção __OR__. A tabela de estimativa relata os efeitos fixos 
 e os componentes de variância estimados. Os efeitos fixos podem ser 
 interpretados da mesma forma que a saída do logit tradicional. Transformando em
 razão de chances, descobre-se que a chance das mulheres urbanas usarem
@@ -366,7 +373,7 @@ com a idade.
 __Exemplo (2)__  
 
 Caso seja do interesse da pesquisadora introduzir um coeficiente aleatório em 
-alguma variável dependente, pode-se reescrever o modelo com _random slopes_, ou
+alguma variável independente, pode-se reescrever o modelo com _random slopes_, ou
 seja, os coeficientes da variável escolhida vão variar entre clusters.
 
 Vamos aplicar essa ideia na variável binária urbana do exemplo anterior.
@@ -378,19 +385,23 @@ log(\frac{\pi_{ij}}{1-\pi_{ij}}) = (\beta_0 +u_{0j}) + (\beta_1 + u_{1j})*1.urba
 \beta_5*3.children_{ij}
 $$ 
 
-para $j = 1,...,60$ distritos, com $i = 1,..., n_{j}$ mulheres no distrito $j$
-$u_{0j}$ é o efeito aleatório do intercepto cuja distribuição segue uma N(0,$\sigma_{u_{0j}}$) e $u_{1j}$ é o efeito aleatório da variável urban cuja distribuição segue uma N(0,$\sigma_{u_{1j}}$) 
-Já os coeficientes $\beta_0$,$\beta_1$,$\beta_2$,$\beta_3$,$\beta_4$ e $\beta_5$ são os efeitos fixos do modelo $\pi_{ij}$ é a probabilidade do indíviduo i no cluster j apresentar resposta positiva (=1)
+para $j = 1,...,60$ distritos, com $i = 1,..., n_{j}$ mulheres no distrito $j$  
 
-No software Stata, a equação é dada por:  
+$u_{0j}$ é o efeito aleatório do intercepto cuja distribuição segue uma N(0,$\sigma_{u_{0j}}$) e $u_{1j}$ é o efeito aleatório da variável urban cuja distribuição segue uma N(0,$\sigma_{u_{1j}}$)   
+
+Já os coeficientes $\beta_0$,$\beta_1$,$\beta_2$,$\beta_3$,$\beta_4$ e $\beta_5$ são os efeitos fixos do modelo $\pi_{ij}$ é a probabilidade do indíviduo $i$ no cluster $j$ apresentar resposta positiva (=1)
+
+No software `Stata`, a equação é dada por:  
 
 __`melogit c_use i.urban age i.children || district: i.urban, covariance(unstructured)`__
+
+\newpage
 
 O modelo agora inclui um intercepto aleatório e um coeficiente aleatório em 
 `1.urban` pois acredita-se que o impacto dessa variável difere de distrito para
 distrito. Além disso, ao especificar a covariância (não estruturada) acima, 
 permitimos a correlação entre efeitos aleatórios a nível distrital, ou seja, a
-correlação entre $u_{0j}$ e $u_{1j}$ é diferente de zero ($\sigma_{u_{0j},u_{1j}}$.
+correlação entre $u_{0j}$ e $u_{1j}$ é diferente de zero ($\sigma_{u_{0j},u_{1j}}$).
   
 ```{r echo=FALSE}
 knitr::include_graphics("modelo_slope_aleatorio_v1.png")
@@ -399,8 +410,8 @@ knitr::include_graphics("modelo_slope_aleatorio_v1.png")
 
 ## 6.4 Correlação Interclasse
 
-Após o ajuste de um modelo logístico multinivel com __melogit__ pode-se 
-encontrar diversas outras medidas e estatísticas. O índice de correlação intraclasse (ICC) varia de 0 a 1 e indica o quanto da variação é explicada pela diferenças entre cursos.
+Após o ajuste de um modelo logístico multinivel com __melogit__, pode-se 
+encontrar diversas outras medidas e estatísticas. O índice de correlação intraclasse __(ICC)__ varia de 0 a 1 e indica o quanto da variação é explicada pela diferenças entre cursos.
 
 - Um ICC = 0 indica que os cursos são homogêneos entre si, ou seja, a evasão 
 independe do curso;  
@@ -408,28 +419,30 @@ independe do curso;
 os cursos. A seguir, apresentamos a fórmula matemática da métrica para o exemplo (1)
 
 $$ ICC = \frac{\hat\sigma_{u_{0j}}}{\hat\sigma_{u_{0j}} + (\pi^2/3)} $$
-sendo $\hat\sigma_{u_{0j}}$ a estimativa da variância do efeito aleatório
+sendo $\hat\sigma_{u_{0j}}$ a estimativa da variância do efeito aleatório do intercepto
+
+\newpage
 
 Ou seja, um ICC = 0.12 indicaria que 12% da chance de evasão na UFRJ é explicada
 pela diferença entre os cursos e 88% da chance de evasão é explicada pelas
 diferenças dentro dos cursos. É importante destacar que o ICC é encontrado 
 quando rodamos um modelo "vazio", ou seja, apenas com o intercepto.
 
-No software Stata, esse índice é encontrado através do código __`estat icc`__.  
+No software `Stata`, esse índice é encontrado através do código __`estat icc`__.  
 A seguir, definimos um passo a passo para obter a probabilidade marginal média.
 
 ## 6.6 Estimação das probabilidades
 
-Encontrar as probabilidades de resposta positiva (=1) em cada cluster pode ser do interesse da pesquisadora. Definimos um passo a passo de como obter a probabilidade média de respsota positiva em cada cluster, utilizando o exemplo (1) presente nesse relatório (modelo sem efeito aleatório nas variáveis independentes). Essa passagem pode ser expandida a fim de encontrarr as probabilidades  estimadas por cluster de acordo com as categorias de uma variável independentes específica
+Encontrar as probabilidades de resposta positiva (=1) em cada cluster pode ser do interesse da pesquisadora. Assim, definimos um passo a passo de como obter esses valores, utilizando como referência o exemplo (1) presente nesse relatório (modelo sem efeito aleatório nas variáveis independentes). Essa passagem pode ser expandida a fim de encontrar as probabilidades  estimadas, por cluster, de acordo com as categorias de uma variável independentes específica
 
 
 1. Estimar os efeitos aleatórios
 
 Os efeitos aleatórios não são fornecidos como estimativas quando o modelo é ajustado, logo, eles precisam ser calculados.
-No Stata, a função `predict` cria uma nova variável contendo predições, como respostas médias, previsões lineares, densidade e funções de distribuição, erros padrão, desvio e
+No `Stata`, a função __`predict`__ cria uma nova variável contendo predições, como respostas médias, previsões lineares, densidade e funções de distribuição, erros padrão, desvio e
 resíduos de Anscombe. Após rodar o modelo, pode-se usar essa função para estimar os parâmetros aleatórios
 
-Ex: `predict nome, reffects`
+Ex: __`predict nome, reffects`__
   
 2. Calcular o valor da expressão logistica substituindo os termos pelas 
 estimativas dos efeitos fixos e estimativas dos efeitos aleatórios (valores
@@ -438,48 +451,52 @@ encontrados em __1__). Chamamos esse valor de $x$
 Ex: 
   
 $$x = log(\frac{\pi_{ij}}{1-\pi_{ij}}) = (\hat\beta_0 +\hat{u_{0j}})$$
-os $\hat\beta_k$ sendo as estimativas dos parâmetros fixos e $\hat{u_{0j}}$ as estimativas dos parâmetros aleatórios, com k=0,1,2,3,4,5 e j=1,...60
+os $\hat\beta_k$ sendo as estimativas dos parâmetros fixos e $\hat{u_{0j}}$ as estimativas dos parâmetros aleatórios, com $k$ =0,1,2,3,4,5 e $j$ =1,...60
   
 
 3. Como o valor encontrado está na forma de logaritmo da chance, precisamos
 exponenciá-lo para obter as probabilidades previstas.
 
 $$ \hat\pi_{ij}= \frac{exp(x)}{1+exp(x)} $$
-Logo, $$\hat\pi_{ij}$$ é a probabilidade, por distrito, das mulheres usarem anticoncepcional
+Logo, $\hat\pi_{ij}$ é a probabilidade média, por distrito, das mulheres usarem anticoncepcional
 
-Aplicação das etapas no Stata:
+\newpage
+
+Aplicação das etapas no `Stata`:
   
 
-1. `predict pred_efeitos_aleat_re, reffects`
+1. __`predict pred_efeitos_aleat_re, reffects`__
   
 `pred_efeitos_aleat_re1`: estimação da parte aleatória do intercepto
 
-2. `generate rxb = _b[_cons] + pred_efeitos_aleat_re1`
+2. __`generate rxb = _b[_cons] + pred_efeitos_aleat_re1`__
 
 `rxb`: estimação da parte constante do intercepto + parte aleatória do 
 intercepto  
 
 $$rxb = log(\frac{\pi_{ij}}{1-\pi_{ij}}) = (\hat\beta_0 +\hat{u_{0j}})$$
 
-3. `generate prob_anti = exp(rxb)/(1 + exp(rxb))`
+3. __`generate prob_anti = exp(rxb)/(1 + exp(rxb))`__
 
 `prob_anti`: a probabilidade média de uma mulher usar anticoncepcional em cada 
 distrito 
 
 
-Se o interesse for encontrar as probabilidades estimadas por distrito de acordo 
-com as categorias de uma variável independentes específica, os passos são os mesmos, mas acrescentando o valor dessa variável multiplicado pela estimativa de seu parâmetro.
+Se o interesse for encontrar as probabilidades estimadas, por distrito, de acordo 
+com as categorias de uma variável independentes específica, os passos são os mesmos. Porém, devemos acrescentar o valor dessa variável multiplicado pela estimativa de seu parâmetro.
 Vamos substituir a fórmula do modelo pelos valores encontrados para entender o
 comportamento da variável urban na resposta.
 
-1. `predict pred_efeitos_aleat_re*, reffects`
+1. __`predict pred_efeitos_aleat_re*, reffects`__
 
-`pred_efeitos_aleat_re1`: estimação da parte aleatória do intercepto
+`pred_efeitos_aleat_re1`: estimação da parte aleatória do intercepto e do coeficiente da variável
 
-2. `generate rxb_urban  = (_b[_cons] + pred_efeitos_aleat_re1) + _b[i.urban]*1`
+2. __`generate rxb_urban  = (_b[_cons] + pred_efeitos_aleat_re1) + _b[i.urban]*1`__
+   
 
-   `generate rxb_fem = (_b[_cons] + pred_efeitos_aleat_re1) + _b[i.urban]*0` 
+   __`generate rxb_fem = (_b[_cons] + pred_efeitos_aleat_re1) + _b[i.urban]*0`__
 
+Logo,
 
 $$ rxb_{urban} = log(\frac{\pi_{ij}}{1-\pi_{ij}}) = (\hat\beta_0 +\hat{u_{0j}})+ \hat\beta_1*1$$
 $$rxb_{rural} = log(\frac{\pi_{ij}}{1-\pi_{ij}}) = (\hat\beta_0 +\hat{u_{0j}})+ \hat\beta_1*0$$
@@ -488,13 +505,14 @@ $$rxb_{rural} = log(\frac{\pi_{ij}}{1-\pi_{ij}}) = (\hat\beta_0 +\hat{u_{0j}})+ 
 mulheres que vivem no ambiente urbano e mulheres que vivem no ambiente rural, respectivamente
 
 `rxb*` = estimação da parte constante do intercepto + parte aleatória do 
-intercepto + parte da variável urban 
+intercepto + parte fixa da variável urban 
 
-3. `generate prob_curso_urban = exp(rxb_urban)/(1 + exp(rxb_urban))`
+3. __`generate prob_curso_urban = exp(rxb_urban)/(1 + exp(rxb_urban))`__
 
-   `generate prob_curso_rural = exp(rxb_rural)/(1 + exp(rxb_rural))`
+   __`generate prob_curso_rural = exp(rxb_rural)/(1 + exp(rxb_rural))`__
 
-`prob_curso_urban` é a probabilidade média das mulheres que vivem no ambiente urbano usarem anticoncepcional em cada distrito
+`prob_curso_urban` é a probabilidade média das mulheres que vivem no ambiente urbano usarem anticoncepcional em cada distrito  
+  
 `prob_curso_rural` é a probabilidade média das mulheres que vivem no ambiente rural usarem anticoncepcional em cada distrito
 
 A discrepância entre as probabilidades de usar anticoncepcional por àrea (rural ou urbano), em cada distrito, se dá por conta do efeito fixo da àrea, ou seja, quando a variável urbana muda (0 = rural, 1 = urbana) o coeficiente referente a essa variável é acrescentado 
@@ -527,7 +545,7 @@ lineares generalizados mistos. Brasília. 87p. Dissertação (Trabalho de conclu
 de curso). Instituto de Ciências Exatas - UNB.
 
 STATACORP (2013). Stata multilevel mixed-effects reference manual. Release 13.
-College  Station,  TX:  StataCorp  LP. Disponível em
+College  Station,  TX:  StataCorp  LP. Disponível em  
 <[https://www.stata.com/manuals/memelogit.pdf](https://www.stata.com/manuals/memelogit.pdf)> Acesso em: 27 de abril de 2021.
 
 SITE STATA. BIC note — Calculating and interpreting BIC em: <[https://www.stata.com/manuals/rbicnote.pdf](https://www.stata.com/manuals/rbicnote.pdf)> Acesso em: 27 de abril de 2021
