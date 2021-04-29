@@ -325,11 +325,11 @@ knitr::kable(df)
 
 Considere um modelo de regressão logística:
   
-$$ logit (\pi_{ij}) = (\beta_0 +u_{0j})+ \beta_1*1.urban_{ij} + \beta_2*age_{ij} + \beta_3*1.children_{ij} + \beta_4*2.children_{ij} + \beta_5*3.children_{ij} $$ 
+$$ log (\frac{\pi_{ij}}{1-\pi_{ij}}) = (\beta_0 +u_{0j})+ \beta_1*1.urban_{ij} + \beta_2*age_{ij} + \beta_3*1.children_{ij} + \beta_4*2.children_{ij} + \beta_5*3.children_{ij} $$ 
   
 para $j = 1,...,60$ distritos, com $i = 1,..., n_{j}$ mulheres no distrito $j$
 $u_{0j}$ é o efeito aleatório do intercepto cuja distribuição segue uma N(0,$\sigma_{u_{0j}}$)
-Já os coeficientes $\beta_0$,$\beta_1$,$\beta_2$,$\beta_3$,$\beta_4$ e $\beta_5$ são os efeitos fixos do modelo
+Já os coeficientes $\beta_0$,$\beta_1$,$\beta_2$,$\beta_3$,$\beta_4$ e $\beta_5$ são os efeitos fixos do modelo enquanto $\pi_{ij}$ é a probabilidade do indíviduo i no cluster j apresentar resposta positiva (=1)
 
 No software Stata a equação é dada por:  
 
@@ -373,14 +373,14 @@ Vamos aplicar essa ideia na variável binária urbana do exemplo anterior.
 A expressão desse modelo pode ser descrita da seguinte forma:  
 
 $$ 
-logit (\pi_{ij}) = (\beta_0 +u_{0j}) + (\beta_1 + u_{1j})*1.urban_{ij} +
+log(\frac{\pi_{ij}}{1-\pi_{ij}}) = (\beta_0 +u_{0j}) + (\beta_1 + u_{1j})*1.urban_{ij} +
 \beta_2*age_{ij} + \beta_3*1.children_{ij} + \beta_4*2.children_{ij} + 
 \beta_5*3.children_{ij}
 $$ 
 
 para $j = 1,...,60$ distritos, com $i = 1,..., n_{j}$ mulheres no distrito $j$
 $u_{0j}$ é o efeito aleatório do intercepto cuja distribuição segue uma N(0,$\sigma_{u_{0j}}$) e $u_{1j}$ é o efeito aleatório da variável urban cuja distribuição segue uma N(0,$\sigma_{u_{1j}}$) 
-Já os coeficientes $\beta_0$,$\beta_1$,$\beta_2$,$\beta_3$,$\beta_4$ e $\beta_5$ são os efeitos fixos do modelo
+Já os coeficientes $\beta_0$,$\beta_1$,$\beta_2$,$\beta_3$,$\beta_4$ e $\beta_5$ são os efeitos fixos do modelo $\pi_{ij}$ é a probabilidade do indíviduo i no cluster j apresentar resposta positiva (=1)
 
 No software Stata, a equação é dada por:  
 
@@ -397,23 +397,18 @@ knitr::include_graphics("modelo_slope_aleatorio_v1.png")
 ```
 
 
-## 6.4 Validação do modelo
+## 6.4 Correlação Interclasse
 
 Após o ajuste de um modelo logístico multinivel com __melogit__ pode-se 
-encontrar diversas outras medidas e estatísticas. Os efeitos aleatórios não são
-fornecidos como estimativas quando o modelo é ajustado, logo, eles precisam ser
-calculados. O cálculo de correlações intraclasse (ICC) e as probabilidades de 
-resposta positiva (=1) em cada cluster também pode ser de interesse.
-
-O ICC varia de 0 a 1 e indica o quanto da variação é explicada pela diferenças 
-entre cursos.
+encontrar diversas outras medidas e estatísticas. O índice de correlação intraclasse (ICC) varia de 0 a 1 e indica o quanto da variação é explicada pela diferenças entre cursos.
 
 - Um ICC = 0 indica que os cursos são homogêneos entre si, ou seja, a evasão 
 independe do curso;  
 - Um ICC = 1 indica que toda a variação pode ser explicada pela diferença entre 
 os cursos. A seguir, apresentamos a fórmula matemática da métrica para o exemplo (1)
 
-$$ ICC = \frac{\sigma_{u_{0j}}}{\sigma_{u_{0j}} + (\pi^2/3)} $$
+$$ ICC = \frac{\hat\sigma_{u_{0j}}}{\hat\sigma_{u_{0j}} + (\pi^2/3)} $$
+sendo $\hat\sigma_{u_{0j}}$ a estimativa da variância do efeito aleatório
 
 Ou seja, um ICC = 0.12 indicaria que 12% da chance de evasão na UFRJ é explicada
 pela diferença entre os cursos e 88% da chance de evasão é explicada pelas
@@ -423,32 +418,40 @@ quando rodamos um modelo "vazio", ou seja, apenas com o intercepto.
 No software Stata, esse índice é encontrado através do código __`estat icc`__.  
 A seguir, definimos um passo a passo para obter a probabilidade marginal média.
 
+## 6.6 Estimação das probabilidades
 
-1. Estimação dos efeitos aleatórios
+Encontrar as probabilidades de resposta positiva (=1) em cada cluster pode ser do interesse da pesquisadora. Definimos um passo a passo de como obter a probabilidade média de respsota positiva em cada cluster, utilizando o exemplo (1) presente nesse relatório (modelo sem efeito aleatório nas variáveis independentes). Essa passagem pode ser expandida a fim de encontrarr as probabilidades  estimadas por cluster de acordo com as categorias de uma variável independentes específica
 
 
-`predict`: cria uma nova variável contendo predições, como respostas médias,
-previsões lineares, densidade e funções de distribuição, erros padrão, desvio e
-resíduos de Anscombe.
+1. Estimar os efeitos aleatórios
 
-Ex: `predict nome, reffects reses(nome)`
+Os efeitos aleatórios não são fornecidos como estimativas quando o modelo é ajustado, logo, eles precisam ser calculados.
+No Stata, a função `predict` cria uma nova variável contendo predições, como respostas médias, previsões lineares, densidade e funções de distribuição, erros padrão, desvio e
+resíduos de Anscombe. Após rodar o modelo, pode-se usar essa função para estimar os parâmetros aleatórios
 
+Ex: `predict nome, reffects`
+  
 2. Calcular o valor da expressão logistica substituindo os termos pelas 
 estimativas dos efeitos fixos e estimativas dos efeitos aleatórios (valores
-encontrados em __1__). Chamamos esse valor de $x$.
+encontrados em __1__). Chamamos esse valor de $x$
+
+Ex: 
+  
+$$x = log(\frac{\pi_{ij}}{1-\pi_{ij}}) = (\hat\beta_0 +\hat{u_{0j}})$$
+os $\hat\beta_k$ sendo as estimativas dos parâmetros fixos e $\hat{u_{0j}}$ as estimativas dos parâmetros aleatórios, com k=0,1,2,3,4,5 e j=1,...60
+  
 
 3. Como o valor encontrado está na forma de logaritmo da chance, precisamos
 exponenciá-lo para obter as probabilidades previstas.
 
-$$ \frac{exp(x)}{1+exp(x)} $$
+$$ \hat\pi_{ij}= \frac{exp(x)}{1+exp(x)} $$
+Logo, $$\hat\pi_{ij}$$ é a probabilidade, por distrito, das mulheres usarem anticoncepcional
 
-Exemplo utilizando o modelo da pesquisadora (sem inclinações que variam entre os
-cursos):
+Aplicação das etapas no Stata:
+  
 
-__`melogit evasaoinc1 i.ses_fam1 i.masc i.cor2 i.primopcao i.notaescolha i.selet_curso c.enem_cmc c.ucra_cmc || juncurso:`__
-
-1. `predict pred_efeitos_aleat_re*, reffects` 
-
+1. `predict pred_efeitos_aleat_re, reffects`
+  
 `pred_efeitos_aleat_re1`: estimação da parte aleatória do intercepto
 
 2. `generate rxb = _b[_cons] + pred_efeitos_aleat_re1`
@@ -456,55 +459,56 @@ __`melogit evasaoinc1 i.ses_fam1 i.masc i.cor2 i.primopcao i.notaescolha i.selet
 `rxb`: estimação da parte constante do intercepto + parte aleatória do 
 intercepto  
 
-3. `generate prob_curso = exp(rxb)/(1 + exp(rxb))`
+$$rxb = log(\frac{\pi_{ij}}{1-\pi_{ij}}) = (\hat\beta_0 +\hat{u_{0j}})$$
 
-`prob_curso`: a probabilidade média do aluno evadir no primeiro ano em cada 
-curso ($\beta_{0j}$)
+3. `generate prob_anti = exp(rxb)/(1 + exp(rxb))`
+
+`prob_anti`: a probabilidade média de uma mulher usar anticoncepcional em cada 
+distrito 
 
 
-Se o interesse for encontrar as probabilidades estimadas por curso de acordo 
-com as categorias das variáveis independentes, os passos são os mesmos. Vamos
-substituir a fórmula do modelo pelos valores encontrados para entender o
-comportamento do sexo na resposta.
+Se o interesse for encontrar as probabilidades estimadas por distrito de acordo 
+com as categorias de uma variável independentes específica, os passos são os mesmos, mas acrescentando o valor dessa variável multiplicado pela estimativa de seu parâmetro.
+Vamos substituir a fórmula do modelo pelos valores encontrados para entender o
+comportamento da variável urban na resposta.
 
 1. `predict pred_efeitos_aleat_re*, reffects`
 
 `pred_efeitos_aleat_re1`: estimação da parte aleatória do intercepto
 
-2. `generate rxb_masc  = (_b[_cons] + pred_efeitos_aleat_re1) + _b[i.masc]*1`
+2. `generate rxb_urban  = (_b[_cons] + pred_efeitos_aleat_re1) + _b[i.urban]*1`
 
-   `generate rxb_fem = (_b[_cons] + pred_efeitos_aleat_re1) + _b[i.fem]*0` 
+   `generate rxb_fem = (_b[_cons] + pred_efeitos_aleat_re1) + _b[i.urban]*0` 
 
-`rxb_masc` e `rxb_fem` são as predições marginais do logaritimo da chance para
-homens e mulheres, respectivamente
+
+$$ rxb_{urban} = log(\frac{\pi_{ij}}{1-\pi_{ij}}) = (\hat\beta_0 +\hat{u_{0j}})+ \hat\beta_1*1$$
+$$rxb_{rural} = log(\frac{\pi_{ij}}{1-\pi_{ij}}) = (\hat\beta_0 +\hat{u_{0j}})+ \hat\beta_1*0$$
+
+`rxb_urban` e `rxb_rural` são as predições marginais do logaritimo da chance para
+mulheres que vivem no ambiente urbano e mulheres que vivem no ambiente rural, respectivamente
 
 `rxb*` = estimação da parte constante do intercepto + parte aleatória do 
-intercepto + parte da variável sexo  
+intercepto + parte da variável urban 
 
-3. `generate prob_curso_masc = exp(rxb_masc)/(1 + exp(rxb_masc))`
+3. `generate prob_curso_urban = exp(rxb_urban)/(1 + exp(rxb_urban))`
 
-   `generate prob_curso_fem = exp(rxb_fem)/(1 + exp(rxb_fem))`
+   `generate prob_curso_rural = exp(rxb_rural)/(1 + exp(rxb_rural))`
 
-`prob_curso_masc` é a probabilidade média do aluno (do sexo masculino) evadir no
-primeiro ano em cada curso.
+`prob_curso_urban` é a probabilidade média das mulheres que vivem no ambiente urbano usarem anticoncepcional em cada distrito
+`prob_curso_rural` é a probabilidade média das mulheres que vivem no ambiente rural usarem anticoncepcional em cada distrito
 
-`prob_curso_fem` é a probabilidade média da aluna (do sexo feminino) evadir no
-primeiro ano em cada curso.
-
-A discrepância entre as probabilidades de evasão por sexo em cada curso se dá 
-por conta do efeito fixo do sexo, ou seja, quando a variável sexo muda (0 = 
-feminino, 1 = masculino) o coeficiente referente a essa variável é acrescentado 
+A discrepância entre as probabilidades de usar anticoncepcional por àrea (rural ou urbano), em cada distrito, se dá por conta do efeito fixo da àrea, ou seja, quando a variável urbana muda (0 = rural, 1 = urbana) o coeficiente referente a essa variável é acrescentado 
 na equação do modelo e, consequentemente, afeta os valores finais das
 probabilidades. 
 
-Lembrando que o efeito é fixo, logo, ele não varia por curso. Se há interesse na
-variação dessa influência por curso, é necessário considerar a variável como um 
+Lembrando que o efeito é fixo, logo, ele não varia por distrito. Se há interesse na
+variação dessa influência por distrito, é necessário considerar a variável como um 
 fator aleatório. 
 
 
 
 
-## 6.6 Bibliografia
+## 6.7 Bibliografia
 
 FERRAZ, A.P. (2013). Avaliação do rendimento dos alunos em disciplinas ofertadas
 pelo departamento de estatística para outros cursos da universidade de Brasília:
