@@ -356,15 +356,15 @@ assim, o modelo misto.
 knitr::include_graphics("modelo_aleatorio_v2.png")
 ```
   
-A segunda seção nos dá a estimativa de variância do componente aleatório do
-intercepto na escala logit ($\sigma_{u_{0j}}$). 
+A segunda seção nos dá a estimativa da variância do componente aleatório do
+intercepto na escala logit ($\hat\sigma_{u_{0j}}$). 
 
 Como queremos a razão de chances em vez dos coeficientes na escala logit, 
 podemos exponenciar as estimativas e os intervalos de confiança. Podemos fazer 
 isso no `Stata` usando a opção __OR__. A tabela de estimativa relata os efeitos fixos 
 e os componentes de variância estimados. Os efeitos fixos podem ser 
 interpretados da mesma forma que a saída do logit tradicional. Transformando em
-razão de chances, descobre-se que a chance das mulheres urbanas usarem
+razão de chances, descobre-se que a chance das mulheres em zona urbana usarem
 anticoncepcionais é o dobro das mulheres em zona rural. Além disso, ter qualquer
 número de filhos aumentará as chances de três a quatro vezes em comparação com a
 categoria base de não ter filhos. O uso de anticoncepcionais também diminui 
@@ -450,15 +450,15 @@ encontrados em __1__). Chamamos esse valor de $x$
 
 Ex: 
   
-$$x = log(\frac{\pi_{ij}}{1-\pi_{ij}}) = (\hat\beta_0 +\hat{u_{0j}})$$
-os $\hat\beta_k$ sendo as estimativas dos parâmetros fixos e $\hat{u_{0j}}$ as estimativas dos parâmetros aleatórios, com $k$ =0,1,2,3,4,5 e $j$ =1,...60
+$$x = log(\frac{\pi_{j}}{1-\pi_{j}}) = (\hat\beta_0 +\hat{u_{0j}})$$
+ $\hat\beta_0$ sendo a estimativa do parâmetro fixo e $\hat{u_{0j}}$ as estimativas dos parâmetros aleatórios, com $j$ =1,...60
   
 
 3. Como o valor encontrado está na forma de logaritmo da chance, precisamos
 exponenciá-lo para obter as probabilidades previstas.
 
-$$ \hat\pi_{ij}= \frac{exp(x)}{1+exp(x)} $$
-Logo, $\hat\pi_{ij}$ é a probabilidade média, por distrito, das mulheres usarem anticoncepcional
+$$ \hat\pi_{j}= \frac{exp(x)}{1+exp(x)} $$
+Logo, $\hat\pi_{j}$ é a probabilidade média, por distrito, das mulheres usarem anticoncepcional
 
 \newpage
 
@@ -474,7 +474,7 @@ Aplicação das etapas no `Stata`:
 `rxb`: estimação da parte constante do intercepto + parte aleatória do 
 intercepto  
 
-$$rxb = log(\frac{\pi_{ij}}{1-\pi_{ij}}) = (\hat\beta_0 +\hat{u_{0j}})$$
+$$rxb = log(\frac{\pi_{j}}{1-\pi_{j}}) = (\hat\beta_0 +\hat{u_{0j}})$$
 
 3. __`generate prob_anti = exp(rxb)/(1 + exp(rxb))`__
 
@@ -498,8 +498,8 @@ comportamento da variável urban na resposta.
 
 Logo,
 
-$$ rxb_{urban} = log(\frac{\pi_{ij}}{1-\pi_{ij}}) = (\hat\beta_0 +\hat{u_{0j}})+ \hat\beta_1*1$$
-$$rxb_{rural} = log(\frac{\pi_{ij}}{1-\pi_{ij}}) = (\hat\beta_0 +\hat{u_{0j}})+ \hat\beta_1*0$$
+$$ rxb_{urban} = log(\frac{\pi_{j}}{1-\pi_{j}}) = (\hat\beta_0 +\hat{u_{0j}})+ \hat\beta_1*1$$
+$$rxb_{rural} = log(\frac{\pi_{j}}{1-\pi_{j}}) = (\hat\beta_0 +\hat{u_{0j}})+ \hat\beta_1*0$$
 
 `rxb_urban` e `rxb_rural` são as predições marginais do logaritimo da chance para
 mulheres que vivem no ambiente urbano e mulheres que vivem no ambiente rural, respectivamente
@@ -511,11 +511,11 @@ intercepto + parte fixa da variável urban
 
    __`generate prob_curso_rural = exp(rxb_rural)/(1 + exp(rxb_rural))`__
 
-`prob_curso_urban` é a probabilidade média das mulheres que vivem no ambiente urbano usarem anticoncepcional em cada distrito  
+`prob_curso_urban` é a probabilidade média das mulheres que vivem na zona urbana usarem anticoncepcional em cada distrito  
   
-`prob_curso_rural` é a probabilidade média das mulheres que vivem no ambiente rural usarem anticoncepcional em cada distrito
+`prob_curso_rural` é a probabilidade média das mulheres que vivem na zona rural usarem anticoncepcional em cada distrito
 
-A discrepância entre as probabilidades de usar anticoncepcional por àrea (rural ou urbano), em cada distrito, se dá por conta do efeito fixo da àrea, ou seja, quando a variável urbana muda (0 = rural, 1 = urbana) o coeficiente referente a essa variável é acrescentado 
+A discrepância entre as probabilidades de usar anticoncepcional por zona (rural ou urbano), em cada distrito, se dá por conta do efeito fixo da zona, ou seja, quando a variável urbana muda (0 = rural, 1 = urbana) o coeficiente referente a essa variável é acrescentado 
 na equação do modelo e, consequentemente, afeta os valores finais das
 probabilidades. 
 
