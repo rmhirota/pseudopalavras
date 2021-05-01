@@ -5,7 +5,9 @@ Conforme descrito por Florin (2019), Linguística é uma ciência da linguagem, 
 
 Logo, a área estuda os aspectos fonético, morfológico, sintático, semântico, social e psicológico no português brasileiro. Dentro disso, existe o conceito de _pseudopalavra_ que, de acordo com o dicionário de Priberan, é uma _"Sequência regular e pronunciável de  caracteres que não tem um significado numa língua, apesar de obedecer às regras ortográficas, morfológicas ou de pronúncia"_.
   
-O trabalho investiga a maneira como os falantes nativos do português atribuem a acentuação em pseudopalavras correspondentes à palavras existentes na língua. Em outras palavras, queremos compreender como o indivíduo acentua uma palavra inventada e desconhecida. Além disso, busca-se entender quais são os conhecimentos linguísticos do falante utilizados nesse processo de encontrar e acentuar a sílaba tônica das pseudopalavras.
+O trabalho investiga a maneira como os falantes nativos do português atribuem a acentuação em pseudopalavras correspondentes à palavras existentes na língua. Em outras palavras, queremos compreender como o indivíduo acentua uma palavra inventada e desconhecida. Além disso, busca-se entender quais são os conhecimentos linguísticos do falante que influenciam processo de encontrar e acentuar a sílaba tônica das pseudopalavras.
+
+Assim, é possível inferir se um falante do português ao se deparar com uma palavra nova, compara-a com palavras conhecidas para acentuá-la.
   
 
 # 2. Objetivo(s)
@@ -22,12 +24,17 @@ O objetivo do trabalho é verificar se uma pseudopalavra que se assemelha a uma 
 
 # 3. Descrição do experimento
 
-O estudo foi realizado durante o ano de 2020, com 34 indivíduos que, através de posts em redes sociais e conversas com amigos, se voluntariaram a participar do experimento. O único pré-requisito era de que tais voluntários não tivessem grande conhecimento em linguística e gramática. Na amostra encontram-se estudantes do primeiro semestre da faculdade de Letras da Universidade de São Paulo, músicos,alguns residentes de fora do estado de São Paulo entre outros. 
+O estudo foi realizado durante o primeiro semestre de 2020 com 34 indivíduos que, através de divulgações em redes sociais e de colegas, se voluntariaram a participar do experimento. Os pré-requisitos eram de que tais voluntários não tivessem estudado fonologia, fossem maior de 18 anos e falantes nativos do português brasileiro. Na amostra encontram-se estudantes do primeiro semestre da faculdade de Letras da Universidade de São Paulo, músicos,alguns residentes de fora do estado de São Paulo entre outros. 
    
-O experimento consistia em apresentar, através do software Psychopy, uma série de palavras inventadas aos participantes e registrar, via Google Meets, a forma como eles acentuavam verbalmente tais palavras. As palavras reais que deram origem às pseudopalavras foram escolhidos a partir do _Corpus brasileiro_, corpus linguístico coordenado pelo pesquisador Antonio Paulo Berber Sardinha. Essas palavras possuem, no máximo, três sílabas.
-Vale destacar que todas as pseudopalavras foram mostradas à todos os participantes.
+O experimento consistia em apresentar aos participantes, através do software Psychopy, uma série de palavras inventadas e registrar, via Google Meets, a forma como eles acentuavam verbalmente tais palavras.
 
-Ao todo, foram criadas 372 pseudopalavras aleatorizadas em 4 blocos de 93 pseudopalavras, um total de 12.648 dados registrados na base. A ordem de apresentação dos blocos para os falantes também foi aleatorizada, porém, para alguns participantes o software Psychopy que apresentava as palavras parou de funcionar e eles tiveram que continuar o experimento a partir de slides com uma aleatorização prévia. Em outras palavras, todos os indivíduos que em algum momento acompanharam o experimento pelos slides seguiram com blocos na mesma ordem.
+Ao todo, foram criadas 372 pseudopalavras aleatorizadas em 4 blocos de 93 pseudopalavras, um total de 12.648 dados registrados na base. Vale destacar que todas as pseudopalavras foram mostradas à todos os participantes. Dentro de cada bloco a ordem em que as pseudopalavras eram apresentadas aos falantes também foi aleatorizada, porém, para alguns participantes o software Psychopy apresentou problemas e eles tiveram que continuar o experimento a partir de slides com uma aleatorização prévia. Em outras palavras, todos os indivíduos que em algum momento acompanharam o experimento pelos slides seguiram com blocos com a mesma aleatorização.
+
+As palavras que deram origem às pseudopalavras foram classificadas em frequência de acordo com a sua ocorrência no  _Corpus brasileiro_, corpus linguístico coordenado pelo pesquisador Antonio Paulo Berber Sardinha. Se possue mais de 100 mil ocorrências no corpus ela é classificada como alta frequência e se possue menos de 2 mil ocorrências ela é classificada como baixa frequência. Ademais, essas palavras possuem, no máximo, três sílabas. 
+
+Outro ponto importante está relacionado aos testes para validar se a pseudopalavra é similar a palavra a partir da qual ela foi criada (palavra alvo). Nessa etapa, pediu-se para 10 falantes do português que não participaram do estudo listarem a palavra real a qual eles associavam a palavra inventada. Considerou-se como validadas as pseudopalavras cuja associação foi a palavra alvo na resposta de, no mínimo, oito indivíduos. Pseudopalavras com um número de associações corretas menor que oito foram consideradas não validadas, porém, pseudopalavras nais qual sete falantes apresentaram a associação correta foram classificadas como quase validadas.  
+  
+Da mesma forma, para validar se a pseudopalavra é dissimilar a sua palavra alvo, considerou-se como validadas as pseudopalavras cuja associação foi a mesma na resposta (não necessariamente a palavra alvo) de, no máximo, dois indivíduos. Pseudopalavras com um número de associações maior que dois foram consideradas não validadas, porém,pseudopalavras nais qual três falantes apresentaram a mesma associação foram classificadas como quase validadas.
 
 Por fim, destacamos que os falantes e as pseudopalavras são variáveis aleatórias, pois podem indicar se algum participante ou pseudopalavra apresentam um comportamento muito específico.
 
@@ -50,13 +57,13 @@ _Variáveis Linguísticas_
 - __Pseudopalavra__: refere-se a cada um dos estímulos criados
 - __Palavra Alvo__: palavra real que deu origem à pseudopalavra
 - __Tonicidade da palavra alvo__: oxítona, paroxítona e proparoxítona
-- __Estrutura da palavra__: indica qual é a estrutura da pseudopalavra (CV-CV-CV e CV-CV-CVC) - __Segmento modificado__: indica qual letra foi modificada na criação da pseudopalavra a partir da palavra real (consoante e vogal)  
-- __Taxa de similaridade__: 1, 2, 3 (grupos similares), 5, 6, 7, 8, 9, 10 (grupo dissimilares)
+- __Estrutura da palavra__: indica qual é a estrutura da pseudopalavra (CV-CV-CV ou CV-CV-CVC) - __Segmento modificado__: indica qual letra foi modificada na criação da pseudopalavra a partir da palavra real (consoante ou vogal)  
+- __Taxa de similaridade__: 1, 2, 3 (grupos similares), 5, 6, 7, 8, 9, 10 (grupos dissimilares)
 - __Validação__: indica se a pseudopalavra foi validada ou não em testes prévios
- (s = sim, n = não e q = quase)
-- __Taxa de validação__: indica quantas pessoas indicaram que a palavra era similar ou dissimilar
+ (s = sim, n = não validada e q = quase validada)
+- __Taxa de validação__: indica quantas pessoas informaram que a palavra era similar ou dissimilar
 - __Vizinhança Fonologica__: consiste na categorização por vizinhança fonológica apenas das pseudopalavras que não foram validadas 
-- __Vizinhança Tonicidade__: indica qual foi o padrão acentual das palavras que os participantes julgaram similares a pseudopalavras criada;apenas para as pseudopalavras que não foram validadas  
+- __Vizinhança Tonicidade__: indica qual foi o padrão acentual das palavras que os participantes julgaram similares a pseudopalavras criada; apenas para as pseudopalavras que não foram validadas  
 
 
 _Variáveis Extralinguísticas_
@@ -67,8 +74,8 @@ São as variáveis que caracterizam a amostra
 - __Gênero__: feminino e masculino
 - __Naturalidade__: indica a cidade em que o participante nasceu
 - __Escolaridade__: ensino eundamental a mestrado
-- __Área de Formação__: indica a área em que o participante é formado
-- __Línguas__: indica quais línguas o falante declara que fala ou já estudou.
+- __Área de Formação__: indica a área em que o participante é formado (0 = outros e 1 = letras)
+- __Línguas__: indica quais línguas o falante declara que fala ou já estudou. (categorizar ?)
 - __Música__: indica se o participante já fez aula ou tem algum conhecimento em música
 
 _Variáveis Experimentais_
