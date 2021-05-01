@@ -1,7 +1,86 @@
-# Introdução {#introducao}
+# 1. Introdução {#introducao}
+
+De acordo com Margarida Petter (2007), o interesse pela linguagem é antigo e expresso através de mitos, lendas, cantos, rituais ou trabalhos eruditos que buscam conhecer essa capacidade humana. A autora aponta que, a partir do século XX, os estudos linguistícos passaram a ter um caráter cientifico, ou seja, centrados na observação dos fatos a partir de pressupostos teóricos da linguagem, no estabelecimento de hipóteses e na examinação mediante experimentos.
+Conforme descrito por Florin (2019), Linguística é uma ciência da linguagem, porque, ao contrário da gramática, ela tem como objetivo dizer o que a língua é e por que é assim
+
+Logo, a área estuda os aspectos fonético, morfológico, sintático, semântico, social e psicológico no português brasileiro. Dentro disso, existe o conceito de _pseudopalavra_ que, de acordo com o dicionário de Priberan, é uma _" Sequência regular e pronunciável de  caracteres que não tem um significado numa língua, apesar de obedecer às regras ortográficas, morfológicas ou de pronúncia"_.
+  
+O trabalho investiga a maneira como os falantes nativos do português atribuem a acentuação em pseudopalavras correspondentes à palavras existentes na língua. Em outras palavras, queremos compreender como o indivíduo acentua uma palavra inventada e desconhecida. Além disso, busca-se entender quais são os conhecimentos linguísticos do falante utilizados nesse processo de encontrar e acentuar a sílaba tônica das pseudopalavras.
+  
+
+# 2. Objetivo(s)
+
+O objetivo do trabalho é verificar se uma pseudopalavra que se assemelha a uma palavra real pode sofrer um processo analógico e ter o mesmo padrão acentual da palavra real, além de entender quais são os conhecimentos linguísticos do falante utilizados nesse processo de encontrar e acentuar a sílaba tônica das pseudopalavras. Algumas perguntas a a serem respondidas são: 
+  
+- Quanto mais similar a palavra inventada for da palavra real, maior as chances do falante atribuir o mesmo padrão acentual da palavra real?
+- As variáveis selecionadas pelo modelo estão em concordância com a literatura da área?
+- Identificar se há algum falante ou pseudopalavra tiveram comportamento destoante dos demais e qual o seu papel na atribuição acentual
 
 
-## Objetivo e questões norteadoras
+# 3. Descrição do estudo
+
+O estudo foi realizado durante o ano de 2020, com 34 indivíduos que, através de posts em redes sociais e conversas com amigos, se voluntariaram a participar do experimento. O único pré-requisito era de que tais voluntários não tivessem grande conhecimento em linguística e gramática. Na amostra encontram-se estudantes do primeiro semestre da faculdade de Letras da Universidade de São Paulo, músicos e alguns indivíduos de fora do estado de São Paulo. 
+   
+O experimento consistia-se em apresentar uma série de palavras inventadas aos participantes e gravar a forma como eles acentuavam tais palavras. Vale destacar que todas as pseudopalavras foram mostradas à todos os participantes.
+
+Ao todo, foram criadas 372 pseudopalavras aleatorizadas em 4 blocos de 93 pseudopalavras. A ordem de apresentação dos blocos para os falantes também foi aleatorizado, porém, para alguns participantes o software que apresentava as palavras parou de funcionar e eles tiveram que seguir o experimento a partir de slides (sem aleatorização na ordem de apresentação das palavras e blocos)
+
+# 4. Descrição das variáveis 
+
+Foram selecionadas variáveis linguísticas, extralinguística e experimentais, que podem, segundo a literatura da área, influenciar o comportamento acentual no português. 
+  
+_Variáveis Linguísticas_
+
+- __Grupo dos estímulos__:  indica o efeito da similaridade (entre a pseudopalavra e a palavra real) e da frequência (alta e baixa) na produção acentual
+  
+1 = pseudopalavras similares de alta frequência
+2 = pseudopalavras dissimilares de alta frequência
+3 = pseudopalavras similares de baixa frequência
+4 = pseudopalavras dissimilares de baixa frequência
+  
+- __Pseudopalavra__
+- __Palavra Alvo__: palavra real associada à pseudopalavra
+- __Tonicidade da palavra alvo__: oxítona, paroxítona e proparoxítona
+- __Estrutura da palavra__: CV-CV-CV e CV-CV-CVC (C = consoante e V = Vogal)
+- __Segmento modificado__: consoante e vogal
+- __Taxa de similaridade__: indica o índice de modificação da(s) letra(s) a partir de critérios fonológicos (ponto, modo e vozeamento) 
+  
+1, 2, 3 (grupos similares), 5, 6, 7, 8, 9, 10 (grupo dissimilares)
+  
+- __Validação__: indica se a pseudopalavra foi validada ou não em testes prévios. Isto é, a pseudopalavra foi considerada similar ou dissimilar a palavra a partir da qual ela foi criada. Permitirá avaliar se as pseudopalavras não validadas têm comportamento distinto das similares e quase similares
+
+s = sim, n = não e q = quase
+
+- __Taxa de validação__: indica quantas pessoas indicaram que a palavra era similar ou dissimilar
+- __Vizinhanca_Fonologica__: consiste na categorização por vizinhança fonológica apenas das pseudopalavras que não foram validadas (variável validacao) 
+- __Sílaba modificada__: indica qual consoante ou vogal foi modificada para criar as pseudopalavras dos grupos similares
+  
+1 = primeira sílaba modificada - da esquerda para a direita
+2 = segunda sílaba modificada - da esquerda para a direita
+3 = terceira sílaba modificada - da esquerda para a direita
+0 = (para os grupos dissimilares, pois eles tiveram todas as consoantes ou todas as vogais modificadas)
+
+
+_Variáveis Extralinguísticas_
+
+- __Participante__: indica os 34 participantes do experimento.
+Idade: de 18 a 60
+- __Gênero__: Feminino e Masculino
+- __Naturalidade__
+- __Escolaridade__: Ensino Fundamental completo a Mestrado
+- __Área de Formação__
+- __Proficiência em Línguas Estrangeiras__
+- __Conhecimento em Música__
+
+_Variáveis Experimentais_
+
+- __Bloco de apresentação do estímulo__: 1, 2, 3 e 4 
+- __Ordem de apresentação do estímulo__: 1 a 93
+
+  
+
+
+
 
 ## Organização do trabalho
 
