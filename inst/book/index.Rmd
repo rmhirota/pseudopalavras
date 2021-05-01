@@ -4,7 +4,7 @@ subtitle: "O processamento de pseudopalavras no Português Brasileiro"
 author: 
   - name: "Giovanna Vendeiro Vilar<br>Mariana Almeida<br>Renata Massami Hirota<br>Viviana Giampaoli"
 pesquisadora: "Aline Benevides"
-orientadora: ""
+orientadora: "Profa. Dra. Raquel Santana Santos"
 instituicao: "Faculdade de Filosofia e Ciências Humanas da Universidade de São Paulo"
 finalidade: "Doutorado"
 date: "São Paulo, `r format(Sys.Date(), '%B de %Y')`"
