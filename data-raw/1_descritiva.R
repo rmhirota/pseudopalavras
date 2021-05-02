@@ -20,17 +20,17 @@ dados <- dados %>%
 # Aleatorização e vars de delineamento da pesquisa ------------------------
 
 dados %>%
-  dplyr::count(aleatorizacao)
+  dplyr::count(aleatorizacao)  # alto número de não aleatorizados
 dados %>%
-  dplyr::count(grupo)
+  dplyr::count(grupo) #desbalanceados
 dados %>%
-  dplyr::count(bloco_apresentacao)
+  dplyr::count(bloco_apresentacao) #desbalanceado
 dados %>%
-  dplyr::count(ordem_apresentacao)
+  dplyr::count(ordem_apresentacao) #93 tipos de ordem
 dados %>%
   dplyr::count(informante)
 dados %>%
-  dplyr::count(validacao)
+  dplyr::count(validacao) #n = 2118, q = 1348 e s = 9045
 
 
 # Análise geral -----------------------------------------------------------
@@ -76,4 +76,23 @@ dados %>%
 
 # Tonicidade observada na pseudopalavra e tonicidade da palavra-alvo
 dados %>%
-  dplyr::count(tonicidade_producao, tonicidade_alvo)
+  dplyr::count(tonicidade_producao, tonicidade_alvo) %>%
+  knitr::kable()
+
+# Vizinhança Fonológica e Vizinhança Tonicidade (Validação)
+
+dados %>% dplyr::filter(validacao=="n") %>%
+  dplyr::group_by(vizinhanca_fonologica) %>%
+  dplyr::count() %>% View() # 1 NA e 60 categorias
+
+dados %>% dplyr::filter(validacao=="n") %>%
+  dplyr::group_by(vizinhanca_tonicidade) %>%
+  dplyr::count() %>% View() # 1 NA e 17 categorias
+
+# Grupo vs tonicidade_producao
+
+prop.table(table(dados$tonicidade_producao,dados$grupo),2)*100
+
+# Estrutura da palavra vs tonicidade_producao
+
+prop.table(table(dados$tonicidade_producao,dados$estrutura_palavra),2)*100
