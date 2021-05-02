@@ -96,3 +96,13 @@ prop.table(table(dados$tonicidade_producao,dados$grupo),2)*100
 # Estrutura da palavra vs tonicidade_producao
 
 prop.table(table(dados$tonicidade_producao,dados$estrutura_palavra),2)*100
+
+# Informantes
+
+dados %>% dplyr::group_by(informante) %>% dplyr::count() %>% View()
+
+# Pseudopalavra
+
+dados %>% dplyr::group_by(pseudopalavra) %>%  dplyr::count()%>% View()
+dados %>% dplyr::distinct(palavra_alvo) %>% dplyr::count()
+

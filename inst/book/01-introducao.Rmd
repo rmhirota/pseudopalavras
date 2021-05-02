@@ -4,15 +4,17 @@ De acordo com Margarida Petter (2007), o interesse pela linguagem é antigo e ex
 Conforme descrito por Florin (2019), Linguística é uma ciência da linguagem, porque, ao contrário da gramática, ela tem como objetivo dizer o que a língua é e por que é assim
 
 Logo, a área estuda os aspectos fonético, morfológico, sintático, semântico, social e psicológico no português brasileiro. Dentro disso, existe o conceito de _pseudopalavra_ que, de acordo com o dicionário de Priberan, é uma _"Sequência regular e pronunciável de  caracteres que não tem um significado numa língua, apesar de obedecer às regras ortográficas, morfológicas ou de pronúncia"_.
-  
-O trabalho investiga a maneira como os falantes nativos do português atribuem a acentuação em pseudopalavras correspondentes à palavras existentes na língua. Em outras palavras, queremos compreender como o indivíduo acentua uma palavra inventada e desconhecida. Além disso, busca-se entender quais são os conhecimentos linguísticos do falante que influenciam processo de encontrar e acentuar a sílaba tônica das pseudopalavras.
+
+No português brasileiro existem três classes de acento tônico: oxítona, paroxítona e proparoxítona. Essas denominações estão relacionadas a intensidade dada a determinadas sílabas na pronúncia das palavras. Aquela que é pronunciada de forma mais acentuada é a sílaba tônica. Oxítonas são as palavras cuja sílaba tônica é a última; paroxítonas são as palavras cuja sílaba tônica é a penúltima; e proparoxítonas são as palavras cuja sílaba tônica é a antepenúltima.
+
+O trabalho investiga a maneira como os falantes nativos do português atribuem a acentuação tônica em pseudopalavras correspondentes à palavras existentes na língua.Em outras palavras, queremos compreender como o indivíduo define a sílaba tônica de uma palavra inventada e desconhecida. Além disso, busca-se entender quais são os conhecimentos linguísticos do falante que influenciam esse processo de classificação das pseudopalavras.
 
 Assim, é possível inferir se um falante do português ao se deparar com uma palavra nova, compara-a com palavras conhecidas para acentuá-la.
   
 
 # 2. Objetivo(s)
 
-O objetivo do trabalho é verificar se uma pseudopalavra que se assemelha a uma palavra real pode sofrer um processo analógico e ter o mesmo padrão acentual da palavra real, além de entender quais são os conhecimentos linguísticos do falante utilizados nesse processo de encontrar e acentuar a sílaba tônica das pseudopalavras. Algumas perguntas a a serem respondidas nessa etapa são: 
+O objetivo do trabalho é verificar se uma pseudopalavra que se assemelha a uma palavra real pode sofrer um processo analógico e ter o mesmo padrão acentual da palavra real, além de entender quais são os conhecimentos linguísticos do falante utilizados nesse processo de acentuação tônica das pseudopalavras. Algumas perguntas a a serem respondidas nessa etapa são: 
   
 - Quanto mais similar a palavra inventada for da palavra real, maior as chances do falante atribuir o mesmo padrão acentual da palavra real?  
 - Há diferença entre os grupos similares ($i$ e $iii$) e os grupos dissimilares ($ii$ e $iv$)?
@@ -26,15 +28,15 @@ O objetivo do trabalho é verificar se uma pseudopalavra que se assemelha a uma 
 
 O estudo foi realizado durante o primeiro semestre de 2020 com 34 indivíduos que, através de divulgações em redes sociais e de colegas, se voluntariaram a participar do experimento. Os pré-requisitos eram de que tais voluntários não tivessem estudado fonologia, fossem maior de 18 anos e falantes nativos do português brasileiro. Na amostra encontram-se estudantes do primeiro semestre da faculdade de Letras da Universidade de São Paulo, músicos,alguns residentes de fora do estado de São Paulo entre outros. 
    
-O experimento consistia em apresentar aos participantes, através do software Psychopy, uma série de palavras inventadas e registrar, via Google Meets, a forma como eles acentuavam verbalmente tais palavras.
+O experimento consistia em apresentar aos participantes, através do software Psychopy, uma série de palavras inventadas e registrar, via Google Meets, a forma como eles reproduziam  verbalmente tais palavras. A seguir, as respostas dos participantes foram classificadas de acordo com as três classes de acentuação tônica: oxítona, paroxítona e proparoxítona
 
-Ao todo, foram criadas 372 pseudopalavras aleatorizadas em 4 blocos de 93 pseudopalavras, um total de 12.648 dados registrados na base. Vale destacar que todas as pseudopalavras foram mostradas à todos os participantes. Dentro de cada bloco a ordem em que as pseudopalavras eram apresentadas aos falantes também foi aleatorizada, porém, para alguns participantes o software Psychopy apresentou problemas e eles tiveram que continuar o experimento a partir de slides com uma aleatorização prévia. Em outras palavras, todos os indivíduos que em algum momento acompanharam o experimento pelos slides seguiram com blocos com a mesma aleatorização.
+Ao todo, foram criadas 372 pseudopalavras aleatorizadas em 4 blocos de 93 pseudopalavras, um total de 12.648 dados registrados na base. Dentro de cada bloco a ordem em que as pseudopalavras eram apresentadas aos falantes também foi aleatorizada, porém, para alguns participantes o software Psychopy apresentou problemas e eles tiveram que continuar o experimento a partir de slides com uma aleatorização prévia. Em outras palavras, todos os indivíduos que em algum momento acompanharam o experimento pelos slides seguiram com blocos com a mesma aleatorização. (explicar a perda de respostas por causa de barulho etc, n temos todas as respostas de cada participante)
 
 As palavras que deram origem às pseudopalavras foram classificadas em frequência de acordo com a sua ocorrência no  _Corpus brasileiro_, corpus linguístico coordenado pelo pesquisador Antonio Paulo Berber Sardinha. Se possue mais de 100 mil ocorrências no corpus ela é classificada como alta frequência e se possue menos de 2 mil ocorrências ela é classificada como baixa frequência. Ademais, as pseudopalavras foram construídas com três sílabas de extensão para que os três padrões acentuais do português brasileiro pudessem ser produzidos
 
 Outro ponto importante está relacionado aos testes para validar se a pseudopalavra é similar a palavra a partir da qual ela foi criada (palavra alvo). Nessa etapa, pediu-se para 10 falantes do português que não participaram do estudo listarem a palavra real a qual eles associavam a palavra inventada. Considerou-se como validadas as pseudopalavras cuja associação foi a palavra alvo na resposta de, no mínimo, oito indivíduos. Pseudopalavras com um número de associações corretas menor que oito foram consideradas não validadas, porém, pseudopalavras nais qual sete falantes apresentaram a associação correta foram classificadas como quase validadas.  
   
-Da mesma forma, para validar se a pseudopalavra é dissimilar a sua palavra alvo, considerou-se como validadas as pseudopalavras cuja associação foi a mesma na resposta (não necessariamente a palavra alvo) de, no máximo, dois indivíduos. Pseudopalavras com um número de associações maior que dois foram consideradas não validadas, porém,pseudopalavras nais qual três falantes apresentaram a mesma associação foram classificadas como quase validadas.
+Da mesma forma, para validar se a pseudopalavra é dissimilar a sua palavra alvo, considerou-se como validadas as pseudopalavras cuja associação foi a mesma na resposta (não necessariamente a palavra alvo) de, no máximo, dois indivíduos.Pseudopalavras com um número de associações maior que dois foram consideradas não validadas,porém,pseudopalavras nas qual três falantes apresentaram a mesma associação foram classificadas como quase validadas.
 
 Por fim, destacamos que os falantes e as pseudopalavras são variáveis aleatórias, pois podem indicar se algum participante ou pseudopalavra apresentam um comportamento muito específico.
 
