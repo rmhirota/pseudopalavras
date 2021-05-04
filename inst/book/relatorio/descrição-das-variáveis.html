@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Relatório de análise estatística sobre o projeto</title>
+  <title>Capítulo 4 4. Descrição das variáveis | Relatório de análise estatística sobre o projeto</title>
   <meta name="description" content="Relatório de pesquisa da disciplina MAE0413." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Relatório de análise estatística sobre o projeto" />
+  <meta property="og:title" content="Capítulo 4 4. Descrição das variáveis | Relatório de análise estatística sobre o projeto" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Relatório de análise estatística sobre o projeto" />
+  <meta name="twitter:title" content="Capítulo 4 4. Descrição das variáveis | Relatório de análise estatística sobre o projeto" />
   
   <meta name="twitter:description" content="Relatório de pesquisa da disciplina MAE0413." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="introducao.html"/>
+<link rel="prev" href="descrição-do-experimento.html"/>
+<link rel="next" href="análise-descritiva.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -71,7 +71,6 @@
 <li><a href="./">Pseudopalavras</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Sobre este documento</a></li>
 <li class="chapter" data-level="1" data-path="introducao.html"><a href="introducao.html"><i class="fa fa-check"></i><b>1</b> 1. Introdução</a></li>
 <li class="chapter" data-level="2" data-path="objetivos.html"><a href="objetivos.html"><i class="fa fa-check"></i><b>2</b> 2. Objetivo(s)</a></li>
 <li class="chapter" data-level="3" data-path="descrição-do-experimento.html"><a href="descrição-do-experimento.html"><i class="fa fa-check"></i><b>3</b> 3. Descrição do experimento</a></li>
@@ -109,24 +108,58 @@
 
             <section class="normal" id="section-">
 RAE-CEA–21P02
-<div id="header">
-<h1 class="title">Relatório de análise estatística sobre o projeto</h1>
-<h2 class="subtitle"><em>O processamento de pseudopalavras no Português Brasileiro</em></h2>
-<p class="author" style="margin: 0.5em 0 -0.5em 0;"><em>Giovanna Vendeiro Vilar<br>Mariana Almeida<br>Renata Massami Hirota<br>Viviana Giampaoli</em></p>
-<p class="date" style="margin-top: 1.5em;"><em>São Paulo, maio de 2021</em></p>
-</div>
-<div id="sobre-este-documento" class="section level1 unnumbered">
-<h1>Sobre este documento</h1>
-<p>Este relatório foi produzido em <em>RMarkdown</em>, utilizando o software estatístico R na versão 4.0.3.</p>
-
+<div id="descrição-das-variáveis" class="section level1" number="4">
+<h1><span class="header-section-number">Capítulo 4</span> 4. Descrição das variáveis</h1>
+<p>Foram selecionadas variáveis linguísticas, extralinguística e experimentais, que podem, segundo a literatura da área, influenciar o comportamento acentual no português.</p>
+<p><em>Variáveis Linguísticas</em></p>
+<ul>
+<li><p><strong>Tonicidade</strong>: oxítona, paroxítona e proparoxítona (variável dependente)</p></li>
+<li><p><strong>Grupo dos estímulos</strong>: indica o efeito da similaridade (entre a pseudopalavra e a palavra real) e da frequência (alta e baixa) na produção acentual</p></li>
+</ul>
+<p>1 = pseudopalavras similares de alta frequência
+2 = pseudopalavras dissimilares de alta frequência
+3 = pseudopalavras similares de baixa frequência
+4 = pseudopalavras dissimilares de baixa frequência</p>
+<ul>
+<li><strong>Pseudopalavra</strong>: refere-se a cada um dos estímulos criados</li>
+<li><strong>Palavra Alvo</strong>: palavra real que deu origem à pseudopalavra</li>
+<li><strong>Tonicidade da palavra alvo</strong>: oxítona, paroxítona e proparoxítona</li>
+<li><strong>Estrutura da palavra</strong>: indica qual é a estrutura da pseudopalavra (CV-CV-CV ou CV-CV-CVC) - <strong>Segmento modificado</strong>: indica qual letra foi modificada na criação da pseudopalavra a partir da palavra real (consoante ou vogal)<br />
+</li>
+<li><strong>Taxa de similaridade</strong>: 1, 2, 3 (grupos similares), 5, 6, 7, 8, 9, 10 (grupos dissimilares)</li>
+<li><strong>Validação</strong>: indica se a pseudopalavra foi validada ou não em testes prévios
+(s = sim, n = não validada e q = quase validada)</li>
+<li><strong>Taxa de validação</strong>: indica quantas pessoas informaram que a palavra era similar ou dissimilar</li>
+<li><strong>Vizinhança Fonologica</strong>: consiste na categorização por vizinhança fonológica apenas das pseudopalavras que não foram validadas</li>
+<li><strong>Vizinhança Tonicidade</strong>: indica qual foi o padrão acentual das palavras que os participantes julgaram similares a pseudopalavras criada; apenas para as pseudopalavras que não foram validadas</li>
+</ul>
+<p><em>Variáveis Extralinguísticas</em>
+São as variáveis que caracterizam a amostra</p>
+<ul>
+<li><strong>Participante</strong>: indica os 34 participantes do experimento.</li>
+<li><strong>Idade</strong>: de 18 a 60</li>
+<li><strong>Gênero</strong>: feminino e masculino</li>
+<li><strong>Naturalidade</strong>: indica a cidade em que o participante nasceu</li>
+<li><strong>Escolaridade</strong>: ensino eundamental a mestrado</li>
+<li><strong>Área de Formação</strong>: indica a área em que o participante é formado (0 = outros e 1 = letras)</li>
+<li><strong>Línguas</strong>: indica quais línguas o falante declara que fala ou já estudou. (categorizar ?)</li>
+<li><strong>Música</strong>: indica se o participante já fez aula ou tem algum conhecimento em música</li>
+</ul>
+<p><em>Variáveis Experimentais</em>
+São as variáveis relacionadas ao método experimental</p>
+<ul>
+<li><p><strong>Aleatorizacao</strong>: codifica se o bloco de apresentação foi aleatorizado para o indivíduo ou se foi a aleatorização prévia (s = o estímulo foi aleatorizado e n = não houve aleatorização)</p></li>
+<li><p><strong>Bloco de apresentação</strong>: 1, 2, 3 e 4</p></li>
+<li><p><strong>Ordem de apresentação</strong>: indica em qual ordem a pseudopalavra foi apresentada dentro do bloco de apresentação (1 a 93)</p></li>
+</ul>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="introducao.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="descrição-do-experimento.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="análise-descritiva.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

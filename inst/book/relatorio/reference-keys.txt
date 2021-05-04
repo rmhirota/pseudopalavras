@@ -1,6 +1,12 @@
 introducao
-objetivo-e-questões-norteadoras
+objetivos
+descrição-do-experimento
+descrição-das-variáveis
+análise-descritiva
+plano-de-análise
 organização-do-trabalho
 metodologia
 coleta-dos-dados
+variáveis
+análise
 resultados

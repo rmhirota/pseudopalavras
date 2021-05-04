@@ -32,6 +32,9 @@ dados %>%
 dados %>%
   dplyr::count(validacao) #n = 2118, q = 1348 e s = 9045
 
+dados %>%
+  dplyr::count(pseudopalavra, sort = TRUE) %>%
+  View()
 
 # Análise geral -----------------------------------------------------------
 
@@ -45,7 +48,8 @@ vars_excluir <- c("tempo_resposta")
 # skim
 dados %>%
   dplyr::select(-vars_id, -vars_excluir) %>%
-  skimr::skim()
+  skimr::skim() %>%
+  View()
 
 # ggpairs
 dados %>%
