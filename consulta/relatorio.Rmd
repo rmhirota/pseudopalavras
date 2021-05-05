@@ -155,7 +155,7 @@ do curso" (0 = não; 1 = sim);
 - Coeficiente de Rendimento acumulado por semestre (CRa), relacionado ao último
 semestre acompanhado.
   
-No nível 2(relacionadas ao curso), inicialmente a pesquisadora criou uma 
+No nível 2(relacionadas ao cluster), inicialmente a pesquisadora criou uma 
 variável de seletividade de curso utilizando a nota mediana do curso no Enem com
 a seguinte regra: se a nota mediana do curso no Enem era maior que a nota mediana
 geral no Enem, ou seja, de toda UFRJ, o curso é mais seletivo. Caso contrário, o
@@ -180,7 +180,7 @@ construído e seus resultados foram utilizados para determinar as variáveis a
 serem incluídas nesta fase do estudo.
 
 Salientamos que essa não é uma tomada de decisão correta pois variáveis que não 
-se mostraram significante na primeira etapa podem ser importantes na 
+se mostraram significantes na primeira etapa podem ser importantes na 
 determinação do modelo multinível. São momentos e modelos diferentes, logo, 
 todas as variáveis que a pesquisadora acredita afetar a evasão do curso devem 
 ser testadas.
@@ -207,9 +207,9 @@ estatística.
 
 A primeira sugestão oferecida é incluir no modelo todas as variáveis com bom
 preenchimento (sem grande volumetria de dados faltantes) que a pesquisadora 
-acredita que podem ter algum efeito na evasão do curso. Durante os testes dos
-modelos, algumas podem se mostrar significantes e outras não, porém, é 
-importante testá-las.
+acredita ter algum efeito na evasão do curso. Durante os testes dos modelos, 
+algumas podem se mostrar significantes e outras não, porém, é importante 
+testá-las.
 
 Além disso, também sugerimos o acréscimo de variáveis no 
 nível 2. Por exemplo, o comportamento de evasão dos alunos parece ser diferente
@@ -223,15 +223,23 @@ A seguir, incluímos uma lista de variáveis que podem ser incluídas no estudo:
 - Média da nota no ENEM do curso, _Nível 2_;
 - Média do CRa do curso, _Nível 2_.
 
-### 6.1.2 Padronização de variáveis
+### 6.1.2 Uniformização na escala das variáveis
 
-Destacamos a importância de padronizar as variáveis contínuas referentes à nota 
-do ENEM, pois, como explicado anteriormente, as magnitudes distintas entre CRa e
-esse valor podem interferir na convergência matemática. 
+Destacamos a importância de uniformizar as variáveis contínuas referentes à nota 
+do ENEM, pois, como explicado anteriormente, as magnitudes distintas entre os 
+valores da variável CRa e os valores da variável nota do ENEM podem interferir 
+na convergência matemática. 
 
 Sugerimos que os valores da variável de nota sejam transformados em números na
 escala de 0 a 10, a mesma utilizada no coeficiente de rendimento acumulado por
 semestre.
+
+Pontuamos também que não há um consenso na literatura quando se fala de 
+padronizar variáveis em modelos multiníveis, e portanto a necessidade de 
+padronizar está  relacionada com a interpretação da variável em todos os seus 
+níveis (como há interesse em analisar os resultados com as variáveis CRa e nota 
+do ENEM no nível zero, não há necessidade de padroziná-las, uma vez que a 
+interpretação será outra).
 
 ### 6.1.3 Interação entre variáveis
 
@@ -240,6 +248,9 @@ exemplo $x_1$: Cor/Raça e $x_2$: Status socioeconômico da família (SES). Se a
 interação está presente e é significativa, o efeito de $x_1$ na resposta média
 depende do nível de $x_2$ e, analogamente, o efeito de $x_2$ na resposta média
 depende do nível de $x_1$.
+Salientamos que sejam testadas apenas interações de interesse de análise da 
+pesquisadora, para que não haja uma complicação além do necessário na 
+interpretação do modelo. 
 
 ## 6.2 Construção do modelo e Medidas de desempenho
 
@@ -253,11 +264,12 @@ __Passo 1__: Ajuste do modelo sem variáveis independentes (modelo nulo) para
 calcular o coeficiente de correlação intraclasse e testar se as variâncias em
 diferentes cursos são homogêneas;
   
-__Passo 2__: Incluir as variáveis independentes uma de cada vez e observar a
-significância das variáveis incluídas e uma medida de critério de informação com 
-penalização da complexidade do modelo, como o BIC, AIC ou deviance; o modelo 
-escolhido nesse primeiro passo será o modelo com variáveis que sejam 
-significativas e que tenha o menor BIC/AIC, definidos como:
+__Passo 2__: Incluir as variáveis independentes uma de cada vez (através do 
+método step AIC) e observar a significância das variáveis incluídas e uma 
+medida de critério de informação com penalização da complexidade do modelo, como
+o BIC, AIC ou deviance; o modelo escolhido nesse primeiro passo será o modelo 
+com variáveis que sejam significativas e que tenha o menor BIC/AIC, definidos 
+como:
 
 $$AIC = -2ln(likelihood) + 2k$$
 $$BIC = -2ln(likelihood) + ln(N) k$$
@@ -278,7 +290,7 @@ se ajusta ao conjunto de dados.
 O software `Stata` apresenta na parte superior da saída (log likelihood) o log da
 verossimilhança do modelo testado ($ln (likelihood_{*})$).
 
-sendo $k$ o número de parâmetros estimados e $N$ o número de observações.
+Sendo $k$ o número de parâmetros estimados e $N$ o número de observações.
 
   
 __Passo 3__: Acrescentar novas variáveis até que nenhuma outra seja 
@@ -291,17 +303,19 @@ A curva ROC pode auxiliar a visualizar quão bem o modelo classifica as
 observações. Geralmente, observamos no eixo x a taxa de falsos positivos e no 
 eixo y a taxa de verdadeiros positivos. 
   
-Logo, quanto mais próxima do canto superior esquerdo está a curva, melhor a classificação do modelo pois menor a taxa de falsos positivos e maior a taxa de verdadeiros positivos.
+Logo, quanto mais próxima do canto superior esquerdo está a curva, melhor a 
+classificação do modelo pois menor a taxa de falsos positivos e maior a taxa de
+verdadeiros positivos.
   
 Há diversas formas de calcular os valores para a curva ROC no `Stata`, segundo
 descrito no 
 [site do software](https://www.stata.com/features/overview/receiver-operating-characteristic/).
 
-Por fim, podemos avaliar o ajuste do modelo realizando uma análise residual através de um
-gráfico dos resíduos estimados (Pearson, _deviance_, Anscombe) e os quantis da 
-distribuição teórica normal. Idealmente, os resíduos coincidem com os quantis, 
+Por fim, podemos avaliar o ajuste do modelo realizando uma análise residual através
+de um gráfico dos resíduos estimados (Pearson, _deviance_, Anscombe) e os quantis
+da distribuição teórica normal. Idealmente, os resíduos coincidem com os quantis, 
 formando uma linha diagonal pois eles seguem uma distribuição 
-  $e_{ij}$ ~ N(0,$\sigma$)
+  $e_{ij}$ ~ N(0,$\sigma^2$)
 
 \newpage
 
@@ -335,7 +349,7 @@ Considere um modelo de regressão logística:
 $$ log (\frac{\pi_{ij}}{1-\pi_{ij}}) = (\beta_0 +u_{0j})+ \beta_1*1.urban_{ij} + \beta_2*age_{ij} + \beta_3*1.children_{ij} + \beta_4*2.children_{ij} + \beta_5*3.children_{ij} $$ 
   
 para $j = 1,...,60$ distritos, com $i = 1,..., n_{j}$ mulheres no distrito $j$  
-$u_{0j}$ é o efeito aleatório do intercepto cuja distribuição segue uma distribuição N(0,$\sigma_{u_{0j}}$)  
+$u_{0j}$ é o efeito aleatório do intercepto cuja distribuição segue uma distribuição N(0,$\sigma^2_{u_{0j}}$)  
 Já os coeficientes $\beta_0$,$\beta_1$,$\beta_2$,$\beta_3$,$\beta_4$ e $\beta_5$ são os efeitos fixos do modelo enquanto $\pi_{ij}$ é a probabilidade do indíviduo $i$ no cluster $j$ apresentar resposta positiva (=1)
 
 No software `Stata` a equação é dada por:  
@@ -349,7 +363,7 @@ intervalos de confiança.
 
 O teste de razão de verossimilhança (LR) testa a hipótese nula de que os dois
 modelos, efeitos mistos e regressão logística fixa fornecem a mesma qualidade de
-ajuste. Como P < 0.001, há indicios para rejeitarmos a hipótese nula e utilizar,
+ajuste. Como P < 0.001, há indícios para rejeitar a hipótese nula e utilizar,
 assim, o modelo misto.
 
 ```{r echo=FALSE}
@@ -357,7 +371,7 @@ knitr::include_graphics("modelo_aleatorio_v2.png")
 ```
   
 A segunda seção nos dá a estimativa da variância do componente aleatório do
-intercepto na escala logit ($\hat\sigma_{u_{0j}}$). 
+intercepto na escala logit ($\hat\sigma^2_{u_{0j}}$). 
 
 Como queremos a razão de chances em vez dos coeficientes na escala logit, 
 podemos exponenciar as estimativas e os intervalos de confiança. Podemos fazer 
@@ -389,7 +403,10 @@ para $j = 1,...,60$ distritos, com $i = 1,..., n_{j}$ mulheres no distrito $j$
 
 $u_{0j}$ é o efeito aleatório do intercepto cuja distribuição segue uma N(0,$\sigma_{u_{0j}}$) e $u_{1j}$ é o efeito aleatório da variável urban cuja distribuição segue uma N(0,$\sigma_{u_{1j}}$)   
 
-Já os coeficientes $\beta_0$,$\beta_1$,$\beta_2$,$\beta_3$,$\beta_4$ e $\beta_5$ são os efeitos fixos do modelo $\pi_{ij}$ é a probabilidade do indíviduo $i$ no cluster $j$ apresentar resposta positiva (=1)
+Já os coeficientes $\beta_0$,$\beta_1$,$\beta_2$,$\beta_3$,$\beta_4$ e $\beta_5$ 
+são os efeitos fixos do modelo
+$\pi_{ij}$ é a probabilidade do indíviduo $i$ no cluster $j$ apresentar resposta
+positiva (=1)
 
 No software `Stata`, a equação é dada por:  
 
@@ -397,11 +414,11 @@ __`melogit c_use i.urban age i.children || district: i.urban, covariance(unstruc
 
 \newpage
 
-O modelo agora inclui um intercepto aleatório e um coeficiente aleatório em 
-`1.urban` pois acredita-se que o impacto dessa variável difere de distrito para
-distrito. Além disso, ao especificar a covariância (não estruturada) acima, 
-permitimos a correlação entre efeitos aleatórios a nível distrital, ou seja, a
-correlação entre $u_{0j}$ e $u_{1j}$ é diferente de zero ($\sigma_{u_{0j},u_{1j}}$).
+O modelo agora inclui um coeficiente aleatórioem `1.urban` pois acredita-se que
+o impacto dessa variável difere de distrito para distrito. Além disso, ao 
+especificar a covariância (não estruturada) acima, permitimos a correlação entre
+efeitos aleatórios a nível distrital, ou seja, a correlação entre $u_{0j}$ e $u_{1j}$
+é diferente de zero ($\sigma_{u_{0j},u_{1j}}$).
   
 ```{r echo=FALSE}
 knitr::include_graphics("modelo_slope_aleatorio_v1.png")
@@ -411,15 +428,17 @@ knitr::include_graphics("modelo_slope_aleatorio_v1.png")
 ## 6.4 Correlação Interclasse
 
 Após o ajuste de um modelo logístico multinivel com __melogit__, pode-se 
-encontrar diversas outras medidas e estatísticas. O índice de correlação intraclasse __(ICC)__ varia de 0 a 1 e indica o quanto da variação é explicada pela diferenças entre cursos.
+encontrar diversas outras medidas e estatísticas. O índice de correlação
+intraclasse __(ICC)__ varia de 0 a 1 e indica o quanto da variação é explicada 
+pela diferença entre cursos.
 
 - Um ICC = 0 indica que os cursos são homogêneos entre si, ou seja, a evasão 
 independe do curso;  
 - Um ICC = 1 indica que toda a variação pode ser explicada pela diferença entre 
 os cursos. A seguir, apresentamos a fórmula matemática da métrica para o exemplo (1)
 
-$$ ICC = \frac{\hat\sigma_{u_{0j}}}{\hat\sigma_{u_{0j}} + (\pi^2/3)} $$
-sendo $\hat\sigma_{u_{0j}}$ a estimativa da variância do efeito aleatório do intercepto
+$$ ICC = \frac{\hat\sigma_{u^2_{0j}}}{\hat\sigma^2_{u_{0j}} + (\pi^2/3)} $$
+sendo $\hat\sigma^2_{u_{0j}}$ a estimativa da variância do efeito aleatório do intercepto
 
 \newpage
 
