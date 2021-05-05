@@ -2,9 +2,9 @@
 title: "CENTRO DE ESTATÍSTICA APLICADA – CEA – USP"
 subtitle: RELATÓRIO DE CONSULTA
 output:
-  word_document: default
-  html_document: default
   pdf_document: default
+  html_document: default
+  word_document: default
 urlcolor: blue
 ---
 
@@ -70,40 +70,45 @@ logístico multinível e auxílio na validação e interpretação do modelo.
 
 # 2 Descrição do estudo
 
-Os dados foram analizados a partir de um modelo logístico multinivel 
+Os dados foram analisados a partir de um modelo logístico multinível 
 (hierárquico), em que as variáveis de nível 1 são relacionadas às 
 características dos estudantes e as variáveis de nível 2 são relacionadas aos
 cursos. 
 
 As unidades amostrais da pesquisa são os ingressantes no primeiro semestre do 
 ano de 2014, somando um total de 4.480 observações. Todos esses alunos foram
-acompanhados até um ano e meio após o primeiro semestre de 2019. Apesar de serem
-dados longitnudinais, como informado pela pesquisadora, tal característica não é
-considerada nesta etapa da análise, já tendo sido realizada uma análise de 
-sobrevivência para analisar as variáveis relacionadas ao tempo de evasão.
+acompanhados até o primeiro semestre de 2019 (1 ano e meio após o perído de 
+formação ideal). Apesar de serem dados longitudinais, como informado pela 
+pesquisadora, tal característica não é considerada nesta etapa do estudo, 
+uma vez que o estudo do tempo de evasão já foi realizado pela pesquisadora e 
+não é objeto de pesquisa dessa análise.
 
 A pesquisadora selecionou todos os cursos de modalidade presencial ofertados 
 pela UFRJ e, a partir da volumetria, agrupou-os de acordo com o tipo de curso. 
 Por exemplo, cursos como Letras-Espanhol, Letras-Inglês e Letras-Português foram
 agrupados em um mesmo bloco. Ao fim desse agrupamento, foram obtidos 45 clusters
-contendo, no mínimo, 30 observações. É importante destacar que o curso de 
+contendo, no mínimo, 30 observações. É importante ressaltar que o curso de 
 Medicina foi excluído da análise por não ser possível observar a conclusão de
-curso desses ingressantes, já que a duração ideal do curso ultrapassa o tempo de
+curso desses ingressantes, já que sua duração ideal ultrapassa o tempo de
 acompanhamento. Além disso, outro argumento a favor da exclusão apontado pela
 pesquisa é a baixa taxa de evasão observada no curso.
 
 
 # 3 Descrição de um Modelo Multinível
 
-Um modelo multínivel pode ser descrito da seguinte forma:
+Um modelo multinível pode ser descrito da seguinte forma:
 
-$$ logit (\pi_{ij}) = (\beta_0 +u_{0j})+ \beta_1*X_{1ij} + \beta_2*X_{2ij} + \beta_3*X_{3ij} + \beta_4*X_{4ij} + \beta_5*X_{5ij} + e_{ij} $$ 
+$$ logit (\pi_{ij}) = (\beta_0 +u_{0j})+\sum_{k}{ \beta_k*X_{kij}} + \epsilon_{ij} $$ 
   
-para $j = 1,...,n$ clusters, com $i = 1,..., n_{j}$ observações no cluster $j$
-$u_{0j}$ é o efeito aleatório do intercepto cuja distribuição segue uma N(0,$\sigma_{u_{0j}}$)
- 
-Já os coeficientes $\beta_0$,$\beta_1$,$\beta_2$,$\beta_3$,$\beta_4$ e $\beta_5$ são os efeitos fixos do modelo e $e_{ij}$ é o erro com distribuição N(0,$\sigma$)
-É importante destacar que componentes aleatórios podem ser acrescentados aos coeficientes das variáveis independentes
+para $j = 1,...,n$ clusters de cursos, com $i = 1,..., n_{j}$ alunos no cluster $j$
+$u_{0j}$ é o efeito aleatório do j-ésimo cluster que compõe o intercepto, cuja 
+distribuição segue uma N(0,$\sigma^{2}_{u_{0j}}$)
+
+Os $X_{kij}$ são as variáveis independentes utilizadas no modelo, os 
+coeficientes $\beta_k$ são os efeitos fixos do modelo e $\epsilon_{ij}$ é o erro
+com distribuição N(0,$\sigma^2$)
+É importante destacar que componentes aleatórios podem ser acrescentados aos 
+coeficientes das variáveis independentes. 
 
 \newpage
 
@@ -129,13 +134,12 @@ A variável dependente (resposta) utilizada nessa análise é a evasão do curso
 primeiro ano  (1° e 2° semestre), representada por 0 e 1 (0 = não evadiu; 1 =
 evadiu). O conceito de evasão aqui utilizado é o de evasão do curso, que é 
 aquela em que o aluno deixa o curso de origem por qualquer razão (LOBO, 2012). 
-Essas variáveis foram construídas através da combinação da variável de tempo que
-o indivíduo permaneceu no curso e a situação de matrícula em cada semestre: 
-ativa, trancada, cancelada ou cancelado por conclusão de curso. Apenas aqueles 
+Essa variável leva em conta a situação de matrícula do aluno em cada semestre: 
+ativa, trancada, cancelada ou cancelada por conclusão de curso. Apenas aqueles 
 que tiveram suas matrículas no curso canceladas (exceto o cancelamento por 
 conclusão de curso) foram considerados como alunos evadidos.
 
-Em um estudo multinivel as variáveis independentes são classificados em dois 
+Em um estudo multinível as variáveis independentes são classificados em dois 
 tipos: variáveis de nível 1 e variáveis de nível 2. Neste caso, as variáveis de
 nível 1 são as relacionadas aos estudantes:  
   
@@ -151,11 +155,11 @@ do curso" (0 = não; 1 = sim);
 - Coeficiente de Rendimento acumulado por semestre (CRa), relacionado ao último
 semestre acompanhado.
   
-No nível do curso, inicialmente a pesquisadora criou uma variável de 
-seletividade de curso utilizando a nota mediana do curso no Enem com a seguinte
-regra: se a nota mediana do curso no Enem era maior que a nota mediana geral no 
-Enem, ou seja, de toda UFRJ, o curso é mais seletivo. Caso contrário, o curso é
-classificado como menos seletivo   
+No nível 2(relacionadas ao curso), inicialmente a pesquisadora criou uma 
+variável de seletividade de curso utilizando a nota mediana do curso no Enem com
+a seguinte regra: se a nota mediana do curso no Enem era maior que a nota mediana
+geral no Enem, ou seja, de toda UFRJ, o curso é mais seletivo. Caso contrário, o
+curso é classificado como menos seletivo.
   
 - Seletividade (0 = menos seletivo; 1 = mais seletivo)
   
