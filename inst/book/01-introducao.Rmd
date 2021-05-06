@@ -1,101 +1,37 @@
-# 1. Introdução {#introducao}
+# Introdução {#introducao}
 
-De acordo com Margarida Petter (2007), o interesse pela linguagem é antigo e expresso através de mitos, lendas, cantos, rituais ou trabalhos eruditos que buscam conhecer essa capacidade humana. A autora aponta que, a partir do século XX, os estudos linguistícos passaram a ter um caráter cientifico, ou seja, centrados na observação dos fatos a partir de pressupostos teóricos da linguagem, no estabelecimento de hipóteses e na examinação mediante experimentos.
-Conforme descrito por Florin (2019), Linguística é uma ciência da linguagem, porque, ao contrário da gramática, ela tem como objetivo dizer o que a língua é e por que é assim
+De acordo com @petter2007, o interesse pela linguagem é antigo e expresso 
+através de mitos, lendas, cantos, rituais ou trabalhos eruditos que buscam 
+conhecer essa capacidade humana. A autora aponta que, a partir do século XX, os
+estudos linguistícos passaram a ter um caráter cientifico, ou seja, centrados na
+observação dos fatos a partir de pressupostos teóricos da linguagem, no
+estabelecimento de hipóteses e na examinação mediante experimentos.
 
-Logo, a área estuda os aspectos fonéticos, morfológicos, sintáticos, semânticos, sociais e psicológicos no português brasileiro. Dentro disso, existe o conceito de _pseudopalavra_ que, de acordo com o dicionário de Priberan, é uma _"Sequência regular e pronunciável de  caracteres que não tem um significado numa língua, apesar de obedecer às regras ortográficas, morfológicas ou de pronúncia"_.
+Conforme descrito por @florin2019, a linguística é uma ciência da linguagem 
+porque, ao contrário da gramática, ela tem como objetivo dizer o que a língua é 
+e por que é assim. Logo, a área estuda os aspectos fonéticos, morfológicos,
+sintáticos, semânticos, sociais e psicológicos no português brasileiro. Dentro
+deste contexto, existe o conceito de _pseudopalavra_, que, de acordo com o
+dicionário Priberan, é uma 
 
-No português brasileiro existem três classes de acento tônico: oxítona, paroxítona e proparoxítona. Essas denominações estão relacionadas a intensidade dada a determinadas sílabas na pronúncia das palavras. Aquela que é pronunciada de forma mais acentuada é a sílaba tônica. Oxítonas são as palavras cuja sílaba tônica é a última; paroxítonas são as palavras cuja sílaba tônica é a penúltima; e proparoxítonas são as palavras cuja sílaba tônica é a antepenúltima.
+> Sequência regular e pronunciável de  caracteres que não tem um significado numa língua, apesar de obedecer às regras ortográficas, morfológicas ou de pronúncia
 
-O trabalho investiga a maneira como os falantes nativos do português atribuem a acentuação tônica em pseudopalavras correspondentes à palavras existentes na língua.Em outras palavras, queremos compreender como o indivíduo define a sílaba tônica de uma palavra inventada e desconhecida. Além disso, busca-se entender quais são os conhecimentos linguísticos do falante que influenciam esse processo de classificação das pseudopalavras.
+No português brasileiro existem três classes de palavras segundo sua tonicidade: 
+oxítona, paroxítona e proparoxítona. Essas denominações estão relacionadas a
+intensidade dada a determinadas sílabas na pronúncia das palavras. Aquela que é
+pronunciada de forma mais acentuada é a sílaba tônica. Oxítonas são as palavras
+cuja sílaba tônica é a última; paroxítonas são as palavras cuja sílaba tônica é 
+a penúltima; e proparoxítonas são as palavras cuja sílaba tônica é a 
+antepenúltima.
 
-Assim, é possível inferir se um falante do português ao se deparar com uma palavra nova, compara-a com palavras conhecidas para acentuá-la.
-  
+O intuito do trabalho é investigar a maneira como os falantes nativos do 
+português atribuem a tonicidade em pseudopalavras relacionadas a vocábulos
+existentes no idioma. Em outras palavras, busca-se compreender como o indivíduo,
+ao se deparar com uma palavra nova e, nesse caso, inventada, define a sílaba 
+tônica. Além disso, busca-se entender quais são os outros fatores, como os
+conhecimentos linguísticos do falante e estruturas linguísticas das palavras que
+podem influenciar nesse processo de classificação da entonação.
 
-# 2. Objetivo(s)
-
-O objetivo do trabalho é verificar se uma pseudopalavra que se assemelha a uma palavra real pode sofrer um processo analógico e ter o mesmo padrão acentual da palavra real, além de entender quais são os conhecimentos linguísticos do falante utilizados nesse processo de acentuação tônica das pseudopalavras. Algumas perguntas a serem respondidas nessa etapa são: 
-  
-- Quanto mais similar a palavra inventada for da palavra real, maior as chances do falante atribuir o mesmo padrão acentual da palavra real?  
-- A tonicidade da palavra alvo tem papel na predição do acento?  
-- As variáveis selecionadas pelo modelo estão em concordância com a literatura da área?  
-- Identificar se há algum falante ou pseudopalavra com comportamento destoante dos demais e qual o seu papel na atribuição acentual  
-
-
-# 3. Descrição do estudo
-
-O estudo foi realizado durante o primeiro semestre de 2020 com 34 indivíduos que, através de divulgações em redes sociais e de colegas, se voluntariaram a participar do experimento. Os pré-requisitos eram de que tais voluntários não tivessem estudado linguística, fossem maior de 18 anos e falantes nativos do português brasileiro. Na amostra encontram-se estudantes do primeiro semestre da faculdade de Letras da Universidade de São Paulo, músicos,alguns residentes de fora do estado de São Paulo entre outros. Entenda-se que os alunos do primeiro semestre do curso de letras ainda não têm desenvolvido conhecimento na área.
-   
-O experimento consistia em apresentar aos participantes, através do software Psychopy, uma série de pseudopalavras e registrar, via Google Meets, a forma como eles reproduziam  verbalmente tais palavras. A seguir, as respostas dos participantes foram classificadas de acordo com as três classes de acentuação tônica: oxítona, paroxítona e proparoxítona. Essa, é a variável dependente do estudo.
-
-Inicialmente, as pseudopalavras foram aleatorizadas no software _Excel_ (ALEATORIo ENTRE) e separadas em 4 blocos com 93 pseudopalavras dentro, resultando em um total de 372 palavras criadas.Dentro de cada bloco, a ordem em que as pseudopalavras foram apresentadas aos falantes também foi aleatorizada, porém, para alguns participantes o software Psychopy apresentou problemas e eles tiveram que continuar o experimento a partir de slides com uma aleatorização prévia.Em outras palavras, todos os indivíduos que em algum momento acompanharam o experimento pelos slides seguiram com palavras apresentadas na mesma ordem (a primeira aleatorização retirada do Excel). Destaca-se a perda de algumas respostas durante o processo de coleta de dados, visto que ruídos externos impediram que algumas entonações fossem captadas e registradas na gravação. Logo, na base de dados não temos 372 registros para todos os participante. Portanto, um total de 12.511 dados serão utilizados na análise
-
-As palavras que deram origem às pseudopalavras, definidas como palavras alvo, foram classificadas em dois níveis de acordo com a sua ocorrência no  _Corpus brasileiro_, corpus linguístico coordenado pelo pesquisador Antonio Paulo Berber Sardinha. Se a palavra possui mais de 100 mil ocorrências no corpus ela é classificada como alta frequência e se possui menos de 2 mil ocorrências ela é classificada como baixa frequência. Ademais, as pseudopalavras foram construídas com três sílabas de extensão para que os três padrões acentuais do português brasileiro pudessem ser produzidos. A junção da ideia de frequência e similaridade entre a palavra alvo e a pseudopalavra resultou na criação de uma variável com 4 categorias chamada grupo de estímulos (alta frequência + similaridade, alta frequência + dissimilaridade, baixa frequência + similaridade, baixa frequência + dissimilaridade). Ressaltamos que essa variável não foi controlada durante a coleta de dados, ou seja, não foi definido uma quantidade de palavras de cada categoria em cada bloco
-
-Outro ponto importante está relacionado aos testes para validar se a pseudopalavra é similar a palavra a partir da qual ela foi criada (palavra alvo). Nessa etapa, pediu-se para 10 falantes do português, que não participaram do estudo, listarem a palavra real a qual eles associavam a palavra inventada. Considerou-se como validadas as pseudopalavras cuja associação foi a palavra alvo na resposta de, no mínimo, oito indivíduos. Pseudopalavras com um número de associações corretas menor que oito foram consideradas não validadas, porém, pseudopalavras nas quais sete falantes apresentaram a associação correta foram classificadas como quase validadas.  
-  
-Da mesma forma, foram consideradas validadas como dissimilares à palavra alvo pseudopalavras não associadas a uma mesma resposta por mais de dois indivíduos. Ressalta-se que a associação não necessariamente precisa ser com a palavra alvo. Pseudopalavras com um número de associações maior que dois foram consideradas não validadas,porém,pseudopalavras nas quais três falantes apresentaram a mesma associação foram classificadas como quase validadas
-
-Por fim, destacamos que a variável relacionada aos falantes será considerada aleatória, pois são uma amostra da população dos falantes do português brasileiro e, além disso, porque cada participante apresentou mais de uma resposta no estudo
-
-
-# 4. Descrição das variáveis 
-
-Foram coletadas variáveis linguísticas (relacionadas as pseudopalavras), extralinguísticas (relacionadas aos participantes) e experimentais (relacionadas ao estudo), que podem, segundo a literatura da área, influenciar o comportamento acentual no português. A seguir, listamos as variáveis pré-selecionadas para o estudo. 
-  
-  
-4.1 _Variável Dependente_
-
-A variável resposta de interesse é _Tonicidade_, ou seja, aclassificação acentual tônica da pseudopalavra (oxítona, paroxítona e proparoxítona)
-
-
-4.2 _Variáveis Linguísticas_
-
-- __Grupo dos estímulos__:  indica o efeito da similaridade (entre a pseudopalavra e a palavra real) e da frequência (alta e baixa) na produção acentual
-  
-1 = pseudopalavras similares de alta frequência
-2 = pseudopalavras dissimilares de alta frequência
-3 = pseudopalavras similares de baixa frequência
-4 = pseudopalavras dissimilares de baixa frequência
-  
-- __Pseudopalavra__: refere-se a cada um dos estímulos criados
-- __Palavra alvo__: palavra real que deu origem à pseudopalavra
-- __Tonicidade da palavra alvo__: oxítona, paroxítona e proparoxítona
-- __Estrutura da palavra__: CV-CV-CV e CV-CV-CVC
-- __Tempo de resposta__:  indica o tempo em milisegundos que os falantes levaram para apertar a tecla de espaço entre um estímulo e outro
-- __Segmento modificado__: indica qual letra foi modificada na criação da pseudopalavra a partir da palavra real (consoante ou vogal)  
-- __Taxa de similaridade__: 1, 2, 3 (grupos similares), 5, 6, 7, 8, 9, 10 (grupos dissimilares)
-- __Validação__: s = sim, n = não validada e q = quase validada
-- __Taxa de validação__: indica quantas pessoas informaram que a palavra era similar ou dissimilar
-- __Vizinhança Fonologica__: consiste na categorização por vizinhança fonológica apenas das pseudopalavras que não foram validadas 
-- __Vizinhança Tonicidade__: indica qual foi o padrão acentual das palavras que os participantes julgaram similares a pseudopalavras criada; apenas para as pseudopalavras que não foram validadas  
-
-
-4.3 _Variáveis Extralinguísticas_
-  
-- __Participante__: indica os 34 participantes do experimento
-- __Idade__: de 18 a 60 (anos)
-- __Gênero__: feminino e masculino
-- __Naturalidade__: indica a cidade em que o participante nasceu
-- __Escolaridade__: ensino fundamental a mestrado
-- __Área de formação__: 0 = outros e 1 = letras
-- __Línguas__: indica quais línguas o falante declara que fala ou já estudou. (categorizar ?)
-- __Música__: 0 = não tem conhecimento em música e 1 = tem conhecimento em música)
-
-4.4 _Variáveis Experimentais_
-
-- __Aleatorizacao__: codifica se o bloco de apresentação foi aleatorizado para o indivíduo ou se foi a aleatorização prévia (s = o estímulo foi aleatorizado e n = não houve aleatorização)
-- __Bloco de apresentação__: indica em qual bloco (ou rotina) a pseudopalavra foi inserida (1, 2, 3 ou 4)
-- __Ordem de apresentação__: indica em qual ordem a pseudopalavra foi apresentada dentro do bloco de apresentação (1 a 93)
-
-Destacamos também algumas variável que foram excluídas inicialmente da análise e o motivo dessa escolha:
-   
-- __Tempo de resposta__: Só há tempo para a metade dos participantes devido ao problema com o software em que o experimento foi realizado. Portanto, essa variável pode ter sido influenciada por esse erros, além de possuir muitos dados faltantes
-- __Taxa de similaridade__: 1, 2, 3 (grupos similares), 5, 6, 7, 8, 9, 10 (grupos dissimilares). Como o conceito de similaridade entre a palavra alvo e a pseudopalavra já está inserido na variável _Grupo de estímulos_, entendemos que ela não é necessária na análise
-
-# 5. Análise descritiva 
-
-#ver se tem diferença na variável validação (se tiver usar as outras)
 
 # 6. Tabelas de Contingência e Testes Qui-Quadrado
 
@@ -107,5 +43,5 @@ Pode-se considerar pseudopalavra uma variável aleatória/mista, pois pode indic
 
 ## Organização do trabalho
 
-O relatório foi organizado em XX capítulos, além desta introdução. No Capítulo \@ref(metodologia), apresentamos as decisões metodológicas, procedimento de análise e organização dos dados. No Capítulo \@ref(resultados), apresentamos os principais resultados da análise, organizados de acordo com as questões norteadoras.
+O relatório foi organizado em XX capítulos, além desta introdução. No Capítulo \@ref(inferencia), apresentamos o modelo proposto, procedimento de análise e organização dos dados. No Capítulo \@ref(conclusoes), apresentamos os principais resultados da análise, organizados de acordo com as questões levantadas pela pesquisa.
 

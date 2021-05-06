@@ -1,0 +1,25 @@
+# Análise descritiva {#descritiva}
+
+
+A tabela \@ref(tab:perfil-informantes) mostra o perfil dos informantes segundo
+sua naturalidade.
+
+etc etc
+
+```{r perfil-informantes }
+library(magrittr)
+pseudopalavras::dados %>% 
+  dplyr::distinct(informante, .keep_all = TRUE) %>% 
+  dplyr::mutate(naturalidade = dplyr::case_when(
+    naturalidade == "São Paulo" ~ "São Paulo, SP",
+    stringr::str_detect(naturalidade, "SP") ~ "Outros municípios de SP",
+    TRUE ~ "Outras UF"
+  )) %>% 
+  dplyr::count(naturalidade, sort = TRUE) %>% 
+  knitr::kable(
+    caption = "Perfil dos participantes segundo naturalidade",
+    booktabs = TRUE,
+    table.attr = "style='width:30%;'"
+  )
+```
+
