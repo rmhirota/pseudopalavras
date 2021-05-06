@@ -37,6 +37,35 @@ podem influenciar nesse processo de classificação da entonação.
 
 <!-- # 6. Plano de análise -->
 
+O próximo passo do estudo inclui realizar uma análise univariada, com testes qui-quadrado,  que permite analisar a relação de independência entre variáveis qualitativas. Algumas hipóteses iniciais são:
+
+1. Entender se os grupos experimentais afetam na acentuação das pseudopalavras 
+
+$H_0$: O grupo experimental determina a localização acentual
+$H_1$: O grupo experimental não determina a localização acentual
+
+2.Observar se a tonicidade de producao é coincidente com a tonicidade alvo
+
+$H_0$: Há associação entre os padrões acentuais
+$H_1$: Não há associação entre os padrões acentuais
+
+3. Entender se a tonicidade da palavra real influencia mais em pseudopalavras mais similares e menos em pseudopalavras mais dissimilares
+
+$H_0$: A taxa de similaridade não influencia na associação acentual
+$H_1$: A taxa de similaridade influencia na associação acentual
+
+4. A validação da similaridade e dissimilaridade em relação a palavra alvo afeta a acentuação tônica das pseudopalavras?
+
+$H_0$: Pseudopalavras não validadas têm o mesmo comportamento das similares e quase similares
+$H_1$: Pseudopalavras não validadas têm comportamento distinto das similares e quase similares
+
+Além disso, a parte inferencial da análise será pautada em um modelo hierárquico no qual os participantes são um nível com efeito aleatório
+
+
+
+
+
+
 <!-- Pode-se considerar pseudopalavra uma variável aleatória/mista, pois pode indicar se alguma pseudopalavra apresenta um comportamento muito específico. -->
 
 <!-- ## Organização do trabalho -->

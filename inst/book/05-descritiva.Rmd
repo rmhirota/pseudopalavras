@@ -59,23 +59,37 @@ participantes %>%
 ```{r musica}
 participantes %>% 
   dplyr::count(musica, sort = TRUE) %>% 
-  knitr::kable()
+  knitr::kable(col.names = c(
+    "Conhecimento em música", "Número de participantes"
+  ))
   
 ```
 
 ```{r linguas}
 participantes %>% 
-  dplyr::count(area_formacao, sort = TRUE) %>% 
-  knitr::kable()
+  dplyr::count(linguas, sort = TRUE) %>% 
+  knitr::kable(col.names = c(
+    "Conhecimento em línguas", "Número de participantes" ))
   
 ```
 
 ## Variáveis linguísticas
 
-Verifica-se que a proporção de proparoxítonas é inferior às outras categorias 
+Como visto na tabela a seguir, a tonacidade de produção do tipo proparoxítona é a menos expressiva na base, enquanto a categoria paroxítona (penúltima sílaba é tônica) aparece com maior frequência nas respostas dos participantes. Portanto, o processo de acentuação das pseudopalavras nesse estudo parece ir de acordo com a afirmação de @collischonn1999 de que 
+> Podemos considerar que o acento proparoxítono é marcado, no sentido de que é menos usual. É um acento especial, contrário à tendência geral de acentuar a penúltima sílaba
+
+```{r grupo-tonicidade-alvo}
+pseudopalavras::dados %>% 
+  dplyr::count(tonicidade_producao) %>% 
+  #dplyr::mutate(total = g1 + g2 + g3 + g4) %>% 
+  knitr::kable(col.names = c(
+    "Tonicidade de produção", "Quantidade"
+  )) 
+```
+
+Além disso, verifica-se que a proporção de proparoxítonas é inferior às outras categorias 
 em todos os grupos, o que já era esperado devido à baixa frequência de palavras
 proparoxítonas de três sílabas na estrutura proposta (CV-CV-CV ou CV-CV-CVC).
-(PROCURAR REFERÊNCIA)
 
 Também observamos na tabela \@ref(grupo-tonicidade) que os grupos 2 e 4 (ou
 seja, os grupos em que as palavras sofreram mais alterações em relação à
@@ -150,7 +164,8 @@ pseudopalavras::dados %>%
 ```
 
 Comparando a tonicidade das pseudopalavras e a tonicidade das palavras-alvo,
-nota-se que
+nota-se que quando a palavra alvo é do tipo proparoxítona, os participantes tendem a marcar a antepenúltima sílaba da pseudopalavra como sílaba tônica (proparoxítona). 
+Em números, temos que 73% das pseudopalavras cuja palavra alvo era uma proparoxítona foram acentuadas dessa maneira
 
 ```{r}
 pseudopalavras::dados %>%
@@ -178,6 +193,7 @@ pseudopalavras::dados %>%
 ```
 
 Estrutura x tonicidade palavra-alvo
+Por fim, 
 ```{r estrut-tonicidade-alvo}
 pseudopalavras::dados %>% 
   dplyr::count(estrutura_palavra, tonicidade_alvo) %>% 

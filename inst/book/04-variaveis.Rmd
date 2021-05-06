@@ -6,19 +6,19 @@ Foram coletadas variáveis linguísticas (relacionadas as pseudopalavras), extra
 ## Variável Dependente
 
 A variável resposta de interesse é _Tonicidade_, ou seja, aclassificação acentual tônica da pseudopalavra (oxítona, paroxítona e proparoxítona)
-
-
+  
+  
 ## Variáveis Linguísticas
-
+   
 - __Grupo dos estímulos__:  indica o efeito da similaridade (entre a pseudopalavra e a palavra real) e da frequência (alta e baixa) na produção acentual
-  
-1 = pseudopalavras similares de alta frequência  
-2 = pseudopalavras dissimilares de alta frequência  
-3 = pseudopalavras similares de baixa frequência  
-4 = pseudopalavras dissimilares de baixa frequência  
-  
-- __Pseudopalavra__: refere-se a cada um dos estímulos criados
-- __Palavra alvo__: palavra real que deu origem à pseudopalavra
+     
+1 = pseudopalavras similares de alta frequência    
+2 = pseudopalavras dissimilares de alta frequência   
+3 = pseudopalavras similares de baixa frequência    
+4 = pseudopalavras dissimilares de baixa frequência   
+    
+- __Pseudopalavra__: refere-se a cada um dos estímulos criados  
+- __Palavra alvo__: palavra real que deu origem à pseudopalavra  
 - __Tonicidade da palavra alvo__: oxítona, paroxítona e proparoxítona
 - __Estrutura da palavra__: CV-CV-CV e CV-CV-CVC
 - __Tempo de resposta__:  indica o tempo em milisegundos que os falantes levaram para apertar a tecla de espaço entre um estímulo e outro
@@ -38,8 +38,8 @@ A variável resposta de interesse é _Tonicidade_, ou seja, aclassificação ace
 - __Naturalidade__: indica a cidade em que o participante nasceu
 - __Escolaridade__: ensino fundamental a mestrado
 - __Área de formação__: 0 = outros e 1 = letras
-- __Línguas__: indica quais línguas o falante declara que fala ou já estudou. (categorizar ?)
-- __Música__: 0 = não tem conhecimento em música e 1 = tem conhecimento em música)
+- __Línguas__: 0 = não tem conhecimento em música e 1 = tem conhecimento em música
+- __Música__: 0 = não tem conhecimento em música e 1 = tem conhecimento em música
 
 ## Variáveis Experimentais
 
@@ -51,3 +51,4 @@ Destacamos também algumas variável que foram excluídas inicialmente da análi
    
 - __Tempo de resposta__: Só há tempo para a metade dos participantes devido ao problema com o software em que o experimento foi realizado. Portanto, essa variável pode ter sido influenciada por esse erros, além de possuir muitos dados faltantes
 - __Taxa de similaridade__: 1, 2, 3 (grupos similares), 5, 6, 7, 8, 9, 10 (grupos dissimilares). Como o conceito de similaridade entre a palavra alvo e a pseudopalavra já está inserido na variável _Grupo de estímulos_, entendemos que ela não é necessária na análise
+- __Naturalidade__: Cerca de 80% dos participantes são naturais do estado de São Paulo (capital e cidades do município). Logo, essa variável não será considerada na análise

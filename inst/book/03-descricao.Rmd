@@ -55,5 +55,4 @@ Outro ponto importante está relacionado aos testes para validar se a pseudopala
   
 Da mesma forma, foram consideradas validadas como dissimilares à palavra alvo pseudopalavras não associadas a uma mesma resposta por mais de dois indivíduos. Ressalta-se que a associação não necessariamente precisa ser com a palavra alvo. Pseudopalavras com um número de associações maior que dois foram consideradas não validadas,porém,pseudopalavras nas quais três falantes apresentaram a mesma associação foram classificadas como quase validadas
 
-Por fim, destacamos que a variável relacionada aos falantes será considerada aleatória, pois são uma amostra da população dos falantes do português brasileiro e, além disso, porque cada participante apresentou mais de uma resposta no estudo
 
