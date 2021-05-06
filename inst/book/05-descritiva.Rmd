@@ -1,5 +1,208 @@
 # Análise descritiva {#descritiva}
 
+## Perfil dos participantes
+
+### Sexo e idade
+
+Os 34 participantes do estudo estão divididos entre 21 mulheres e 13 homens, com
+idades que variam entre 18 e 60 anos. O gráfico \@ref(tab:idade) mostra a 
+distribuição dos respondentes segundo a faixa etária e gênero.
+
+```{r idade}
+participantes <- pseudopalavras::dados %>% 
+  dplyr::distinct(informante, .keep_all = TRUE) 
+
+participantes %>% 
+  dplyr::mutate(idade_cat = dplyr::case_when(
+    idade < 27 ~ "entre 18 e 26",
+    idade < 35 ~ "entre 27 e 34",
+    idade < 46 ~ "entre 35 e 45",
+    TRUE ~ "entre 46 e 60"
+  )) %>% 
+  dplyr::count(genero, idade_cat) %>% 
+  ggplot2::ggplot(ggplot2::aes(
+    x = idade_cat, y = n, fill = genero, label = n
+  )) +
+  ggplot2::geom_col() +
+  ggplot2::geom_text(position = ggplot2::position_stack(vjust = 0.5)) +
+  ggplot2::scale_fill_grey() +
+  ggplot2::theme_minimal() +
+  ggplot2::labs(
+    x = ggplot2::element_blank(),
+    fill = "Gênero"
+  )
+```
+
+### Área de formação
+
+Parte considerável dos participantes (10) são ingressantes do curso de Letras, 
+logo, para a análise inferencial, essa variável foi categorizada em dois níveis.
+A tabela \@ref(tab:area-formacao) mostra esse agrupamento da formação dos
+voluntários. Este é um dos fatores que a pesquisa busca entender se 
+influencia ou não na categorização das pseudopalavras.
+
+Outras variáveis relacionadas com a linguagem (conhecimento em música e de
+outras línguas) também foram transformadas em variáveis binárias, pois há 
+interesse em saber se isso afeta na percepção da tonicidade de palavras. A 
+distribuição inicial das variáveis por participante também pode ser observada
+nas tabelas \@ref(musica) e \@ref(linguas).
+
+
+```{r area-formacao}
+participantes %>% 
+  dplyr::count(area_formacao, sort = TRUE) %>% 
+  knitr::kable(col.names = c(
+    "Área de formação", "Número de participantes"
+  ))
+```
+
+```{r musica}
+participantes %>% 
+  dplyr::count(musica, sort = TRUE) %>% 
+  knitr::kable()
+  
+```
+
+```{r linguas}
+participantes %>% 
+  dplyr::count(area_formacao, sort = TRUE) %>% 
+  knitr::kable()
+  
+```
+
+## Variáveis linguísticas
+
+Verifica-se que a proporção de proparoxítonas é inferior às outras categorias 
+em todos os grupos, o que já era esperado devido à baixa frequência de palavras
+proparoxítonas de três sílabas na estrutura proposta (CV-CV-CV ou CV-CV-CVC).
+(PROCURAR REFERÊNCIA)
+
+Também observamos na tabela \@ref(grupo-tonicidade) que os grupos 2 e 4 (ou
+seja, os grupos em que as palavras sofreram mais alterações em relação à
+referência original) apresentam uma proporção ainda menor de proparoxítonas
+quando comparados aos grupos 1 e 3.
+
+```{r grupo-tonicidade-alvo}
+pseudopalavras::dados %>% 
+  dplyr::count(tonicidade_alvo, grupo) %>% 
+  tidyr::pivot_wider(names_from = grupo, values_from = n) %>%
+  setNames(c(
+    "tonicidade_alvo", 
+    "g1",
+    "g2",
+    "g3",
+    "g4"
+  )) %>% 
+  dplyr::mutate(total = g1 + g2 + g3 + g4) %>% 
+  dplyr::transmute(
+    tonicidade_alvo,
+    g1 = glue::glue("{g1} ({scales::percent(g1/total)})"),
+    g2 = glue::glue("{g2} ({scales::percent(g2/total)})"),
+    g3 = glue::glue("{g3} ({scales::percent(g3/total)})"),
+    g4 = glue::glue("{g4} ({scales::percent(g4/total)})"),
+    total
+  ) %>% 
+  knitr::kable(col.names = c(
+    "Tonicidade palavra-alvo", 
+    "1 (Similar de alta freq.)",
+    "2 (Dissimilar de alta freq.)",
+    "3 (Similar de baixa freq.)",
+    "4 (Dissimilar de baixa freq.)",
+    "Total"
+  )) %>% 
+  kableExtra::add_header_above(
+    c(" " = 1, "Grupo" = 4, " " = 1)
+  )
+```
+
+
+```{r grupo-tonicidade-producao}
+pseudopalavras::dados %>% 
+  dplyr::count(tonicidade_producao, grupo) %>% 
+  tidyr::pivot_wider(names_from = grupo, values_from = n) %>%
+  setNames(c(
+    "tonicidade_producao", 
+    "g1",
+    "g2",
+    "g3",
+    "g4"
+  )) %>% 
+  dplyr::mutate(total = g1 + g2 + g3 + g4) %>% 
+  dplyr::transmute(
+    tonicidade_producao,
+    g1 = glue::glue("{g1} ({scales::percent(g1/total)})"),
+    g2 = glue::glue("{g2} ({scales::percent(g2/total)})"),
+    g3 = glue::glue("{g3} ({scales::percent(g3/total)})"),
+    g4 = glue::glue("{g4} ({scales::percent(g4/total)})"),
+    total
+  ) %>% 
+  knitr::kable(col.names = c(
+    "Tonicidade produção", 
+    "1 (Similar de alta freq.)",
+    "2 (Dissimilar de alta freq.)",
+    "3 (Similar de baixa freq.)",
+    "4 (Dissimilar de baixa freq.)",
+    "Total"
+  )) %>% 
+  kableExtra::add_header_above(
+    c(" " = 1, "Grupo" = 4, " " = 1)
+  )
+```
+
+Comparando a tonicidade das pseudopalavras e a tonicidade das palavras-alvo,
+nota-se que
+
+```{r}
+pseudopalavras::dados %>%
+  dplyr::count(tonicidade_producao, tonicidade_alvo) %>% 
+  dplyr::mutate(
+    tonicidade_alvo = abjutils::rm_accent(tonicidade_alvo)
+  ) %>% 
+  tidyr::pivot_wider(names_from = tonicidade_alvo, values_from = n) %>% 
+  dplyr::mutate(total = oxitona + paroxitona + proparoxitona) %>% 
+  dplyr::transmute(
+    tonicidade_producao,
+    oxitona = glue::glue("{oxitona} ({scales::percent(oxitona/total)})"),
+    paroxitona = glue::glue(
+      "{paroxitona} ({scales::percent(paroxitona/total)})"
+    ),
+    proparoxitona = glue::glue(
+      "{proparoxitona} ({scales::percent(proparoxitona/total)})"
+    ),
+    total
+  ) %>% 
+  knitr::kable() %>% 
+  kableExtra::add_header_above(
+    c(" " = 1, "Tonicidade da palavra-alvo" = 3, " " = 1)
+  )
+```
+
+Estrutura x tonicidade palavra-alvo
+```{r estrut-tonicidade-alvo}
+pseudopalavras::dados %>% 
+  dplyr::count(estrutura_palavra, tonicidade_alvo) %>% 
+  tidyr::pivot_wider(names_from = estrutura_palavra, values_from = n) %>% 
+  setNames(c("tonicidade", "e1", "e2")) %>% 
+  dplyr::mutate(
+    total = e1 + e2,
+    e1 = glue::glue("{e1} ({scales::percent(e1/total)})"),
+    e2 = glue::glue("{e2} ({scales::percent(e2/total)})")
+  ) %>% 
+  dplyr::relocate(tonicidade, e1, e2, total) %>% 
+  knitr::kable(col.names = c(
+    "Tonicidade palavra-alvo", "CV-CV-CV", "CV-CV-CVC", "Total"
+  )) %>% 
+  kableExtra::add_header_above(
+    c(" " = 1, "Estrutura da palavra" = 2, " " = 1)
+  )
+```
+
+
+
+Estrutura x tonicidade pseudopalavra
+
+
+
 
 A tabela \@ref(tab:perfil-informantes) mostra o perfil dos informantes segundo
 sua naturalidade.

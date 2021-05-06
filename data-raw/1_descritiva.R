@@ -52,7 +52,7 @@ dados %>%
   View()
 
 # ggpairs
-dados %>%
+pseudopalavras::dados %>%
   dplyr::select(
     -vars_id, - vars_excluir,
     -c(
@@ -63,7 +63,7 @@ dados %>%
 
 # Tonicidade --------------------------------------------------------------
 
-dados %>%
+pseudopalavras::dados %>%
   dplyr::count(tonicidade_producao) %>%
   dplyr::mutate(pct = scales::percent(n/sum(n))) %>%
   ggplot2::ggplot(ggplot2::aes(
@@ -79,7 +79,7 @@ dados %>%
   ggplot2::theme_minimal(16)
 
 # Tonicidade observada na pseudopalavra e tonicidade da palavra-alvo
-dados %>%
+pseudopalavras::dados %>%
   dplyr::count(tonicidade_producao, tonicidade_alvo) %>%
   knitr::kable()
 

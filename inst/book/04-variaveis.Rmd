@@ -3,19 +3,19 @@
 Foram coletadas variáveis linguísticas (relacionadas as pseudopalavras), extralinguísticas (relacionadas aos participantes) e experimentais (relacionadas ao estudo), que podem, segundo a literatura da área, influenciar o comportamento acentual no português. A seguir, listamos as variáveis pré-selecionadas para o estudo. 
   
   
-4.1 _Variável Dependente_
+## Variável Dependente
 
 A variável resposta de interesse é _Tonicidade_, ou seja, aclassificação acentual tônica da pseudopalavra (oxítona, paroxítona e proparoxítona)
 
 
-4.2 _Variáveis Linguísticas_
+## Variáveis Linguísticas
 
 - __Grupo dos estímulos__:  indica o efeito da similaridade (entre a pseudopalavra e a palavra real) e da frequência (alta e baixa) na produção acentual
   
-1 = pseudopalavras similares de alta frequência
-2 = pseudopalavras dissimilares de alta frequência
-3 = pseudopalavras similares de baixa frequência
-4 = pseudopalavras dissimilares de baixa frequência
+1 = pseudopalavras similares de alta frequência  
+2 = pseudopalavras dissimilares de alta frequência  
+3 = pseudopalavras similares de baixa frequência  
+4 = pseudopalavras dissimilares de baixa frequência  
   
 - __Pseudopalavra__: refere-se a cada um dos estímulos criados
 - __Palavra alvo__: palavra real que deu origem à pseudopalavra
@@ -30,7 +30,7 @@ A variável resposta de interesse é _Tonicidade_, ou seja, aclassificação ace
 - __Vizinhança Tonicidade__: indica qual foi o padrão acentual das palavras que os participantes julgaram similares a pseudopalavras criada; apenas para as pseudopalavras que não foram validadas  
 
 
-4.3 _Variáveis Extralinguísticas_
+## Variáveis Extralinguísticas
   
 - __Participante__: indica os 34 participantes do experimento
 - __Idade__: de 18 a 60 (anos)
@@ -41,7 +41,7 @@ A variável resposta de interesse é _Tonicidade_, ou seja, aclassificação ace
 - __Línguas__: indica quais línguas o falante declara que fala ou já estudou. (categorizar ?)
 - __Música__: 0 = não tem conhecimento em música e 1 = tem conhecimento em música)
 
-4.4 _Variáveis Experimentais_
+## Variáveis Experimentais
 
 - __Aleatorizacao__: codifica se o bloco de apresentação foi aleatorizado para o indivíduo ou se foi a aleatorização prévia (s = o estímulo foi aleatorizado e n = não houve aleatorização)
 - __Bloco de apresentação__: indica em qual bloco (ou rotina) a pseudopalavra foi inserida (1, 2, 3 ou 4)

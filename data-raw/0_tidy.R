@@ -12,7 +12,23 @@ dados <- dados %>%
     bloco_apresentacao = as.factor(bloco_apresentacao),
     ordem_apresentacao = as.factor(ordem_apresentacao),
     codigo_pseudo = as.factor(codigo_pseudo),
-    tempo_resposta = as.double(tempo_resposta)
+    tempo_resposta = as.double(tempo_resposta),
+    musica = dplyr::case_when(
+      musica == "nenhum" ~ 0,
+      TRUE ~ 1
+    ),
+    linguas = dplyr::case_when(
+      linguas == "nenhuma" ~ 0,
+      TRUE ~ 1
+    ),
+    area_formacao = dplyr::case_when(
+      stringr::str_detect(area_formacao, "Letras") ~ "Letras",
+      TRUE ~ "Outro"
+    )
   )
+
+dados %>%
+  dplyr::count(area_formacao, sort = TRUE)
+
 
 usethis::use_data(dados, overwrite = TRUE)

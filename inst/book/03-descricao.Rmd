@@ -5,7 +5,8 @@ Psychopy, uma série de pseudopalavras e registrar, via Google Meet, a forma
 como eles reproduziam verbalmente tais palavras. A seguir, as respostas dos
 participantes foram classificadas de acordo com as três classes de acentuação
 tônica: oxítona, paroxítona e proparoxítona. Essa é a variável dependente do
-estudo, que será descrita junto às outras variáveis no capítulo \@ref(variaveis).
+estudo, que será descrita junto às outras variáveis no capítulo
+\@ref(variaveis).
 
 A coleta dos dados foi realizada no início do primeiro semestre de 2020 com 34
 indivíduos que, através de divulgações em redes sociais e de colegas, se
