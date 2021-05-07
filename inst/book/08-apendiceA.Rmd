@@ -1,8 +1,5 @@
 ###APÊNDICE A
 
-
-
-
 ```{r idade}
 participantes <- pseudopalavras::dados %>% 
   dplyr::distinct(informante, .keep_all = TRUE) 
@@ -72,17 +69,17 @@ participantes %>%
   
 ```
 
-__Tabela A.3__ Frequência da variável dicotômica Conhecimento em Música.
+__Tabela A.3__ Frequência da variável dicotômica  Música.
 
 ```{r linguas}
 participantes %>% 
   dplyr::count(linguas, sort = TRUE) %>% 
   knitr::kable(col.names = c(
-    "Conhecimento em línguas", "Número de participantes" ))
+    "Conhecimento em línguas", "Total" ))
   
 ```
 
-__Tabela A.4__ Frequência da variável dicotômica Conhecimento em Línguas.
+__Tabela A.4__ Frequência da variável dicotômica Línguas.
 
 
 ```{r grupo-tonicidade-alvo}
@@ -113,6 +110,7 @@ pseudopalavras::dados %>%
     "4 (Dissimilar de baixa freq.)",
     "Total"
   )) %>% 
+  
   kableExtra::add_header_above(
     c(" " = 1, "Grupo" = 4, " " = 1)
   )

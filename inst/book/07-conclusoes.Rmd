@@ -3,7 +3,7 @@
 
 A partir dos resultados presentes nas tabelas da seção anterior, percebe-se um 
 comportamento não homogêneo entre níveis de algumas variáveis.Portanto, o próximo
-passo do estudo consite e,realizar uma análise univariada, com testes qui-quadrado,
+passo do estudo consite em realizar uma análise univariada, com testes qui-quadrado,
 que permite analisar a relação de independência entre variáveis qualitativas. Algumas hipóteses iniciais são:
 
 1. Entender se os grupos experimentais afetam a acentuação das pseudopalavras 
@@ -38,7 +38,7 @@ $H_1$: Há associação entre graduação em Letras e a tonicidade produzida
 
 Além disso, a parte inferencial da análise será pautada em um modelo hierárquico 
 no qual os participantes representam um nível com efeito aleatório, e a variável 
-dependente será a tonicidade produzida em cada pseudopalavra. 
+dependente será a tonicidade de produção em cada pseudopalavra. 
 
 
 

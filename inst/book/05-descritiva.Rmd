@@ -1,5 +1,4 @@
 # Análise descritiva {#descritiva}
-"numeros decimais com 2 casas, 
 
 ## Perfil dos participantes
 
@@ -15,7 +14,7 @@ dos quartis da variável idade, para resumir as informações da amostra.
 
 A Tabela A.1 exibe o perfil dos informantes segundo sua naturalidade (variável 
 agrupada em razão da baixa volumetria de indivíduos por UF). É possível perceber 
-que a maior proporção (82%) dos participantes reside no estado de São Paulo. 
+que a maior proporção (82%) dos participantes reside no estado de São Paulo, portanto, essa variável não será considerada na análise 
 
 
 
@@ -27,11 +26,7 @@ A Tabela A.2 mostra esse agrupamento da formação dos
 voluntários. A influência do curso de Letras na categorização das pseudopalavras
 é um dos fatores de interesse na análise dos dados.
 
-Outras variáveis relacionadas com a linguagem (conhecimento em música e de
-outras línguas) também foram transformadas em variáveis binárias, pois há 
-interesse em saber se isso afeta na percepção da tonicidade de palavras. A 
-distribuição das variáveis já agrupadas também pode ser observada
-nas Tabelas A.3 e A.4, respectivamente.
+Outras variáveis relacionadas com a linguagem (línguas e música) também foram transformadas em variáveis binárias, pois há interesse em entender se o conhecimento nessas áreas afeta na percepção da tonicidade de palavras. A distribuição das variáveis já agrupadas também pode ser observada nas Tabelas A.3 e A.4, respectivamente.
 
 
 
@@ -62,7 +57,7 @@ Tabela 2),nota-se que 73% das pseudopalavras classificadas como proparoxítonas
 tinham uma palavra-alvo de tonicidade proparoxítona. 
 Entretanto, cerca de 77% das pseudopalavras que tiveram como alvo uma palavra 
 proparoxítona foram categorizadas pelos participantes como paroxítonas (Tabela A.7). 
-CONCLUSAO?
+
 
 __Tabela 2__: Frequência da tonicidade das pseudopalavras por nível de tonicidade 
 das palavras-alvo.
@@ -91,7 +86,7 @@ pseudopalavras::dados %>%
   )
 ```
 
-Na Tabela 3 vemos que aproximadamente 73% das pseudopalavras foram validadas de acordo com o processo descrito anteriormente no capítulo 3 (Descrição). Porém, cerca de 81% das não validadas foram classificadas como paroxítonas, e mais de 55% pertencem ao grupo das similares (\@ref(tab:validacao-grupo). 
+Na Tabela 3 vemos que aproximadamente 73% das pseudopalavras foram validadas de acordo com o processo descrito anteriormente no capítulo 3 (Descrição). Porém, cerca de 81% das não validadas foram classificadas como paroxítonas, e mais de 55% pertencem ao grupo das similares (\@ref(tab:validacao-grupo). NÃO FAZ SENTIDO
 
 
 __Tabela 3__: Frequência da tonicidade das pseudopalavras, por nível da variável Validação.

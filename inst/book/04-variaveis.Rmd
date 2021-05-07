@@ -5,13 +5,13 @@ Foram coletadas variáveis linguísticas (relacionadas às pseudopalavras), extr
   
 ## Variável Dependente
 
-A variável resposta de interesse é _Tonicidade_, ou seja, a classificação acentual tônica da pseudopalavra (oxítona, paroxítona e proparoxítona)
+A variável resposta de interesse é __Tonicidade de produção__, ou seja, a classificação acentual tônica da pseudopalavra (oxítona, paroxítona e proparoxítona)
   
   
 ## Variáveis Linguísticas
    
 - __Grupo dos estímulos__:  indica o efeito da similaridade (entre a pseudopalavra 
-e a palavra real) e da frequência (alta e baixa) na produção acentual.
+e a palavra real) e da frequência (alta e baixa) na produção acentual
      
 1 = pseudopalavras similares de alta frequência    
 2 = pseudopalavras dissimilares de alta frequência   
