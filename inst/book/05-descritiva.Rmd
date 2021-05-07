@@ -1,65 +1,29 @@
 # Análise descritiva {#descritiva}
+"numeros decimais com 2 casas, 
 
 ## Perfil dos participantes
 
 ### Sexo e idade
 
 Os 34 participantes do estudo estão divididos entre 21 mulheres e 13 homens, com
-idades que variam entre 18 e 60 anos. O gráfico \@ref(tab:idade) mostra a 
-distribuição dos respondentes segundo a faixa etária e gênero.
+idades que variam entre 18 e 60 anos. A Figura A.1 mostra a distribuição dos 
+respondentes segundo a faixa etária e gênero. A faixa etária foi dividida a partir 
+dos quartis da variável idade, para resumir as informações da amostra. 
 
-```{r idade}
-participantes <- pseudopalavras::dados %>% 
-  dplyr::distinct(informante, .keep_all = TRUE) 
 
-participantes %>% 
-  dplyr::mutate(idade_cat = dplyr::case_when(
-    idade < 27 ~ "entre 18 e 26",
-    idade < 35 ~ "entre 27 e 34",
-    idade < 46 ~ "entre 35 e 45",
-    TRUE ~ "entre 46 e 60"
-  )) %>% 
-  dplyr::count(genero, idade_cat) %>% 
-  ggplot2::ggplot(ggplot2::aes(
-    x = idade_cat, y = n, fill = genero, label = n
-  )) +
-  ggplot2::geom_col() +
-  ggplot2::geom_text(position = ggplot2::position_stack(vjust = 0.5)) +
-  ggplot2::scale_fill_grey() +
-  ggplot2::theme_minimal() +
-  ggplot2::labs(
-    x = ggplot2::element_blank(),
-    fill = "Gênero"
-  )
-```
 ### Naturalidade
 
-A tabela \@ref(tab:perfil-informantes) mostra o perfil dos informantes segundo
-sua naturalidade (variável também agrupada em razão da baixa volumetria de 
-indivíduos por UF).
+A Tabela A.1 exibe o perfil dos informantes segundo sua naturalidade (variável 
+agrupada em razão da baixa volumetria de indivíduos por UF). É possível perceber 
+que a maior proporção (82%) dos participantes reside no estado de São Paulo. 
 
-```{r perfil-informantes }
-library(magrittr)
-pseudopalavras::dados %>% 
-  dplyr::distinct(informante, .keep_all = TRUE) %>% 
-  dplyr::mutate(naturalidade = dplyr::case_when(
-    naturalidade == "São Paulo" ~ "São Paulo, SP",
-    stringr::str_detect(naturalidade, "SP") ~ "Outros municípios de SP",
-    TRUE ~ "Outras UF"
-  )) %>% 
-  dplyr::count(naturalidade, sort = TRUE) %>% 
-  knitr::kable(
-    caption = "Perfil dos participantes segundo naturalidade",
-    booktabs = TRUE,
-    table.attr = "style='width:30%;'"
-  )
-```
+
 
 ### Área de formação
 
 Parte considerável dos participantes (10) são ingressantes do curso de Letras, 
-logo, para a análise inferencial, essa variável foi categorizada em dois níveis.
-A tabela \@ref(tab:area-formacao) mostra esse agrupamento da formação dos
+logo, essa variável foi categorizada em dois níveis.
+A Tabela A.2 mostra esse agrupamento da formação dos
 voluntários. A influência do curso de Letras na categorização das pseudopalavras
 é um dos fatores de interesse na análise dos dados.
 
@@ -67,132 +31,41 @@ Outras variáveis relacionadas com a linguagem (conhecimento em música e de
 outras línguas) também foram transformadas em variáveis binárias, pois há 
 interesse em saber se isso afeta na percepção da tonicidade de palavras. A 
 distribuição das variáveis já agrupadas também pode ser observada
-nas tabelas \@ref(musica) e \@ref(linguas).
+nas Tabelas A.3 e A.4, respectivamente.
 
 
-```{r area-formacao}
-participantes %>% 
-  dplyr::count(area_formacao, sort = TRUE) %>% 
-  knitr::kable(col.names = c(
-    "Área de formação", "Número de participantes"
-  ))
-```
-
-```{r musica}
-participantes %>% 
-  dplyr::count(musica, sort = TRUE) %>% 
-  knitr::kable(col.names = c(
-    "Conhecimento em música", "Número de participantes"
-  ))
-  
-```
-
-```{r linguas}
-participantes %>% 
-  dplyr::count(linguas, sort = TRUE) %>% 
-  knitr::kable(col.names = c(
-    "Conhecimento em línguas", "Número de participantes" ))
-  
-```
 
 ## Variáveis linguísticas
 
-Como visto na tabela a seguir, a tonacidade de produção do tipo proparoxítona é a menos expressiva na base, enquanto a categoria paroxítona (penúltima sílaba é tônica) aparece com maior frequência nas respostas dos participantes. Portanto, o processo de acentuação das pseudopalavras nesse estudo parece ir de acordo com a afirmação de @collischonn1999 de que 
+A tonacidade de produção do tipo proparoxítona é a menos expressiva na base, enquanto a categoria paroxítona (penúltima sílaba é tônica) aparece com maior frequência nas respostas dos participantes, como visto na Tabela 1 a seguir. Portanto, o processo de acentuação das pseudopalavras nesse estudo parece ir de acordo com a afirmação de @collischonn1999 de que 
 > Podemos considerar que o acento proparoxítono é marcado, no sentido de que é menos usual. É um acento especial, contrário à tendência geral de acentuar a penúltima sílaba
 
+__Tabela 1__: Distribuição das respostas nos níveis da variável Tonicidade de produção.
 ```{r grupo-tonicidade}
 pseudopalavras::dados %>% 
   dplyr::count(tonicidade_producao) %>% 
-  #dplyr::mutate(total = g1 + g2 + g3 + g4) %>% 
+ # dplyr::mutate(total = g1 + g2 + g3) %>% 
   knitr::kable(col.names = c(
-    "Tonicidade de produção", "Quantidade"
+    "Tonicidade de produção", "Total"
   )) 
 ```
 
-Além disso, verifica-se que a proporção de proparoxítonas é inferior às outras 
-categorias em todos os grupos, o que já era esperado devido à baixa frequência de
-palavrasproparoxítonas de três sílabas na estrutura proposta (CV-CV-CV ou 
-CV-CV-CVC).
+Além disso, na Tabela A.5 verifica-se que a proporção de proparoxítonas é inferior às outras categorias em todos os grupos, o que já era esperado devido à baixa frequência
+de palavras proparoxítonas de três sílabas na estrutura proposta (CV-CV-CV ou 
+CV-CV-CVC). 
 
-Também observamos na tabela \@ref(grupo-tonicidade-producao) que os grupos 2 e 4 (ou
-seja, os grupos em que as palavras sofreram mais alterações em relação à
-referência original) apresentam uma proporção ainda menor de proparoxítonas
-quando comparados aos grupos 1 e 3.
+Observa-se na Tabela A.6 que os grupos 2 e 4 (ou seja, os grupos em que as palavras sofreram mais alterações em relação à referência original) apresentam uma proporção
+ainda menor de proparoxítonas quando comparados aos grupos 1 e 3.
 
-```{r grupo-tonicidade-alvo}
-pseudopalavras::dados %>% 
-  dplyr::count(tonicidade_alvo, grupo) %>% 
-  tidyr::pivot_wider(names_from = grupo, values_from = n) %>%
-  setNames(c(
-    "tonicidade_alvo", 
-    "g1",
-    "g2",
-    "g3",
-    "g4"
-  )) %>% 
-  dplyr::mutate(total = g1 + g2 + g3 + g4) %>% 
-  dplyr::transmute(
-    tonicidade_alvo,
-    g1 = glue::glue("{g1} ({scales::percent(g1/total)})"),
-    g2 = glue::glue("{g2} ({scales::percent(g2/total)})"),
-    g3 = glue::glue("{g3} ({scales::percent(g3/total)})"),
-    g4 = glue::glue("{g4} ({scales::percent(g4/total)})"),
-    total
-  ) %>% 
-  knitr::kable(col.names = c(
-    "Tonicidade palavra-alvo", 
-    "1 (Similar de alta freq.)",
-    "2 (Dissimilar de alta freq.)",
-    "3 (Similar de baixa freq.)",
-    "4 (Dissimilar de baixa freq.)",
-    "Total"
-  )) %>% 
-  kableExtra::add_header_above(
-    c(" " = 1, "Grupo" = 4, " " = 1)
-  )
-```
-
-
-```{r grupo-tonicidade-producao}
-pseudopalavras::dados %>% 
-  dplyr::count(tonicidade_producao, grupo) %>% 
-  tidyr::pivot_wider(names_from = grupo, values_from = n) %>%
-  setNames(c(
-    "tonicidade_producao", 
-    "g1",
-    "g2",
-    "g3",
-    "g4"
-  )) %>% 
-  dplyr::mutate(total = g1 + g2 + g3 + g4) %>% 
-  dplyr::transmute(
-    tonicidade_producao,
-    g1 = glue::glue("{g1} ({scales::percent(g1/total)})"),
-    g2 = glue::glue("{g2} ({scales::percent(g2/total)})"),
-    g3 = glue::glue("{g3} ({scales::percent(g3/total)})"),
-    g4 = glue::glue("{g4} ({scales::percent(g4/total)})"),
-    total
-  ) %>% 
-  knitr::kable(col.names = c(
-    "Tonicidade produção", 
-    "1 (Similar de alta freq.)",
-    "2 (Dissimilar de alta freq.)",
-    "3 (Similar de baixa freq.)",
-    "4 (Dissimilar de baixa freq.)",
-    "Total"
-  )) %>% 
-  kableExtra::add_header_above(
-    c(" " = 1, "Grupo" = 4, " " = 1)
-  )
-```
-
-Comparando a tonicidade das pseudopalavras e a tonicidade das palavras-alvo (\@ref(tab:tonicidade-pseudoxalvo)),nota-se que 73% das pseudopalavras classificadas
-como proparoxítonas tinham uma palavra-alvo de tonicidade proparoxítona. 
+Comparando a tonicidade das pseudopalavras e a tonicidade das palavras-alvo (vide 
+Tabela 2),nota-se que 73% das pseudopalavras classificadas como proparoxítonas 
+tinham uma palavra-alvo de tonicidade proparoxítona. 
 Entretanto, cerca de 77% das pseudopalavras que tiveram como alvo uma palavra 
-proparoxítona foram categorizadas pelos participantes como paroxítonas ((\@ref(tab:tonicidade-pseudoxalvo2)). 
+proparoxítona foram categorizadas pelos participantes como paroxítonas (Tabela A.7). 
 CONCLUSAO?
 
-
+__Tabela 2__: Frequência da tonicidade das pseudopalavras por nível de tonicidade 
+das palavras-alvo.
 ```{r tonicidade-pseudoxalvo}
 pseudopalavras::dados %>%
   dplyr::count(tonicidade_producao, tonicidade_alvo) %>% 
@@ -210,7 +83,7 @@ pseudopalavras::dados %>%
     proparoxitona = glue::glue(
       "{proparoxitona} ({scales::percent(proparoxitona/total)})"
     ),
-    total
+    total = glue::glue("{total} ({scales::percent(total/total)})")
   ) %>% 
   knitr::kable() %>% 
   kableExtra::add_header_above(
@@ -218,38 +91,10 @@ pseudopalavras::dados %>%
   )
 ```
 
-#só mudei a ref do total pra mostrar que pouquissimas prop foram classificadas como prop, não precisa por isso, a gente pode discutir se coloca essa tab
-```{r tonicidade-pseudoxalvo}
-pseudopalavras::dados %>%
-  dplyr::count(tonicidade_producao, tonicidade_alvo) %>% 
-  dplyr::mutate(
-    tonicidade_producao = abjutils::rm_accent(tonicidade_producao)
-  ) %>% 
-  tidyr::pivot_wider(names_from = tonicidade_producao, values_from = n) %>% 
-  dplyr::mutate(total = oxitona + paroxitona + proparoxitona) %>% 
-  dplyr::transmute(
-    tonicidade_alvo,
-    oxitona = glue::glue("{oxitona} ({scales::percent(oxitona/total)})"),
-    paroxitona = glue::glue(
-      "{paroxitona} ({scales::percent(paroxitona/total)})"
-    ),
-    proparoxitona = glue::glue(
-      "{proparoxitona} ({scales::percent(proparoxitona/total)})"
-    ),
-    total
-  ) %>% 
-  knitr::kable() %>% 
-  kableExtra::add_header_above(
-    c(" " = 1, "Tonicidade da pseudopalavra" = 3, " " = 1)
-  )
-```
-### Pseudopalavras não validadas
+Na Tabela 3 vemos que aproximadamente 73% das pseudopalavras foram validadas de acordo com o processo descrito anteriormente no capítulo 3 (Descrição). Porém, cerca de 81% das não validadas foram classificadas como paroxítonas, e mais de 55% pertencem ao grupo das similares (\@ref(tab:validacao-grupo). 
 
-Na tabela \@ref(tab:validacao-producao) vemos que aproximadamente 73% das pseudopalavras 
-foram validadas de acordo com o processo descrito anteriormente (posso colocar a 
-ref do capitulo?. Porém, cerca de 81% das não validadas foram classificadas como
-paroxítonas, e mais de 55% pertencem ao grupo das similares (\@ref(tab:validacao-grupo). 
 
+__Tabela 3__: Frequência da tonicidade das pseudopalavras, por nível da variável Validação.
 ```{r validacao-producao}
 pseudopalavras::dados %>% 
   dplyr::count(tonicidade_producao, validacao) %>% 
@@ -266,7 +111,7 @@ pseudopalavras::dados %>%
     g1 = glue::glue("{g1} ({scales::percent(g1/total)})"),
     g2 = glue::glue("{g2} ({scales::percent(g2/total)})"),
     g3 = glue::glue("{g3} ({scales::percent(g3/total)})"),
-    total
+    total = glue::glue("{total} ({scales::percent(total/total)})")
   ) %>% 
   knitr::kable(col.names = c(
     "Tonicidade produção", 
@@ -279,45 +124,13 @@ pseudopalavras::dados %>%
     c(" " = 1, "Status Validação" = 3, " " = 1)
   )
 ```
-```{r validacao-grupo}
-pseudopalavras::dados %>% 
-  dplyr::count(grupo, validacao) %>% 
-  tidyr::pivot_wider(names_from = validacao, values_from = n) %>%
-  setNames(c(
-    "tonicidade_producao", 
-    "g1",
-    "g2",
-    "g3"
-  )) %>% 
-  dplyr::mutate(total = g1 + g2 + g3) %>% 
-  dplyr::transmute(
-    tonicidade_producao,
-    g1 = glue::glue("{g1} ({scales::percent(g1/total)})"),
-    g2 = glue::glue("{g2} ({scales::percent(g2/total)})"),
-    g3 = glue::glue("{g3} ({scales::percent(g3/total)})"),
-    total
-  ) %>% 
-  knitr::kable(col.names = c(
-    "Grupo", 
-    "Não Validada",
-    "Quase Validada",
-    "Validada",
-    "Total"
-  )) %>% 
-  kableExtra::add_header_above(
-    c(" " = 1, "Status Validação" = 3, " " = 1)
-  )
-```
 
-
-
-
-
-Estrutura x tonicidade palavra-alvo
 Por fim, podemos ver que a divisão de estrutura da palavra-alvo é bem distribuído, 
 com exceção da estrutura CV-CV-CVC em proparoxítonas, o que já era esperado, uma 
-vez que a frequência de palavras com essas características no Corpus Brasileiro (ref?)
-é baixa. 
+vez que a frequência de palavras com essas características no Corpus Brasileiro
+é baixa (vide Tabela 4)
+
+__Tabela 4__: Frequência da Tonicidade alvo por Estrutura das palavras.
 ```{r estrut-tonicidade-alvo}
 pseudopalavras::dados %>% 
   dplyr::count(estrutura_palavra, tonicidade_alvo) %>% 
@@ -336,33 +149,5 @@ pseudopalavras::dados %>%
     c(" " = 1, "Estrutura da palavra" = 2, " " = 1)
   )
 ```
-
-
-
-Estrutura x tonicidade pseudopalavra
-
-```{r estrut-tonicidade-pseudo}
-pseudopalavras::dados %>% 
-  dplyr::count(estrutura_palavra, tonicidade_producao) %>% 
-  tidyr::pivot_wider(names_from = estrutura_palavra, values_from = n) %>% 
-  setNames(c("tonicidade", "e1", "e2")) %>% 
-  dplyr::mutate(
-    total = e1 + e2,
-    e1 = glue::glue("{e1} ({scales::percent(e1/total)})"),
-    e2 = glue::glue("{e2} ({scales::percent(e2/total)})")
-  ) %>% 
-  dplyr::relocate(tonicidade, e1, e2, total) %>% 
-  knitr::kable(col.names = c(
-    "Tonicidade palavra produção", "CV-CV-CV", "CV-CV-CVC", "Total"
-  )) %>% 
-  kableExtra::add_header_above(
-    c(" " = 1, "Estrutura da palavra" = 2, " " = 1)
-  )
-```
-
-
-
-etc etc
-
 
 
