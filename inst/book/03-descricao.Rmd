@@ -1,6 +1,6 @@
 # Descrição do estudo {#descricao-estudo}
 
-O experimento consistia em apresentar aos participantes, através do software
+O experimento consistiu em apresentar aos participantes, através do software
 Psychopy, uma série de pseudopalavras e registrar, via Google Meet, a forma 
 como eles reproduziam verbalmente tais palavras. A seguir, as respostas dos
 participantes foram classificadas de acordo com as três classes de acentuação
@@ -38,7 +38,7 @@ análise.
 __Problemas de aleatorização__:
 
 Inicialmente, as pseudopalavras foram aleatorizadas de forma geral no software
-_Excel_ (ALEATORIo ENTRE) e separadas em 4 blocos com 93 pseudopalavras cada,
+_Excel_ (ALEATORIOENTRE) e separadas em 4 blocos com 93 pseudopalavras cada,
 resultando em um total de 372 palavras criadas. Dentro de cada bloco, a ordem em
 que as pseudopalavras foram apresentadas aos falantes também foi aleatorizada,
 porém, para alguns participantes o software Psychopy apresentou problemas e eles
