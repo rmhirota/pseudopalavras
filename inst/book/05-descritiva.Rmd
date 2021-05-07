@@ -186,9 +186,8 @@ pseudopalavras::dados %>%
   )
 ```
 
-Comparando a tonicidade das pseudopalavras e a tonicidade das palavras-alvo (\@ref(tab:tonicidade-pseudoxalvo)),
-nota-se que 73% das pseudopalavras classificadas como proparoxítonas tinham uma 
-palavra-alvo de tonicidade proparoxítona. 
+Comparando a tonicidade das pseudopalavras e a tonicidade das palavras-alvo (\@ref(tab:tonicidade-pseudoxalvo)),nota-se que 73% das pseudopalavras classificadas
+como proparoxítonas tinham uma palavra-alvo de tonicidade proparoxítona. 
 Entretanto, cerca de 77% das pseudopalavras que tiveram como alvo uma palavra 
 proparoxítona foram categorizadas pelos participantes como paroxítonas ((\@ref(tab:tonicidade-pseudoxalvo2)). 
 CONCLUSAO?
@@ -220,7 +219,7 @@ pseudopalavras::dados %>%
 ```
 
 #só mudei a ref do total pra mostrar que pouquissimas prop foram classificadas como prop, não precisa por isso, a gente pode discutir se coloca essa tab
-```{r tonicidade-pseudoxalvo2}
+```{r tonicidade-pseudoxalvo}
 pseudopalavras::dados %>%
   dplyr::count(tonicidade_producao, tonicidade_alvo) %>% 
   dplyr::mutate(
@@ -245,6 +244,70 @@ pseudopalavras::dados %>%
   )
 ```
 ### Pseudopalavras não validadas
+
+Na tabela \@ref(tab:validacao-producao) vemos que aproximadamente 73% das pseudopalavras 
+foram validadas de acordo com o processo descrito anteriormente (posso colocar a 
+ref do capitulo?. Porém, cerca de 81% das não validadas foram classificadas como
+paroxítonas, e mais de 55% pertencem ao grupo das similares (\@ref(tab:validacao-grupo). 
+
+```{r validacao-producao}
+pseudopalavras::dados %>% 
+  dplyr::count(tonicidade_producao, validacao) %>% 
+  tidyr::pivot_wider(names_from = validacao, values_from = n) %>%
+  setNames(c(
+    "tonicidade_producao", 
+    "g1",
+    "g2",
+    "g3"
+  )) %>% 
+  dplyr::mutate(total = g1 + g2 + g3) %>% 
+  dplyr::transmute(
+    tonicidade_producao,
+    g1 = glue::glue("{g1} ({scales::percent(g1/total)})"),
+    g2 = glue::glue("{g2} ({scales::percent(g2/total)})"),
+    g3 = glue::glue("{g3} ({scales::percent(g3/total)})"),
+    total
+  ) %>% 
+  knitr::kable(col.names = c(
+    "Tonicidade produção", 
+    "Não Validada",
+    "Quase Validada",
+    "Validada",
+    "Total"
+  )) %>% 
+  kableExtra::add_header_above(
+    c(" " = 1, "Status Validação" = 3, " " = 1)
+  )
+```
+```{r validacao-grupo}
+pseudopalavras::dados %>% 
+  dplyr::count(grupo, validacao) %>% 
+  tidyr::pivot_wider(names_from = validacao, values_from = n) %>%
+  setNames(c(
+    "tonicidade_producao", 
+    "g1",
+    "g2",
+    "g3"
+  )) %>% 
+  dplyr::mutate(total = g1 + g2 + g3) %>% 
+  dplyr::transmute(
+    tonicidade_producao,
+    g1 = glue::glue("{g1} ({scales::percent(g1/total)})"),
+    g2 = glue::glue("{g2} ({scales::percent(g2/total)})"),
+    g3 = glue::glue("{g3} ({scales::percent(g3/total)})"),
+    total
+  ) %>% 
+  knitr::kable(col.names = c(
+    "Grupo", 
+    "Não Validada",
+    "Quase Validada",
+    "Validada",
+    "Total"
+  )) %>% 
+  kableExtra::add_header_above(
+    c(" " = 1, "Status Validação" = 3, " " = 1)
+  )
+```
 
 
 
