@@ -1,16 +1,17 @@
 # Descrição das variáveis {#descricao-variaveis}
 
-Foram coletadas variáveis linguísticas (relacionadas as pseudopalavras), extralinguísticas (relacionadas aos participantes) e experimentais (relacionadas ao estudo), que podem, segundo a literatura da área, influenciar o comportamento acentual no português. A seguir, listamos as variáveis pré-selecionadas para o estudo. 
+Foram coletadas variáveis linguísticas (relacionadas às pseudopalavras), extralinguísticas (relacionadas aos participantes) e experimentais (relacionadas ao estudo), que podem, segundo a literatura da área, influenciar o comportamento acentual no português. A seguir, listamos as variáveis pré-selecionadas para o estudo. 
   
   
 ## Variável Dependente
 
-A variável resposta de interesse é _Tonicidade_, ou seja, aclassificação acentual tônica da pseudopalavra (oxítona, paroxítona e proparoxítona)
+A variável resposta de interesse é _Tonicidade_, ou seja, a classificação acentual tônica da pseudopalavra (oxítona, paroxítona e proparoxítona)
   
   
 ## Variáveis Linguísticas
    
-- __Grupo dos estímulos__:  indica o efeito da similaridade (entre a pseudopalavra e a palavra real) e da frequência (alta e baixa) na produção acentual
+- __Grupo dos estímulos__:  indica o efeito da similaridade (entre a pseudopalavra 
+e a palavra real) e da frequência (alta e baixa) na produção acentual.
      
 1 = pseudopalavras similares de alta frequência    
 2 = pseudopalavras dissimilares de alta frequência   
@@ -27,7 +28,7 @@ A variável resposta de interesse é _Tonicidade_, ou seja, aclassificação ace
 - __Validação__: s = sim, n = não validada e q = quase validada
 - __Taxa de validação__: indica quantas pessoas informaram que a palavra era similar ou dissimilar
 - __Vizinhança Fonologica__: consiste na categorização por vizinhança fonológica apenas das pseudopalavras que não foram validadas 
-- __Vizinhança Tonicidade__: indica qual foi o padrão acentual das palavras que os participantes julgaram similares a pseudopalavras criada; apenas para as pseudopalavras que não foram validadas  
+- __Vizinhança Tonicidade__: indica qual foi o padrão acentual das palavras que os participantes julgaram similares às pseudopalavras criadas; apenas para as pseudopalavras que não foram validadas  
 
 
 ## Variáveis Extralinguísticas
@@ -37,8 +38,8 @@ A variável resposta de interesse é _Tonicidade_, ou seja, aclassificação ace
 - __Gênero__: feminino e masculino
 - __Naturalidade__: indica a cidade em que o participante nasceu
 - __Escolaridade__: ensino fundamental a mestrado
-- __Área de formação__: 0 = outros e 1 = letras
-- __Línguas__: 0 = não tem conhecimento em música e 1 = tem conhecimento em música
+- __Área de formação__: 0 = outros e 1 = Letras
+- __Línguas__: 0 = não tem conhecimento em línguas e 1 = tem conhecimento em línguas
 - __Música__: 0 = não tem conhecimento em música e 1 = tem conhecimento em música
 
 ## Variáveis Experimentais
@@ -47,8 +48,8 @@ A variável resposta de interesse é _Tonicidade_, ou seja, aclassificação ace
 - __Bloco de apresentação__: indica em qual bloco (ou rotina) a pseudopalavra foi inserida (1, 2, 3 ou 4)
 - __Ordem de apresentação__: indica em qual ordem a pseudopalavra foi apresentada dentro do bloco de apresentação (1 a 93)
 
-Destacamos também algumas variável que foram excluídas inicialmente da análise e o motivo dessa escolha:
+Destacamos a seguir as variáveis que foram excluídas inicialmente da análise e o motivo dessa escolha:
    
-- __Tempo de resposta__: Só há tempo para a metade dos participantes devido ao problema com o software em que o experimento foi realizado. Portanto, essa variável pode ter sido influenciada por esse erros, além de possuir muitos dados faltantes
+- __Tempo de resposta__: Só há tempo para a metade dos participantes devido ao problema com o software em que o experimento foi realizado. Além idsso, fatores externos como falha na conexão com a internet podem ter afetado a coleta dessa informação. Portanto, esses fatores tornam a variável viesada, além de possuir muitos dados faltantes
 - __Taxa de similaridade__: 1, 2, 3 (grupos similares), 5, 6, 7, 8, 9, 10 (grupos dissimilares). Como o conceito de similaridade entre a palavra alvo e a pseudopalavra já está inserido na variável _Grupo de estímulos_, entendemos que ela não é necessária na análise
 - __Naturalidade__: Cerca de 80% dos participantes são naturais do estado de São Paulo (capital e cidades do município). Logo, essa variável não será considerada na análise
