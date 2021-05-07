@@ -10,9 +10,9 @@ Algumas perguntas a serem respondidas pela análise estatística são:
   
 1. Quanto mais similar a palavra inventada for da palavra real, maiores são as 
 chances de atribuição do mesmo padrão acentual da palavra real?  
-1. A tonicidade da palavra alvo, ou seja, a referência real em relação à 
+2. A tonicidade da palavra alvo, ou seja, a referência real em relação à 
 pseudopalavra, tem papel na classificação da pseudopalavra?  
-1. As variáveis selecionadas pelo modelo estão em concordância com a literatura 
+3. As variáveis selecionadas pelo modelo estão em concordância com a literatura 
 da área?  
-1. Há algum falante ou pseudopalavra com comportamento destoante dos demais? 
+4. Há algum falante ou pseudopalavra com comportamento destoante dos demais? 
 Qual o seu papel na atribuição acentual?
