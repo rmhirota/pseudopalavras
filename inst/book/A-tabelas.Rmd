@@ -1,35 +1,9 @@
-###APÊNDICE A
+# (APPENDIX) Apêndices {-} 
 
-```{r idade}
-participantes <- pseudopalavras::dados %>% 
-  dplyr::distinct(informante, .keep_all = TRUE) 
-
-participantes %>% 
-  dplyr::mutate(idade_cat = dplyr::case_when(
-    idade < 27 ~ "entre 18 e 26",
-    idade < 35 ~ "entre 27 e 34",
-    idade < 46 ~ "entre 35 e 45",
-    TRUE ~ "entre 46 e 60"
-  )) %>% 
-  dplyr::count(genero, idade_cat) %>% 
-  ggplot2::ggplot(ggplot2::aes(
-    x = idade_cat, y = n, fill = genero, label = n
-  )) +
-  ggplot2::geom_col() +
-  ggplot2::geom_text(position = ggplot2::position_stack(vjust = 0.5)) +
-  ggplot2::scale_fill_grey() +
-  ggplot2::theme_minimal() +
-  ggplot2::labs(
-    x = ggplot2::element_blank(),
-    fill = "Gênero"
-  )
-```
-__Figura A.1__ _Gráfico de barras empilhadas_ do Gênero distribuído por faixas etárias 
-da variável Idade (anos).
-
+# Tabelas {#tabelas}
 
 ```{r perfil-informantes }
-library(magrittr)
+
 pseudopalavras::dados %>% 
   dplyr::distinct(informante, .keep_all = TRUE) %>% 
   dplyr::mutate(naturalidade = dplyr::case_when(
@@ -39,49 +13,50 @@ pseudopalavras::dados %>%
   )) %>% 
   dplyr::count(naturalidade, sort = TRUE) %>% 
   knitr::kable(
-    caption = "",
+    caption = "Perfil dos participantes de acordo com a Naturalidade.",
     booktabs = TRUE,
-    table.attr = "style='width:30%;'", 
+    table.attr = "style='width:80%;'", 
     col.names = c("Naturalidade", "Total")
-  )
+  ) %>% 
+  kableExtra::kable_styling(full_width = TRUE)
 ```
-
-__Tabela A.1__ Perfil dos participantes de acordo com a Naturalidade.
-
-
+<br>
 ```{r area-formacao}
 participantes %>% 
   dplyr::count(area_formacao, sort = TRUE) %>% 
-  knitr::kable(col.names = c(
-    "Área de formação", "Total"
-  ))
+  knitr::kable(
+    col.names = c("Área de formação", "Total"),
+    caption = "Frequência da variável dicotômica Área de formação.",
+    booktabs = TRUE,
+    table.attr = "style='width:40%;'"
+  ) %>% 
+  kableExtra::kable_styling(full_width = TRUE)
 ```
-
-__Tabela A.2__ Frequência da variável dicotômica Área de formação.
-
-
-```{r musica}
-participantes %>% 
-  dplyr::count(musica, sort = TRUE) %>% 
-  knitr::kable(col.names = c(
-    "Conhecimento em música", "Total"
-  ))
-  
-```
-
-__Tabela A.3__ Frequência da variável dicotômica  Música.
-
+<br>
 ```{r linguas}
 participantes %>% 
   dplyr::count(linguas, sort = TRUE) %>% 
-  knitr::kable(col.names = c(
-    "Conhecimento em línguas", "Total" ))
-  
+   knitr::kable(
+    col.names = c("Conhecimento em línguas", "Total"),
+    caption = "Frequência da variável dicotômica Línguas.",
+    booktabs = TRUE,
+    table.attr = "style='width:40%;'"
+  ) %>% 
+  kableExtra::kable_styling(full_width = TRUE)
 ```
-
-__Tabela A.4__ Frequência da variável dicotômica Línguas.
-
-
+<br>
+```{r musica}
+participantes %>% 
+  dplyr::count(musica, sort = TRUE) %>% 
+  knitr::kable(
+    col.names = c("Conhecimento em música", "Total"),
+    caption = "Frequência da variável dicotômica Música.",
+    booktabs = TRUE,
+    table.attr = "style='width:40%;'"
+  ) %>% 
+  kableExtra::kable_styling(full_width = TRUE)
+```
+<br>
 ```{r grupo-tonicidade-alvo}
 pseudopalavras::dados %>% 
   dplyr::count(tonicidade_alvo, grupo) %>% 
@@ -102,23 +77,24 @@ pseudopalavras::dados %>%
     g4 = glue::glue("{g4} ({scales::percent(g4/total)})"),
     total
   ) %>% 
-  knitr::kable(col.names = c(
-    "Tonicidade palavra-alvo", 
-    "1 (Similar de alta freq.)",
-    "2 (Dissimilar de alta freq.)",
-    "3 (Similar de baixa freq.)",
-    "4 (Dissimilar de baixa freq.)",
-    "Total"
-  )) %>% 
-  
+  knitr::kable(
+    col.names = c(
+      "Tonicidade palavra-alvo", 
+      "1 (Similar de alta freq.)",
+      "2 (Dissimilar de alta freq.)",
+      "3 (Similar de baixa freq.)",
+      "4 (Dissimilar de baixa freq.)",
+      "Total"
+    ),
+    caption = "Frequência do Grupo experimental por Tonicidade da palavra-alvo.",
+    booktabs = TRUE,
+    table.attr = "style='width:100%;'"
+  ) %>% 
   kableExtra::add_header_above(
     c(" " = 1, "Grupo" = 4, " " = 1)
   )
 ```
-
-__Tabela A.5__ Frequência do Grupo experimental por Tonicidade da palavra-alvo.
-
-
+<br>
 ```{r grupo-tonicidade-producao}
 pseudopalavras::dados %>% 
   dplyr::count(tonicidade_producao, grupo) %>% 
@@ -139,22 +115,24 @@ pseudopalavras::dados %>%
     g4 = glue::glue("{g4} ({scales::percent(g4/total)})"),
     total
   ) %>% 
-  knitr::kable(col.names = c(
-    "Tonicidade produção", 
-    "1 (Similar de alta freq.)",
-    "2 (Dissimilar de alta freq.)",
-    "3 (Similar de baixa freq.)",
-    "4 (Dissimilar de baixa freq.)",
-    "Total"
-  )) %>% 
+  knitr::kable(
+    col.names = c(
+      "Tonicidade produção", 
+      "1 (Similar de alta freq.)",
+      "2 (Dissimilar de alta freq.)",
+      "3 (Similar de baixa freq.)",
+      "4 (Dissimilar de baixa freq.)",
+      "Total"
+    ),
+    caption = "Frequência do Grupo experimental por Tonicidade da pseudopalavra.",
+    booktabs = TRUE,
+    table.attr = "style='width:100%;'"
+  ) %>% 
   kableExtra::add_header_above(
     c(" " = 1, "Grupo" = 4, " " = 1)
   )
 ```
-
-__Tabela A.6__ Frequência do Grupo experimental por Tonicidade da pseudopalavra.
-
-
+<br>
 ```{r tonicidade-pseudoxalvo2}
 pseudopalavras::dados %>%
   dplyr::count(tonicidade_producao, tonicidade_alvo) %>% 
@@ -174,15 +152,16 @@ pseudopalavras::dados %>%
     ),
     total = glue::glue("{total} ({scales::percent(total/total)})")
   ) %>% 
-  knitr::kable() %>% 
+  knitr::kable(
+    caption = "Frequência da tonicidade das palavras-alvo por nível de tonicidade das pseudopalavras.",
+    booktabs = TRUE,
+    table.attr = "style='width:100%;'"
+  ) %>% 
   kableExtra::add_header_above(
     c(" " = 1, "Tonicidade da pseudopalavra" = 3, " " = 1)
   )
 ```
-
-__Tabela A.7__ Frequência da tonicidade das palavras-alvo por nível de tonicidade 
-das pseudopalavras.
-
+<br>
 ```{r validacao-grupo}
 pseudopalavras::dados %>% 
   dplyr::count(grupo, validacao) %>% 
@@ -201,13 +180,14 @@ pseudopalavras::dados %>%
     g3 = glue::glue("{g3} ({scales::percent(g3/total)})"),
     total = glue::glue("{total} ({scales::percent(total/total)})")
   ) %>% 
-  knitr::kable(col.names = c(
-    "Grupo", 
-    "Não Validada",
-    "Quase Validada",
-    "Validada",
-    "Total"
-  )
+  knitr::kable(
+    col.names = c(
+      "Grupo", "Não Validada", "Quase Validada", 
+      "Validada", "Total"
+    ),
+    caption = "Frequência das pseudopalavras nos Grupos, por status de Validação.",
+    booktabs = TRUE,
+    table.attr = "style='width:100%;'"
   #, row.names = c(
    # "1 (Similar de alta freq.)",
     #"2 (Dissimilar de alta freq.)",
@@ -218,10 +198,7 @@ pseudopalavras::dados %>%
     c(" " = 1, "Status Validação" = 3, " " = 1)
   )
 ```
-
-__Tabela A.8__ Frequência das pseudopalavras nos Grupos, por status de Validação.
-
-
+<br>
 ```{r estrut-tonicidade-pseudo}
 pseudopalavras::dados %>% 
   dplyr::count(estrutura_palavra, tonicidade_producao) %>% 
@@ -233,17 +210,20 @@ pseudopalavras::dados %>%
     e2 = glue::glue("{e2} ({scales::percent(e2/total)})")
   ) %>% 
   dplyr::relocate(tonicidade, e1, e2, total) %>% 
-  knitr::kable(col.names = c(
-    "Tonicidade palavra produção", "CV-CV-CV", "CV-CV-CVC", "Total"
-  )) %>% 
+  knitr::kable(
+    col.names = c(
+      "Tonicidade palavra produção", "CV-CV-CV", "CV-CV-CVC", "Total"
+    ),
+    caption = "Atribuições acentuais por Estrutura das palavras.",
+    booktabs = TRUE,
+    table.attr = "style='width:100%;'"
+  ) %>% 
   kableExtra::add_header_above(
     c(" " = 1, "Estrutura da palavra" = 2, " " = 1)
   )
 ```
+
 #colocar total embaixo
-__Tabela A.9__ Atribuições acentuais por Estrutura das palavras.
-
-
 
 
 

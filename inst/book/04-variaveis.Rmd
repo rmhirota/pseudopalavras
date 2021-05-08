@@ -13,10 +13,10 @@ A variável resposta de interesse é __Tonicidade de produção__, ou seja, a cl
 - __Grupo dos estímulos__:  indica o efeito da similaridade (entre a pseudopalavra 
 e a palavra real) e da frequência (alta e baixa) na produção acentual
      
-1 = pseudopalavras similares de alta frequência    
-2 = pseudopalavras dissimilares de alta frequência   
-3 = pseudopalavras similares de baixa frequência    
-4 = pseudopalavras dissimilares de baixa frequência   
+  - 1 = pseudopalavras similares de alta frequência    
+  - 2 = pseudopalavras dissimilares de alta frequência   
+  - 3 = pseudopalavras similares de baixa frequência    
+  - 4 = pseudopalavras dissimilares de baixa frequência   
     
 - __Pseudopalavra__: refere-se a cada um dos estímulos criados  
 - __Palavra alvo__: palavra real que deu origem à pseudopalavra  

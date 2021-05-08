@@ -12,7 +12,13 @@ dados <- dados %>%
     bloco_apresentacao = as.factor(bloco_apresentacao),
     ordem_apresentacao = as.factor(ordem_apresentacao),
     codigo_pseudo = as.factor(codigo_pseudo),
-    tempo_resposta = as.double(tempo_resposta),
+    tempo_resposta = as.double(tempo_resposta)
+  )
+
+# Agrupa variáveis --------------------------------------------------------
+
+dados <- dados %>%
+  dplyr::mutate(
     musica = dplyr::case_when(
       musica == "nenhum" ~ 0,
       TRUE ~ 1
@@ -26,9 +32,6 @@ dados <- dados %>%
       TRUE ~ "Outro"
     )
   )
-
-dados %>%
-  dplyr::count(area_formacao, sort = TRUE)
 
 
 usethis::use_data(dados, overwrite = TRUE)

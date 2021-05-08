@@ -34,6 +34,8 @@ knitr::opts_chunk$set(echo = FALSE,
                       fig.width = 9)
 library(patchwork)
 library(magrittr)
+participantes <- pseudopalavras::dados %>% 
+  dplyr::distinct(informante, .keep_all = TRUE) 
 ```
 
 

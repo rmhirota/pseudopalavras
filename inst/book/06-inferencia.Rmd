@@ -1,9 +1,0 @@
-# Análise inferencial {#inferencia}
-
-## Modelo proposto
-
-## Seleção de variáveis
-
-## Ajuste
-
-## Diagnóstico

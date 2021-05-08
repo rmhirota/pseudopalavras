@@ -12,7 +12,7 @@ porque, ao contrário da gramática, ela tem como objetivo dizer o que a língua
 e por que é assim. Logo, a área estuda os aspectos fonéticos, morfológicos,
 sintáticos, semânticos, sociais e psicológicos no português brasileiro. Dentro
 deste contexto, existe o conceito de _pseudopalavra_, que, de acordo com o
-dicionário Priberan (@priberan), é uma 
+dicionário @priberan, é uma 
 
 > Sequência regular e pronunciável de  caracteres que não tem um significado numa língua, apesar de obedecer às regras ortográficas, morfológicas ou de pronúncia
 

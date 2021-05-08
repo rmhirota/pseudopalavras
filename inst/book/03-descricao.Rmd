@@ -6,7 +6,7 @@ como eles reproduziam verbalmente tais palavras. A seguir, as respostas dos
 participantes foram classificadas de acordo com as três classes de acentuação
 tônica: oxítona, paroxítona e proparoxítona. Essa é a variável dependente do
 estudo, que será descrita junto às outras variáveis no capítulo
-\@ref(variaveis).
+\@ref(descricao-variaveis).
 
 A coleta dos dados foi realizada no início do primeiro semestre de 2020 com 34
 indivíduos que, através de divulgações em redes sociais e de colegas, se
@@ -18,7 +18,7 @@ Na amostra encontram-se estudantes do primeiro semestre da faculdade de Letras
 da Universidade de São Paulo, músicos, alguns residentes de fora do estado de 
 São Paulo, entre outros. Supõe-se que os alunos do primeiro semestre do curso de
 Letras ainda não têm conhecimento na área. O perfil dos participantes é descrito
-nas tabelas e gráficos na seção \@ref(descritiva). 
+na seção \@ref(descritiva). 
 
 ## Problemas na coleta dos dados
 
