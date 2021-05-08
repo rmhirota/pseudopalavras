@@ -96,19 +96,36 @@ pesquisa é a baixa taxa de evasão observada no curso.
 
 # 3 Descrição de um Modelo Multinível
 
-Um modelo multinível pode ser descrito da seguinte forma:
+Um modelo multinível, sem variáveis de segundo nível, pode ser descrito da seguinte forma:
 
-$$ logit (\pi_{ij}) = (\beta_0 +u_{0j})+\sum_{k}{ \beta_k*X_{kij}} + \epsilon_{ij} $$ 
-  
-para $j = 1,...,n$ clusters de cursos, com $i = 1,..., n_{j}$ alunos no cluster $j$
+$$ logit (\pi_{ij}) = \beta_{0j} + \sum_{k}{ \beta_{k}*X_{kij}} + \epsilon_{ij} $$  
+com $$ \beta_{0j} = \beta_{0} + u_{0j}  $$
+
+para $j = 1,...,n$ clusters de cursos, com $i = 1,..., n_{j}$ alunos no cluster $j$, e $k = 1,...,m$ variáveis independentes no modelo.
 $u_{0j}$ é o efeito aleatório do j-ésimo cluster que compõe o intercepto, cuja 
-distribuição segue uma N(0,$\sigma^{2}_{u_{0j}}$)
+distribuição segue uma N(0,$\sigma^{2}_{u_{0j}}$). Ressaltamos que $\beta_{0}$ é o efeito fixo do intercepto do modelo.
 
 Os $X_{kij}$ são as variáveis independentes utilizadas no modelo, os 
-coeficientes $\beta_k$ são os efeitos fixos do modelo e $\epsilon_{ij}$ é o erro
-com distribuição N(0,$\sigma^2$)
+coeficientes $\beta_k$ são os efeitos fixos do modelo. Os erros $\epsilon_{ij}$ têm
+distribuição binomial com média zero e são independentes de $u_{0j}$
 É importante destacar que componentes aleatórios podem ser acrescentados aos 
 coeficientes das variáveis independentes. 
+  
+Caso exista uma variável de segundo nível o modelo pode ser definido da seguinte forma:
+
+$$ logit (\pi_{ij}) = \beta_{0j}+\sum_{k}{ \beta_{kj}*X_{kij}} + \epsilon_{ij}   $$
+com $$ \beta_{0j} = \beta_{00} + \beta_{02}*Z_j + u_{0j}$$
+    $$ \beta_{kj} = \beta_{k0} + \beta_{k2}*Z_j$$
+
+para $j = 1,...,n$ clusters de cursos, com $i = 1,..., n_{j}$ alunos no cluster $j$, e $k = 1,...,m$ variáveis independentes no modelo.
+$u_{0j}$ é o efeito aleatório do j-ésimo cluster que compõe o intercepto, cuja 
+distribuição segue uma N(0,$\sigma^{2}_{u_{0j}}$). Os erros $\epsilon_{ij}$ têm
+distribuição binomial com média zero e são independentes de $u_{0j}$
+
+Os $X_{kij}$ são as variáveis independentes de nível 1 utilizadas no modelo, os 
+coeficientes $\beta_{kj}$ são os efeitos fixos do modelo. Já $Z_j$ é uma variável no nível de cluster (nível 2)
+$ \beta_{k2}$ são os coeficientes de regressão associados à variável explicativa do nível 2 relativo à inclinação. É importante destacar que componentes aleatórios podem ser acrescentados aos coeficientes das variáveis independentes ($\beta_{kj}$)
+
 
 \newpage
 
@@ -155,7 +172,7 @@ do curso" (0 = não; 1 = sim);
 - Coeficiente de Rendimento acumulado por semestre (CRa), relacionado ao último
 semestre acompanhado.
   
-No nível 2(relacionadas ao cluster), inicialmente a pesquisadora criou uma 
+No nível 2 (relacionadas ao cluster), inicialmente a pesquisadora criou uma 
 variável de seletividade de curso utilizando a nota mediana do curso no Enem com
 a seguinte regra: se a nota mediana do curso no Enem era maior que a nota mediana
 geral no Enem, ou seja, de toda UFRJ, o curso é mais seletivo. Caso contrário, o
@@ -300,22 +317,33 @@ __Passo 4__: Fazer o diagnóstico dos candidatos a modelo final, verificando os
 pressupostos e a qualidade do ajuste.
 
 A curva ROC pode auxiliar a visualizar quão bem o modelo classifica as 
-observações. Geralmente, observamos no eixo x a taxa de falsos positivos e no 
-eixo y a taxa de verdadeiros positivos. 
+observações pois é uma representação gráfica que ilustra o desempenho de um modelo classificador binário . 
+  
+Se o resultado de uma previsão é 1 e o valor real também é 1, então o resultado é chamado de verdadeiro possitivo; no entanto, se o valor real é 0 e o valor previsto foi 1 então dizemos que o resultado é um falso positivo. Por outro lado, um verdadeiro negativo  ocorre quando o resultado da previsão é 0 e o valor real também é 0, e um falso negativo é quando o resultado da previsão é 0 enquanto o valor real é 1
+  
+Geralmente, observamos no eixo x a taxa de falsos positivos, ou seja, valores que o modelo classificou erroneamente como positivos, e no eixo y a taxa de verdadeiros positivos, ou seja, valores que o modelo classificou corretamente como positivos.
   
 Logo, quanto mais próxima do canto superior esquerdo está a curva, melhor a 
 classificação do modelo pois menor a taxa de falsos positivos e maior a taxa de
-verdadeiros positivos.
-  
+verdadeiros positivos. O melhor método de previsão possível produziria um ponto no canto superior esquerdo do plano descrito pelo espaço, isto é, o ponto com coordenadas (0,1). Nesse ponto temos 100% de sensibilidade (isto é, não temos falsos negativos) e 100% de especificidade (isto é, não temos falsos positivos). O ponto (0,1) também é denominado "classificação perfeita"
+
+A seguir, uma ilustração com exemplos de como avaliar o gráfico da curva ROC
+
+```{r echo=FALSE}
+knitr::include_graphics("curva_roc.png")
+```
+[site da imagem](https://pt.wikipedia.org/wiki/Caracter%C3%ADstica_de_Opera%C3%A7%C3%A3o_do_Receptor).  
+
+
 Há diversas formas de calcular os valores para a curva ROC no `Stata`, segundo
 descrito no 
 [site do software](https://www.stata.com/features/overview/receiver-operating-characteristic/).
 
 Por fim, podemos avaliar o ajuste do modelo realizando uma análise residual através
 de um gráfico dos resíduos estimados (Pearson, _deviance_, Anscombe) e os quantis
-da distribuição teórica normal. Idealmente, os resíduos coincidem com os quantis, 
-formando uma linha diagonal pois eles seguem uma distribuição 
-  $e_{ij}$ ~ N(0,$\sigma^2$)
+da distribuição teórica binomial. Idealmente, os resíduos coincidem com os quantis, 
+formando uma linha diagonal pois eles seguem uma determinada distribuição 
+  $\epsilon_{ij}$ ~ Binomial
 
 \newpage
 
@@ -344,7 +372,7 @@ df <- data.frame('Variável' = c('c_use','district','urban','age','children 1','
 knitr::kable(df)
 ```
 
-Considere um modelo de regressão logística:
+Considere um modelo de regressão logística hierárquico:
   
 $$ log (\frac{\pi_{ij}}{1-\pi_{ij}}) = (\beta_0 +u_{0j})+ \beta_1*1.urban_{ij} + \beta_2*age_{ij} + \beta_3*1.children_{ij} + \beta_4*2.children_{ij} + \beta_5*3.children_{ij} $$ 
   
@@ -401,14 +429,65 @@ $$
 
 para $j = 1,...,60$ distritos, com $i = 1,..., n_{j}$ mulheres no distrito $j$  
 
-$u_{0j}$ é o efeito aleatório do intercepto cuja distribuição segue uma N(0,$\sigma_{u_{0j}}$) e $u_{1j}$ é o efeito aleatório da variável urban cuja distribuição segue uma N(0,$\sigma_{u_{1j}}$)   
+$u_{0j}$ é o efeito aleatório do intercepto cuja distribuição segue uma N(0,$\sigma^2_{u_{0j}}$) e $u_{1j}$ é o efeito aleatório da variável urban cuja distribuição segue uma N(0,$\sigma^2_{u_{1j}}$)   
 
 Já os coeficientes $\beta_0$,$\beta_1$,$\beta_2$,$\beta_3$,$\beta_4$ e $\beta_5$ 
 são os efeitos fixos do modelo
 $\pi_{ij}$ é a probabilidade do indíviduo $i$ no cluster $j$ apresentar resposta
-positiva (=1)
+positiva (=1).
 
-No software `Stata`, a equação é dada por:  
+Percebe-se que agora na estrutura de variância do modelo nós temos a covariância entre os dois efeitos aleatórios, ou seja, $\sigma(u_{0j},u_{1j})$. Nesse caso, temos duas opções de estrutura:
+  
+1) Uma estrutura de covariância que permite variâncias distinta para cada
+efeito dentro de uma equação de efeitos aleatórios (var($u_{0j}$) $\neq$ var($u_{1j}$)) e assume que todas as covariâncias ( $\sigma(u_{0j},u_{1j})$) são 0.
+
+$$ \sum = Var\left(\begin{array}{cc} 
+u_{0j}\\
+u_{1j}
+\end{array}\right)  = \left(\begin{array}{cc} 
+\sigma^2_{0j} & 0\\
+0 & \sigma^2_{1j}
+\end{array}\right)$$
+
+No software `Stata` o parâmetro __covariance(independent)__ define esssa estrutura.Esse é o parâmetro _default_ do melogit
+
+2) Uma estrutura de covariância que permite que todas as variâncias e covariâncias sejam distintas 
+
+$$ \sum = Var\left(\begin{array}{cc} 
+u_{0j}\\
+u_{1j}
+\end{array}\right)  = \left(\begin{array}{cc} 
+\sigma^2_{0j} &  \sigma(u_{0j},u_{1j}))\\
+ \sigma(u_{0j},u_{1j}) & \sigma^2_{1j}
+\end{array}\right)$$
+
+No software `Stata` o parâmetro __covariance(unstructured)__ define esssa estrutura. 
+
+Para escolhar qual dos dois modelos deve ser usado é necessário realizar um teste no qual a hipótese nula seja:
+  
+$H_0$ =  $\sigma(u_{0j},u_{1j})$
+
+Vamos rodar e salvar os dois tipos de modelo para realizar um teste de verossimilhança através do função __lrtest__
+
+__melogit c_use i.urban age i.children || district: i.urban__ (*)
+
+__estimates store r_urban__
+
+__`melogit c_use i.urban age i.children || district: i.urban, covariance(unstructured)`__
+
+__estimates store r_urban_corr__
+
+__lrtest r_urban r_urban_corr__
+
+Vemos abaixo que há indicíos para rejeitarmos o modelo (*) em favor de um que permite a correlação entre $u_{0j}$ e $u_{ij}$ (p-valor < 0.05)
+
+```{r echo=FALSE}
+knitr::include_graphics("teste_var.png")
+```
+
+
+
+Logo, no software `Stata`, a equação escolhida é dada por:  
 
 __`melogit c_use i.urban age i.children || district: i.urban, covariance(unstructured)`__
 
@@ -449,6 +528,8 @@ quando rodamos um modelo "vazio", ou seja, apenas com o intercepto.
 
 No software `Stata`, esse índice é encontrado através do código __`estat icc`__.  
 A seguir, definimos um passo a passo para obter a probabilidade marginal média.
+
+Salientamos que a correlação interclasse não se altera quando existem variáveis no nivel 2, pois ele é estimado por meio do modelo nulo, ou seja, por um modelo que não inclui variáveis explicativas.
 
 ## 6.6 Estimação das probabilidades
 
@@ -563,10 +644,14 @@ ROCHA, A.L.M.M. (2014). Regressão logística multinível: uma aplicação de mo
 lineares generalizados mistos. Brasília. 87p. Dissertação (Trabalho de conclusão
 de curso). Instituto de Ciências Exatas - UNB.
 
+TAMURA, K.A (2014). Modelo logístico multinivel: um enfoque em métodos de estimação e predição. São Paulo. Dissertação de Mestrado. Instituto de Matemática e Estatística - IME.
+
 STATACORP (2013). Stata multilevel mixed-effects reference manual. Release 13.
 College  Station,  TX:  StataCorp  LP. Disponível em  
 <[https://www.stata.com/manuals/memelogit.pdf](https://www.stata.com/manuals/memelogit.pdf)> Acesso em: 27 de abril de 2021.
 
-SITE STATA. BIC note — Calculating and interpreting BIC em: <[https://www.stata.com/manuals/rbicnote.pdf](https://www.stata.com/manuals/rbicnote.pdf)> Acesso em: 27 de abril de 2021
+MANUAL STATA. BIC note — Calculating and interpreting BIC em: <[https://www.stata.com/manuals/rbicnote.pdf](https://www.stata.com/manuals/rbicnote.pdf)> Acesso em: 27 de abril de 2021
+
+MANUAL STATA. lrtest — Likelihood-ratio test after estimation em: <[https://www.stata.com/manuals/rlrtest.pdf](https://www.stata.com/manuals/rlrtest.pdf)> Acesso em: 08 de maio de 2021
 
 
