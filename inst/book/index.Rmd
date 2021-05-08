@@ -1,5 +1,5 @@
 ---
-title: "Relatório de análise estatística sobre o projeto"
+title: __"Relatório de análise estatística sobre o projeto"__
 subtitle: "O processamento de pseudopalavras no Português Brasileiro"
 author: 
   - name: "Giovanna Vendeiro Vilar<br>Mariana Almeida<br>Renata Massami Hirota<br>Viviana Giampaoli"

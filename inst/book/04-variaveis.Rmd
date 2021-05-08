@@ -38,7 +38,7 @@ e a palavra real) e da frequência (alta e baixa) na produção acentual
 - __Gênero__: feminino e masculino
 - __Naturalidade__: indica a cidade em que o participante nasceu
 - __Escolaridade__: ensino fundamental a mestrado
-- __Área de formação__: 0 = outros e 1 = Letras
+- __Área de formação__: 0 = outros e 1 = letras
 - __Línguas__: 0 = não tem conhecimento em línguas e 1 = tem conhecimento em línguas
 - __Música__: 0 = não tem conhecimento em música e 1 = tem conhecimento em música
 

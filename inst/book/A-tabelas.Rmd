@@ -95,7 +95,7 @@ pseudopalavras::dados %>%
     table.attr = "style='width:100%;'"
   ) %>% 
   kableExtra::add_header_above(
-    c(" " = 1, "Tonicidade" = 3, " " = 1)
+    c(" " = 1, "Tonicidade da palavra alvo" = 3, " " = 1)
   )
 ```
 <br>
@@ -128,7 +128,7 @@ pseudopalavras::dados %>%
       "4 (Dissimilar de baixa freq.)",
       "Total"
     ),
-    caption = "Frequência do Grupo experimental por Tonicidade da pseudopalavra.",
+    caption = "Frequência do Grupo experimental por Tonicidade de produção (da pseudopalavra).",
     booktabs = TRUE,
     table.attr = "style='width:100%;'"
   ) %>% 

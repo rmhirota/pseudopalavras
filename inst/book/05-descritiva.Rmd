@@ -35,7 +35,7 @@ distribuição das variáveis já agrupadas também pode ser observada nas Tabel
 
 A tonacidade de produção do tipo proparoxítona é a menos expressiva na base,
 enquanto a categoria paroxítona (penúltima sílaba é tônica) aparece com maior
-frequência nas respostas dos participantes, como visto na tabela 
+frequência nas respostas dos participantes, como visto na Tabela 
 \@ref(tab:grupo-tonicidade) a seguir. Portanto, o processo de acentuação das
 pseudopalavras nesse estudo parece ir de acordo com a afirmação de 
 @collischonn1999 de que 
@@ -56,14 +56,14 @@ pseudopalavras::dados %>%
 ```
 
 Além disso, na Tabela \@ref(tab:grupo-tonicidade-alvo) verifica-se que a 
-proporção de proparoxítonas é inferior às outras categorias em todos os grupos, 
+proporção de palavras alvo proparoxítonas é inferior às outras categorias em todos os grupos, 
 o que já era esperado devido à baixa frequência de palavras proparoxítonas de 
 três sílabas na estrutura proposta (CV-CV-CV ou CV-CV-CVC, C = consoante e V = 
 vogal). 
 
 Observa-se na \@ref(tab:grupo-tonicidade-producao) que os grupos 2 e 4 
 (ou seja, os grupos em que as palavras sofreram mais alterações em relação à
-referência original) apresentam uma proporção ainda menor de proparoxítonas 
+referência original) apresentam uma proporção menor de proparoxítonas produzidas
 quando comparados aos grupos 1 e 3.
 
 Comparando a tonicidade das pseudopalavras e a tonicidade das palavras-alvo 
@@ -71,9 +71,11 @@ Comparando a tonicidade das pseudopalavras e a tonicidade das palavras-alvo
 pseudopalavras classificadas como proparoxítonas tinham uma palavra-alvo de
 tonicidade proparoxítona. 
 
-Entretanto, cerca de 77% das pseudopalavras que tiveram como alvo uma palavra 
+Entretanto, cerca de 77% das pseudopalavras que têm como alvo uma palavra 
 proparoxítona foram categorizadas pelos participantes como paroxítonas (Tabela 
 \@ref(tab:tonicidade-pseudoxalvo2)). 
+
+Logo, pode-se pensar que pseudopalavras derivadas de proparoxítonas não tendem a ser acentuadas com a mesma tonicidade da palavra alvo, mas pseudopalavras lidas como proparoxítonas tender a ser derivadas de proparoxítonas
 
 ```{r tonicidade-pseudoxalvo}
 pseudopalavras::dados %>%
@@ -113,7 +115,9 @@ Na Tabela \@ref(tab:validacao-producao) vemos que aproximadamente 73% das
 pseudopalavras foram validadas de acordo com o processo descrito anteriormente 
 no capítulo \@ref(descricao-estudo) (Descrição). Porém, cerca de 81% das não
 validadas foram classificadas como paroxítonas, e mais de 55% pertencem ao grupo
-das similares (\@ref(tab:validacao-grupo). NÃO FAZ SENTIDO
+das similares (\@ref(tab:validacao-grupo).
+
+Já na Tabela \@ref(tab:validacao-grupo) percebe-se que nos grupos 1 (pseudopalavras similares de alta frequência) e 3 (pseudopalavras similares de baixa frequência) a porcentagem de palavras não validades é superior aos demais grupos, o que parece indicar que a validação de palavras similares é mais complexa e difícil.
 
 ```{r validacao-producao}
 pseudopalavras::dados %>% 
