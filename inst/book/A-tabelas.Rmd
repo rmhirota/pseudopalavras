@@ -60,38 +60,42 @@ participantes %>%
 ```{r grupo-tonicidade-alvo}
 pseudopalavras::dados %>% 
   dplyr::count(tonicidade_alvo, grupo) %>% 
-  tidyr::pivot_wider(names_from = grupo, values_from = n) %>%
+  tidyr::pivot_wider(names_from = tonicidade_alvo, values_from = n) %>%
   setNames(c(
-    "tonicidade_alvo", 
-    "g1",
-    "g2",
-    "g3",
-    "g4"
-  )) %>% 
-  dplyr::mutate(total = g1 + g2 + g3 + g4) %>% 
+    "grupo", 
+    "oxitona",
+    "paroxitona",
+    "proparoxitona"
+  )) %>%
+  dplyr::mutate(total = oxitona + paroxitona + proparoxitona) %>% 
   dplyr::transmute(
-    tonicidade_alvo,
-    g1 = glue::glue("{g1} ({scales::percent(g1/total)})"),
-    g2 = glue::glue("{g2} ({scales::percent(g2/total)})"),
-    g3 = glue::glue("{g3} ({scales::percent(g3/total)})"),
-    g4 = glue::glue("{g4} ({scales::percent(g4/total)})"),
-    total
+    grupo,
+    oxitona = glue::glue("{oxitona} ({scales::percent(oxitona/total)})"),
+    paroxitona = glue::glue("{paroxitona} ({scales::percent(paroxitona/total)})"),
+    proparoxitona = glue::glue("{proparoxitona} ({scales::percent(proparoxitona/total)})"),
+    total = glue::glue("{total} ({scales::percent(total/total)})")
   ) %>% 
+  tidyr::pivot_longer(grupo) %>% 
+  dplyr::transmute(
+    grupo = paste0(name, value),
+    oxitona, paroxitona, proparoxitona, total
+  ) %>% 
+  dplyr::mutate(grupo = dplyr::case_when(
+    grupo == "grupo1" ~ "1 (Similar de alta freq.)",
+    grupo == "grupo2" ~ "2 (Dissimilar de alta freq.)",
+    grupo == "grupo3" ~ "3 (Similar de baixa freq.)",
+    grupo == "grupo4" ~ "4 (Dissimilar de baixa freq.)"
+  )) %>% 
   knitr::kable(
     col.names = c(
-      "Tonicidade palavra-alvo", 
-      "1 (Similar de alta freq.)",
-      "2 (Dissimilar de alta freq.)",
-      "3 (Similar de baixa freq.)",
-      "4 (Dissimilar de baixa freq.)",
-      "Total"
+      "Grupo", "oxítona", "paroxítona", "proparoxítona", "Total"
     ),
     caption = "Frequência do Grupo experimental por Tonicidade da palavra-alvo.",
     booktabs = TRUE,
     table.attr = "style='width:100%;'"
   ) %>% 
   kableExtra::add_header_above(
-    c(" " = 1, "Grupo" = 4, " " = 1)
+    c(" " = 1, "Tonicidade" = 3, " " = 1)
   )
 ```
 <br>
