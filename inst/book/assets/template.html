@@ -148,14 +148,14 @@ $if(title)$
 $if(shorttitle)$
 <br><br><h1 class="shorttitle1" style="display: none;">$shorttitle$</h1>
 $endif$
-<h1 class="title">$title$</h1>
+<h1 class="title" style="font-size:18px; !important"><b>$title$</b></h1><br><br>
 $if(subtitle)$
-<h1 class="subtitle"><span>$subtitle$</span></h1>
+<h1 class="subtitle"><span><b>$subtitle$</b></span></h1>
 $endif$
 $for(author)$
 <br><p class="titlep"><p><br>
 $if(author.name)$
-<h2 class="author">$author.name$$if(author.edu)$, $author.edu$$endif$</h2>
+<h2 class="author"><b>$author.name$$if(author.edu)$, $author.edu$$endif$</b></h2>
 <br>
 $if(author.logo)$<img class="titulo" src="$author.logo$"/>$endif$
 <br>
@@ -186,19 +186,20 @@ $if(sign_page)$
 <h1 class="title">Centro de Estatística Aplicada - CEA - USP</h1>
 <br><br>
 <div>
-<p><b>TÍTULO:</b> $title$: "$subtitle$"</p>
-<p><b>PESQUISADORA:</b> $pesquisadora$</p>
-<p><b>ORIENTADORA:</b> $orientadora$</p>
-<p><b>INSTITUIÇÃO:</b> $instituicao$</p>
-<p><b>FINALIDADE DO PROJETO:</b> $finalidade$</p>
-<p><b>RESPONSÁVEIS PELA ANÁLISE:</b>
+<p style="padding-bottom: 15px;"><b>TÍTULO:</b> $title$ $subtitle$</p>
+<p style="padding-bottom: 15px;"><b>PESQUISADORA:</b> $pesquisadora$</p>
+<p style="padding-bottom: 15px;"><b>ORIENTADORA:</b> $orientadora$</p>
+<p style="padding-bottom: 15px;"><b>INSTITUIÇÃO:</b> $instituicao$</p>
+<p style="padding-bottom: 15px;"><b>FINALIDADE DO PROJETO:</b> $finalidade$</p>
+<p style="padding-bottom: 15px;"><b>RESPONSÁVEIS PELA ANÁLISE:</b>
 $for(author)$
 <br>
 $if(author.name)$
 $author.name$<br>
 $endif$
 $endfor$
-</p>
+</p><br>
+<p style="padding-bottom: 15px;"><b>REFERÊNCIA DESTE TRABALHO:</b> $referencia$</p>
 
 </div>
 </div>
@@ -229,7 +230,7 @@ $endif$
 
 $if(preface)$
 <div class="preface">
-<h1 class="preface">$if(preface-title)$$preface-title$$else$Preface$endif$</h1>
+<h1 class="preface">$if(preface-title)$$preface-title$$else$ $endif$</h1>
 $preface$
 </div>
 $endif$

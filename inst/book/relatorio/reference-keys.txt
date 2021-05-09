@@ -26,4 +26,5 @@ sexo-e-idade
 naturalidade
 área-de-formação
 variáveis-linguísticas-1
+conclusão-da-análise-descritiva-e-próximos-passos
 tabelas

@@ -33,7 +33,6 @@ conhecimentos linguísticos do falante e estruturas linguísticas das palavras q
 podem influenciar nesse processo de classificação da entonação.
 
 
-
 <!-- ## Organização do trabalho -->
 
 <!-- O relatório foi organizado em XX capítulos, além desta introdução. No Capítulo \@ref(inferencia), apresentamos o modelo proposto, procedimento de análise e organização dos dados. No Capítulo \@ref(conclusoes), apresentamos os principais resultados da análise, organizados de acordo com as questões levantadas pela pesquisa. -->

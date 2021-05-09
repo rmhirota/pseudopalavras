@@ -1,6 +1,6 @@
 ---
-title: __"Relatório de análise estatística sobre o projeto"__
-subtitle: "O processamento de pseudopalavras no Português Brasileiro"
+title: "Relatório de análise estatística sobre o projeto:"
+subtitle: "\"O processamento de pseudopalavras no Português Brasileiro\""
 author: 
   - name: "Giovanna Vendeiro Vilar<br>Mariana Almeida<br>Renata Massami Hirota<br>Viviana Giampaoli"
 pesquisadora: "Aline Benevides"
@@ -8,6 +8,7 @@ orientadora: "Profa. Dra. Raquel Santana Santos"
 instituicao: "Faculdade de Filosofia e Ciências Humanas da Universidade de São Paulo"
 finalidade: "Doutorado"
 date: "São Paulo, `r format(Sys.Date(), '%B de %Y')`"
+referencia: "ALMEIDA, M.C.; GIAMPAOLI, V.; HIROTA, R.M.; VILAR, G.V. <b>Relatório de análise estatística sobre o projeto: \"O processamento de pseudopalavras no Português Brasileiro\"</b>. São Paulo, IME-USP, ano. (RAE–CEA-21P02)"
 knit: "bookdown::render_book"
 documentclass: report
 bibliography: [assets/bib/book.bib, assets/bib/packages.bib]
@@ -16,13 +17,14 @@ toc-title: "Sumário"
 link-citations: yes
 fontsize: '12pt'
 colorlinks: yes 
-lot: yes
-lof: yes
+lot: false
+lof: false
 site: bookdown::bookdown_site
 description: "Relatório de pesquisa da disciplina MAE0413."
 include-before: "RAE-CEA–21P02"
 footer: "teste"
 sign_page: true
+preface: "<br>"
 ---
 
 ```{r setup, include = FALSE}

@@ -70,10 +70,10 @@ pseudopalavras::dados %>%
   dplyr::mutate(total = oxitona + paroxitona + proparoxitona) %>% 
   dplyr::transmute(
     grupo,
-    oxitona = glue::glue("{oxitona} ({scales::percent(oxitona/total)})"),
-    paroxitona = glue::glue("{paroxitona} ({scales::percent(paroxitona/total)})"),
-    proparoxitona = glue::glue("{proparoxitona} ({scales::percent(proparoxitona/total)})"),
-    total = glue::glue("{total} ({scales::percent(total/total)})")
+    oxitona = glue::glue("{oxitona} ({scales::percent(oxitona/total, accuracy = .1)})"),
+    paroxitona = glue::glue("{paroxitona} ({scales::percent(paroxitona/total, accuracy = .1)})"),
+    proparoxitona = glue::glue("{proparoxitona} ({scales::percent(proparoxitona/total, accuracy = .1)})"),
+    total = glue::glue("{total} ({scales::percent(total/total, accuracy = .1)})")
   ) %>% 
   tidyr::pivot_longer(grupo) %>% 
   dplyr::transmute(
@@ -226,8 +226,6 @@ pseudopalavras::dados %>%
     c(" " = 1, "Estrutura da palavra" = 2, " " = 1)
   )
 ```
-
-#colocar total embaixo
 
 
 

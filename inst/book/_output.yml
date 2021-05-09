@@ -18,8 +18,9 @@ bookdown::gitbook:
 
 pagedown::thesis_paged:
   toc: true
-  lof-title: "Lista de Figuras"
-  lot-title: "Lista de Tabelas"
+  lof: false
+  lot: false
   css: ["thesis", "assets/css/pagedown.css"]
   template: "assets/template.html"
   self_contained: true
+
