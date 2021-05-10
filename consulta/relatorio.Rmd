@@ -96,17 +96,17 @@ pesquisa é a baixa taxa de evasão observada no curso.
 
 # 3 Descrição de um Modelo Multinível
 
-Um modelo multinível, sem variáveis de segundo nível, pode ser descrito da seguinte forma:
+Um modelo multinível com intercepto aleatório, sem variáveis de segundo nível, pode ser descrito da seguinte forma:
 
 $$ logit (\pi_{ij}) = \beta_{0j} + \sum_{k}{ \beta_{k}*X_{kij}} + \epsilon_{ij} $$  
 com $$ \beta_{0j} = \beta_{0} + u_{0j}  $$
 
-para $j = 1,...,n$ clusters de cursos, com $i = 1,..., n_{j}$ alunos no cluster $j$, e $k = 1,...,m$ variáveis independentes no modelo.
+para $j = 1,...,n$ clusters de cursos, $i = 1,..., n_{j}$ alunos no cluster $j$, e $k = 1,...,m$ variáveis independentes no modelo.
 $u_{0j}$ é o efeito aleatório do j-ésimo cluster que compõe o intercepto, cuja 
 distribuição segue uma N(0,$\sigma^{2}_{u_{0j}}$). Ressaltamos que $\beta_{0}$ é o efeito fixo do intercepto do modelo.
 
-Os $X_{kij}$ são as variáveis independentes utilizadas no modelo, os 
-coeficientes $\beta_k$ são os efeitos fixos do modelo. Os erros $\epsilon_{ij}$ têm
+Os $X_{kij}$ são as variáveis independentes de primeiro nível utilizadas no modelo e os 
+coeficientes $\beta_k$ são os coeficientes fixos do modelo. Os erros $\epsilon_{ij}$ têm
 distribuição binomial com média zero e são independentes de $u_{0j}$
 É importante destacar que componentes aleatórios podem ser acrescentados aos 
 coeficientes das variáveis independentes. 
@@ -114,17 +114,19 @@ coeficientes das variáveis independentes.
 Caso exista uma variável de segundo nível o modelo pode ser definido da seguinte forma:
 
 $$ logit (\pi_{ij}) = \beta_{0j}+\sum_{k}{ \beta_{kj}*X_{kij}} + \epsilon_{ij}   $$
-com $$ \beta_{0j} = \beta_{00} + \beta_{02}*Z_j + u_{0j}$$
-    $$ \beta_{kj} = \beta_{k0} + \beta_{k2}*Z_j$$
+com $$ \beta_{0j} = \beta_{00} + \beta_{02}*Z_j + u_{0j}$$  
+ e   $$ \beta_{kj} = \beta_{k0} + \beta_{k2}*Z_j$$
 
-para $j = 1,...,n$ clusters de cursos, com $i = 1,..., n_{j}$ alunos no cluster $j$, e $k = 1,...,m$ variáveis independentes no modelo.
+para $j = 1,...,n$ clusters de cursos, $i = 1,..., n_{j}$ alunos no cluster $j$, e $k = 1,...,m$ variáveis independentes no modelo.
 $u_{0j}$ é o efeito aleatório do j-ésimo cluster que compõe o intercepto, cuja 
 distribuição segue uma N(0,$\sigma^{2}_{u_{0j}}$). Os erros $\epsilon_{ij}$ têm
-distribuição binomial com média zero e são independentes de $u_{0j}$
+distribuição binomial com média zero e são independentes de $u_{0j}$ 
 
 Os $X_{kij}$ são as variáveis independentes de nível 1 utilizadas no modelo, os 
-coeficientes $\beta_{kj}$ são os efeitos fixos do modelo. Já $Z_j$ é uma variável no nível de cluster (nível 2)
-$ \beta_{k2}$ são os coeficientes de regressão associados à variável explicativa do nível 2 relativo à inclinação. É importante destacar que componentes aleatórios podem ser acrescentados aos coeficientes das variáveis independentes ($\beta_{kj}$)
+coeficientes $\beta_{kj}$ são os coeficientes fixos do modelo. Já $Z_j$ é uma variável no nível de cluster (nível 2.  
+$ \beta_{02}$ e $ \beta_{k2}$ são os coeficientes de regressão associados à variável explicativa do nível 2 relativo à inclinação. É importante destacar que componentes aleatórios podem ser acrescentados aos coeficientes das variáveis independentes ($\beta_{kj}$).
+
+Nos dois exemplos, nota-se que os interceptos variam de cluster para cluster (considera-se que possa existir diferenças entre os clusters), mas $\beta_{00}$ e os $\beta_{k0}$ são constantes para todos os clusters. Caso seja incluído outro efeito aleatório em alguma das variáveis, as inclinações relacionadas a essa variável também irão variar de cluster para cluster.
 
 
 \newpage
@@ -267,7 +269,7 @@ depende do nível de $x_2$ e, analogamente, o efeito de $x_2$ na resposta média
 depende do nível de $x_1$.
 Salientamos que sejam testadas apenas interações de interesse de análise da 
 pesquisadora, para que não haja uma complicação além do necessário na 
-interpretação do modelo. 
+interpretação do modelo. Além disso, essas interações devem ser acescentadas no modelo após os primeiros testes e escolha do modelo. 
 
 ## 6.2 Construção do modelo e Medidas de desempenho
 
@@ -275,20 +277,21 @@ Quando construímos um modelo é sempre necessário checar a eficácia do mesmo.
 Além disso, precisa-se utilizar uma métrica para comparar diferentes modelos e
 encontrar qual o melhor para o conjunto de dados. Assim, esse tópico foca em
 apresentar medidas de desempenho para o ajuste da regressão logística 
-multinível. Destacamos que, de acordo com a literatura, o nível de significância estátisca selecionado para testar as variável será de: p-valor < 0.05
+multinível. Destacamos que, de acordo com a literatura, o nível de significância estátisca selecionado para testar as variável será de: p-valor < 0.05  
 A seguir, montamos um roteiro para essa etapa.
 
 __Passo 1__: Ajuste do modelo sem variáveis independentes (modelo nulo) para
 calcular o coeficiente de correlação intraclasse e testar se as variâncias em
-diferentes cursos são homogêneas;
+diferentes clusters são homogêneas;
   
 __Passo 2__: Incluir as variáveis independentes, separadamente, e observar a significância da variável incluída. Após essa etapa, testar modelos com mais de uma variável que apresentou significância e avaliar se o ajuste do modelo melhora com a
-introdução das variáveis explicativas. Essa avaliação pode ser feita através de uma medida de critério de informação com penalização da complexidade do modelo, como o BIC, AIC ou Deviance. Sugerimos que, primeiramente, sejam testadas as variáveis do nível mais baixo, ou seja, as relacionadas com os alunos, porque existe um maior número de observações disponíveis neste nível.  
-O modelo escolhido nesse primeiro passo será o modelo com variáveis que sejam significativas e que tenha o menor BIC/AIC, definidos como:
+introdução das variáveis explicativas. Essa avaliação pode ser feita através de uma medida de critério de informação com penalização da complexidade do modelo, como o BIC, AIC, ou atrvés da estatística Deviance. Sugerimos que, primeiramente, sejam testadas as variáveis do nível mais baixo, ou seja, as relacionadas com os alunos, porque existe um maior número de observações disponíveis neste nível.  
+O modelo escolhido nesse primeiro passo será o modelo com variáveis que sejam significativas e que tenha o menor BIC/AIC/Deviance, definidos como:
 
 $$AIC = -2ln(likelihood) + 2k$$
 $$BIC = -2ln(likelihood) + ln(N) k$$
-
+Sendo $k$ o número de parâmetros estimados e $N$ o número de observações.  
+  
 Por meio da _deviance_ também é possível medir o grau de desajuste do modelo. A 
 _deviance_ é definida por:
 
@@ -303,14 +306,12 @@ Assim, tem-se que o modelo que apresentar a menor deviance é aquele que melhor
 se ajusta ao conjunto de dados.
 
 O software `Stata` apresenta na parte superior da saída (log likelihood) o log da
-verossimilhança do modelo testado ($ln (likelihood_{*})$).
-
-Sendo $k$ o número de parâmetros estimados e $N$ o número de observações.
+verossimilhança do modelo testado ($ln (likelihood_{*})$).  
   
-Salientamos que nesse primeiro passo é importante testar modelos com vários conjuntos diferentes de variáveis, entendendo quais fazem sentido para o estudo. Uma variável pode ser não significante quando testada sozinha no modelo, porém, pode apresentar significância quando avaliada conjuntamente outra variável. Além disso, as medidas AIC, BIC e Deviance são usadas para sugerir alguns modelos “melhores”, mas o pesquisador é responsável por selecionar aquele que considera mais alinhado com a teoria e literatura da área.
+Salientamos que nesse primeiro passo é importante testar modelos com vários conjuntos diferentes de variáveis, entendendo quais fazem sentido para o estudo. Uma variável pode ser não significativa quando testada sozinha no modelo, porém, pode apresentar significância quando avaliada conjuntamente com outra variável. Além disso, as medidas AIC, BIC e Deviance são usadas para sugerir alguns modelos “melhores”, mas o pesquisador é responsável por selecionar aquele que considera mais alinhado com a teoria e literatura da área.
 
 __Passo 3__: Analisa-se o modelo incluindo, separadamente, cada uma das
-variáveis explicativas fixas no nível do cluster. Realizar as analises da forma citada no passo anterior
+variáveis explicativas fixas no nível do cluster. Realizar as analises da forma citada no passo anterior;  
   
 __Passo 4__: Acrescentar novas variáveis até que nenhuma outra seja 
 significativa, chegando a um ou vários candidatos a modelo final;
@@ -319,15 +320,15 @@ __Passo 5__: Fazer o diagnóstico dos candidatos a modelo final, verificando os
 pressupostos e a qualidade do ajuste.
 
 A curva ROC pode auxiliar a visualizar quão bem o modelo classifica as 
-observações pois é uma representação gráfica que ilustra o desempenho de um modelo classificador binário . 
+observações pois é uma representação gráfica que ilustra o desempenho de um modelo de  classificação binária. 
   
-Se o resultado de uma previsão é 1 e o valor real também é 1, então o resultado é chamado de verdadeiro possitivo; no entanto, se o valor real é 0 e o valor previsto foi 1 então dizemos que o resultado é um falso positivo. Por outro lado, um verdadeiro negativo  ocorre quando o resultado da previsão é 0 e o valor real também é 0, e um falso negativo é quando o resultado da previsão é 0 enquanto o valor real é 1
+Se o resultado previsto pelo modelo é 1 e o valor real também é 1, então o resultado é chamado de verdadeiro possitivo; no entanto, se o valor real é 0 e o valor previsto foi 1 então dizemos que o resultado é um falso positivo. Por outro lado, um verdadeiro negativo  ocorre quando o resultado da previsão é 0 e o valor real também é 0, e um falso negativo é quando o resultado da previsão é 0 enquanto o valor real é 1
   
 Geralmente, observamos no eixo x a taxa de falsos positivos, ou seja, valores que o modelo classificou erroneamente como positivos, e no eixo y a taxa de verdadeiros positivos, ou seja, valores que o modelo classificou corretamente como positivos.
   
 Logo, quanto mais próxima do canto superior esquerdo está a curva, melhor a 
 classificação do modelo pois menor a taxa de falsos positivos e maior a taxa de
-verdadeiros positivos. O melhor método de previsão possível produziria um ponto no canto superior esquerdo do plano descrito pelo espaço, isto é, o ponto com coordenadas (0,1). Nesse ponto temos 100% de sensibilidade (isto é, não temos falsos negativos) e 100% de especificidade (isto é, não temos falsos positivos). O ponto (0,1) também é denominado "classificação perfeita"
+verdadeiros positivos. O melhor método de previsão possível (teórico) produziria um ponto no canto superior esquerdo do plano descrito pelo espaço, isto é, o ponto com coordenadas (0,1). Nesse ponto temos 100% de sensibilidade (isto é, não temos falsos negativos) e 100% de especificidade (isto é, não temos falsos positivos). O ponto (0,1) também é denominado "classificação perfeita"
 
 A seguir, uma ilustração com exemplos de como avaliar o gráfico da curva ROC
 
@@ -380,6 +381,8 @@ $$ log (\frac{\pi_{ij}}{1-\pi_{ij}}) = (\beta_0 +u_{0j})+ \beta_1*1.urban_{ij} +
 para $j = 1,...,60$ distritos, com $i = 1,..., n_{j}$ mulheres no distrito $j$  
 $u_{0j}$ é o efeito aleatório do intercepto cuja distribuição segue uma distribuição N(0,$\sigma^2_{u_{0j}}$)  
 Já os coeficientes $\beta_0$,$\beta_1$,$\beta_2$,$\beta_3$,$\beta_4$ e $\beta_5$ são os efeitos fixos do modelo enquanto $\pi_{ij}$ é a probabilidade do indíviduo $i$ no cluster $j$ apresentar resposta positiva (=1)
+
+Nota-se que os interceptos variam de distrito para distriro (considera-se que possa existir diferenças entre eles), mas $\beta_0$,$\beta_1$,$\beta_2$,$\beta_3$,$\beta_4$ e $\beta_5$ são constantes para todos os clusters. Caso seja incluído outro efeito aleatório em alguma das variáveis, as inclinações relacionadas a essa variável também irão variar de distrito para distrito.
 
 No software `Stata` a equação é dada por:  
 
@@ -437,7 +440,10 @@ são os efeitos fixos do modelo
 $\pi_{ij}$ é a probabilidade do indíviduo $i$ no cluster $j$ apresentar resposta
 positiva (=1).
 
-Percebe-se que agora na estrutura de variância do modelo nós temos a covariância entre os dois efeitos aleatórios, ou seja, $\sigma(u_{0j},u_{1j})$. Nesse caso, temos duas opções de estrutura:
+Nota-se que os interceptos variam de distrito para distriro (considera-se que possa existir diferenças entre eles), e que agora a inclinação referente a variável 
+_urban_ também varia de distrito para distrito, pois foi incluído um efeito aleatório em nessa variável.  
+
+Percebe-se que agora na estrutura de variância do modelo existe a covariância entre os dois efeitos aleatórios, ou seja, $\sigma(u_{0j},u_{1j})$. Nesse caso, temos duas opções de estrutura:
   
 1) Uma estrutura de covariância que permite variâncias distinta para cada
 efeito dentro de uma equação de efeitos aleatórios (var($u_{0j}$) $\neq$ var($u_{1j}$)) e assume que todas as covariâncias ( $\sigma(u_{0j},u_{1j})$) são 0.
@@ -466,7 +472,7 @@ No software `Stata` o parâmetro __covariance(unstructured)__ define esssa estru
 
 Para escolhar qual dos dois modelos deve ser usado é necessário realizar um teste no qual a hipótese nula seja:
   
-$H_0$ =  $\sigma(u_{0j},u_{1j})$
+$H_0$:  $\sigma(u_{0j},u_{1j}) = 0$
 
 Vamos rodar e salvar os dois tipos de modelo para realizar um teste de verossimilhança através do função __lrtest__
 
