@@ -275,18 +275,16 @@ Quando construímos um modelo é sempre necessário checar a eficácia do mesmo.
 Além disso, precisa-se utilizar uma métrica para comparar diferentes modelos e
 encontrar qual o melhor para o conjunto de dados. Assim, esse tópico foca em
 apresentar medidas de desempenho para o ajuste da regressão logística 
-multinível. A seguir, montamos um roteiro para essa etapa.
+multinível. Destacamos que, de acordo com a literatura, o nível de significância estátisca selecionado para testar as variável será de: p-valor < 0.05
+A seguir, montamos um roteiro para essa etapa.
 
 __Passo 1__: Ajuste do modelo sem variáveis independentes (modelo nulo) para
 calcular o coeficiente de correlação intraclasse e testar se as variâncias em
 diferentes cursos são homogêneas;
   
-__Passo 2__: Incluir as variáveis independentes uma de cada vez (através do 
-método step AIC) e observar a significância das variáveis incluídas e uma 
-medida de critério de informação com penalização da complexidade do modelo, como
-o BIC, AIC ou deviance; o modelo escolhido nesse primeiro passo será o modelo 
-com variáveis que sejam significativas e que tenha o menor BIC/AIC, definidos 
-como:
+__Passo 2__: Incluir as variáveis independentes, separadamente, e observar a significância da variável incluída. Após essa etapa, testar modelos com mais de uma variável que apresentou significância e avaliar se o ajuste do modelo melhora com a
+introdução das variáveis explicativas. Essa avaliação pode ser feita através de uma medida de critério de informação com penalização da complexidade do modelo, como o BIC, AIC ou Deviance. Sugerimos que, primeiramente, sejam testadas as variáveis do nível mais baixo, ou seja, as relacionadas com os alunos, porque existe um maior número de observações disponíveis neste nível.  
+O modelo escolhido nesse primeiro passo será o modelo com variáveis que sejam significativas e que tenha o menor BIC/AIC, definidos como:
 
 $$AIC = -2ln(likelihood) + 2k$$
 $$BIC = -2ln(likelihood) + ln(N) k$$
@@ -308,12 +306,16 @@ O software `Stata` apresenta na parte superior da saída (log likelihood) o log 
 verossimilhança do modelo testado ($ln (likelihood_{*})$).
 
 Sendo $k$ o número de parâmetros estimados e $N$ o número de observações.
-
   
-__Passo 3__: Acrescentar novas variáveis até que nenhuma outra seja 
+Salientamos que nesse primeiro passo é importante testar modelos com vários conjuntos diferentes de variáveis, entendendo quais fazem sentido para o estudo. Uma variável pode ser não significante quando testada sozinha no modelo, porém, pode apresentar significância quando avaliada conjuntamente outra variável. Além disso, as medidas AIC, BIC e Deviance são usadas para sugerir alguns modelos “melhores”, mas o pesquisador é responsável por selecionar aquele que considera mais alinhado com a teoria e literatura da área.
+
+__Passo 3__: Analisa-se o modelo incluindo, separadamente, cada uma das
+variáveis explicativas fixas no nível do cluster. Realizar as analises da forma citada no passo anterior
+  
+__Passo 4__: Acrescentar novas variáveis até que nenhuma outra seja 
 significativa, chegando a um ou vários candidatos a modelo final;
   
-__Passo 4__: Fazer o diagnóstico dos candidatos a modelo final, verificando os
+__Passo 5__: Fazer o diagnóstico dos candidatos a modelo final, verificando os
 pressupostos e a qualidade do ajuste.
 
 A curva ROC pode auxiliar a visualizar quão bem o modelo classifica as 
@@ -340,10 +342,9 @@ descrito no
 [site do software](https://www.stata.com/features/overview/receiver-operating-characteristic/).
 
 Por fim, podemos avaliar o ajuste do modelo realizando uma análise residual através
-de um gráfico dos resíduos estimados (Pearson, _deviance_, Anscombe) e os quantis
-da distribuição teórica binomial. Idealmente, os resíduos coincidem com os quantis, 
-formando uma linha diagonal pois eles seguem uma determinada distribuição 
-  $\epsilon_{ij}$ ~ Binomial
+de um gráfico dos resíduos estimados (as estimativas do $\u_{0j}$ na definição do modelo anterior) e os quantis da distribuição teórica normal. Idealmente, os resíduos coincidem com os quantis, formando uma linha reta diagonal pois eles seguem a distribuição determinada.
+Em outras palavras, para verificar o pressuposto de normalidade do efeito aleatório do cluster, pode-se verificar se os resíduos desses clusters são aproximadamente normais. O gráfico deverá apresentar no eixo x os quantis teóricos da distribuição normal, em relação aos resíduos no eixo y.
+Salientamos que, caso exista mais de um efeito aleatório no modelo, todos devem ser analisados para entender se eles respeitam o pressuposto de distribuição normal.
 
 \newpage
 
@@ -364,7 +365,7 @@ Bangladesh sobre o uso de anticoncepcionais. As mulheres na amostra pertenciam a
 áreas urbanas ou rurais (variável urban) ou ambas. A variável `c_use` é a 
 resposta binária, com um valor de 1 indicando o uso de anticoncepcionais. Outras 
 covariáveis incluem idade centrada na média e uma variável categorizada para o 
-número de filhos. 
+número de filhos. A idade foi centralizada por escolha dos pesquisadores do artigo.
 
 ```{r echo=FALSE}
 df <- data.frame('Variável' = c('c_use','district','urban','age','children 1','children 2','children 3'),
