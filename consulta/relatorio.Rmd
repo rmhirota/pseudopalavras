@@ -123,7 +123,7 @@ distribuição segue uma N(0,$\sigma^{2}_{u_{0j}}$). Os erros $\epsilon_{ij}$ t�
 distribuição binomial com média zero e são independentes de $u_{0j}$ 
 
 Os $X_{kij}$ são as variáveis independentes de nível 1 utilizadas no modelo, os 
-coeficientes $\beta_{kj}$ são os coeficientes fixos do modelo. Já $Z_j$ é uma variável no nível de cluster (nível 2.  
+coeficientes $\beta_{kj}$ são os coeficientes fixos do modelo. Já $Z_j$ é uma variável no nível de cluster (nível 2).  
 $\beta_{02}$ e $\beta_{k2}$ são os coeficientes de regressão associados à variável explicativa do nível 2 relativo à inclinação. É importante destacar que componentes aleatórios podem ser acrescentados aos coeficientes das variáveis independentes ($\beta_{kj}$).
 
 Nos dois exemplos, nota-se que os interceptos variam de cluster para cluster (considera-se que possa existir diferenças entre os clusters), mas $\beta_{00}$ e os $\beta_{k0}$ são constantes para todos os clusters. Caso seja incluído outro efeito aleatório em alguma das variáveis, as inclinações relacionadas a essa variável também irão variar de cluster para cluster.
@@ -269,7 +269,7 @@ depende do nível de $x_2$ e, analogamente, o efeito de $x_2$ na resposta média
 depende do nível de $x_1$.
 Salientamos que sejam testadas apenas interações de interesse de análise da 
 pesquisadora, para que não haja uma complicação além do necessário na 
-interpretação do modelo. Além disso, essas interações devem ser acescentadas no modelo após os primeiros testes e escolha do modelo. 
+interpretação do modelo. Além disso, essas interações devem ser acrescentadas no modelo após os primeiros testes citados na seção 6.2. 
 
 ## 6.2 Construção do modelo e Medidas de desempenho
 
@@ -285,8 +285,9 @@ calcular o coeficiente de correlação intraclasse e testar se as variâncias em
 diferentes clusters são homogêneas;
   
 __Passo 2__: Incluir as variáveis independentes, separadamente, e observar a significância da variável incluída. Após essa etapa, testar modelos com mais de uma variável que apresentou significância e avaliar se o ajuste do modelo melhora com a
-introdução das variáveis explicativas. Essa avaliação pode ser feita através de uma medida de critério de informação com penalização da complexidade do modelo, como o BIC, AIC, ou atrvés da estatística Deviance. Sugerimos que, primeiramente, sejam testadas as variáveis do nível mais baixo, ou seja, as relacionadas aos alunos, porque existe um maior número de observações disponíveis neste nível.  
-O modelo escolhido nesse primeiro passo será o modelo com variáveis que sejam significativas e que tenha o menor BIC/AIC/Deviance, definidos como:
+introdução das variáveis explicativas. Essa avaliação pode ser feita através de uma medida de critério de informação com penalização da complexidade do modelo, como o BIC, AIC, ou através da estatística _deviance_. Sugerimos que, primeiramente, sejam testadas as variáveis do nível mais baixo, ou seja, as relacionadas com os alunos, porque existe um maior número de observações disponíveis neste nível.  
+O modelo escolhido nesse primeiro passo será o modelo com variáveis que sejam significativas e que tenha o menor BIC,AIC ou _deviance_, definidos como:
+
 
 $$AIC = -2ln(likelihood) + 2k$$
 $$BIC = -2ln(likelihood) + ln(N) k$$
@@ -308,7 +309,7 @@ se ajusta ao conjunto de dados.
 O software `Stata` apresenta na parte superior da saída (log likelihood) o log da
 verossimilhança do modelo testado ($ln (likelihood_{*})$).  
   
-Salientamos que nesse primeiro passo é importante testar modelos com vários conjuntos diferentes de variáveis, entendendo quais fazem sentido para o estudo. Uma variável pode ser não significativa quando testada sozinha no modelo, porém, pode apresentar significância quando avaliada conjuntamente com outra variável. Além disso, as medidas AIC, BIC e Deviance são usadas para sugerir alguns modelos “melhores”, mas o pesquisador é responsável por selecionar aquele que considera mais alinhado com a teoria e literatura da área.
+Salientamos que nesse primeiro passo é importante testar modelos com vários conjuntos diferentes de variáveis, entendendo quais fazem sentido para o estudo. Uma variável pode ser não significativa quando testada sozinha no modelo, porém, pode apresentar significância quando avaliada conjuntamente com outra variável. Além disso, as medidas AIC, BIC e _deviance_ são usadas para sugerir alguns modelos “melhores”, mas o pesquisador é responsável por selecionar aquele que considera mais alinhado com a teoria e literatura da área.
 
 __Passo 3__: Analisa-se o modelo incluindo, separadamente, cada uma das
 variáveis explicativas fixas no nível do cluster. Realizar as análises da forma citada no passo anterior;  
@@ -337,7 +338,8 @@ knitr::include_graphics("curva_roc.png")
 ```
 [site da imagem](https://pt.wikipedia.org/wiki/Caracter%C3%ADstica_de_Opera%C3%A7%C3%A3o_do_Receptor).  
 
-
+\newpage
+  
 Há diversas formas de calcular os valores para a curva ROC no `Stata`, segundo
 descrito no 
 [site do software](https://www.stata.com/features/overview/receiver-operating-characteristic/).
@@ -396,7 +398,7 @@ intervalos de confiança.
 
 O teste de razão de verossimilhança (LR) testa a hipótese nula de que os dois
 modelos, efeitos mistos e regressão logística fixa fornecem a mesma qualidade de
-ajuste. Como P < 0.001, há indícios para rejeitar a hipótese nula e utilizar,
+ajuste. Como p-valor < 0.001, há indícios para rejeitar a hipótese nula e utilizar,
 assim, o modelo misto.
 
 ```{r echo=FALSE}
@@ -441,13 +443,13 @@ são os efeitos fixos do modelo
 $\pi_{ij}$ é a probabilidade do indíviduo $i$ no cluster $j$ apresentar resposta
 positiva (=1).
 
-Nota-se que os interceptos variam de distrito para distrito (considera-se que possa existir diferenças entre eles), e que agora a inclinação referente a variável 
-_urban_ também varia de distrito para distrito, pois foi incluído um efeito aleatório em nessa variável.  
+Nota-se que os interceptos variam de distrito para distriro (considera-se que possa existir diferenças entre eles), e que agora a inclinação referente a variável 
+_urban_ também varia de distrito para distrito, pois foi incluído um efeito aleatório  nessa variável.  
 
-Percebe-se que agora na estrutura de variância do modelo existe a covariância entre os dois efeitos aleatórios, ou seja, $\sigma(u_{0j},u_{1j})$. Nesse caso, temos duas opções de estrutura:
+Agora, percebe-se que na estrutura de variância do modelo existe uma covariância entre os dois efeitos aleatórios, ou seja, $\sigma(u_{0j},u_{1j})$. Nesse caso, temos duas opções de estrutura:
   
 1) Uma estrutura de covariância que permite variâncias distinta para cada
-efeito dentro de uma equação de efeitos aleatórios (var($u_{0j}$) $\neq$ var($u_{1j}$)) e assume que todas as covariâncias ( $\sigma(u_{0j},u_{1j})$) são 0.
+efeito dentro de uma equação de efeitos aleatórios ($\sigma^2_{0j}$) $\neq$ $\sigma^2_{1j}$)) e assume que todas as covariâncias ( $\sigma(u_{0j},u_{1j})$) são 0.
 
 $$ \sum = Var\left(\begin{array}{cc} 
 u_{0j}\\
