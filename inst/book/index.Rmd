@@ -22,9 +22,14 @@ lof: false
 site: bookdown::bookdown_site
 description: "Relatório de pesquisa da disciplina MAE0413."
 include-before: "RAE-CEA–21P02"
-footer: "teste"
 sign_page: true
 preface: "<br>"
+# ficha: |
+#   ```{r, echo=FALSE, results='asis'}
+#   res <- knitcitations::read.bibtex("assets/bib/book.bib")
+#   
+#   ```
+  
 ---
 
 ```{r setup, include = FALSE}

@@ -242,7 +242,15 @@ $acknowledge$
 </div>
 $endif$
 
+$if(ficha)$
+<div class="ficha">
+<h1 class="ficha">$if(ficha-title)$$ficha-title$$else$Ficha$endif$</h1>
+$ficha$
 </div>
+$endif$
+
+</div>
+
 
 <!-- This
 Container for the table of content, table of tables and table of figures etc.
