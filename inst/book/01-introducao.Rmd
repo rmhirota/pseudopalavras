@@ -1,36 +1,36 @@
 # Introdução {#introducao}
 
-De acordo com @petter2007, o interesse pela linguagem é antigo e expresso 
-através de mitos, lendas, cantos, rituais ou trabalhos eruditos que buscam 
-conhecer essa capacidade humana. A autora aponta que, a partir do século XX, os
+De acordo com @petter2007, o interesse pela linguagem é antigo e vem sendo expresso 
+por meio de mitos, lendas, cantos, rituais e trabalhos eruditos que buscam conhecer
+essa capacidade humana. A autora aponta que, a partir do século XX, os
 estudos linguistícos passaram a ter um caráter científico, ou seja, centrados na
 observação dos fatos a partir de pressupostos teóricos da linguagem, no
 estabelecimento de hipóteses e na examinação mediante experimentos.
 
 Conforme descrito por @fiorin2019, a linguística é uma ciência da linguagem 
-porque, ao contrário da gramática, ela tem como objetivo dizer o que a língua é 
-e por que é assim. Logo, a área estuda os aspectos fonéticos, morfológicos,
-sintáticos, semânticos, sociais e psicológicos no português brasileiro. Dentro
-deste contexto, existe o conceito de _pseudopalavra_, que, de acordo com o
-dicionário @priberan, é uma 
+porque, ao contrário da gramática, ela tem como objetivo estabelecer o que uma língua é 
+e por que é de uma determinada maneira. Logo, a área estuda os aspectos fonéticos, morfológicos,
+sintáticos, semânticos, sociais e psicológicos de uma língua, e neste caso, o português
+brasileiro. Dentro deste contexto, existe o conceito de _pseudopalavra_, que, de 
+acordo com o dicionário @priberan, é uma 
 
 > Sequência regular e pronunciável de  caracteres que não tem um significado numa língua, apesar de obedecer às regras ortográficas, morfológicas ou de pronúncia
 
 No português brasileiro existem três classes de palavras segundo sua tonicidade: 
 oxítona, paroxítona e proparoxítona. Essas denominações estão relacionadas à
 intensidade dada a determinadas sílabas na pronúncia das palavras. Aquela que é
-pronunciada de forma mais acentuada é a sílaba tônica. Oxítonas são as palavras
+pronunciada de forma mais acentuada é a sílaba tônica. Assim, oxítonas são as palavras
 cuja sílaba tônica é a última; paroxítonas são as palavras cuja sílaba tônica é 
 a penúltima; e proparoxítonas são as palavras cuja sílaba tônica é a 
 antepenúltima.
 
 O intuito do trabalho é investigar a maneira como os falantes nativos do 
-português atribuem a tonicidade em pseudopalavras relacionadas a vocábulos
+português atribuem a tonicidade em pseudopalavras parcialmente relacionadas a vocábulos
 existentes no idioma. Em outras palavras, busca-se compreender como o indivíduo,
-ao se deparar com uma palavra nova e, nesse caso, inventada, define a sílaba 
-tônica. Além disso, busca-se entender quais são os outros fatores, como os
-conhecimentos linguísticos do falante e estruturas linguísticas das palavras que
-podem influenciar nesse processo de classificação da entonação.
+ao se deparar com uma palavra nova, nesse caso, uma pseudopalavra, define a sílaba 
+tônica. Além disso, busca-se entender quais são os outros fatores, tais como os
+conhecimentos linguísticos do falante e as estruturas linguísticas das palavras que
+podem influenciar nesse processo de classificação e portanto da determinação da entonação.
 
 
 <!-- ## Organização do trabalho -->

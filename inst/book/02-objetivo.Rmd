@@ -1,8 +1,8 @@
 # Objetivo
 
 O objetivo principal do trabalho é verificar se pseudopalavras que se assemelham 
-a palavras reais podem sofrer um processo analógico e ter o mesmo padrão 
-acentual da referência real, além de entender quais são os conhecimentos
+a palavras reais podem sofrer um processo análogo e ter o mesmo padrão 
+acentual da referência real. Além disso, entender quais são os conhecimentos
 linguísticos do falante utilizados nesse processo de acentuação tônica das
 pseudopalavras. 
 
