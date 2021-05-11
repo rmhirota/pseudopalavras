@@ -1,8 +1,0 @@
-# Ficha técnica {-}
-
-## Referências bibliográficas {-}
-
-<div id="refs"></div>
-
-\newpage
-

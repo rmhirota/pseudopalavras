@@ -1,0 +1,44 @@
+
+<!-- This
+Container for the table of content, table of tables and table of figures etc.
+- See pagedown::html_paged for details on how to use.
+-->
+
+<div class="front-matter-container">
+
+$if(toc)$
+<div id="$idprefix$TOC" class="level1 toc front-matter">
+$if(toc-title)$
+<h1 class="toc-title">$toc-title$</h1>
+$table-of-contents$
+$else$
+$table-of-contents$
+$endif$
+</div>
+$endif$
+
+</div>
+
+$body$
+
+$for(include-after)$
+$include-after$
+$endfor$
+
+$if(theme)$
+</div>
+
+<script>
+// add bootstrap table styles to pandoc tables
+$$(document).ready(function () {
+  $$('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+</script>
+$endif$
+
+<script>
+// when the page is about to reload via servr, remember the scroll position
+document.addEventListener('servr:reload', function(e) {
+  sessionStorage.setItem('pagedown-scroll', window.scrollY);
+});
+</script>

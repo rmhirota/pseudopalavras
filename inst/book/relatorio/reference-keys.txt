@@ -14,7 +14,7 @@ tab:estrut-tonicidade-pseudo
 introducao
 objetivo
 descricao-estudo
-problemas-na-coleta-dos-dados
+limitações-do-estudo
 descricao-variaveis
 variável-dependente
 variáveis-linguísticas

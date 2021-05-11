@@ -4720,7 +4720,7 @@ ID,Grupo,Aleatorizacao,Bloco_Apresentacao,Ordem_Apresentacao,Codigo_Pseudo,Pseud
 4719,4,s,4,58,325,cobiro,NA,NA,paroxítona,S.B.,0,cabaré,oxítona,CV-CV-CV,vogal,3,s,2,0,37,Feminino,Pós-Graduação,Pedagogia,nenhuma,nenhum,São Paulo
 4720,3,s,4,59,346,savari,NA,NA,paroxítona,S.B.,0,safári,paroxítona,CV-CV-CV,consoante,1,s,8,2,37,Feminino,Pós-Graduação,Pedagogia,nenhuma,nenhum,São Paulo
 4721,3,s,4,60,356,cacega,NA,NA,proparoxítona,S.B.,0,cócega,proparoxítona,CV-CV-CV,vogal,1,s,9,1,37,Feminino,Pós-Graduação,Pedagogia,nenhuma,nenhum,São Paulo
-4722,3,s,4,61,350,patefa,,,paroxítona,S.B.,0,pateta,paroxítona,CV-CV-CV,consoante,2,n,6,2,37,Feminino,Pós-Graduação,Pedagogia,nenhuma,nenhum,São Paulo
+4722,3,s,4,61,350,pafeta,NA,NA,paroxítona,S.B.,0,pateta,paroxítona,CV-CV-CV,consoante,2,n,6,2,37,Feminino,Pós-Graduação,Pedagogia,nenhuma,nenhum,São Paulo
 4723,2,s,4,62,282,pevebal,NA,NA,oxítona,S.B.,0,federal,oxítona,CV-CV-CVC,consoante,6,s,2,0,37,Feminino,Pós-Graduação,Pedagogia,nenhuma,nenhum,São Paulo
 4724,4,s,4,63,292,govubi,NA,NA,proparoxítona,S.B.,0,sucuri,oxítona,CV-CV-CV,consoante,10,s,2,0,37,Feminino,Pós-Graduação,Pedagogia,nenhuma,nenhum,São Paulo
 4725,3,s,4,64,358,javoli,NA,NA,oxítona,S.B.,0,javali,oxítona,CV-CV-CV,vogal,2,s,10,2,37,Feminino,Pós-Graduação,Pedagogia,nenhuma,nenhum,São Paulo
@@ -12286,7 +12286,7 @@ ID,Grupo,Aleatorizacao,Bloco_Apresentacao,Ordem_Apresentacao,Codigo_Pseudo,Pseud
 12285,2,s,2,53,156,tatolo,NA,NA,paroxítona,L.P.,138754,título,proparoxítona,CV-CV-CV,vogal,2,s,2,0,24,Masculino,Mestrado Incompleto,História,"inglês, italiano",bateria,São Paulo
 12286,3,s,2,54,167,recival,NA,NA,paroxítona,L.P.,158267,recital,oxítona,CV-CV-CVC,consoante,3,q,7,3,24,Masculino,Mestrado Incompleto,História,"inglês, italiano",bateria,São Paulo
 12287,1,s,2,55,118,cedade,NA,NA,paroxítona,L.P.,161991,cidade,paroxítona,CV-CV-CV,vogal,2,s,10,1,24,Masculino,Mestrado Incompleto,História,"inglês, italiano",bateria,São Paulo
-12288,1,s,2,56,142,difertor,NA,NA,paroxítona,L.P.,1651485,diretor,oxítona,CV-CV-CVC,consoante,3,s,10,2,24,Masculino,Mestrado Incompleto,História,"inglês, italiano",bateria,São Paulo
+12288,1,s,2,56,142,difetor,NA,NA,paroxítona,L.P.,1651485,diretor,oxítona,CV-CV-CVC,consoante,3,s,10,2,24,Masculino,Mestrado Incompleto,História,"inglês, italiano",bateria,São Paulo
 12289,2,s,2,57,148,futira,$f(C)Vt_10,paroxitona_9,paroxítona,L.P.,132163,futuro,paroxítona,CV-CV-CV,vogal,2,n,4,0,24,Masculino,Mestrado Incompleto,História,"inglês, italiano",bateria,São Paulo
 12290,1,s,2,58,185,nitural,NA,NA,paroxítona,L.P.,1440045,natural,oxítona,CV-CV-CVC,vogal,3,s,10,1,24,Masculino,Mestrado Incompleto,História,"inglês, italiano",bateria,São Paulo
 12291,4,s,2,59,111,japutar,NA,NA,paroxítona,L.P.,151805,júpiter,proparoxítona,CV-CV-CVC,vogal,3,s,2,0,24,Masculino,Mestrado Incompleto,História,"inglês, italiano",bateria,São Paulo
@@ -12476,7 +12476,7 @@ ID,Grupo,Aleatorizacao,Bloco_Apresentacao,Ordem_Apresentacao,Codigo_Pseudo,Pseud
 12475,2,s,4,57,336,zamafer,NA,NA,paroxítona,L.P.,117605,caráter,paroxítona,CV-CV-CVC,consoante,7,s,2,0,24,Masculino,Mestrado Incompleto,História,"inglês, italiano",bateria,São Paulo
 12476,3,s,4,58,287,segador,NA,NA,paroxítona,L.P.,108279,secador,oxítona,CV-CV-CVC,consoante,1,q,7,2,24,Masculino,Mestrado Incompleto,História,"inglês, italiano",bateria,São Paulo
 12477,1,s,4,59,329,cicade,NA,NA,paroxítona,L.P.,1601755,cidade,paroxítona,CV-CV-CV,consoante,2,s,8,2,24,Masculino,Mestrado Incompleto,História,"inglês, italiano",bateria,São Paulo
-12478,4,s,4,60,318,mitoval,NA,NA,paroxítona,L.P.,82718,mutável,paroxítona,CV-CV-CVC,vogal,2,q,3,0,24,Masculino,Mestrado Incompleto,História,"inglês, italiano",bateria,São Paulo
+12478,4,s,4,60,318,mitavol,NA,NA,paroxítona,L.P.,82718,mutável,paroxítona,CV-CV-CVC,vogal,2,q,3,0,24,Masculino,Mestrado Incompleto,História,"inglês, italiano",bateria,São Paulo
 12479,1,s,4,61,313,siculo,NA,NA,paroxítona,L.P.,111663,século,proparoxítona,CV-CV-CV,vogal,3,s,9,2,24,Masculino,Mestrado Incompleto,História,"inglês, italiano",bateria,São Paulo
 12480,3,s,4,62,332,ladaver,NA,NA,paroxítona,L.P.,1073315,cadáver,paroxítona,CV-CV-CVC,consoante,3,s,9,1,24,Masculino,Mestrado Incompleto,História,"inglês, italiano",bateria,São Paulo
 12481,4,s,4,63,348,cabori,NA,NA,paroxítona,L.P.,1125505,cabaré,oxítona,CV-CV-CV,vogal,2,s,2,0,24,Masculino,Mestrado Incompleto,História,"inglês, italiano",bateria,São Paulo
