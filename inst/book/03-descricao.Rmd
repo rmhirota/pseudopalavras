@@ -1,9 +1,9 @@
 # Descrição do estudo {#descricao-estudo}
 
 O estudo foi realizado de maneira remota com reunião individuais da pesquisadora 
-e cada um dos participantes via Google Meet.Consistiu em apresentar
+e cada um dos participantes via Google Meet. Consistiu em apresentar
 aos participantes, através do software Psychopy, 372 pseudopalavras agrupadas nos
-denominados grupos de estímulos e registrar, a forma como eles reproduziam verbalmente
+denominados grupos de estímulos e registrar a forma como eles reproduziam verbalmente
 tais palavras criadas.
 A seguir, as respostas dos participantes foram classificadas de acordo com as três
 classes de acentuação tônica: oxítona, paroxítona e proparoxítona. Essa é a variável
@@ -24,10 +24,7 @@ do curso de Letras ainda não têm conhecimento na área. O perfil dos participa
 
 ## Limitações do estudo
 
-
-
 Identificamos dois eventuais problemas na coleta de dados que tentaremos contornar nas análises e que descrevem-se a seguir.
-
 
 __Problemas técnicos e interferência externa__: 
 
@@ -38,36 +35,30 @@ pseudopalavras para todos os participantes. Portanto, um total de 12.511 dados s
 utilizados na análise, em vez dos 12.648 esperados, o qual não representa uma perda 
 substancial. 
 
-As palavras que deram origem às pseudopalavras, definidas como palavras alvo, foram
-classificadas em dois níveis de acordo com a sua ocorrência no  _Corpus brasileiro_,
-corpus linguístico coordenado pelo pesquisador Antonio Paulo Berber Sardinha. Se a
-palavra possui mais de 100 mil ocorrências no corpus ela é classificada como alta 
-frequência e se possui menos de 2 mil ocorrências ela é classificada como baixa 
-frequência. Ressaltamos que essa variável não foi controlada durante a coleta de 
-dados, ou seja, não foi definido uma quantidade de palavras de cada categoria em 
-cada bloco. Ademais, as pseudopalavras foram construídas com três sílabas de extensão 
-para que os três padrões acentuais do português brasileiro pudessem ser produzidos.
-A junção da ideia de frequência e similaridade entre a palavra alvo e a pseudopalavra 
-resultou na criação de uma variável com 4 categorias chamada grupo de estímulos. 
+__Problemas de aleatorização__:
+
+Dentro de cada bloco, a ordem em que as pseudopalavras foram apresentadas aos falantes também foi aleatorizada,porém, para alguns participantes o software Psychopy apresentou problemas e eles tiveram que continuar o experimento a partir de slides com uma ordem aleatória pré-estabelecida.
+
+Em outras palavras, todos os indivíduos que em algum momento acompanharam o
+experimento pelos slides seguiram com palavras apresentadas na mesma ordem (a
+primeira aleatorização retirada do Excel).
+
+Ressaltamos que essa variável não foi controlada durante a coleta
+de dados, ou seja, não foi definido uma quantidade de palavras de cada categoria
+em cada bloco.
+
+## Conceitos do estudo e Validação
 
 O conceito de similaridade foi construído a partir de uma taxa de similaridade definida 
 com base nas mudanças feitas na palavra-alvo até a obtenção da pseudopalavra. De acordo
 com o tipo e a quantidade de alteração foi estabelecido um valor de 1 a 10 -taxa de
 similaridade-, onde valores menores de 4 determinam palavras similares e valores
-maiores ou iguais a 5 determinam palavras dissimilares.
+maiores ou iguais a 5 determinam palavras dissimilares. Logo, foi necessário definir um modo de entender se essa classificação em similar e dissimilar é válida. 
 
-Outro ponto importante está relacionado aos testes para validar se a pseudopalavra é 
-similar a palavra a partir da qual ela foi criada (palavra alvo). Nessa etapa -chamada
-de validação-, pediu-se para 10 falantes do português, que não fazem parte do estudo final, 
-listarem a palavra real a qual eles associavam a palavra criada. Considerou-se como 
-validadas as pseudopalavras cuja associação foi a palavra alvo na resposta de, no mínimo,
-oito indivíduos.Porém, pseudopalavras nas quais sete falantes apresentaram a associação
-correta foram classificadas como quase validadas.  
+Esse ponto está relacionado aos testes para validar se a pseudopalavra é similar a palavra a partir da qual ela foi criada (palavra alvo). Nessa etapa -chamada de validação- pediu-se para 10 falantes do português, que não fazem parte do estudo final, listarem a palavra real a qual eles associavam a palavra criada. Considerou-se como validadas as pseudopalavras cuja associação foi a palavra alvo na resposta de, no mínimo, oito indivíduos.Porém, pseudopalavras nas quais sete falantes apresentaram a associação correta foram classificadas como quase validadas.  
   
-Da mesma forma, foram consideradas validadas como dissimilares à palavra alvo pseudopalavras
-não associadas a uma mesma resposta por mais de dois indivíduos. Pseudopalavras nas 
-quais três falantes apresentaram a mesma associação foram classificadas como quase
-validadas. Ressalta-se que a associação não necessariamente precisa ser com a palavra alvo. 
+Da mesma forma, precisou-se elaborar um modo de validar se a pseudopalavra realmente é dissimilar à palavra alvo. Foram consideradas validadas como dissimilares à palavra alvo pseudopalavras não associadas a uma mesma resposta por mais de dois indivíduos. Em outras palavras, se mais de dois falantes lembraram de uma mesma palavra ao ler a pseudopalavra, ela foi considerada dissimilar à sua palavra alvo - pois entendeu-se que ela está "parecida" com uma palavra real.
+Pseudopalavras nas quais três falantes apresentaram a mesma associação foram classificadas como quase validadas. Ressalta-se que, nesse caso, a associação não necessariamente precisava ser com a palavra alvo.
 
 
 

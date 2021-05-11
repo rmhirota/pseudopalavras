@@ -2,9 +2,7 @@
 
 De acordo com @petter2007, o interesse pela linguagem é antigo e vem sendo expresso 
 por meio de mitos, lendas, cantos, rituais e trabalhos eruditos que buscam conhecer
-essa capacidade humana. A autora aponta que, a partir do século XX, os
-estudos linguistícos passaram a ter um caráter científico, ou seja, centrados na
-observação dos fatos a partir de pressupostos teóricos da linguagem, no
+essa capacidade humana como sistema de comunicação. A autora aponta que, a partir do século XX, os estudos linguistícos passaram a ter um caráter científico, ou seja, centrados na observação dos fatos a partir de pressupostos teóricos da linguagem, no
 estabelecimento de hipóteses e na examinação mediante experimentos.
 
 Conforme descrito por @fiorin2019, a linguística é uma ciência da linguagem 
