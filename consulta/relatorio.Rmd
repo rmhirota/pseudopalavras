@@ -449,7 +449,7 @@ _urban_ também varia de distrito para distrito, pois foi incluído um efeito al
 Agora, percebe-se que na estrutura de variância do modelo existe uma covariância entre os dois efeitos aleatórios, ou seja, $\sigma(u_{0j},u_{1j})$. Nesse caso, temos duas opções de estrutura:
   
 1) Uma estrutura de covariância que permite variâncias distinta para cada
-efeito dentro de uma equação de efeitos aleatórios ($\sigma^2_{0j}$) $\neq$ $\sigma^2_{1j}$)) e assume que todas as covariâncias ( $\sigma(u_{0j},u_{1j})$) são 0.
+efeito dentro de uma equação de efeitos aleatórios ($\sigma^2_{0j}$ $\neq$ $\sigma^2_{1j}$)) e assume que todas as covariâncias ( $\sigma(u_{0j},u_{1j})$) são 0.
 
 $$ \sum = Var\left(\begin{array}{cc} 
 u_{0j}\\
@@ -537,7 +537,7 @@ quando rodamos um modelo "vazio", ou seja, apenas com o intercepto.
 No software `Stata`, esse índice é encontrado através do código __`estat icc`__.  
 A seguir, definimos um passo a passo para obter a probabilidade marginal média.
 
-Salientamos que a correlação interclasse não se altera quando existem variáveis no nivel 2, pois ele é estimado por meio do modelo nulo, ou seja, por um modelo que não inclui variáveis explicativas.
+Salientamos que a correlação interclasse não se altera quando existem variáveis no nivel 2, pois ela é estimada por meio do modelo nulo, ou seja, por um modelo que não inclui variáveis explicativas.
 
 ## 6.6 Estimação das probabilidades
 
