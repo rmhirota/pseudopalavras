@@ -70,17 +70,4 @@ quais três falantes apresentaram a mesma associação foram classificadas como 
 validadas. Ressalta-se que a associação não necessariamente precisa ser com a palavra alvo. 
 
 
-__Problemas de aleatorização__:
-
-Inicialmente, as pseudopalavras foram aleatorizadas de forma geral no software
-_Excel_ (ALEATORIOENTRE) e separadas em 4 blocos com 93 pseudopalavras cada,
-resultando em um total de 372 palavras criadas. Dentro de cada bloco, a ordem em
-que as pseudopalavras foram apresentadas aos falantes também foi aleatorizada,
-porém, para alguns participantes o software Psychopy apresentou problemas e eles
-tiveram que continuar o experimento a partir de slides com uma ordem aleatória
-pré-estabelecida.
-
-Em outras palavras, todos os indivíduos que em algum momento acompanharam o
-experimento pelos slides seguiram com palavras apresentadas na mesma ordem (a
-primeira aleatorização retirada do Excel). 
 
