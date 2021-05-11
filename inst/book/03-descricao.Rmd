@@ -38,7 +38,6 @@ pseudopalavras para todos os participantes. Portanto, um total de 12.511 dados s
 utilizados na análise, em vez dos 12.648 esperados, o qual não representa uma perda 
 substancial. 
 
-
 As palavras que deram origem às pseudopalavras, definidas como palavras alvo, foram
 classificadas em dois níveis de acordo com a sua ocorrência no  _Corpus brasileiro_,
 corpus linguístico coordenado pelo pesquisador Antonio Paulo Berber Sardinha. Se a
@@ -51,9 +50,25 @@ para que os três padrões acentuais do português brasileiro pudessem ser produ
 A junção da ideia de frequência e similaridade entre a palavra alvo e a pseudopalavra 
 resultou na criação de uma variável com 4 categorias chamada grupo de estímulos. 
 
-Outro ponto importante está relacionado aos testes para validar se a pseudopalavra é similar a palavra a partir da qual ela foi criada (palavra alvo). Nessa etapa -chamada de validação-, pediu-se para 10 falantes do português, que não fazem parte do estudo final, listarem a palavra real a qual eles associavam a palavra criada. Considerou-se como validadas as pseudopalavras cuja associação foi a palavra alvo na resposta de, no mínimo, oito indivíduos.Porém, pseudopalavras nas quais sete falantes apresentaram a associação correta foram classificadas como quase validadas.  
+O conceito de similaridade foi construído a partir de uma taxa de similaridade definida 
+com base nas mudanças feitas na palavra-alvo até a obtenção da pseudopalavra. De acordo
+com o tipo e a quantidade de alteração foi estabelecido um valor de 1 a 10 -taxa de
+similaridade-, onde valores menores de 4 determinam palavras similares e valores
+maiores ou iguais a 5 determinam palavras dissimilares.
+
+Outro ponto importante está relacionado aos testes para validar se a pseudopalavra é 
+similar a palavra a partir da qual ela foi criada (palavra alvo). Nessa etapa -chamada
+de validação-, pediu-se para 10 falantes do português, que não fazem parte do estudo final, 
+listarem a palavra real a qual eles associavam a palavra criada. Considerou-se como 
+validadas as pseudopalavras cuja associação foi a palavra alvo na resposta de, no mínimo,
+oito indivíduos.Porém, pseudopalavras nas quais sete falantes apresentaram a associação
+correta foram classificadas como quase validadas.  
   
-Da mesma forma, foram consideradas validadas como dissimilares à palavra alvo pseudopalavras não associadas a uma mesma resposta por mais de dois indivíduos. Ressalta-se que a associação não necessariamente precisa ser com a palavra alvo. Pseudopalavras com um número de associações maior que dois foram consideradas não validadas,porém,pseudopalavras nas quais três falantes apresentaram a mesma associação foram classificadas como quase validadas
+Da mesma forma, foram consideradas validadas como dissimilares à palavra alvo pseudopalavras
+não associadas a uma mesma resposta por mais de dois indivíduos. Pseudopalavras nas 
+quais três falantes apresentaram a mesma associação foram classificadas como quase
+validadas. Ressalta-se que a associação não necessariamente precisa ser com a palavra alvo. 
+
 
 __Problemas de aleatorização__:
 
