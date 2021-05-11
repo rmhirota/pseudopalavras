@@ -1,15 +1,28 @@
 # Descrição das variáveis {#descricao-variaveis}
 
-Foram coletadas variáveis linguísticas (relacionadas às pseudopalavras), extralinguísticas (relacionadas aos participantes) e experimentais (relacionadas ao estudo), que podem, segundo a literatura da área, influenciar o comportamento acentual no português. A seguir, listamos as variáveis pré-selecionadas para o estudo. 
+Foram coletadas variáveis linguísticas -relacionadas às pseudopalavras-, 
+extralinguísticas -relacionadas aos participantes- e experimentais -relacionadas 
+ao estudo-, que podem, segundo a literatura da área, influenciar o comportamento
+acentual no português. A seguir, listamos as variáveis pré-selecionadas para o estudo. 
   
   
 ## Variável Dependente
 
-A variável resposta de interesse é __Tonicidade de produção__, ou seja, a classificação acentual tônica da pseudopalavra (oxítona, paroxítona e proparoxítona)
+A variável resposta de interesse é __Tonicidade de pseudopalavra__, ou seja, a
+classificação acentual tônica da pseudopalavra (oxítona, paroxítona e proparoxítona)
   
   
 ## Variáveis Linguísticas
    
+- __Validação__: s = sim, n = não validada e q = quase validada
+- __Taxa de validação__: indica quantas pessoas do estudo preliminar informaram que
+a palavra era similar ou dissimilar
+- __Palavra alvo__: palavra real que deu origem à pseudopalavra  
+- __Tonicidade da palavra alvo__: oxítona, paroxítona e proparoxítona
+- __Estrutura da palavra alvo__: CV-CV-CV e CV-CV-CVC 
+- __Pseudopalavra__: refere-se a cada um dos estímulos criados
+- __Segmento modificado__: indica qual letra foi modificada na criação da pseudopalavra
+a partir da palavra real (consoante ou vogal)  
 - __Grupo dos estímulos__:  indica o efeito da similaridade (entre a pseudopalavra 
 e a palavra real) e da frequência (alta e baixa) na produção acentual
      
@@ -18,17 +31,9 @@ e a palavra real) e da frequência (alta e baixa) na produção acentual
   - 3 = pseudopalavras similares de baixa frequência    
   - 4 = pseudopalavras dissimilares de baixa frequência   
     
-- __Pseudopalavra__: refere-se a cada um dos estímulos criados  
-- __Palavra alvo__: palavra real que deu origem à pseudopalavra  
-- __Tonicidade da palavra alvo__: oxítona, paroxítona e proparoxítona
-- __Estrutura da palavra__: CV-CV-CV e CV-CV-CVC
-- __Tempo de resposta__:  indica o tempo em milisegundos que os falantes levaram para apertar a tecla de espaço entre um estímulo e outro
-- __Segmento modificado__: indica qual letra foi modificada na criação da pseudopalavra a partir da palavra real (consoante ou vogal)  
-- __Taxa de similaridade__: 1, 2, 3 (grupos similares), 5, 6, 7, 8, 9, 10 (grupos dissimilares)
-- __Validação__: s = sim, n = não validada e q = quase validada
-- __Taxa de validação__: indica quantas pessoas informaram que a palavra era similar ou dissimilar
-- __Vizinhança Fonologica__: consiste na categorização por vizinhança fonológica apenas das pseudopalavras que não foram validadas 
-- __Vizinhança Tonicidade__: indica qual foi o padrão acentual das palavras que os participantes julgaram similares às pseudopalavras criadas; apenas para as pseudopalavras que não foram validadas  
+- __Taxa de similaridade__: 1, 2, 3 (grupos similares), 5, 6, 7, 8, 9, 10 (grupos
+dissimilares)
+
 
 
 ## Variáveis Extralinguísticas
@@ -44,12 +49,24 @@ e a palavra real) e da frequência (alta e baixa) na produção acentual
 
 ## Variáveis Experimentais
 
-- __Aleatorizacao__: codifica se o bloco de apresentação foi aleatorizado para o indivíduo ou se foi a aleatorização prévia (s = o estímulo foi aleatorizado e n = não houve aleatorização)
-- __Bloco de apresentação__: indica em qual bloco (ou rotina) a pseudopalavra foi inserida (1, 2, 3 ou 4)
-- __Ordem de apresentação__: indica em qual ordem a pseudopalavra foi apresentada dentro do bloco de apresentação (1 a 93)
+- __Bloco de apresentação__: indica em qual bloco (ou rotina) a pseudopalavra foi
+inserida (1, 2, 3 ou 4)
+- __Ordem de apresentação__: indica em qual ordem a pseudopalavra foi apresentada
+dentro do bloco de apresentação (1 a 93). Para os indivíduos que fizeram toda a 
+dinâmica no software, a ordem das pseudopalavras era diferente dentro de cada bloco.
+- __Aleatorizacao__: codifica se o bloco de apresentação foi aleatorizado para o
+indivíduo ou se foi a aleatorização prévia (s = o estímulo foi aleatorizado e n = não
+houve aleatorização)
+Inicialmente, as pseudopalavras foram aleatorizadas de forma geral no software
+_Excel_ (ALEATORIOENTRE) e separadas em 4 blocos com 93 pseudopalavras cada,
+resultando em um total de 372 palavras criadas. Dentro de cada bloco, a ordem em
+que as pseudopalavras foram apresentadas aos falantes também foi aleatorizada,
+porém, para alguns participantes o software Psychopy apresentou problemas e eles
+tiveram que continuar o experimento a partir de slides com uma ordem aleatória
+pré-estabelecida.
 
-Destacamos a seguir as variáveis que foram excluídas inicialmente da análise e o motivo dessa escolha:
-   
-- __Tempo de resposta__: Só há tempo para a metade dos participantes devido ao problema com o software em que o experimento foi realizado. Além idsso, fatores externos como falha na conexão com a internet podem ter afetado a coleta dessa informação. Portanto, esses fatores tornam a variável viesada, além de possuir muitos dados faltantes
-- __Taxa de similaridade__: 1, 2, 3 (grupos similares), 5, 6, 7, 8, 9, 10 (grupos dissimilares). Como o conceito de similaridade entre a palavra alvo e a pseudopalavra já está inserido na variável _Grupo de estímulos_, entendemos que ela não é necessária na análise
-- __Naturalidade__: Cerca de 80% dos participantes são naturais do estado de São Paulo (capital e cidades do município). Logo, essa variável não será considerada na análise
+Em outras palavras, todos os indivíduos que em algum momento acompanharam o
+experimento pelos slides seguiram com palavras apresentadas na mesma ordem (a
+primeira aleatorização retirada do Excel). 
+
+

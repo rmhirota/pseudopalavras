@@ -124,7 +124,7 @@ distribuição binomial com média zero e são independentes de $u_{0j}$
 
 Os $X_{kij}$ são as variáveis independentes de nível 1 utilizadas no modelo, os 
 coeficientes $\beta_{kj}$ são os coeficientes fixos do modelo. Já $Z_j$ é uma variável no nível de cluster (nível 2).  
-$ \beta_{02}$ e $ \beta_{k2}$ são os coeficientes de regressão associados à variável explicativa do nível 2 relativo à inclinação. É importante destacar que componentes aleatórios podem ser acrescentados aos coeficientes das variáveis independentes ($\beta_{kj}$).
+$\beta_{02}$ e $\beta_{k2}$ são os coeficientes de regressão associados à variável explicativa do nível 2 relativo à inclinação. É importante destacar que componentes aleatórios podem ser acrescentados aos coeficientes das variáveis independentes ($\beta_{kj}$).
 
 Nos dois exemplos, nota-se que os interceptos variam de cluster para cluster (considera-se que possa existir diferenças entre os clusters), mas $\beta_{00}$ e os $\beta_{k0}$ são constantes para todos os clusters. Caso seja incluído outro efeito aleatório em alguma das variáveis, as inclinações relacionadas a essa variável também irão variar de cluster para cluster.
 
