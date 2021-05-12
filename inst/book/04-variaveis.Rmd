@@ -14,7 +14,7 @@ classificação acentual tônica da pseudopalavra (oxítona, paroxítona e propa
   
 ## Variáveis Linguísticas
 
-As palavras que deram origem às pseudopalavras, definidas como palavras alvo,
+As palavras que deram origem às pseudopalavras, definidas como palavras-alvo,
 foram classificadas em dois níveis de acordo com a sua ocorrência no Corpus
 brasileiro, corpus linguístico coordenado pelo pesquisador Antonio Paulo Berber
 Sardinha. Se a palavra possui mais de 100 mil ocorrências no corpus ela é
@@ -67,10 +67,7 @@ dissimilares)
 
 __Problemas de aleatorização__:
 
-As palavras foram aleatorizadas no Excel e divididas em 4 conjuntos, a serem 
-apresentados aos participantes com um intervalo de tempo entre cada conjunto. 
-Por limitações do software, a ordem de apresentação desses conjuntos não pôde
-ser aleatorizada, apenas a ordem das palavras dentro de cada conjunto.
+As palavras foram aleatorizadas no Excel e divididas em 4 conjuntos - variável bloco de apresentação- a serem apresentados aos participantes com um intervalo de tempo entre cada conjunto. Por limitações do software, a ordem de apresentação desses conjuntos não pôde ser aleatorizada, apenas a ordem das palavras dentro de cada conjunto.
 
 No entanto, para alguns participantes o software Psychopy apresentou problemas e
 eles tiveram que continuar o experimento a partir de slides com uma ordem aleatória 
