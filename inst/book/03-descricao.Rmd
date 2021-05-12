@@ -24,7 +24,8 @@ do curso de Letras ainda não têm conhecimento na área. O perfil dos participa
 
 ## Limitações do estudo
 
-Identificamos dois eventuais problemas na coleta de dados que tentaremos contornar nas análises e que são descritos a seguir.
+Identificamos dois eventuais problemas na coleta de dados que tentaremos contornar 
+nas análises e que são descritos a seguir.
 
 __Problemas técnicos e interferência externa__: 
 
@@ -57,12 +58,24 @@ O conceito de similaridade foi construído a partir de uma taxa de similaridade 
 com base nas mudanças feitas na palavra-alvo até a obtenção da pseudopalavra. De acordo
 com o tipo e a quantidade de alterações, foi estabelecido um valor de 1 a 10 -taxa de
 similaridade-, onde valores menores de 4 determinam palavras similares e valores
-maiores ou iguais a 5 determinam palavras dissimilares. Logo, foi necessário definir um modo de entender se essa classificação em similar e dissimilar é válida. 
+maiores ou iguais a 5 determinam palavras dissimilares. Logo, foi necessário definir 
+um modo de validar essa classificação em similar e dissimilar. 
 
-Esse ponto está relacionado aos testes para validar se a pseudopalavra é similar a palavra a partir da qual ela foi criada (palavra alvo). Nessa etapa -chamada de validação- pediu-se para 10 falantes do português, que não fazem parte do estudo final, listarem a palavra real a qual eles associavam a palavra criada. Considerou-se como validadas as pseudopalavras cuja associação foi a palavra alvo na resposta de, no mínimo, oito indivíduos.Porém, pseudopalavras nas quais sete falantes apresentaram a associação correta foram classificadas como quase validadas.  
+Esse ponto está relacionado aos testes para validar se a pseudopalavra é similar 
+à palavra a partir da qual ela foi criada (palavra alvo). Nessa etapa -chamada de 
+validação- pediu-se para 10 falantes do português, que não fazem parte do estudo final,
+listarem a palavra real a qual eles associavam a palavra criada. Considerou-se como 
+validadas as pseudopalavras cuja associação foi a palavra alvo na resposta de, no mínimo, 
+oito indivíduos.Porém, pseudopalavras nas quais sete falantes apresentaram a associação 
+correta foram classificadas como quase validadas.  
   
-Da mesma forma, precisou-se elaborar um modo de validar se a pseudopalavra realmente é dissimilar à palavra alvo. Foram consideradas validadas como dissimilares à palavra alvo pseudopalavras não associadas a uma mesma resposta por mais de dois indivíduos. Em outras palavras, se mais de dois falantes lembraram de uma mesma palavra ao ler a pseudopalavra, ela foi considerada dissimilar à sua palavra alvo - pois entendeu-se que ela está "parecida" com uma palavra real.
-Pseudopalavras nas quais três falantes apresentaram a mesma associação foram classificadas como quase validadas. Ressalta-se que, nesse caso, a associação não necessariamente precisava ser com a palavra alvo.
+Da mesma forma, foram consideradas validadas como dissimilares à palavra alvo pseudopalavras 
+não associadas a uma mesma resposta por mais de dois indivíduos. Em outras palavras, 
+se mais de dois falantes lembraram de uma mesma palavra ao ler a pseudopalavra, ela 
+foi considerada dissimilar à sua palavra alvo - pois entendeu-se que ela está "parecida" 
+com uma palavra real. Pseudopalavras nas quais três falantes apresentaram a mesma associação
+foram classificadas como quase validadas. Ressalta-se que, nesse caso, a associação 
+não necessariamente precisava ser com a palavra alvo.
 
 
 

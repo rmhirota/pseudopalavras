@@ -14,7 +14,7 @@ classificação acentual tônica da pseudopalavra (oxítona, paroxítona e propa
   
 ## Variáveis Linguísticas
 
-   As palavras que deram origem às pseudopalavras, definidas como palavras alvo,
+As palavras que deram origem às pseudopalavras, definidas como palavras alvo,
 foram classificadas em dois níveis de acordo com a sua ocorrência no Corpus
 brasileiro, corpus linguístico coordenado pelo pesquisador Antonio Paulo Berber
 Sardinha. Se a palavra possui mais de 100 mil ocorrências no corpus ela é
@@ -23,9 +23,8 @@ classificada como baixa frequência. A junção da ideia de frequência e simila
 entre a palavra alvo e a pseudopalavra resultou na criação de uma variável com 4
 categorias chamada grupo de estímulos.
 
-Ademais, as pseudopalavras foram construídas
-com três sílabas de extensão para que os três padrões acentuais do português
-brasileiro pudessem ser produzidos.
+Ademais, as pseudopalavras foram construídas com três sílabas de extensão para 
+que os três padrões acentuais do português brasileiro pudessem ser produzidos.
 
 - __Validação__: s = sim, n = não validada e q = quase validada
 - __Taxa de validação__: indica quantas pessoas do estudo preliminar informaram que
@@ -63,7 +62,13 @@ dissimilares)
 
 Inicialmente, as pseudopalavras foram aleatorizadas de forma geral no software
 Excel (ALEATORIOENTRE) e separadas em 4 blocos com 93 pseudopalavras cada,
-resultando em um total de 372 palavras criadas.
+resultando em um total de 372 palavras criadas. Dentro de cada bloco, a ordem em
+que as pseudopalavras foram apresentadas aos falantes também foi aleatorizada,
+porém, para alguns participantes o software Psychopy apresentou problemas e eles
+tiveram que continuar o experimento a partir de slides com uma ordem aleatória
+pré-estabelecida.Em outras palavras, todos os indivíduos que em algum momento 
+acompanharam o experimento pelos slides seguiram com palavras apresentadas na
+mesma ordem (a primeira aleatorização retirada do Excel). 
 
 - __Bloco de apresentação__: indica em qual bloco (ou rotina) a pseudopalavra foi
 inserida (1, 2, 3 ou 4)
@@ -72,20 +77,9 @@ dentro do bloco de apresentação (1 a 93). Para os indivíduos que fizeram toda
 dinâmica no software, a ordem das pseudopalavras era diferente dentro de cada bloco.
 - __Aleatorização__: codifica se o bloco de apresentação foi aleatorizado para o
 indivíduo ou se foi a aleatorização prévia (s = o estímulo foi aleatorizado e n = não
-houve aleatorização)
+houve aleatorização). 14 participantes em algum momento continuaram o experimento 
+via slide. 
 
-Inicialmente, as pseudopalavras foram aleatorizadas de forma geral no software
-_Excel_ (ALEATORIOENTRE) e separadas em 4 blocos com 93 pseudopalavras cada,
-resultando em um total de 372 palavras criadas. Dentro de cada bloco, a ordem em
-que as pseudopalavras foram apresentadas aos falantes também foi aleatorizada,
-porém, para alguns participantes o software Psychopy apresentou problemas e eles
-tiveram que continuar o experimento a partir de slides com uma ordem aleatória
-pré-estabelecida.
 
-14 participantes em algum momento continuaram o experimento via slide
-
-Em outras palavras, todos os indivíduos que em algum momento acompanharam o
-experimento pelos slides seguiram com palavras apresentadas na mesma ordem (a
-primeira aleatorização retirada do Excel). 
 
 
