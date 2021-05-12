@@ -24,7 +24,7 @@ do curso de Letras ainda não têm conhecimento na área. O perfil dos participa
 
 ## Limitações do estudo
 
-Identificamos dois eventuais problemas na coleta de dados que tentaremos contornar nas análises e que descrevem-se a seguir.
+Identificamos dois eventuais problemas na coleta de dados que tentaremos contornar nas análises e que são descritos a seguir.
 
 __Problemas técnicos e interferência externa__: 
 
@@ -37,21 +37,25 @@ substancial.
 
 __Problemas de aleatorização__:
 
-Dentro de cada bloco, a ordem em que as pseudopalavras foram apresentadas aos falantes também foi aleatorizada,porém, para alguns participantes o software Psychopy apresentou problemas e eles tiveram que continuar o experimento a partir de slides com uma ordem aleatória pré-estabelecida.
+As palavras foram aleatorizadas no Excel e divididas em 4 conjuntos, a serem 
+apresentados aos participantes com um intervalo de tempo entre cada conjunto. 
+Por limitações do software, a ordem de apresentação desses conjuntos não pôde
+ser aleatorizada, apenas a ordem das palavras dentro de cada conjunto.
 
-Em outras palavras, todos os indivíduos que em algum momento acompanharam o
-experimento pelos slides seguiram com palavras apresentadas na mesma ordem (a
-primeira aleatorização retirada do Excel).
+No entanto, para alguns participantes o software Psychopy apresentou problemas e
+eles tiveram que continuar o experimento a partir de slides com uma ordem aleatória 
+pré-estabelecida. Em outras palavras, todos os indivíduos que em algum momento
+acompanharam o experimento pelos slides seguiram com palavras apresentadas na 
+mesma ordem (a primeira aleatorização retirada do Excel).
 
-Ressaltamos que essa variável não foi controlada durante a coleta
-de dados, ou seja, não foi definido uma quantidade de palavras de cada categoria
-em cada bloco.
+Ressaltamos que essa variável não foi controlada durante a coleta de dados, ou 
+seja, não foi definido uma quantidade de palavras de cada categoria em cada bloco.
 
 ## Conceitos do estudo e Validação
 
 O conceito de similaridade foi construído a partir de uma taxa de similaridade definida 
 com base nas mudanças feitas na palavra-alvo até a obtenção da pseudopalavra. De acordo
-com o tipo e a quantidade de alteração foi estabelecido um valor de 1 a 10 -taxa de
+com o tipo e a quantidade de alterações, foi estabelecido um valor de 1 a 10 -taxa de
 similaridade-, onde valores menores de 4 determinam palavras similares e valores
 maiores ou iguais a 5 determinam palavras dissimilares. Logo, foi necessário definir um modo de entender se essa classificação em similar e dissimilar é válida. 
 

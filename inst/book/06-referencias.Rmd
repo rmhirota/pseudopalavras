@@ -1,0 +1,15 @@
+# Ficha técnica {-}
+
+## Referências bibliográficas {-}
+
+<div id="refs"></div>
+
+## Programas computacionais utilizados {-}
+
+R 3.0.4
+
+## Técnicas estatísticas utilizadas {-}
+
+## Área de aplicação {-}
+
+Linguística (14:110)

@@ -15,6 +15,7 @@ introducao
 objetivo
 descricao-estudo
 limitações-do-estudo
+conceitos-do-estudo-e-validação
 descricao-variaveis
 variável-dependente
 variáveis-linguísticas

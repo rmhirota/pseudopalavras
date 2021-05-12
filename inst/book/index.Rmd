@@ -24,11 +24,6 @@ description: "Relatório de pesquisa da disciplina MAE0413."
 include-before: "RAE-CEA–21P02"
 sign_page: true
 preface: "<br>"
-# ficha: |
-#   ```{r, echo=FALSE, results='asis'}
-#   res <- knitcitations::read.bibtex("assets/bib/book.bib")
-#   
-#   ```
   
 ---
 
@@ -44,8 +39,6 @@ library(magrittr)
 participantes <- pseudopalavras::dados %>% 
   dplyr::distinct(informante, .keep_all = TRUE) 
 ```
-
-
 
 
 <!-- # Sobre este documento {-} -->

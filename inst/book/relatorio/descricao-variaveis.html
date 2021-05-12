@@ -100,6 +100,7 @@ div.csl-indent {
 <li class="chapter" data-level="3" data-path="descricao-estudo.html"><a href="descricao-estudo.html"><i class="fa fa-check"></i><b>3</b> Descrição do estudo</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="descricao-estudo.html"><a href="descricao-estudo.html#limitações-do-estudo"><i class="fa fa-check"></i><b>3.1</b> Limitações do estudo</a></li>
+<li class="chapter" data-level="3.2" data-path="descricao-estudo.html"><a href="descricao-estudo.html#conceitos-do-estudo-e-validação"><i class="fa fa-check"></i><b>3.2</b> Conceitos do estudo e Validação</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="descricao-variaveis.html"><a href="descricao-variaveis.html"><i class="fa fa-check"></i><b>4</b> Descrição das variáveis</a>
 <ul>
@@ -118,6 +119,13 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="descritiva.html"><a href="descritiva.html#variáveis-linguísticas-1"><i class="fa fa-check"></i><b>5.2</b> Variáveis linguísticas</a></li>
 <li class="chapter" data-level="5.3" data-path="descritiva.html"><a href="descritiva.html#conclusão-da-análise-descritiva-e-próximos-passos"><i class="fa fa-check"></i><b>5.3</b> Conclusão da análise descritiva e próximos passos</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="ficha-técnica.html"><a href="ficha-técnica.html"><i class="fa fa-check"></i>Ficha técnica</a>
+<ul>
+<li class="chapter" data-level="" data-path="ficha-técnica.html"><a href="ficha-técnica.html#referências-bibliográficas"><i class="fa fa-check"></i>Referências bibliográficas</a></li>
+<li class="chapter" data-level="" data-path="ficha-técnica.html"><a href="ficha-técnica.html#programas-computacionais-utilizados"><i class="fa fa-check"></i>Programas computacionais utilizados</a></li>
+<li class="chapter" data-level="" data-path="ficha-técnica.html"><a href="ficha-técnica.html#técnicas-estatísticas-utilizadas"><i class="fa fa-check"></i>Técnicas estatísticas utilizadas</a></li>
+<li class="chapter" data-level="" data-path="ficha-técnica.html"><a href="ficha-técnica.html#área-de-aplicação"><i class="fa fa-check"></i>Área de aplicação</a></li>
 </ul></li>
 <li class="appendix"><span><b>Apêndices</b></span></li>
 <li class="chapter" data-level="A" data-path="tabelas.html"><a href="tabelas.html"><i class="fa fa-check"></i><b>A</b> Tabelas</a></li>
@@ -150,11 +158,22 @@ ao estudo-, que podem, segundo a literatura da área, influenciar o comportament
 acentual no português. A seguir, listamos as variáveis pré-selecionadas para o estudo.</p>
 <div id="variável-dependente" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> Variável Dependente</h2>
-<p>A variável resposta de interesse é <strong>Tonicidade de pseudopalavra</strong>, ou seja, a
+<p>A variável resposta de interesse é <strong>Tonicidade da pseudopalavra</strong>, ou seja, a
 classificação acentual tônica da pseudopalavra (oxítona, paroxítona e proparoxítona)</p>
 </div>
 <div id="variáveis-linguísticas" class="section level2" number="4.2">
 <h2><span class="header-section-number">4.2</span> Variáveis Linguísticas</h2>
+<p>As palavras que deram origem às pseudopalavras, definidas como palavras alvo,
+foram classificadas em dois níveis de acordo com a sua ocorrência no Corpus
+brasileiro, corpus linguístico coordenado pelo pesquisador Antonio Paulo Berber
+Sardinha. Se a palavra possui mais de 100 mil ocorrências no corpus ela é
+classificada como alta frequência e se possui menos de 2 mil ocorrências ela é
+classificada como baixa frequência. A junção da ideia de frequência e similaridade
+entre a palavra alvo e a pseudopalavra resultou na criação de uma variável com 4
+categorias chamada grupo de estímulos.</p>
+<p>Ademais, as pseudopalavras foram construídas
+com três sílabas de extensão para que os três padrões acentuais do português
+brasileiro pudessem ser produzidos.</p>
 <ul>
 <li><p><strong>Validação</strong>: s = sim, n = não validada e q = quase validada</p></li>
 <li><p><strong>Taxa de validação</strong>: indica quantas pessoas do estudo preliminar informaram que
@@ -162,7 +181,7 @@ a palavra era similar ou dissimilar</p></li>
 <li><p><strong>Palavra alvo</strong>: palavra real que deu origem à pseudopalavra<br />
 </p></li>
 <li><p><strong>Tonicidade da palavra alvo</strong>: oxítona, paroxítona e proparoxítona</p></li>
-<li><p><strong>Estrutura da palavra alvo</strong>: CV-CV-CV e CV-CV-CVC</p></li>
+<li><p><strong>Estrutura da palavra alvo</strong>: indica qual é a estrutura da pseudopalavra (CV-CV-CV ou CV-CV-CVC)</p></li>
 <li><p><strong>Pseudopalavra</strong>: refere-se a cada um dos estímulos criados</p></li>
 <li><p><strong>Segmento modificado</strong>: indica qual letra foi modificada na criação da pseudopalavra
 a partir da palavra real (consoante ou vogal)<br />
@@ -197,23 +216,27 @@ dissimilares)</p></li>
 </div>
 <div id="variáveis-experimentais" class="section level2" number="4.4">
 <h2><span class="header-section-number">4.4</span> Variáveis Experimentais</h2>
+<p>Inicialmente, as pseudopalavras foram aleatorizadas de forma geral no software
+Excel (ALEATORIOENTRE) e separadas em 4 blocos com 93 pseudopalavras cada,
+resultando em um total de 372 palavras criadas.</p>
 <ul>
 <li><strong>Bloco de apresentação</strong>: indica em qual bloco (ou rotina) a pseudopalavra foi
 inserida (1, 2, 3 ou 4)</li>
 <li><strong>Ordem de apresentação</strong>: indica em qual ordem a pseudopalavra foi apresentada
 dentro do bloco de apresentação (1 a 93). Para os indivíduos que fizeram toda a
 dinâmica no software, a ordem das pseudopalavras era diferente dentro de cada bloco.</li>
-<li><strong>Aleatorizacao</strong>: codifica se o bloco de apresentação foi aleatorizado para o
+<li><strong>Aleatorização</strong>: codifica se o bloco de apresentação foi aleatorizado para o
 indivíduo ou se foi a aleatorização prévia (s = o estímulo foi aleatorizado e n = não
-houve aleatorização)
-Inicialmente, as pseudopalavras foram aleatorizadas de forma geral no software
+houve aleatorização)</li>
+</ul>
+<p>Inicialmente, as pseudopalavras foram aleatorizadas de forma geral no software
 <em>Excel</em> (ALEATORIOENTRE) e separadas em 4 blocos com 93 pseudopalavras cada,
 resultando em um total de 372 palavras criadas. Dentro de cada bloco, a ordem em
 que as pseudopalavras foram apresentadas aos falantes também foi aleatorizada,
 porém, para alguns participantes o software Psychopy apresentou problemas e eles
 tiveram que continuar o experimento a partir de slides com uma ordem aleatória
-pré-estabelecida.</li>
-</ul>
+pré-estabelecida.</p>
+<p>14 participantes em algum momento continuaram o experimento via slide</p>
 <p>Em outras palavras, todos os indivíduos que em algum momento acompanharam o
 experimento pelos slides seguiram com palavras apresentadas na mesma ordem (a
 primeira aleatorização retirada do Excel).</p>
