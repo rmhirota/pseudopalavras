@@ -8,9 +8,7 @@ estabelecimento de hipóteses e na examinação mediante experimentos.
 
 Conforme descrito por @fiorin2019, a linguística é uma ciência da linguagem 
 porque, ao contrário da gramática, ela tem como objetivo estabelecer o que uma língua é 
-e por que é de uma determinada maneira. Logo, a área estuda os aspectos fonéticos, morfológicos,
-sintáticos, semânticos, sociais e psicológicos de uma língua, e neste caso, o português
-brasileiro. Dentro deste contexto, existe o conceito de _pseudopalavra_, que, de 
+e por que é de uma determinada maneira. Logo, a área estuda os aspectos fonéticos, morfológicos, sintáticos, semânticos, sociais e psicológicos de uma língua, e neste caso, o português brasileiro. Dentro deste contexto, existe o conceito de _pseudopalavra_, que, de 
 acordo com o dicionário @priberan, é uma 
 
 > Sequência regular e pronunciável de  caracteres que não tem um significado numa língua, apesar de obedecer às regras ortográficas, morfológicas ou de pronúncia

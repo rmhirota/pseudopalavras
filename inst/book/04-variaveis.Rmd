@@ -30,8 +30,7 @@ categorias chamada grupo de estímulos.
 a palavra era similar ou dissimilar
 - __Palavra alvo__: palavra real que deu origem à pseudopalavra  
 - __Tonicidade da palavra alvo__: oxítona, paroxítona e proparoxítona
-- __Estrutura da palavra alvo__: indica qual é a estrutura da pseudopalavra (CV-CV-CV ou CV-CV-CVC), 
-onde C indica Consoante e V indica Vogal
+- __Estrutura da palavra alvo__: indica qual é a estrutura da pseudopalavra (CV-CV-CV ou CV-CV-CVC), sendo que C indica Consoante e V indica Vogal
 - __Pseudopalavra__: refere-se a cada um dos estímulos criados
 - __Segmento modificado__: indica qual letra foi modificada na criação da pseudopalavra
 a partir da palavra real (consoante ou vogal)  
@@ -64,7 +63,7 @@ dissimilares)
 
 ## Variáveis Experimentais
 
-As palavras foram aleatorizadas no Excel e divididas em 4 conjuntos - variável bloco
+As palavras foram aleatorizadas no Excel e divididas em 4 conjuntos - variável Bloco
 de apresentação- a serem apresentados aos participantes com um intervalo de tempo entre 
 cada conjunto. Por limitações do software, a ordem de apresentação desses conjuntos 
 não pôde ser aleatorizada, apenas a ordem das palavras dentro de cada conjunto.

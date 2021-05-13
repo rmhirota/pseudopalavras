@@ -1,15 +1,14 @@
-# Ficha técnica {-}
+# FICHA TÉCNICA {-}
 
-## Referências bibliográficas {-}
+## REFERÊNCIAS BIBLIOGRÁFICAS {-}
 
 <div id="refs"></div>
 
-## Programas computacionais utilizados {-}
+## PROGRAMAS COMPUTACIONAIS UTILIZADOS {-}
 
-R 3.0.4
+Software R (versão 4.0.4)
 
-## Técnicas estatísticas utilizadas {-}
 
-## Área de aplicação {-}
+## ÁREA DE APLICAÇÃO {-}
 
 Linguística (14:110)

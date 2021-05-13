@@ -1,4 +1,4 @@
-# Objetivo
+# Objetivo(s)
 
 O objetivo principal do trabalho é verificar se pseudopalavras criadas a partir de
 palavras reais, aqui denominadas palavra-alvo, podem sofrer um processo análogo e ter o mesmo padrão acentual da referência real. Além disso, buscamos entender quais são os conhecimentos linguísticos do falante utilizados nesse processo de acentuação tônica das
