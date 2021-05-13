@@ -14,6 +14,8 @@ classificação acentual tônica da pseudopalavra (oxítona, paroxítona e propa
   
 ## Variáveis Linguísticas
 
+As pseudopalavras foram construídas com três sílabas de extensão para 
+que os três padrões acentuais do português brasileiro pudessem ser produzidos.
 As palavras que deram origem às pseudopalavras, definidas como palavras-alvo,
 foram classificadas em dois níveis de acordo com a sua ocorrência no Corpus
 brasileiro, corpus linguístico coordenado pelo pesquisador Antonio Paulo Berber
@@ -28,12 +30,9 @@ categorias chamada grupo de estímulos.
 a palavra era similar ou dissimilar
 - __Palavra alvo__: palavra real que deu origem à pseudopalavra  
 - __Tonicidade da palavra alvo__: oxítona, paroxítona e proparoxítona
-- __Estrutura da palavra alvo__: indica qual é a estrutura da pseudopalavra (CV-CV-CV ou CV-CV-CVC)
+- __Estrutura da palavra alvo__: indica qual é a estrutura da pseudopalavra (CV-CV-CV ou CV-CV-CVC), 
+onde C indica Consoante e V indica Vogal
 - __Pseudopalavra__: refere-se a cada um dos estímulos criados
-
-As pseudopalavras foram construídas com três sílabas de extensão para 
-que os três padrões acentuais do português brasileiro pudessem ser produzidos.
-
 - __Segmento modificado__: indica qual letra foi modificada na criação da pseudopalavra
 a partir da palavra real (consoante ou vogal)  
 - __Grupo dos estímulos__:  indica o efeito da similaridade (entre a pseudopalavra 
@@ -65,11 +64,15 @@ dissimilares)
 
 ## Variáveis Experimentais
 
+As palavras foram aleatorizadas no Excel e divididas em 4 conjuntos - variável bloco
+de apresentação- a serem apresentados aos participantes com um intervalo de tempo entre 
+cada conjunto. Por limitações do software, a ordem de apresentação desses conjuntos 
+não pôde ser aleatorizada, apenas a ordem das palavras dentro de cada conjunto.
+
+
 __Problemas de aleatorização__:
 
-As palavras foram aleatorizadas no Excel e divididas em 4 conjuntos - variável bloco de apresentação- a serem apresentados aos participantes com um intervalo de tempo entre cada conjunto. Por limitações do software, a ordem de apresentação desses conjuntos não pôde ser aleatorizada, apenas a ordem das palavras dentro de cada conjunto.
-
-No entanto, para alguns participantes o software Psychopy apresentou problemas e
+Para alguns participantes o software Psychopy apresentou problemas e
 eles tiveram que continuar o experimento a partir de slides com uma ordem aleatória 
 pré-estabelecida. Em outras palavras, todos os indivíduos que em algum momento
 acompanharam o experimento pelos slides seguiram com palavras apresentadas na 

@@ -6,7 +6,7 @@ pseudopalavras e determinar um modelo que explique a classificação das pseudop
 
 Algumas perguntas a serem respondidas pela análise estatística são: 
 
-1. Verificar se a classificação tônica das pseudopalavras pode recuperar o acento das palavras-alvo semelhantes a elas. Em outras palavras, entender se a tonicidade da palavra alvo-tem papel na predição do acento da pseudopalavra
+1. A classificação tônica das pseudopalavras pode recuperar o acento das palavras-alvo semelhantes a elas? Em outras palavras, entender se a tonicidade da palavra alvo-tem papel na predição do acento da pseudopalavra
  
   1.  As características fonológicas e lexicais das palavras alvo têm influencia na acentuação tônica das pseudopalavras? 
 
