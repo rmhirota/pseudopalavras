@@ -23,6 +23,4 @@ pagedown::thesis_paged:
   css: ["thesis", "assets/css/pagedown.css"]
   template: "assets/template.html"
   self_contained: true
-  # includes:
-  #   before_body: "preamble.html"
 

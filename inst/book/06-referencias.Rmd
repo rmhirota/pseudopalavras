@@ -6,7 +6,7 @@
 
 ## PROGRAMAS COMPUTACIONAIS UTILIZADOS {-}
 
-Software R (versão 4.0.4)
+Software R (versão 4.0.5)
 
 
 ## ÁREA DE APLICAÇÃO {-}
