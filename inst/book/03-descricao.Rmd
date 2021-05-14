@@ -21,9 +21,9 @@ do curso de Letras ainda não têm conhecimento na área.
 
 Identificamos dois eventuais problemas -um de caráter técnico e outro de aleatorização-
 na coleta de dados que tentaremos contornar nas análises. O primeiro é descrito a
-seguir, enquanto o outro será mencionado na seção \@ref(descricao-variaveis)
+seguir, enquanto o outro será mencionado na seção \@ref(var-experimentais)
 
-__Problemas técnicos e interferência externa__: 
+__Problemas técnicos e interferência externa__
 
 Destaca-se a perda de algumas respostas durante o processo de coleta de dados,
 visto que ruídos externos impediram que algumas entonações fossem captadas e 

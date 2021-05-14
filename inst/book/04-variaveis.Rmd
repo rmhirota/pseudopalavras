@@ -30,7 +30,8 @@ categorias chamada grupo de estímulos.
 a palavra era similar ou dissimilar
 - __Palavra alvo__: palavra real que deu origem à pseudopalavra  
 - __Tonicidade da palavra alvo__: oxítona, paroxítona e proparoxítona
-- __Estrutura da palavra alvo__: indica qual é a estrutura da pseudopalavra (CV-CV-CV ou CV-CV-CVC), sendo que C indica Consoante e V indica Vogal
+- __Estrutura da palavra alvo__: indica qual é a estrutura da pseudopalavra (CV-CV-CV ou 
+CV-CV-CVC), sendo que C indica Consoante e V indica Vogal
 - __Pseudopalavra__: refere-se a cada um dos estímulos criados
 - __Segmento modificado__: indica qual letra foi modificada na criação da pseudopalavra
 a partir da palavra real (consoante ou vogal)  
@@ -61,15 +62,20 @@ dissimilares)
 - __Línguas__: 0 = não tem conhecimento em línguas e 1 = tem conhecimento em línguas
 - __Música__: 0 = não tem conhecimento em música e 1 = tem conhecimento em música
 
-## Variáveis Experimentais
+## Variáveis Experimentais {#var-experimentais}
 
 As palavras foram aleatorizadas no Excel e divididas em 4 conjuntos - variável Bloco
 de apresentação- a serem apresentados aos participantes com um intervalo de tempo entre 
 cada conjunto. Por limitações do software, a ordem de apresentação desses conjuntos 
 não pôde ser aleatorizada, apenas a ordem das palavras dentro de cada conjunto.
 
+- __Bloco de apresentação__: indica em qual bloco (ou rotina) a pseudopalavra foi
+inserida (1, 2, 3 ou 4)
+- __Ordem de apresentação__: indica em qual ordem a pseudopalavra foi apresentada
+dentro do bloco de apresentação (1 a 93). Para os indivíduos que fizeram toda a 
+dinâmica no software, a ordem das pseudopalavras era diferente dentro de cada bloco.
 
-__Problemas de aleatorização__:
+__Problemas de aleatorização__
 
 Para alguns participantes o software Psychopy apresentou problemas e
 eles tiveram que continuar o experimento a partir de slides com uma ordem aleatória 
@@ -77,15 +83,9 @@ pré-estabelecida. Em outras palavras, todos os indivíduos que em algum momento
 acompanharam o experimento pelos slides seguiram com palavras apresentadas na 
 mesma ordem (a primeira aleatorização retirada do Excel).
 
-- __Bloco de apresentação__: indica em qual bloco (ou rotina) a pseudopalavra foi
-inserida (1, 2, 3 ou 4)
-- __Ordem de apresentação__: indica em qual ordem a pseudopalavra foi apresentada
-dentro do bloco de apresentação (1 a 93). Para os indivíduos que fizeram toda a 
-dinâmica no software, a ordem das pseudopalavras era diferente dentro de cada bloco.
 - __Aleatorização__: codifica se o bloco de apresentação foi aleatorizado para o
-indivíduo ou se foi a aleatorização prévia (s = o estímulo foi aleatorizado e n = não
-houve aleatorização). 14 participantes em algum momento continuaram o experimento 
-via slide. 
+indivíduo ou  não, e portanto foi considerada a aleatorização prévia (s = o estímulo
+foi aleatorizado e n = o estímulo não foi aleatorizado). 
 
 
 
