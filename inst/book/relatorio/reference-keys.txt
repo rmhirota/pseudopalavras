@@ -7,4 +7,4 @@ descricao-variaveis
 variável-dependente
 variáveis-linguísticas
 variáveis-extralinguísticas
-variáveis-experimentais
+var-experimentais
