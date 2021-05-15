@@ -2,7 +2,8 @@
 title: "CENTRO DE ESTATÍSTICA APLICADA – CEA – USP"
 subtitle: RELATÓRIO DE CONSULTA
 output:
-  word_document: default
+  word_document:
+    reference_docx: "template.docx"
   html_document: default
   pdf_document: default
 urlcolor: blue
