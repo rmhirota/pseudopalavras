@@ -49,7 +49,7 @@ __RELATÓRIO ELABORADO POR:__
 
 \newpage
 
-# 1 Introdução
+# 1. Introdução
 
 A evasão dos alunos no ensino superior é uma situação recorrente e estudada por
 diversos autores no campo da educação e das ciências sociais. Em suma, como as
@@ -69,7 +69,7 @@ cursos. A pesquisadora busca com a entrevista uma consultoria sobre o modelo
 logístico multinível e auxílio na validação e interpretação do modelo.
 
 
-# 2 Descrição do estudo
+# 2. Descrição do estudo
 
 Os dados foram analisados a partir de um modelo logístico multinível 
 (hierárquico), em que as variáveis de nível 1 são relacionadas às 
@@ -95,45 +95,54 @@ acompanhamento. Além disso, outro argumento a favor da exclusão apontado pela
 pesquisa é a baixa taxa de evasão observada no curso.
 
 
-# 3 Descrição de um Modelo Multinível
+# 3. Descrição de um Modelo Multinível
 
-A forma generalizada de um modelo multínivel pode ser definido da seguinte form:
+A forma generalizada de um modelo multínivel pode ser definido da seguinte forma:
 
-$$ logit (\pi_{ij}) = \beta_{0j}+\sum_{k}{ \beta_{kj}*X_{kij}} + \epsilon_{ij}  $$ (1)
-com $$ \beta_{0j} = \gamma_{00} + \sum_{a}{\gamma_{0a}}*Z_{aj} + u_{0j}$$  
- e   $$ \beta_{kj} = \gamma_{k0} + \sum_{a}{\gamma_{ka}}*Z_{aj} + u_{kj}$$
+$$ logit (\pi_{ij}) = \beta_{0j}+\sum_{k}^{m}{ \beta_{kj}*X_{kij}} + \epsilon_{ij} \quad (1) $$ 
+com $$ \beta_{0j} = \gamma_{00} + \sum_{a}^{h}{\gamma_{0a}}*Z_{aj} + u_{0j} \quad (2)$$  
+ e   $$ \beta_{kj} = \gamma_{k0} + \sum_{a}^{h}{\gamma_{ka}}*Z_{aj} + u_{kj}\quad (2)$$
 
-para $j = 1,...,n$ clusters de cursos, $i = 1,..., n_{j}$ alunos no cluster $j$, $k = 1,...,m$ variáveis independentes de nível 1 e $a = 1,...,h$ variáveis independentes de nível 2.
-$u_{0j}$ é o efeito aleatório do j-ésimo cluster que compõe o intercepto, cuja 
-distribuição segue uma N(0,$\sigma^{2}_{u_{0j}}$). $u_{kj}$ são os efeitos aleatórios da k-ésima variável no j-ésimo cluster e cuja distribuição segue uma N(0,$\sigma^{2}_{u_{kj}}$). Os erros $\epsilon_{ij}$ têm distribuição binomial com média zero, são independentes dos efeitos aleatórios mas não são independentes entre eles, ou seja, há uma dependência entre as observações agrupadas dentro de cada um dos clusters.
+para $j = 1,...,n$ clusters de cursos, $i = 1,..., n_{j}$ alunos no $j$-ésimo cluster, $k = 1,...,m$ variáveis independentes de nível 1 e $a = 1,...,h$ variáveis independentes de nível 2.  
+
+$u_{0j}$ é o efeito aleatório do $j$-ésimo cluster que compõe o intercepto, cuja 
+distribuição segue uma N(0,$\sigma^{2}_{u_{0j}}$). 
+
+$u_{kj}$ são os efeitos aleatórios da $k$-ésima variável de nível 1 no $j$-ésimo cluster e cuja distribuição segue uma N(0,$\sigma^{2}_{u_{kj}}$).
+
+Os erros $\epsilon_{ij}$ são independentes dos efeitos aleatórios mas não são independentes entre eles, ou seja, há uma dependência entre as observações agrupadas dentro de cada um dos clusters.
 
 Os $X_{kij}$ são as variáveis independentes de nível 1 utilizadas no modelo enquanto $Z_{aj}$ são as variáveis a nível de cluster (nível 2).  
-$\gamma_{00}$ e os $\gamma_{k0}$ são os coeficientes de regressão associados as variáveis explicativas do nível 2 relativos ao intercepto. Já $\gamma_{0a}$ e os $\gamma_{ka}$ são os coeficientes de regressão associados as variáveis explicativas do nível 2 relativos à inclinação
+
+$\gamma_{00}$ e os $\gamma_{k0}$ são os coeficientes relativos ao intercepto da regressão associada as variáveis explicativas do nível 2. Já $\gamma_{0a}$ e os $\gamma_{ka}$ são os coeficientes relativos à inclinação da regressão associada as variáveis explicativas do nível 2.
 
 Nota-se que os interceptos $\beta_{0j}$ e os $\beta_{k0}$ variam de cluster para cluster, pois foram incluídos efeitos aleatórios em todas as variáveis.
 
 
-Um modelo multinível mais simples - consequentemente muito utilizado - é o modelo com intercepto aleatório e sem variáveis de segundo nível. Esse foi o modelo hierárquico testado inicialmente pela pesquisadora e pode ser descrito da seguinte forma:
+Um modelo multinível mais simples -- consequentemente muito utilizado -- é o modelo com intercepto aleatório e sem variáveis de segundo nível descrito a seguir:
 
-$$ logit (\pi_{ij}) = \beta_{0j} + \sum_{k}{ \beta_{k}*X_{kij}} + \epsilon_{ij} $$  (2)
-com $$ \beta_{0j} = \beta_{0} + u_{0j}  $$
+$$ logit (\pi_{ij}) = \beta_{0j} + \sum_{k}^{m}{ \beta_{k}*X_{kij}} + \epsilon_{ij} \quad (1) $$  
+com $$ \beta_{0j} = \beta_{0} + u_{0j} \quad (2)  $$
 
-para $j = 1,...,n$ clusters de cursos, $i = 1,..., n_{j}$ alunos no cluster $j$, e $k = 1,...,m$ variáveis independentes no modelo.
-$u_{0j}$ é o efeito aleatório do j-ésimo cluster que compõe o intercepto, cuja 
+para $j = 1,...,n$ clusters de cursos, $i = 1,..., n_{j}$ alunos no $j$-ésimo cluster, e $k = 1,...,m$ variáveis independentes no modelo.
+
+$u_{0j}$ é o efeito aleatório que compõe o intercepto do j-ésimo cluster, cuja 
 distribuição segue uma N(0,$\sigma^{2}_{u_{0j}}$). Ressaltamos que $\beta_{0}$ é o efeito fixo do intercepto do modelo.
 
 Os $X_{kij}$ são as variáveis independentes de primeiro nível utilizadas no modelo e os 
-coeficientes $\beta_k$ são os coeficientes fixos do modelo. Os erros $\epsilon_{ij}$ têm
-distribuição binomial com média zero e são independentes de $u_{0j}$
+coeficientes $\beta_k$ são os coeficientes fixos do modelo. 
+
+Os erros $\epsilon_{ij}$ são independentes de $u_{0j}$.
+
 É importante destacar que componentes aleatórios podem ser acrescentados aos 
-coeficientes das variáveis independentes. 
+coeficientes das variáveis independentes, como descrito no modelo geral.
   
-Nesse caso, nota-se que os interceptos variam de cluster para cluster (considera-se que possa existir diferenças entre os clusters), mas $\beta_{00}$ e os $\beta_{k0}$ são constantes para todos os clusters. 
+Nesse caso, nota-se que os interceptos variam de cluster para cluster (considera-se que possa existir diferenças entre os clusters), mas os $\beta_{k}$ são constantes para todos os clusters. 
 
 
 \newpage
 
-# 4 Descrição das variáveis e processo de coleta de dados
+# 4. Descrição das variáveis e processo de coleta de dados
 
 ## 4.1 Base de dados 
 
@@ -189,12 +198,12 @@ software `Stata`
 
 \newpage
 
-# 5 Situação do Projeto 
+# 5. Situação do Projeto 
 
 O projeto encontra-se na fase de testes dos modelos multiníveis. Após a 
 entrevista com a pesquisadora, foram feitas algumas sugestões à análise já 
 realizada cujo modelo testado incluia um intercepto com efeito aleatório e 
-apenas uma variável no nível 2
+apenas uma variável no nível 2.
 
 Primeiramente, variáveis de nível 1 que podem ser estaticamente significantes 
 foram excluídas do modelo testado. Anteriormente, um modelo de sobrevivência foi
@@ -212,10 +221,9 @@ muito distintas. O CRa é uma nota que varia de 0 a 10, enquanto que as notas do
 ENEM estão em uma escala de 0 a 1000. Essa diferença entre as escalas pode
 desencadear erros de convergência durante os testes no software.
 
-Outro problema relacionado à análise realizada é a forma como as saídas do Stata
-estão sendo apresentadas e analisadas.
+\newpage
 
-# 6 Conclusão e respostas às perguntas da pesquisadora
+# 6. Conclusão e respostas às perguntas da pesquisadora
 
 De forma geral, o projeto está em um estado bastante avançado, de forma que os
 comentários a seguir se referem principalmente ao modelo escolhido pela 
@@ -269,30 +277,34 @@ Quando construímos um modelo é sempre necessário checar a eficácia do mesmo.
 Além disso, precisa-se utilizar uma métrica para comparar diferentes modelos e
 encontrar qual o melhor para o conjunto de dados. Assim, esse tópico foca em
 apresentar medidas de desempenho para o ajuste da regressão logística 
-multinível. Destacamos que, de acordo com a literatura, o nível de significância estátistica selecionado para testar as variáveis será de: p-valor < 0.05  
+multinível. Destacamos que, de acordo com a literatura, o nível de 
+significância estátistica selecionado para testar as variáveis será de: 
+p-valor < 0.05. 
 A seguir, montamos um roteiro para essa etapa.
 
-__Passo 0__: Definir se o modelo terá efeito aleatório apenas no intecepto (2) ou se aprsentará efeito aleatório em outras variáveis;
+__Passo 0__: Definir se o modelo terá efeito aleatório apenas no intecepto ou se 
+apresentará efeito aleatório em outras variáveis. Sugerimos começar com um modelo do primeiro tipo e depois testar outras versões caso faça sentido para o estudo;
 
 __Passo 1__: Ajuste do modelo sem variáveis independentes (modelo nulo) para
-calcular o coeficiente de correlação intraclasse e interpretar se há variação entre os clusters;
+calcular o coeficiente de correlação intraclasse e interpretar a variação entre os clusters;
   
-__Passo 2__: Incluir todas as variáveis independentes de nível 1 e observar a significância de cada uma. Excluir as que apresentarem p-valor > 0.05 e testar novamente o modelos
+__Passo 2__: Incluir todas as variáveis independentes e observar a significância de cada uma. Excluir as que apresentarem p-valor > 0.05 e testar novamente o modelo;
 
-__Passo 3__: Repetir o passo anterior até que todas as variáveis no modelo apresentem significância estatística. Esse será o modelo final que deverá ser analisado.
+__Passo 3__: Repetir o passo anterior até não haja mais variáveis não significativas no modelo. Esse será o modelo final analisado.
 
+Seguindo os passos anteriores, a pesquisadora pode construir duas linhas de modelos diferentes, um apenas com intecepto aleatório e outro com efeito aleatório no intercepto e em alguma variável de interesse, e depois compará-los através de uma medida estatística. Ela também pode comparar um modelo sem variáveis de nível 2 e outro com variáveis de nível 2, ou comparar variações de um mesmo modelo.
 
-Seguindo os passos anteriores, a pesquisadora pode construir duas linhas de modelos diferentes, um apenas com intecepto aleatório e outro com efeito aleatório no intercepto e em alguma variável de interesse, e depois compará-los através de alguma estatística. Também pode comparar um modelo sem variáveis de nível 2 e outro com variáveis de nível 2 ou variações de um mesmo modelo.
+De forma geral, caso esteja em dúvida entre modelos aninhados, isto é, um é caso particular
+do outro, pode-se realizar um teste de razão de verossimilhança comparando-os. 
 
-De forma geral, caso esteja em dúvida entre modelos aninhados, isto é, um é um caso particular
-do outro -- apresenta um maior número de parâmetros que a primeira -- pode-se realizar um teste de razão de verossimilhança comparando-os. Como exemplo deixamos descrito o teste entre um modelo $A_1$ e um modelo reduzido $A_0$ (caso particular de $A_1$).
+Como exemplo, deixamos descrito o teste entre um modelo $A_1$ e um modelo reduzido $A_0$ do mesmo (um caso com menos parâmetros). A hipótese de comparação pode é dada a seguir junto com a definição da estatística _deviance_ utilizada:
 
-$H_0$ : O modelo mais simples $A_0$ se ajusta tão bem quanto o modelo $A_1$ 
-$H_1$ : O modelo $a_1$ se ajusta significativamente melhor que o modelo mais simples $a_0$
+$H_0$ : O modelo mais simples $A_0$ se ajusta tão bem quanto o modelo $A_1$   \\
+$H_1$ : O modelo $A_1$ se ajusta significativamente melhor que o modelo mais simples $A_0$
 
 $$ Deviance = -2 ln(likelihood_0) - [-2ln(likelihood_1)] \backsim \tilde{\chi}^2_{l} $$
 
-em que, nesse caso, $likelihood_0$ é a verossimilhança do modelo reduzido $A_0$ e $likelihood_1$ é a verossimilhança do modelo $A_1$. O _deviance_ tem distribuição qui-quadrado com graus de liberdade ($l$) igual a diferença do número de parâmetros em cada modelo. Se o p-valor < 0.05, então há indicíos para rejeitar $H_0$, ou seja, o modelo mais simples não parece se ajustar tão bem quanto o modelo $A_1$. 
+em que $likelihood_0$ é a verossimilhança do modelo reduzido $A_0$ e $likelihood_1$ é a verossimilhança do modelo $A_1$. O _deviance_ tem distribuição qui-quadrado com graus de liberdade ($l$) igual a diferença do número de parâmetros em cada modelo. Se o p-valor < 0.05, então há indicíos para rejeitar $H_0$, ou seja, o modelo mais simples não parece se ajustar tão bem quanto o modelo $A_1$. 
 
 O software `Stata` apresenta na parte superior da saída (log likelihood) o log da
 verossimilhança do modelo testado ($ln (likelihood_{*})$). 
@@ -306,18 +318,18 @@ $$BIC = -2ln(likelihood) + ln(N) k$$
 Sendo $k$ o número de parâmetros estimados e $N$ o número de observações.  
 Nesse caso, não há distribuição de probabilidades envolvidas, logo, quanto menor os valores do BIC/AIC, melhor o ajuste do modelo.
 
-Salientamos que nessa etapa é importante testar modelos com conjuntos diferentes de variáveis, entendendo quais fazem sentido para o estudo. Uma variável pode ser não significativa quando testada sozinha no modelo, porém, pode apresentar significância quando avaliada conjuntamente com outra variável. Além disso, as medidas AIC, BIC e _deviance_ são usadas para sugerir alguns modelos “melhores”, mas o pesquisador é responsável por selecionar aquele que considera mais alinhado com a teoria e literatura da área.
+Salientamos que nessa etapa é importante testar modelos com conjuntos diferentes de variáveis, entendendo quais fazem sentido para o estudo. Além disso, as medidas AIC, BIC e _deviance_ são usadas para sugerir alguns modelos “melhores”, mas o pesquisador é responsável por selecionar aquele que considera mais alinhado com a teoria e literatura da área.
 
 ## 6.3 Diagnóstico e Qualidade do ajuste
 
-Após encontrar o modelo final é importante avaliar se o modelo é eficiente para descrever a relação entre as variáveis independentes e a variável dependente. Assim, devemos verificar se os pressupostos do modelo foram respeitadas através.
+Após encontrar o modelo final é importante avaliar se o mesmo é eficiente para descrever a relação entre as variáveis independentes e a variável dependente. Assim, devemos verificar se os pressupostos do modelo foram respeitadas.
 
-Usando como exemplo o modelo apenas com intercepto aleatório, podemos avaliar o ajuste do modelo realizando uma análise dos efeitos aleatórios através de um gráfico dos efeitos estimados (as estimativas de $u_{0j}$) padronizados (ou estudentizados) e os quantis da distribuição teórica normal. Idealmente, as estimativas sos efeitos aleatórios dos clusters coincidem com os quantis, formando uma linha reta diagonal pois eles seguem a distribuição determinada.
+Usando como exemplo o modelo com intercepto aleatório, podemos avaliar o ajuste do modelo realizando uma análise dos efeitos aleatórios através de um gráfico dos efeitos estimados (as estimativas de $u_{0j}$) padronizados (ou estudentizados) e os quantis da distribuição teórica normal. Idealmente, as estimativas dos efeitos aleatórios dos clusters coincidem com os quantis, formando uma linha reta diagonal pois eles seguem a distribuição determinada.
 
 Em outras palavras, para verificar o pressuposto de normalidade do efeito aleatório do cluster, pode-se verificar se os os valores preditos dos efeitos aleatórios padronizados (ou estudentizados) são aproximadamente normais. O gráfico deverá apresentar no eixo x os quantis teóricos da distribuição normal, em relação as estimativas no eixo y.
 
 Do ponto de vista do nível 1 (estudantes), deve-se observar no diagnóstico do modelo
- se a função estimada é monotônica e se tem forma sigmoidal, através de um gráfico do resíduos do nível estudantes ($\epsilon_{ij}$) no eixo y e as observações no eixo x.
+se a função estimada é monotônica e se tem forma sigmoidal, através de um gráfico de resíduos do nível estudantes ($\epsilon_{ij}$) no eixo y e as observações no eixo x.
  
 Um modelo vai parecer não ter se ajustado bem quando os pressupostos anteriores não parecerem ser respeitados.Além disso, os testes na seção 6.2 também são formas de avaliar os modelos
 
@@ -330,7 +342,7 @@ Salientamos que, caso exista mais de um efeito aleatório no modelo -- como em (
 
 Na regressão logística de efeitos mistos, os coeficientes fixos têm uma
 interpretação condicional aos efeitos aleatórios. No caso do estudo analisado, 
-as interpretações estão condicionadas aos cursos. O exemplo a seguir, extraído
+as interpretações estão condicionadas aos clusters. O exemplo a seguir, extraído
 do manual do `Stata`, ilustra como o modelo pode ser interpretado a partir da 
 saída do software.
 
@@ -340,11 +352,7 @@ Ng et al. (2006) analisam uma subamostra de dados da pesquisa de fertilidade de
 Bangladesh de 1989 (Huq e Cleland 1990), que entrevistou 1.934 mulheres de
 Bangladesh sobre o uso de anticoncepcionais. As mulheres na amostra pertenciam a
 60 distritos, identificadas pela variável `district`. Cada distrito continha 
-áreas urbanas ou rurais (variável urban) ou ambas. A variável `c_use` é a 
-resposta binária, com um valor de 1 indicando o uso de anticoncepcionais. Outras 
-covariáveis incluem idade centrada na média e uma variável categorizada para o 
-número de filhos. A idade foi centralizada por escolha dos pesquisadores do artigo, 
-uma vez que a variável Idade igual a zero não traz informação relevante (mulheres
+áreas urbanas ou rurais (variável urban) ou ambas, mas cada mulher reside em apenas uma das duas zonas. A variável `c_use` é a resposta binária, com um valor de 1 indicando o uso de anticoncepcionais. Outras covariáveis incluem idade centrada na média e uma variável categorizada para o número de filhos. A idade foi centralizada por escolha dos pesquisadores do artigo, uma vez que a variável Idade igual a zero não traz informação relevante (mulheres
 com 0 anos não tomam anticoncepcionais, nem participaram da pesquisa, logo o 
 intercepto dessa variável não seria interpretável).
 
@@ -358,11 +366,13 @@ Considere um modelo de regressão logística hierárquico:
   
 $$ log (\frac{\pi_{ij}}{1-\pi_{ij}}) = (\beta_0 +u_{0j})+ \beta_1*1.urban_{ij} + \beta_2*age_{ij} + \beta_3*1.children_{ij} + \beta_4*2.children_{ij} + \beta_5*3.children_{ij} $$
   
-para $j = 1,...,60$ distritos, com $i = 1,..., n_{j}$ mulheres no distrito $j$  
-$u_{0j}$ é o efeito aleatório do intercepto cuja distribuição segue uma distribuição N(0,$\sigma^2_{u_{0j}}$)  
+para $j = 1,...,60$ distritos, com $i = 1,..., n_{j}$ mulheres no $j$-ésimo distrito.
+
+$u_{0j}$ é o efeito aleatório do intercepto cuja distribuição segue uma N(0,$\sigma^2_{u_{0j}}$).
+
 Já os coeficientes $\beta_0$,$\beta_1$,$\beta_2$,$\beta_3$,$\beta_4$ e $\beta_5$ são os efeitos fixos do modelo enquanto $\pi_{ij}$ é a probabilidade do indíviduo $i$ no cluster $j$ apresentar resposta positiva (=1)
 
-Nota-se que os interceptos variam de distrito para distrito (considera-se que possa existir diferenças entre eles), mas $\beta_0$,$\beta_1$,$\beta_2$,$\beta_3$,$\beta_4$ e $\beta_5$ são constantes para todos os clusters. Caso seja incluído outro efeito aleatório em alguma das variáveis, as inclinações relacionadas a essa variável também irão variar de distrito para distrito.
+Nota-se que os interceptos variam de distrito para distrito (considera-se que possa existir diferenças entre eles), mas $\beta_1$,$\beta_2$,$\beta_3$,$\beta_4$ e $\beta_5$ são constantes para todos os clusters. Caso seja incluído outro efeito aleatório em alguma das variáveis, as inclinações relacionadas a essa variável também irão variar de distrito para distrito.
 
 No software `Stata` a equação é dada por:  
 
@@ -373,11 +383,10 @@ representam os coeficientes de regressão, estes não são padronizados e estão
 escala logit. As estimativas são seguidas por seus erros padrão (SEs), p-valor e
 intervalos de confiança.
 
-O teste de razão de verossimilhança (LR) testa a hipótese nula de que os dois
-modelos, efeitos mistos e regressão logística fixa fornecem a mesma qualidade de
-ajuste. Se a hipótese nula é rejeitada, existem evidências de que o modelo com efeito aleatório de cluster se ajusta melhor do que o modelo sem esse efeito
-Como p-valor < 0.001, há indícios para rejeitar a hipótese nula e utilizar,
-assim, o modelo misto.
+O teste de razão de verossimilhança (LR) testa a hipótese nula de que o modelo construído
+-- efeitos mistos-- fornece a mesma qualidade de ajuste de um modelo de regressão logística fixa. Se a hipótese nula é rejeitada, existem evidências de que o modelo com efeito aleatório de cluster se ajusta melhor do que o modelo sem esse efeito.
+
+Como p-valor < 0.001, há indícios para rejeitar a hipótese nula e, assim, utilizar o modelo misto.
 
 Caso o p-valor não fosse significante, entenderíamos que não há necessidade de aplicar um modelo com efeitos aleatórios, ou seja, não teríamos indicíos de que há diferença entre os clusters e, assim, poderia ser utilizado um modelo logito simples com acréscimo da variável distrito.
 
@@ -385,10 +394,13 @@ Caso o p-valor não fosse significante, entenderíamos que não há necessidade 
 knitr::include_graphics("modelo_aleatorio_v2.png")
 ```
 
-A tabela de estimativa acima relata os efeitos fixos do modelo e os componentes de variância estimados. Os efeitos fixos estão no formato logit tradicional. Como queremos a razão de chances em vez dos coeficientes na escala logit, devemos exponenciar as estimativas e os intervalos de confiança para encontrar um resultado interpretável. Podemos fazer 
-isso no `Stata` usando a opção __OR__. 
+A tabela de estimativa acima relata os efeitos fixos do modelo e os componentes de variância estimados. Os efeitos fixos estão no formato logit tradicional. Percebe-se que todas as variáveis apresentaram significância estatística.
+Como seja de interesse a razão de chances em vez dos coeficientes na escala logit, devemos exponenciar as estimativas e os intervalos de confiança para encontrar um resultado interpretável. Podemos fazer isso no `Stata` usando a opção __OR__. 
 
-Transformando em razão de chances, considerando mulheres em um mesmo distrito e mantidas as demais variáveis constantes, descobre-se que a chance das mulheres em zona urbana usarem anticoncepcionais é o dobro das mulheres em zona rural ($e^{0.7322765}$ = 2.07981). Além disso, ter qualquer número de filhos aumentará as chances de três a quatro vezes em comparação com a categoria base de não ter filhos ($e^{1.116001}$ = 3.052622, $e^{1.365895}$ = 3.919229 e $e{1.344031}$ = 3.834469) e o uso de anticoncepcionais diminui com o aumento de uma unidade na idade ($e^{-0.0264981}$ = 0.9738499)
+Transformando em razão de chances, considerando mulheres em um mesmo distrito e mantendo as demais variáveis fixas, temos as seguintes interpretações:  
+- descobre-se que a chance das mulheres em zona urbana usarem anticoncepcionais é o dobro das mulheres em zona rural ($e^{0.7322765}$ = 2.07981);
+- ter qualquer número de filhos aumentará as chances de três a quatro vezes em comparação com a categoria base de não ter filhos ($e^{1.116001}$ = 3.052622, $e^{1.365895}$ = 3.919229 e $e^{1.344031}$ = 3.834469);
+- o uso de anticoncepcionais diminui com o aumento de uma unidade na idade ($e^{-0.0264981}$ = 0.9738499)
 
 A segunda seção nos dá a estimativa da variância do componente aleatório do intercepto na escala logit ($\hat\sigma^2_{u_{0j}}$). 
 
@@ -413,7 +425,7 @@ Ex:
   
 $$x = log(\frac{\pi_{j}}{1-\pi_{j}}) = (\hat\beta_0 +\hat{u_{0j}})$$
  $\hat\beta_0$ sendo a estimativa do parâmetro fixo e $\hat{u_{0j}}$ as estimativas dos parâmetros aleatórios, com $j$ =1,...60
-Salientamos que as variáveis independentes foram fixadas no valor 0, ou seja, a casela de referência são mulheres que vivem no meio rural (urban = 0), com nenhum filho (1.children = 2.childre = 3.children = 0) e idade média.
+Salientamos que as variáveis independentes foram fixadas no valor 0, ou seja, a casela de referência são mulheres que vivem no meio rural (urban = 0), com nenhum filho (1.children = 2.children = 3.children = 0) e idade média.
 
 3. Como o valor encontrado está na forma de logaritmo da chance, precisamos
 exponenciá-lo para obter as probabilidades previstas.
@@ -425,7 +437,7 @@ Logo, $\hat\pi_{j}$ é a probabilidade média, por distrito, das mulheres que vi
 Aplicação das etapas no `Stata`:
   
 
-1. __`predict pred_efeitos_aleat_re, reffects`__
+1. __`predict pred_efeitos_aleat_re*, reffects`__
   
 `pred_efeitos_aleat_re1`: estimação da parte aleatória do intercepto
 
@@ -443,7 +455,7 @@ $$rxb = log(\frac{\pi_{j}}{1-\pi_{j}}) = (\hat\beta_0 +\hat{u_{0j}})$$
 
 Se o interesse for encontrar as probabilidades estimadas, por distrito, de acordo 
 com as categorias de uma variável independentes específica, os passos são os mesmos. Porém, devemos acrescentar o valor dessa variável multiplicado pela estimativa de seu parâmetro.
-Salientamos que as demais variáveis independentes são fixadas no valor 0.
+Salientamos que as demais variáveis independentes são fixadas na casela de referência.
 Vamos substituir a fórmula do modelo pelos valores encontrados para entender o
 comportamento da variável urban na resposta.
 
@@ -455,7 +467,7 @@ comportamento da variável urban na resposta.
 2. __`generate rxb_urban  = (_b[_cons] + pred_efeitos_aleat_re1) + _b[1.urban]*1`__
    
 
-   __`generate rxb_fem = (_b[_cons] + pred_efeitos_aleat_re1) + _b[1.urban]*0`__
+   __`generate rxb_rural = (_b[_cons] + pred_efeitos_aleat_re1) + _b[1.urban]*0`__
 
 Logo,
 
@@ -463,10 +475,11 @@ $$ rxb_{urban} = log(\frac{\pi_{j}}{1-\pi_{j}}) = (\hat\beta_0 +\hat{u_{0j}})+ \
 $$rxb_{rural} = log(\frac{\pi_{j}}{1-\pi_{j}}) = (\hat\beta_0 +\hat{u_{0j}})+ \hat\beta_1*0$$
 
 `rxb_urban` e `rxb_rural` são as predições marginais do logaritimo da chance para
-mulheres que vivem no ambiente urbano e mulheres que vivem no ambiente rural, respectivamente
+mulheres que vivem no ambiente urbano, sem nenhum filho e com idade média
+e mulheres que vivem no ambiente rural, sem nenhum filho e com idade média, respectivamente
 
 `rxb*` = estimação da parte constante do intercepto + parte aleatória do 
-intercepto + parte fixa da variável urban 
+intercepto + (parte fixa da variável urban)*variável 
 
 3. __`generate prob_curso_urban = exp(rxb_urban)/(1 + exp(rxb_urban))`__
 
@@ -490,22 +503,19 @@ Outros exemplos de probabilidades que podem ser calculadas são descritos a segu
 
 `pred_efeitos_aleat_re1`: estimação da parte aleatória do intercepto 
 
-2. __`generate rxb_1  = (_b[_cons] + pred_efeitos_aleat_re1) + _b[1.urban]*1` + _b[1.children]*1__
+2. __`generate rxb_1  = (_b[_cons] + pred_efeitos_aleat_re1) + _b[1.urban]*1` + _b[1.children]*1`__
    
 
-   __`generate rxb_2 = (_b[_cons] + pred_efeitos_aleat_re1) + _b[1.urban]*0 +_b[1,children]*0 `__
+   __`generate rxb_2 = (_b[_cons] + pred_efeitos_aleat_re1) + _b[1.urban]*0` __
 
 Logo,
 
 $$ rxb_{1} = log(\frac{\pi_{j}}{1-\pi_{j}}) = (\hat\beta_0 +\hat{u_{0j}})+ \hat\beta_1*1 + \hat\beta_3*1$$
-$$rxb_{rural} = log(\frac{\pi_{j}}{1-\pi_{j}}) = (\hat\beta_0 +\hat{u_{0j}})+ \hat\beta_1*0 + \hat\beta_3*0$$
+$$rxb_{2} = log(\frac{\pi_{j}}{1-\pi_{j}}) = (\hat\beta_0 +\hat{u_{0j}})+ \hat\beta_1*0 $$
 
 `rxb_1` e `rxb_2` são as predições marginais do logaritimo da chance para
 mulheres que vivem no ambiente urbano, possuem 1 filho e têm idade centrada na média
 e mulheres que vivem no ambiente rural, não possuem filho e têm idade centrada na média, respectivamente
-
-`rxb*` = estimação da parte constante do intercepto + parte aleatória do 
-intercepto + parte fixa da variável urban 
 
 3. __`generate prob_1 = exp(rxb_1)/(1 + exp(rxb_1))`__
 
@@ -530,22 +540,23 @@ log(\frac{\pi_{ij}}{1-\pi_{ij}}) = (\beta_0 +u_{0j}) + (\beta_1 + u_{1j})*1.urba
 \beta_5*3.children_{ij}
 $$ 
 
-para $j = 1,...,60$ distritos, com $i = 1,..., n_{j}$ mulheres no distrito $j$  
+para $j = 1,...,60$ distritos, com $i = 1,..., n_{j}$ mulheres no $j$-ésimo distrito  
 
-$u_{0j}$ é o efeito aleatório do intercepto cuja distribuição segue uma N(0,$\sigma^2_{u_{0j}}$) e $u_{1j}$ é o efeito aleatório da variável urban cuja distribuição segue uma N(0,$\sigma^2_{u_{1j}}$)   
+$u_{0j}$ é o efeito aleatório do intercepto cuja distribuição segue uma N(0,$\sigma^2_{u_{0j}}$) e $u_{1j}$ é o efeito aleatório da variável `urban` cuja distribuição segue uma N(0,$\sigma^2_{u_{1j}}$)   
 
 Já os coeficientes $\beta_0$,$\beta_1$,$\beta_2$,$\beta_3$,$\beta_4$ e $\beta_5$ 
-são os efeitos fixos do modelo
+são os efeitos fixos do modelo.
+
 $\pi_{ij}$ é a probabilidade do indíviduo $i$ no cluster $j$ apresentar resposta
 positiva (=1).
 
 Nota-se que os interceptos variam de distrito para distriro (considera-se que possa existir diferenças entre eles), e que agora a inclinação referente a variável 
-_urban_ também varia de distrito para distrito, pois foi incluído um efeito aleatório  nessa variável.  
+`urban` também varia de distrito para distrito, pois foi incluído um efeito aleatório  nessa variável.  
 
 Agora, percebe-se que na estrutura de variância do modelo existe uma covariância entre os dois efeitos aleatórios, ou seja, $\sigma(u_{0j},u_{1j})$. Nesse caso, temos duas opções de estrutura:
   
 1) Uma estrutura de covariância que permite variâncias distinta para cada
-efeito dentro de uma equação de efeitos aleatórios ($\sigma^2_{0j}$ $\neq$ $\sigma^2_{1j}$)) e assume que todas as covariâncias ( $\sigma(u_{0j},u_{1j})$) são 0.
+efeito dentro de uma equação de efeitos aleatórios ($\sigma^2_{0j}$ $\neq$ $\sigma^2_{1j}$) e assume que todas as covariâncias ( $\sigma(u_{0j},u_{1j})$) são 0.
 
 $$ \sum = Var\left(\begin{array}{cc} 
 u_{0j}\\
@@ -563,13 +574,13 @@ $$ \sum = Var\left(\begin{array}{cc}
 u_{0j}\\
 u_{1j}
 \end{array}\right)  = \left(\begin{array}{cc} 
-\sigma^2_{0j} &  \sigma(u_{0j},u_{1j}))\\
+\sigma^2_{0j} &  \sigma(u_{0j},u_{1j})\\
  \sigma(u_{0j},u_{1j}) & \sigma^2_{1j}
 \end{array}\right)$$
 
 No software `Stata` o parâmetro __covariance(unstructured)__ define essa estrutura. 
 
-Para escolhar qual dos dois modelos deve ser usado é necessário realizar um teste no qual a hipótese nula seja:
+Para escolhar qual dos dois modelos pode-se realizar um teste no qual a hipótese nula seja:
   
 $H_0$:  $\sigma(u_{0j},u_{1j}) = 0$
 
@@ -599,7 +610,7 @@ __`melogit c_use i.urban age i.children || district: i.urban, covariance(unstruc
 
 \newpage
 
-O modelo agora inclui um coeficiente aleatórioem `1.urban` pois acredita-se que
+O modelo agora inclui um coeficiente aleatório na variável `urban` pois acredita-se que
 o impacto dessa variável difere de distrito para distrito. Além disso, ao 
 especificar a covariância (não estruturada) acima, permitimos a correlação entre
 efeitos aleatórios a nível distrital, ou seja, a correlação entre $u_{0j}$ e $u_{1j}$
@@ -619,9 +630,7 @@ intra-classe __(ICC)__ varia de 0 a 1 e indica a proporção da variância expli
 - Um ICC = 0 indica que não há variação entre os clusters, ou seja, a evasão 
 não difere de cluster para cluster;  
 - Um ICC = 1 indica que toda a variação pode ser explicada pela diferença entre 
-os cluster, ou seja, não há variação dentro ddo cluster. 
-
-A seguir, apresentamos a fórmula matemática da métrica para um modelo com intercepto aleatório
+os cluster, ou seja, não há variação dentro do cluster. 
 
 $$ ICC = \frac{\hat\sigma_{u^2_{0j}}}{\hat\sigma^2_{u_{0j}} + (\pi^2/3)} $$
 sendo $\hat\sigma^2_{u_{0j}}$ a estimativa da variância do efeito aleatório do intercepto.
