@@ -105,7 +105,7 @@ com $$ \beta_{0j} = \gamma_{00} + \sum_{a}{\gamma_{0a}}*Z_{aj} + u_{0j}$$
 
 para $j = 1,...,n$ clusters de cursos, $i = 1,..., n_{j}$ alunos no cluster $j$, $k = 1,...,m$ variáveis independentes de nível 1 e $a = 1,...,h$ variáveis independentes de nível 2.
 $u_{0j}$ é o efeito aleatório do j-ésimo cluster que compõe o intercepto, cuja 
-distribuição segue uma N(0,$\sigma^{2}_{u_{0j}}$). $u_{kj}$ são os efeitos aleatórios da k-ésima variável no j-ésimo cluster e cuja distribuição segue uma N(0,$\sigma^{2}_{u_{kj}}$). Os erros $\epsilon_{ij}$ têm distribuição binomial com média zero e são independentes dos efeitos aleatórios.
+distribuição segue uma N(0,$\sigma^{2}_{u_{0j}}$). $u_{kj}$ são os efeitos aleatórios da k-ésima variável no j-ésimo cluster e cuja distribuição segue uma N(0,$\sigma^{2}_{u_{kj}}$). Os erros $\epsilon_{ij}$ têm distribuição binomial com média zero, são independentes dos efeitos aleatórios mas não são independentes entre eles, ou seja, há uma dependência entre as observações agrupadas dentro de cada um dos clusters.
 
 Os $X_{kij}$ são as variáveis independentes de nível 1 utilizadas no modelo enquanto $Z_{aj}$ são as variáveis a nível de cluster (nível 2).  
 $\gamma_{00}$ e os $\gamma_{k0}$ são os coeficientes de regressão associados as variáveis explicativas do nível 2 relativos ao intercepto. Já $\gamma_{0a}$ e os $\gamma_{ka}$ são os coeficientes de regressão associados as variáveis explicativas do nível 2 relativos à inclinação
@@ -281,43 +281,48 @@ __Passo 2__: Incluir todas as variáveis independentes de nível 1 e observar a 
 
 __Passo 3__: Repetir o passo anterior até que todas as variáveis no modelo apresentem significância estatística. Esse será o modelo final que deverá ser analisado.
 
-Seguindo os passos anteriores, a pesquisadora pode construir duas linhas de modelos diferentes, um apenas com intecepto aleatório e outro com efeito aleatório no intercepto e em alguma variável de interesse, e depois compará-los através de uma medida de critério de informação com penalização da complexidade do modelo, como o BIC, AIC, ou através da estatística _deviance_. Também pode comparar um modelo sem variáveis de nível 2 e outro com variáveis de nível 2. 
 
-De forma geral, caso esteja em dúvida entre mais de um modelo, o escolhido será o modelo que tenha o menor BIC,AIC ou _deviance_, definidos como:
+Seguindo os passos anteriores, a pesquisadora pode construir duas linhas de modelos diferentes, um apenas com intecepto aleatório e outro com efeito aleatório no intercepto e em alguma variável de interesse, e depois compará-los através de alguma estatística. Também pode comparar um modelo sem variáveis de nível 2 e outro com variáveis de nível 2 ou variações de um mesmo modelo.
 
+De forma geral, caso esteja em dúvida entre modelos aninhados, isto é, um é um caso particular
+do outro -- apresenta um maior número de parâmetros que a primeira -- pode-se realizar um teste de razão de verossimilhança comparando-os. Como exemplo deixamos descrito o teste entre um modelo $A_1$ e um modelo reduzido $A_0$ (caso particular de $A_1$).
+
+$H_0$ : O modelo mais simples $A_0$ se ajusta tão bem quanto o modelo $A_1$ 
+$H_1$ : O modelo $a_1$ se ajusta significativamente melhor que o modelo mais simples $a_0$
+
+$$ Deviance = -2 ln(likelihood_0) - [-2ln(likelihood_1)] \backsim \tilde{\chi}^2_{l} $$
+
+em que, nesse caso, $likelihood_0$ é a verossimilhança do modelo reduzido $A_0$ e $likelihood_1$ é a verossimilhança do modelo $A_1$. O _deviance_ tem distribuição qui-quadrado com graus de liberdade ($l$) igual a diferença do número de parâmetros em cada modelo. Se o p-valor < 0.05, então há indicíos para rejeitar $H_0$, ou seja, o modelo mais simples não parece se ajustar tão bem quanto o modelo $A_1$. 
+
+O software `Stata` apresenta na parte superior da saída (log likelihood) o log da
+verossimilhança do modelo testado ($ln (likelihood_{*})$). 
+A função __lrteste modelo_1 modelo_2__ realiza o teste de verossimilhança no software.
+ 
+Para comparar modelos não aninhados, isto é, um não é um caso particular
+do outro, usamos as medidas AIC e BIC descritas a seguir:
 
 $$AIC = -2ln(likelihood) + 2k$$
 $$BIC = -2ln(likelihood) + ln(N) k$$
 Sendo $k$ o número de parâmetros estimados e $N$ o número de observações.  
-  
- A _deviance_ é definida por:
+Nesse caso, não há distribuição de probabilidades envolvidas, logo, quanto menor os valores do BIC/AIC, melhor o ajuste do modelo.
 
-$$
-Deviance = -2 ln(likelihood_0) - [-2ln(likelihood_1)]
-$$
-
-em que $likelihood_0$ é a verossimilhança do modelo nulo, ou seja, sem a presença de
-covariáveis, e $likelihood_1$ é a verossimilhança do modelo completo.
-
-Assim, tem-se que o modelo que apresentar a menor deviance é aquele que melhor 
-se ajusta ao conjunto de dados.
-
-O software `Stata` apresenta na parte superior da saída (log likelihood) o log da
-verossimilhança do modelo testado ($ln (likelihood_{*})$).  
- 
 Salientamos que nessa etapa é importante testar modelos com conjuntos diferentes de variáveis, entendendo quais fazem sentido para o estudo. Uma variável pode ser não significativa quando testada sozinha no modelo, porém, pode apresentar significância quando avaliada conjuntamente com outra variável. Além disso, as medidas AIC, BIC e _deviance_ são usadas para sugerir alguns modelos “melhores”, mas o pesquisador é responsável por selecionar aquele que considera mais alinhado com a teoria e literatura da área.
 
-## 6.3 Medidas de desempenho
+## 6.3 Diagnóstico e Qualidade do ajuste
 
-Após encontrar o modelo final é importante avaliar o ajuste do mesmo, ou seja, se ele é o modelo ideal para os seus dados. 
+Após encontrar o modelo final é importante avaliar se o modelo é eficiente para descrever a relação entre as variáveis independentes e a variável dependente. Assim, devemos verificar se os pressupostos do modelo foram respeitadas através.
 
-Usando como exemplo o modelo apenas com intercepto aleatório, podemos avaliar o ajuste do modelo realizando uma análise residual através de um gráfico dos resíduos estimados (as estimativas de $u_{0j}$) e os quantis da distribuição teórica normal. Idealmente, os resíduos coincidem com os quantis, formando uma linha reta diagonal pois eles seguem a distribuição determinada.
+Usando como exemplo o modelo apenas com intercepto aleatório, podemos avaliar o ajuste do modelo realizando uma análise dos efeitos aleatórios através de um gráfico dos efeitos estimados (as estimativas de $u_{0j}$) padronizados (ou estudentizados) e os quantis da distribuição teórica normal. Idealmente, as estimativas sos efeitos aleatórios dos clusters coincidem com os quantis, formando uma linha reta diagonal pois eles seguem a distribuição determinada.
 
-Em outras palavras, para verificar o pressuposto de normalidade do efeito aleatório do cluster, pode-se verificar se os resíduos desses clusters são aproximadamente normais. O gráfico deverá apresentar no eixo x os quantis teóricos da distribuição normal, em relação aos resíduos no eixo y.
+Em outras palavras, para verificar o pressuposto de normalidade do efeito aleatório do cluster, pode-se verificar se os os valores preditos dos efeitos aleatórios padronizados (ou estudentizados) são aproximadamente normais. O gráfico deverá apresentar no eixo x os quantis teóricos da distribuição normal, em relação as estimativas no eixo y.
 
-Salientamos que, caso exista mais de um efeito aleatório no modelo - como em (1) - todos os $u_{kj}$ devem ser analisados graficamente para entender se eles respeitam o pressuposto de distribuição normal.
+Do ponto de vista do nível 1 (estudantes), deve-se observar no diagnóstico do modelo
+ se a função estimada é monotônica e se tem forma sigmoidal, através de um gráfico do resíduos do nível estudantes ($\epsilon_{ij}$) no eixo y e as observações no eixo x.
+ 
+Um modelo vai parecer não ter se ajustado bem quando os pressupostos anteriores não parecerem ser respeitados.Além disso, os testes na seção 6.2 também são formas de avaliar os modelos
 
-Outra sugestão é um gráfico de resíduos quantilicos
+Salientamos que, caso exista mais de um efeito aleatório no modelo -- como em (1) -- todos os $u_{kj}$ devem ser analisados graficamente para entender se eles respeitam o pressuposto de distribuição normal.
+
 
 \newpage
 
@@ -370,7 +375,8 @@ intervalos de confiança.
 
 O teste de razão de verossimilhança (LR) testa a hipótese nula de que os dois
 modelos, efeitos mistos e regressão logística fixa fornecem a mesma qualidade de
-ajuste. Como p-valor < 0.001, há indícios para rejeitar a hipótese nula e utilizar,
+ajuste. Se a hipótese nula é rejeitada, existem evidências de que o modelo com efeito aleatório de cluster se ajusta melhor do que o modelo sem esse efeito
+Como p-valor < 0.001, há indícios para rejeitar a hipótese nula e utilizar,
 assim, o modelo misto.
 
 Caso o p-valor não fosse significante, entenderíamos que não há necessidade de aplicar um modelo com efeitos aleatórios, ou seja, não teríamos indicíos de que há diferença entre os clusters e, assim, poderia ser utilizado um modelo logito simples com acréscimo da variável distrito.
@@ -379,10 +385,10 @@ Caso o p-valor não fosse significante, entenderíamos que não há necessidade 
 knitr::include_graphics("modelo_aleatorio_v2.png")
 ```
 
-A tabela de estimativa acima relata os efeitos fixos do modleo e os componentes de variância estimados. Os efeitos fixos estão no formato logit tradicional. Como queremos a razão de chances em vez dos coeficientes na escala logit, devemos exponenciar as estimativas e os intervalos de confiança para encontrar um resultado interpretável. Podemos fazer 
+A tabela de estimativa acima relata os efeitos fixos do modelo e os componentes de variância estimados. Os efeitos fixos estão no formato logit tradicional. Como queremos a razão de chances em vez dos coeficientes na escala logit, devemos exponenciar as estimativas e os intervalos de confiança para encontrar um resultado interpretável. Podemos fazer 
 isso no `Stata` usando a opção __OR__. 
 
-Transformando em razão de chances,e considerando mulheres em um mesmo distrito, descobre-se que a chance das mulheres em zona urbana usarem anticoncepcionais é o dobro das mulheres em zona rural ($e^{0.7322765}$ = 2.07981). Além disso, ter qualquer número de filhos aumentará as chances de três a quatro vezes em comparação com a categoria base de não ter filhos ($e^{1.116001}$ = 3.052622, $e^{1.365895}$ = 3.919229 e $e{1.344031}$ = 3.834469) e o uso de anticoncepcionais diminui com o aumento de uma unidade na idade ($e^{-0.0264981}$ = 0.9738499)
+Transformando em razão de chances, considerando mulheres em um mesmo distrito e mantidas as demais variáveis constantes, descobre-se que a chance das mulheres em zona urbana usarem anticoncepcionais é o dobro das mulheres em zona rural ($e^{0.7322765}$ = 2.07981). Além disso, ter qualquer número de filhos aumentará as chances de três a quatro vezes em comparação com a categoria base de não ter filhos ($e^{1.116001}$ = 3.052622, $e^{1.365895}$ = 3.919229 e $e{1.344031}$ = 3.834469) e o uso de anticoncepcionais diminui com o aumento de uma unidade na idade ($e^{-0.0264981}$ = 0.9738499)
 
 A segunda seção nos dá a estimativa da variância do componente aleatório do intercepto na escala logit ($\hat\sigma^2_{u_{0j}}$). 
 
@@ -604,30 +610,31 @@ knitr::include_graphics("modelo_slope_aleatorio_v1.png")
 ```
 
 
-## 6.5 Correlação Interclasse
+## 6.5 Correlação Intra-classe
 
 Após o ajuste de um modelo logístico multinível com __melogit__, pode-se 
 encontrar diversas outras medidas e estatísticas. O índice de correlação
-intraclasse __(ICC)__ varia de 0 a 1 e indica o quanto da variação é explicada 
-pela diferença entre cursos.
+intra-classe __(ICC)__ varia de 0 a 1 e indica a proporção da variância explicada pela estrutura de agrupamento. Alternativamente, também representa a correlação entre duas observações dentro do mesmo cluster. Logo, quanto maior a correlação dentro dos clusters (ou seja, quanto maior o ICC), menor será a variabilidade dentro dos clusters e, consequentemente, maior será a variabilidade entre os clusters.
 
-- Um ICC = 0 indica que os cursos são homogêneos entre si, ou seja, a evasão 
-independe do curso;  
+- Um ICC = 0 indica que não há variação entre os clusters, ou seja, a evasão 
+não difere de cluster para cluster;  
 - Um ICC = 1 indica que toda a variação pode ser explicada pela diferença entre 
-os cursos. A seguir, apresentamos a fórmula matemática da métrica para o exemplo (1)
+os cluster, ou seja, não há variação dentro ddo cluster. 
+
+A seguir, apresentamos a fórmula matemática da métrica para um modelo com intercepto aleatório
 
 $$ ICC = \frac{\hat\sigma_{u^2_{0j}}}{\hat\sigma^2_{u_{0j}} + (\pi^2/3)} $$
 sendo $\hat\sigma^2_{u_{0j}}$ a estimativa da variância do efeito aleatório do intercepto.
 
-Ou seja, um ICC = 0.65 indicaria que 65% da chance de evasão na UFRJ é explicada
-pela diferença entre os cursos e 35% da chance de evasão é explicada pelas
+Ou seja, um ICC = 0.30 indicaria que 30% da chance de evasão na UFRJ é explicada
+pela diferença entre os cursos e 70% da chance de evasão é explicada pelas
 diferenças dentro dos cursos. É importante destacar que o ICC é encontrado 
 quando rodamos um modelo "vazio", ou seja, apenas com o intercepto.
 
 No software `Stata`, esse índice é encontrado através do código __`estat icc`__.  
 A seguir, definimos um passo a passo para obter a probabilidade marginal média.
 
-Salientamos que a correlação interclasse não se altera quando existem variáveis no nivel 2, pois ela é estimada por meio do modelo nulo, ou seja, por um modelo que não inclui variáveis explicativas.
+Salientamos que a correlação intra-classe não se altera quando existem variáveis no nivel 2, pois ela é estimada por meio do modelo nulo, ou seja, por um modelo que não inclui variáveis explicativas.
 
 
 ## 6.7 Bibliografia
