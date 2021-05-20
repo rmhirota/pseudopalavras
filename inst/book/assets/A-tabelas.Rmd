@@ -3,7 +3,6 @@
 # Tabelas {#tabelas}
 
 ```{r perfil-informantes }
-
 pseudopalavras::dados %>% 
   dplyr::distinct(informante, .keep_all = TRUE) %>% 
   dplyr::mutate(naturalidade = dplyr::case_when(
@@ -24,6 +23,7 @@ pseudopalavras::dados %>%
 ```{r area-formacao}
 participantes %>% 
   dplyr::count(area_formacao, sort = TRUE) %>% 
+  dplyr::mutate(n = glue::glue("{n} ({scales::percent(n/sum(n))})")) %>% 
   knitr::kable(
     col.names = c("Área de formação", "Total"),
     caption = "Frequência da variável dicotômica Área de formação.",
@@ -31,6 +31,33 @@ participantes %>%
     table.attr = "style='width:40%;'"
   ) %>% 
   kableExtra::kable_styling(full_width = TRUE)
+```
+<br>
+```{r area-escolaridade}
+participantes %>%
+  dplyr::mutate(escolaridade = dplyr::case_when(
+    escolaridade == "Mestrado" ~ "4. Pós-Graduação (Completo ou Incompleto)",
+    escolaridade == "Mestrado Incompleto" ~ "4. Pós-Graduação (Completo ou Incompleto)",
+    escolaridade == "Pós-Graduação" ~ "4. Pós-Graduação (Completo ou Incompleto)",
+    escolaridade == "Superior Completo" ~ "3. Superior Completo",
+    escolaridade == "Superior Incompleto" ~ "2. Superior Incompleto",
+    escolaridade == "Fundamental Completo" ~ "1. Fundamental Completo",
+  )) %>%
+  dplyr::count(escolaridade, area_formacao) %>%
+  tidyr::pivot_wider(names_from = area_formacao, values_from = n) %>%
+  tidyr::replace_na(list(Letras = 0)) %>%
+  dplyr::mutate(Total = Outro + Letras) %>%
+  janitor::adorn_totals() %>%
+  dplyr::mutate(dplyr::across(
+    Outro:Total, ~paste0(.x, " (", scales::percent(.x/34, .1), ")"))) %>% 
+  knitr::kable(
+    col.names = c("Escolaridade", "Outro", "Letras"),
+    caption = "Escolaridade dos participantes pela área de formação.",
+    booktabs = TRUE,
+    table.attr = "style='width:40%;'"
+  ) %>% 
+  kableExtra::kable_styling(full_width = TRUE)
+
 ```
 <br>
 ```{r linguas}
@@ -117,7 +144,7 @@ pseudopalavras::dados %>%
     g2 = glue::glue("{g2} ({scales::percent(g2/total)})"),
     g3 = glue::glue("{g3} ({scales::percent(g3/total)})"),
     g4 = glue::glue("{g4} ({scales::percent(g4/total)})"),
-    total
+    total = glue::glue("{total} ({scales::percent(total/total)})")
   ) %>% 
   knitr::kable(
     col.names = c(
@@ -141,20 +168,16 @@ pseudopalavras::dados %>%
 pseudopalavras::dados %>%
   dplyr::count(tonicidade_producao, tonicidade_alvo) %>% 
   dplyr::mutate(
-    tonicidade_producao = abjutils::rm_accent(tonicidade_producao)
+    tonicidade_alvo = abjutils::rm_accent(tonicidade_alvo)
   ) %>% 
-  tidyr::pivot_wider(names_from = tonicidade_producao, values_from = n) %>% 
+  tidyr::pivot_wider(names_from = tonicidade_alvo, values_from = n) %>% 
   dplyr::mutate(total = oxitona + paroxitona + proparoxitona) %>% 
-  dplyr::transmute(
-    tonicidade_alvo,
-    oxitona = glue::glue("{oxitona} ({scales::percent(oxitona/total)})"),
-    paroxitona = glue::glue(
-      "{paroxitona} ({scales::percent(paroxitona/total)})"
-    ),
-    proparoxitona = glue::glue(
-      "{proparoxitona} ({scales::percent(proparoxitona/total)})"
-    ),
-    total = glue::glue("{total} ({scales::percent(total/total)})")
+  janitor::adorn_totals() %>% 
+  dplyr::mutate(
+    oxitona = glue::glue("{oxitona} ({scales::percent(oxitona/4845, .1)})"),
+    paroxitona = glue::glue("{paroxitona} ({scales::percent(paroxitona/4835, .1)})"),
+    proparoxitona = glue::glue("{proparoxitona} ({scales::percent(proparoxitona/2831, .1)})"),
+    total = glue::glue("{total} ({scales::percent(total/12511, .1)})")
   ) %>% 
   knitr::kable(
     caption = "Frequência da tonicidade das palavras-alvo por nível de tonicidade das pseudopalavras.",

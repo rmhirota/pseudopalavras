@@ -26,7 +26,7 @@ relocate_refs <- function(html) {
 #' add_footer
 #'
 #' @param html html string
-#' @param text footer text
+#' @param footer footer text
 #'
 #' @return html string
 #' @export

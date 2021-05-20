@@ -33,5 +33,5 @@ dados <- dados %>%
     )
   )
 
-
 usethis::use_data(dados, overwrite = TRUE)
+

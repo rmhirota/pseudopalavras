@@ -9,7 +9,7 @@ add_footer(html, footer)
 \arguments{
 \item{html}{html string}
 
-\item{text}{footer text}
+\item{footer}{footer text}
 }
 \value{
 html string
