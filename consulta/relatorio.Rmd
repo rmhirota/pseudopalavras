@@ -2,10 +2,9 @@
 title: "CENTRO DE ESTATÍSTICA APLICADA – CEA – USP"
 subtitle: RELATÓRIO DE CONSULTA
 output:
-  html_document: default
+  word_document: default
   pdf_document: default
-  # word_document:
-  #   reference_docx: "template.docx"
+  html_document: default
 urlcolor: blue
 ---
 
@@ -277,20 +276,31 @@ p-valor < 0.05.
 A seguir, montamos um roteiro para essa etapa.
 
 __Passo 0__: Definir se o modelo terá efeito aleatório apenas no intecepto ou se 
-apresentará efeito aleatório em outras variáveis. Sugerimos começar com um modelo do primeiro tipo e depois testar outras versões caso faça sentido para o estudo;
+apresentará efeito aleatório em outras variáveis. Sugerimos começar com um modelo
+do primeiro tipo e depois testar outras versões caso faça sentido para o estudo;
 
 __Passo 1__: Ajuste do modelo sem variáveis independentes (modelo nulo) para
-calcular o coeficiente de correlação intraclasse (definido na seção 6.5) e interpretar a variação entre os clusters;
+calcular o coeficiente de correlação intraclasse (definido na seção 6.5) e interpretar
+a variação entre os clusters;
   
-__Passo 2__: Incluir todas as variáveis independentes e observar a significância de cada uma. Excluir as que apresentarem p-valor > 0.05 e testar novamente o modelo;
+__Passo 2__: Incluir todas as variáveis independentes e observar a significância 
+de cada uma. Excluir as que apresentarem p-valor > 0.05 e testar novamente o modelo;
 
-__Passo 3__: Repetir o passo anterior até que não haja mais variáveis não significativas no modelo. Esse será o modelo final analisado.
+__Passo 3__: Repetir o passo anterior até que não haja mais variáveis não significativas 
+no modelo. Esse será o modelo final analisado.
 
-Seguindo os passos anteriores, a pesquisadora pode construir duas linhas de modelos diferentes, um apenas com intecepto aleatório e outro com efeito aleatório no intercepto e em alguma variável de interesse, e depois compará-los através de uma medida estatística. Ela também pode comparar um modelo sem variáveis de nível 2 e outro com variáveis de nível 2, ou comparar variações de modelos com a mesma estrutura.
+Seguindo os passos anteriores, a pesquisadora pode construir duas linhas de modelos 
+diferentes, um apenas com intecepto aleatório e outro com efeito aleatório no intercepto
+e em alguma variável de interesse, e depois compará-los através de uma medida estatística.
+]Ela também pode comparar um modelo sem variáveis de nível 2 e outro com variáveis de
+nível 2, ou comparar variações de modelos com a mesma estrutura.
 
-De forma geral, caso esteja em dúvida entre modelos, pode-se realizar um teste de razão de verossimilhança para compará-los. 
+De forma geral, caso esteja em dúvida entre modelos, pode-se realizar um teste de 
+razão de verossimilhança para compará-los. 
 
-Como exemplo, deixamos descrito o teste entre um modelo $A_1$ e um modelo reduzido $A_0$ do mesmo (um caso com menos parâmetros). A hipótese de comparação é dada a seguir junto com a definição da estatística _deviance_ utilizada:
+Como exemplo, deixamos descrito o teste entre um modelo $A_1$ e um modelo reduzido
+$A_0$ do mesmo (um caso com menos parâmetros). A hipótese de comparação é dada a 
+seguir junto com a definição da estatística _deviance_ utilizada:
 
 $H_0$ : O modelo mais simples $A_0$ se ajusta tão bem quanto o modelo $A_1$ 
 
@@ -298,28 +308,50 @@ $H_1$ : O modelo $A_1$ se ajusta significativamente melhor que o modelo mais sim
 
 $$ Deviance = -2 ln(likelihood_0) - [-2ln(likelihood_1)] \backsim \tilde{\chi}^2_{l} $$
 
-em que $likelihood_0$ é a verossimilhança do modelo reduzido $A_0$ e $likelihood_1$ é a verossimilhança do modelo $A_1$. O _deviance_ tem distribuição qui-quadrado com graus de liberdade ($l$) igual à diferença do número de parâmetros em cada modelo. Se o p-valor < 0.05, então há indicíos para rejeitar $H_0$, ou seja, o modelo mais simples não parece se ajustar tão bem quanto o modelo $A_1$. 
+em que $likelihood_0$ é a verossimilhança do modelo reduzido $A_0$ e $likelihood_1$ 
+é a verossimilhança do modelo $A_1$. O _deviance_ tem distribuição qui-quadrado com 
+graus de liberdade ($l$) igual à diferença do número de parâmetros em cada modelo. 
+Se o p-valor < 0.05, então há indicíos para rejeitar $H_0$, ou seja, o modelo mais 
+simples não parece se ajustar tão bem quanto o modelo $A_1$. 
 
 O software `Stata` apresenta na parte superior da saída (log likelihood) o log da
 verossimilhança do modelo testado ($ln (likelihood_{*})$). 
 A função __lrteste modelo_1 modelo_2__ realiza o teste de verossimilhança no software.
  
-Salientamos que nessa etapa é importante testar modelos com conjuntos diferentes de variáveis, entendendo quais fazem sentido para o estudo. Além disso, a medida _deviance_ é usada para sugerir alguns modelos “melhores”, mas o pesquisador é responsável por selecionar aquele que considera mais alinhado com a teoria e literatura da área.
+Salientamos que nessa etapa é importante testar modelos com conjuntos diferentes de 
+variáveis, entendendo quais fazem sentido para o estudo. Além disso, a medida _deviance_
+é usada para sugerir alguns modelos “melhores”, mas o pesquisador é responsável por 
+selecionar aquele que considera mais alinhado com a teoria e literatura da área.
 
 ## 6.3 Diagnóstico e Qualidade do ajuste
 
-Após encontrar o modelo final é importante avaliar se o mesmo é eficiente para descrever a relação entre as variáveis independentes e a variável dependente. Assim, devemos verificar se os pressupostos do modelo foram respeitados.
+Após encontrar o modelo final é importante avaliar se o mesmo é eficiente para descrever
+a relação entre as variáveis independentes e a variável dependente. Assim, devemos
+verificar se os pressupostos do modelo foram respeitados.
 
-Usando como exemplo o modelo com intercepto aleatório, podemos avaliar o ajuste do modelo realizando uma análise dos efeitos aleatórios através de um gráfico dos efeitos estimados (as estimativas de $u_{0j}$) padronizados (ou estudentizados) e os quantis da distribuição teórica normal. Idealmente, as estimativas dos efeitos aleatórios dos clusters coincidem com os quantis, formando uma linha reta diagonal pois eles seguem a distribuição determinada.
+Usando como exemplo o modelo com intercepto aleatório, podemos avaliar o ajuste do
+modelo realizando uma análise dos efeitos aleatórios através de um gráfico dos efeitos
+estimados (as estimativas de $u_{0j}$) padronizados (ou estudentizados) e os quantis
+da distribuição teórica normal. Idealmente, as estimativas dos efeitos aleatórios
+dos clusters coincidem com os quantis, formando uma linha reta diagonal pois eles
+seguem a distribuição determinada.
 
-Em outras palavras, para verificar o pressuposto de normalidade do efeito aleatório do cluster, pode-se verificar se os os valores preditos dos efeitos aleatórios padronizados (ou estudentizados) são aproximadamente normais. O gráfico deverá apresentar no eixo x os quantis teóricos da distribuição normal, em relação às estimativas no eixo y.
+Em outras palavras, para verificar o pressuposto de normalidade do efeito aleatório do
+cluster, pode-se verificar se os os valores preditos dos efeitos aleatórios padronizados 
+(ou estudentizados) são aproximadamente normais. O gráfico deverá apresentar no eixo x 
+os quantis teóricos da distribuição normal, em relação às estimativas no eixo y.
 
-Do ponto de vista do nível 1 (estudantes), deve-se observar no diagnóstico do modelo
-se a função estimada é monotônica e se tem forma sigmoidal, através de um gráfico de resíduos do nível estudantes ($\epsilon_{ij}$) no eixo y e as observações no eixo x.
- 
-Um modelo vai parecer não ter se ajustado bem quando os pressupostos anteriores não parecerem ser respeitados. Além disso, os testes na seção 6.2 também são formas de avaliar os modelos
+Nobre e Singer (2007) recomendam a utilização de gráficos dos resíduos marginais em 
+função das variáveis regressoras e gráficos dos resíduos condicionais studentizados 
+em função das médias condicionais ajustadas para verificar o pressuposto de normalidade.
 
-Salientamos que, caso exista mais de um efeito aleatório no modelo -- como em (1) -- todos os $u_{kj}$ devem ser analisados graficamente para entender se eles respeitam o pressuposto de distribuição normal.
+Um modelo vai parecer não ter se ajustado bem quando os pressupostos anteriores 
+não parecerem ser respeitados. Além disso, os testes na seção 6.2 também são formas
+de avaliar os modelos
+
+Salientamos que, caso exista mais de um efeito aleatório no modelo -- como em (1) -- 
+todos os $u_{kj}$ devem ser analisados graficamente para entender se eles respeitam
+o pressuposto de distribuição normal.
 
 
 ## 6.4 Interpretação do modelo
@@ -659,4 +691,9 @@ MANUAL STATA. BIC note — Calculating and interpreting BIC em: <[https://www.st
 
 MANUAL STATA. lrtest — Likelihood-ratio test after estimation em: <[https://www.stata.com/manuals/rlrtest.pdf](https://www.stata.com/manuals/rlrtest.pdf)> Acesso em: 08 de maio de 2021
 
+Residual analysis for linear mixed models. Disponível em:
+<[https://www.ime.usp.br/~jmsinger/MAE0610/Mixedmodelresiduals.pdf](https://www.ime.usp.br/~jmsinger/MAE0610/Mixedmodelresiduals.pdf)> Acesso em: 20 de maio de 2021
+
+NOBRE, J.S, SINGER, J.M. (2007) Residual Analysis for Linear Mixed Models. Biometrical
+Journal. 
 
