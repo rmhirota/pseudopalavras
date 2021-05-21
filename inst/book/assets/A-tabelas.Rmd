@@ -179,13 +179,15 @@ pseudopalavras::dados %>%
     proparoxitona = glue::glue("{proparoxitona} ({scales::percent(proparoxitona/2831, .1)})"),
     total = glue::glue("{total} ({scales::percent(total/12511, .1)})")
   ) %>% 
-  knitr::kable(
+  knitr::kable(col.names = c(
+      "Tonicidade produção", "oxítona", "paroxítona", "proparoxítona", "Total"
+    ),
     caption = "Frequência da tonicidade das palavras-alvo por nível de tonicidade das pseudopalavras.",
     booktabs = TRUE,
     table.attr = "style='width:100%;'"
   ) %>% 
   kableExtra::add_header_above(
-    c(" " = 1, "Tonicidade da pseudopalavra" = 3, " " = 1)
+    c(" " = 1, "Tonicidade da palavra-alvo" = 3, " " = 1)
   )
 ```
 <br>
@@ -251,6 +253,27 @@ pseudopalavras::dados %>%
 ```
 
 
-
+<br>
+```{r estrut-tonicidade-producao}
+pseudopalavras::dados %>% 
+  dplyr::count(estrutura_palavra, tonicidade_producao) %>% 
+  tidyr::pivot_wider(names_from = estrutura_palavra, values_from = n) %>% 
+  setNames(c("tonicidade", "e1", "e2")) %>% 
+  dplyr::mutate(
+    total = e1 + e2,
+    e1 = glue::glue("{e1} ({scales::percent(e1/total)})"),
+    e2 = glue::glue("{e2} ({scales::percent(e2/total)})")
+  ) %>% 
+  dplyr::relocate(tonicidade, e1, e2, total) %>% 
+  knitr::kable(
+    col.names = c("Tonicidade pseudopalavra", "CV-CV-CV", "CV-CV-CVC", "Total"),
+    booktabs = TRUE,
+    table.attr = "style='width:100%;'",
+    caption = "Frequência da Tonicidade da pseudopalavra por Estrutura das palavras."
+  ) %>% 
+  kableExtra::add_header_above(
+    c(" " = 1, "Estrutura da palavra" = 2, " " = 1)
+  )
+```
 
 

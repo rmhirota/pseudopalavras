@@ -9,7 +9,7 @@ acentual no português. A seguir, listamos as variáveis pré-selecionadas para 
 ## Variável Dependente
 
 A variável resposta de interesse é __Tonicidade da pseudopalavra__, ou seja, a
-classificação acentual tônica da pseudopalavra (oxítona, paroxítona e proparoxítona)
+classificação acentual tônica da pseudopalavra (oxítona, paroxítona e proparoxítona).
   
   
 ## Variáveis Linguísticas
@@ -20,8 +20,8 @@ As palavras que deram origem às pseudopalavras, definidas como palavras-alvo,
 foram classificadas em dois níveis de acordo com a sua ocorrência no Corpus
 brasileiro, corpus linguístico coordenado pelo pesquisador Antonio Paulo Berber
 Sardinha. Se a palavra possui mais de 100 mil ocorrências no corpus ela é
-classificada como alta frequência e se possui menos de 2 mil ocorrências ela é
-classificada como baixa frequência. A junção da ideia de frequência e similaridade
+classificada como de alta frequência e se possui menos de 2 mil ocorrências ela é
+classificada como de baixa frequência. A junção da ideia de frequência e similaridade
 entre a palavra alvo e a pseudopalavra resultou na criação de uma variável com 4
 categorias chamada grupo de estímulos.
 
@@ -45,7 +45,7 @@ e a palavra real) e da frequência (alta e baixa) na produção acentual
   
 Ressaltamos que essa variável não foi controlada durante a coleta
 de dados, ou seja, não foi pré-definido uma quantidade de palavras de cada categoria
-em cada conjunto apresentado aos participantes
+em cada conjunto apresentado aos participantes. 
     
 - __Taxa de similaridade__: 1, 2, 3 (grupos similares), 5, 6, 7, 8, 9, 10 (grupos
 dissimilares)
@@ -53,7 +53,7 @@ dissimilares)
 
 ## Variáveis Extralinguísticas
   
-- __Participante__: indica os 34 participantes do experimento
+- __Participante__: identifica os 34 participantes do experimento
 - __Idade__: de 18 a 60 (anos)
 - __Gênero__: feminino e masculino
 - __Naturalidade__: indica a cidade em que o participante nasceu
@@ -69,7 +69,7 @@ de apresentação- a serem apresentados aos participantes com um intervalo de te
 cada conjunto. Por limitações do software, a ordem de apresentação desses conjuntos 
 não pôde ser aleatorizada, apenas a ordem das palavras dentro de cada conjunto.
 
-- __Bloco de apresentação__: indica em qual bloco (ou rotina) a pseudopalavra foi
+- __Bloco de apresentação__: indica em qual bloco (ou conjunto) a pseudopalavra foi
 inserida (1, 2, 3 ou 4)
 - __Ordem de apresentação__: indica em qual ordem a pseudopalavra foi apresentada
 dentro do bloco de apresentação (1 a 93). Para os indivíduos que fizeram toda a 
