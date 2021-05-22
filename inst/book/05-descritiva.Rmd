@@ -152,9 +152,6 @@ janitor::adorn_totals(where = "row") # total por coluna, add linha "Total"
 ```
 
 
-
-
-
 Comparando a tonicidade das pseudopalavras e a tonicidade das palavras-alvo 
 (vide Tabela \@ref(tab:tonicidade-pseudoxalvo)), nota-se que aproximadamente 73% das 
 pseudopalavras classificadas como proparoxítonas tinham uma palavra-alvo de
@@ -205,39 +202,24 @@ das palavras-alvo."
 
 <!-- REVISADO ATÉ AQUI -->
 
-Na Tabela \@ref(tab:validacao-producao) vemos que aproximadamente 73% das
+Na Tabela \@ref(tab:validacao-producao) aproximadamente 73% das
 pseudopalavras foram validadas de acordo com o processo descrito anteriormente 
-no capítulo \@ref(descricao-estudo) (Descrição). Porém, cerca de 81% das não
-validadas foram classificadas como paroxítonas, e mais de 55% pertencem ao grupo
-das similares (\@ref(tab:validacao-grupo).
+no capítulo \@ref(descricao-estudo) (Descrição).
 
-Já na Tabela \@ref(tab:validacao-grupo) percebe-se que nos grupos 1 (pseudopalavras
-similares de alta frequência) e 3 (pseudopalavras similares de baixa frequência) a
-porcentagem de palavras não validades é superior aos demais grupos, o que parece 
-indicar que a validação de palavras similares é mais complexa e difícil.
+Cerca de 81% das pseudolavras cuja similaridade/dissimilaridade não foi validada foram classificadas como paroxítonas e mais de 90% das pseudopalavras cuja similaridade/dissimilaridade não foi validada pertencem ao grupo das similares (\@ref(tab:validacao-grupo). Ou seja, percebe-se que nos grupos 1 (pseudopalavras similares de alta frequência) e 3 (pseudopalavras similares de baixa frequência) a porcentagem de palavras não validades é superior aos demais grupos, o que parece indicar que a validação de palavras similares é mais complexa e difícil.
 
 ```{r validacao-producao}
 pseudopalavras::dados %>% 
   dplyr::count(tonicidade_producao, validacao) %>% 
   tidyr::pivot_wider(names_from = validacao, values_from = n) %>%
-  setNames(c(
-    "tonicidade_producao", 
-    "g1",
-    "g2",
-    "g3"
-  )) %>% 
-  dplyr::mutate(total = g1 + g2 + g3) %>% 
-  dplyr::transmute(
-    tonicidade_producao,
-    g1 = glue::glue("{g1} ({scales::percent(g1/total)})"),
-    g2 = glue::glue("{g2} ({scales::percent(g2/total)})"),
-    g3 = glue::glue("{g3} ({scales::percent(g3/total)})"),
-    total = glue::glue("{total} ({scales::percent(total/total)})")
-  ) %>% 
+  janitor::adorn_totals(where = c("row")) %>%
+  janitor::adorn_percentages(denominator = "col") %>% 
+  janitor::adorn_pct_formatting(digits = 1) %>% 
+  janitor::adorn_ns(position = "front") %>% 
   knitr::kable(
     col.names = c(
       "Tonicidade produção", "Não Validada", 
-      "Quase Validada", "Validada", "Total"
+      "Quase Validada", "Validada"
     ),
     booktabs = TRUE,
     table.attr = "style='width:100%;'",
@@ -245,22 +227,20 @@ pseudopalavras::dados %>%
   ) %>% 
   kableExtra::kable_styling(full_width = TRUE) %>% 
   kableExtra::add_header_above(
-    header = c(" " = 1, "Status Validação" = 3, " " = 1), 
+    header = c(" " = 1, "Status Validação" = 2, " " = 1), 
     #border_left = TRUE,
     #border_right = TRUE,
     #extra_css = "border-left:2px solid grey;"
   ) %>% 
   kableExtra::column_spec(
-    2, border_left = TRUE,
-    extra_css = "border-left:2px solid grey;"
+    2 #border_left = TRUE,
+    #extra_css = "border-left:2px solid grey;"
   )
 
 ```
 
 Como observação subsequente, podemos ver que a divisão de estrutura da palavra-alvo 
-é bem distribuída, com exceção da estrutura CV-CV-CVC em proparoxítonas, o que já era
-esperado, uma vez que a frequência de palavras com essas características no 
-_Corpus Brasileiro_ é baixa (vide Tabela \@ref(tab:estrut-tonicidade-alvo)).
+não é bem distribuída entre as classificações de tonicidades das palavras-alvo. A quantidade de palavras com estrutura CV-CV-CVC em proparoxítonas é pequena uma vez que a frequência de palavras com essas características no _Corpus Brasileiro_ é baixa (vide Tabela \@ref(tab:estrut-tonicidade-alvo)).
 
 ```{r estrut-tonicidade-alvo}
 pseudopalavras::dados %>%  dplyr::distinct(palavra_alvo, .keep_all = TRUE) %>% 
@@ -270,7 +250,8 @@ pseudopalavras::dados %>%  dplyr::distinct(palavra_alvo, .keep_all = TRUE) %>%
   dplyr::mutate(
     total = e1 + e2,
     e1 = glue::glue("{e1} ({scales::percent(e1/total)})"),
-    e2 = glue::glue("{e2} ({scales::percent(e2/total)})")
+    e2 = glue::glue("{e2} ({scales::percent(e2/total)})"),
+    total = glue::glue("{total} ({scales::percent(total/total)})")
   ) %>% 
   dplyr::relocate(tonicidade, e1, e2, total) %>% 
   knitr::kable(
@@ -283,7 +264,7 @@ pseudopalavras::dados %>%  dplyr::distinct(palavra_alvo, .keep_all = TRUE) %>%
     c(" " = 1, "Estrutura da palavra" = 2, " " = 1)
   )
 ```
-Por fim, na Tabela \@ref(estrut-tonicidade-producao), vemos que 87% das pseudopalavras 
+Na Tabela \@ref(estrut-tonicidade-producao), vemos que 87% das pseudopalavras 
 cuja estrutura era CV-CV-CV foram classificadas como paroxítonas, e 85% das pseudopalavras
 cuja estrutura era CV-CV-CVC foram classificadas como oxítonas, o que corrobora com a 
 afirmação da literatura, de que a estrutura é a maior, se não única, influência na 
@@ -295,6 +276,7 @@ entre a tonicidade da produção e estrutura da palavra.
 ```{r grupo-estrutura-producao-alvo}
 ftable(pseudopalavras::dados$grupo,pseudopalavras::dados$estrutura_palavra,pseudopalavras::dados$tonicidade_producao,pseudopalavras::dados$tonicidade_alvo) 
 ```
+Por fim, na Tabela \@ref(grupo-estrutura-producao-alvo) existe um lapso faltante de dados pois não existe, no português brasileiro, palavras com tonicidade proparoxítona, de alta frequência no Corpus com estrutura CV-CV-CVC. Problema?
 
 ## Conclusão da análise descritiva e próximos passos
 
@@ -336,9 +318,9 @@ diferente no processo de acentuação tônica
 $H_0$: Não há associação entre graduação em Letras e a tonicidade produzida  
 $H_1$: Há associação entre graduação em Letras e a tonicidade produzida
 
-Além disso, a parte inferencial da análise será pautada em um modelo hierárquico 
-no qual os participantes representam um nível com efeito aleatório, e a variável 
-dependente será a tonicidade de produção em cada pseudopalavra. 
+Após os testes, decidimos investigar mais minunciosamente a relação de dependência
+entre as variáveis cujo teste qui-quadrado foi significante. Essa etapa foi realizada através de análises de correspondência, que visa medir o grau de associação de variáveis categorizadas comparadas. Objetivo é construir uma representação gráfica da associação
+entre as variáveis
 
 
 
