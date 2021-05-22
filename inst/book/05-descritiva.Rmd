@@ -70,16 +70,17 @@ pseudopalavras::dados %>%
     col.names = c("Tonicidade de produção", "Total"),
     caption = "Distribuição das respostas nos níveis da variável Tonicidade de produção.",
     booktabs = TRUE,
-    table.attr = "style='width:60%;'"
+    table.attr = "style='width:100%;'"
   ) %>% 
   kableExtra::kable_styling(full_width = TRUE)
 ```
-Além disso, na Tabela \@ref(tab:grupo-tonicidade-alvo) verifica-se que a 
-proporção de palavras-alvo proparoxítonas é inferior às outras categorias em 
-todos os grupos, o que já era esperado devido à baixa frequência de palavras 
-proparoxítonas de três sílabas na estrutura proposta (CV-CV-CV ou CV-CV-CVC). 
 
-Observa-se na \@ref(tab:grupo-tonicidade-producao) que os grupos 2 e 4 
+<!-- Além disso, na Tabela \@ref(tab:grupo-alvo) verifica-se que a  -->
+<!-- proporção de palavras-alvo proparoxítonas é inferior às outras categorias em  -->
+<!-- todos os grupos, o que já era esperado devido à baixa frequência de palavras  -->
+<!-- proparoxítonas de três sílabas na estrutura proposta (CV-CV-CV ou CV-CV-CVC).  -->
+
+Observa-se na Tabela \@ref(tab:grupo-producao) que os grupos 2 e 4 
 (ou seja, os grupos em que as palavras sofreram mais alterações em relação à
 referência original) apresentam uma proporção menor de proparoxítonas
 produzidas quando comparados aos grupos 1 e 3. A partir dessa constatação, 
@@ -87,12 +88,72 @@ podemos formular a hipótese de que palavras sem referências claras de
 similaridade seguem um padrão de acentuação que não necessariamente leva em 
 conta a tonicidade da palavra-alvo.
 
+Também observamos na Tabela \@ref(tab:grupo-tonicidade-alvo) que os grupos 1 e 3
+parecem ter padrões de tonicidade mais semelhantes entre as palavras-alvo e as
+pseudopalavras do que os grupos 2 e 4. Além disso, os grupos 1 e 3 possuem proporções
+semelhantes, assim como os grupos 2 e 4, o que pode indicar que a similaridade 
+fonológica entre palavras reais e inventadas e a frequência são relevantes para 
+a atribuição acentual. 
 
 ```{r grupo-tonicidade-alvo}
-ftable(pseudopalavras::dados$grupo,pseudopalavras::dados$tonicidade_producao,pseudopalavras::dados$tonicidade_alvo) 
+pseudopalavras::dados %>% 
+  dplyr::mutate(tonicidade_igual = ifelse(
+    tonicidade_producao == tonicidade_alvo, 
+    "igual", 
+    "diferente"
+  )) %>% 
+  dplyr::count(grupo, tonicidade_igual) %>% 
+  tidyr::pivot_wider(names_from = tonicidade_igual, values_from = n) %>% 
+  janitor::adorn_totals(where = "col") %>% 
+  dplyr::mutate(
+    igual = glue::glue("{igual} ({scales::percent(igual/Total, .1)})"),
+    diferente = glue::glue("{diferente} ({scales::percent(diferente/Total, .1)})"),
+    Total = glue::glue("{Total} ({scales::percent(Total/Total, .1)})"),
+    grupo = dplyr::case_when(
+      grupo == 1 ~ "1 (Similar de alta freq.)",
+      grupo == 2 ~ "2 (Dissimilar de alta freq.)",
+      grupo == 3 ~ "3 (Similar de baixa freq.)",
+      grupo == 4 ~ "4 (Dissimilar de baixa freq.)"
+    )
+  ) %>% 
+  knitr::kable(col.names = c(
+    "Grupo",
+    "Tonicidade produção e tonicidade alvo coincidem", 
+    "Tonicidade produção e tonicidade alvo não coincidem",
+    "Total"
+  ),
+    caption = "Comparação entre tonicidade da palavra-alvo e tonicidade da pseudopalavra por grupo.",
+    booktabs = TRUE,
+    table.attr = "style='width:100%;'"
+  ) %>% 
+  kableExtra::kable_styling(full_width = TRUE)
+
 ```
 
-#fazer uma tabela igual grupo-tonicidade-producao, com uma terceira entrada da tonicidade da alvo, pra ver como se distribuiu as pseudopalavras nos grupos dado a tonicidade da alvo? não sei se faz sentido
+Uma visão mais detalhada da comparação de tonicidade entre palavras-alvo e 
+pseudopalavras por grupo é apresentada no Gráfico \@ref(fig:tonicidade-fluxo).
+
+<!-- VALIDADO ATÉ AQUI -->
+
+```{r}
+# Para acrescentar total às tabelas:
+janitor::adorn_totals(where = "col") # total por linha, add coluna "Total"
+janitor::adorn_totals(where = "row") # total por coluna, add linha "Total"
+
+# para calcular porcentagens pelo total da linha: exemplo da tabela anterior
+# ...
+# janitor::adorn_totals(where = "col") %>% 
+#   dplyr::mutate(
+#     coluna1 = glue::glue("{coluna1} ({scales::percent(coluna1/Total, .1)})"),
+#     coluna2 = glue::glue("{coluna2} ({scales::percent(coluna2/Total, .1)})"),
+#     Total = glue::glue("{Total} ({scales::percent(Total/Total, .1)})")
+#   ) 
+
+```
+
+
+
+
 
 Comparando a tonicidade das pseudopalavras e a tonicidade das palavras-alvo 
 (vide Tabela \@ref(tab:tonicidade-pseudoxalvo)), nota-se que aproximadamente 73% das 
@@ -231,7 +292,7 @@ possibilidade de testar a significância dessa discrepância através de testes 
 entre a tonicidade da produção e estrutura da palavra. 
 
 
-```{r grupo-tonicidade-alvo}
+```{r grupo-estrutura-producao-alvo}
 ftable(pseudopalavras::dados$grupo,pseudopalavras::dados$estrutura_palavra,pseudopalavras::dados$tonicidade_producao,pseudopalavras::dados$tonicidade_alvo) 
 ```
 

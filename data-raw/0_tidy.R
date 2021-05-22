@@ -35,3 +35,22 @@ dados <- dados %>%
 
 usethis::use_data(dados, overwrite = TRUE)
 
+
+
+# Inconsistências ---------------------------------------------------------
+
+dados %>%
+  dplyr::filter(taxa_similaridade < 4, grupo %in% c(2, 4)) %>%
+  dplyr::count(pseudopalavra, grupo, taxa_similaridade) %>%
+  dplyr::select(-n) %>%
+  readr::write_csv("data-raw/inconsistencias_similaridade.csv")
+
+dados %>%
+  dplyr::count(grupo, tonicidade_alvo) %>%
+  tidyr::pivot_wider(names_from = grupo, values_from = n)
+
+dados %>%
+  dplyr::filter(taxa_similaridade < 4, grupo %in% c(2, 4)) %>%
+  dplyr::distinct(pseudopalavra, .keep_all = TRUE) %>%
+  dplyr::count(segmento_modificado)
+

@@ -1,6 +1,6 @@
 # (APPENDIX) Apêndices {-} 
 
-# Tabelas {#tabelas}
+## Tabelas {#tabelas}
 
 ```{r perfil-informantes }
 pseudopalavras::dados %>% 
@@ -51,7 +51,7 @@ participantes %>%
   dplyr::mutate(dplyr::across(
     Outro:Total, ~paste0(.x, " (", scales::percent(.x/34, .1), ")"))) %>% 
   knitr::kable(
-    col.names = c("Escolaridade", "Outro", "Letras"),
+    col.names = c("Escolaridade", "Outro", "Letras", "Total"),
     caption = "Escolaridade dos participantes pela área de formação.",
     booktabs = TRUE,
     table.attr = "style='width:40%;'"
@@ -84,7 +84,7 @@ participantes %>%
   kableExtra::kable_styling(full_width = TRUE)
 ```
 <br>
-```{r grupo-tonicidade-alvo}
+```{r grupo-alvo}
 pseudopalavras::dados %>% dplyr::distinct(palavra_alvo, .keep_all = TRUE) %>% 
   dplyr::count(tonicidade_alvo, grupo) %>% 
   tidyr::pivot_wider(names_from = tonicidade_alvo, values_from = n) %>%
@@ -126,7 +126,7 @@ pseudopalavras::dados %>% dplyr::distinct(palavra_alvo, .keep_all = TRUE) %>%
   )
 ```
 <br>
-```{r grupo-tonicidade-producao}
+```{r grupo-producao}
 pseudopalavras::dados %>% 
   dplyr::count(tonicidade_producao, grupo) %>% 
   tidyr::pivot_wider(names_from = grupo, values_from = n) %>%
