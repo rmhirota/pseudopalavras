@@ -88,6 +88,10 @@ similaridade seguem um padrão de acentuação que não necessariamente leva em
 conta a tonicidade da palavra-alvo.
 
 
+```{r grupo-tonicidade-alvo}
+ftable(pseudopalavras::dados$grupo,pseudopalavras::dados$tonicidade_producao,pseudopalavras::dados$tonicidade_alvo) 
+```
+
 #fazer uma tabela igual grupo-tonicidade-producao, com uma terceira entrada da tonicidade da alvo, pra ver como se distribuiu as pseudopalavras nos grupos dado a tonicidade da alvo? não sei se faz sentido
 
 Comparando a tonicidade das pseudopalavras e a tonicidade das palavras-alvo 
@@ -181,9 +185,9 @@ pseudopalavras::dados %>%
   kableExtra::kable_styling(full_width = TRUE) %>% 
   kableExtra::add_header_above(
     header = c(" " = 1, "Status Validação" = 3, " " = 1), 
-    border_left = TRUE,
-    border_right = TRUE,
-    extra_css = "border-left:2px solid grey;"
+    #border_left = TRUE,
+    #border_right = TRUE,
+    #extra_css = "border-left:2px solid grey;"
   ) %>% 
   kableExtra::column_spec(
     2, border_left = TRUE,
@@ -198,7 +202,7 @@ esperado, uma vez que a frequência de palavras com essas características no
 _Corpus Brasileiro_ é baixa (vide Tabela \@ref(tab:estrut-tonicidade-alvo)).
 
 ```{r estrut-tonicidade-alvo}
-pseudopalavras::dados %>% 
+pseudopalavras::dados %>%  dplyr::distinct(palavra_alvo, .keep_all = TRUE) %>% 
   dplyr::count(estrutura_palavra, tonicidade_alvo) %>% 
   tidyr::pivot_wider(names_from = estrutura_palavra, values_from = n) %>% 
   setNames(c("tonicidade", "e1", "e2")) %>% 
@@ -226,6 +230,10 @@ atribuição da tonicidade em palavras do português brasileiro. A partir disso,
 possibilidade de testar a significância dessa discrepância através de testes univariados
 entre a tonicidade da produção e estrutura da palavra. 
 
+
+```{r grupo-tonicidade-alvo}
+ftable(pseudopalavras::dados$grupo,pseudopalavras::dados$estrutura_palavra,pseudopalavras::dados$tonicidade_producao,pseudopalavras::dados$tonicidade_alvo) 
+```
 
 ## Conclusão da análise descritiva e próximos passos
 

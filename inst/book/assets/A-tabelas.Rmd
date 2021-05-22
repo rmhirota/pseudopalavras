@@ -85,7 +85,7 @@ participantes %>%
 ```
 <br>
 ```{r grupo-tonicidade-alvo}
-pseudopalavras::dados %>% 
+pseudopalavras::dados %>% dplyr::distinct(palavra_alvo, .keep_all = TRUE) %>% 
   dplyr::count(tonicidade_alvo, grupo) %>% 
   tidyr::pivot_wider(names_from = tonicidade_alvo, values_from = n) %>%
   setNames(c(
