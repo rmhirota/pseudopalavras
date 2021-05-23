@@ -27,18 +27,15 @@ logo, essa variável foi categorizada em dois níveis. A Tabela
 influência do curso de Letras na categorização das pseudopalavras é um dos 
 fatores de possível interesse na análise dos dados.
 
-Analisando a distribuição por área (Tabela \@ref(tab:area-escolaridade)), 
-15 (55,9%) participantes são de outras áreas 
-e 19 (44,1%) são da área de Letras; no entanto, cruzando com as informações de
-escolaridade, notamos que o grupo majoritário são estudantes de Letras com 
-Ensino Superior Incompleto (11 pessoas, o que representa 32,4% do total). Também
+Analisando a distribuição por formação (Tabela \@ref(tab:area-escolaridade)), 
+15 (55,9%) participantes são de outras áreas e 19 (44,1%) são da área de Letras; no entanto, cruzando com as informações de escolaridade, notamos que o grupo majoritário são estudantes de Letras com Ensino Superior Incompleto (11 pessoas, o que representa 32,4% do total). Também
 destacamos que a amostra a nível de indivíduos é pequena e possivelmente não 
 representativa da população brasileira, pois apenas um indivíduo tem nível de
 escolaridade abaixo do universitário.
 
-Outras variáveis relacionadas com a linguagem (línguas e música) também foram
+Outras variáveis relacionadas à linguagem (línguas e música) também foram
 transformadas em variáveis binárias, pois há interesse em entender se o
-conhecimento nessas áreas afeta na percepção da tonicidade de palavras. A
+conhecimento nessas áreas afeta a percepção da tonicidade de palavras. A
 distribuição das variáveis já agrupadas também pode ser observada nas Tabelas 
 \@ref(tab:linguas) e \@ref(tab:musica), respectivamente.
 
@@ -52,10 +49,7 @@ curse Letras sem conhecimento de outras línguas no estudo.
 ## Variáveis linguísticas
 
 A tonacidade de produção (classificação da pseudopalavra) do tipo proparoxítona 
-é a menos expressiva na base,
-enquanto a categoria paroxítona (penúltima sílaba é tônica) aparece com maior
-frequência nas respostas dos participantes, como visto na Tabela 
-\@ref(tab:grupo-tonicidade) a seguir. Portanto, o processo de acentuação das
+é a menos expressiva na base,enquanto a categoria paroxítona (penúltima sílaba é tônica) aparece com maior frequência nas respostas dos participantes, como visto na Tabela \@ref(tab:grupo-tonicidade) a seguir. Portanto, o processo de acentuação das
 pseudopalavras nesse estudo parece ir de acordo com a afirmação de 
 @collischonn1999 de que 
 
@@ -75,58 +69,10 @@ pseudopalavras::dados %>%
   kableExtra::kable_styling(full_width = TRUE)
 ```
 
-Observa-se na Tabela \@ref(tab:grupo-producao) que os grupos 2 e 4 
+Observa-se na Tabela \@ref(tab:grupo-producao) que os grupos de classificação 2 e 4 
 (ou seja, os grupos em que as palavras sofreram mais alterações em relação à
 referência original) apresentam uma proporção menor de proparoxítonas
-produzidas quando comparados aos grupos 1 e 3. A partir dessa constatação, 
-podemos formular a hipótese de que palavras sem referências claras de 
-similaridade seguem um padrão de acentuação que não necessariamente leva em 
-conta a tonicidade da palavra-alvo.
-
-Também observamos na Tabela \@ref(tab:grupo-tonicidade-alvo) que os grupos 1 e 3
-parecem ter padrões de tonicidade mais semelhantes entre as palavras-alvo e as
-pseudopalavras do que os grupos 2 e 4. Além disso, os grupos 1 e 3 possuem proporções
-semelhantes, assim como os grupos 2 e 4, o que pode indicar que a similaridade 
-fonológica entre palavras reais e inventadas e a frequência são relevantes para 
-a atribuição acentual. 
-
-```{r grupo-tonicidade-alvo}
-pseudopalavras::dados %>% 
-  dplyr::mutate(tonicidade_igual = ifelse(
-    tonicidade_producao == tonicidade_alvo, 
-    "igual", 
-    "diferente"
-  )) %>% 
-  dplyr::count(grupo, tonicidade_igual) %>% 
-  tidyr::pivot_wider(names_from = tonicidade_igual, values_from = n) %>% 
-  janitor::adorn_totals(where = "col") %>% 
-  dplyr::mutate(
-    igual = glue::glue("{igual} ({scales::percent(igual/Total, .1)})"),
-    diferente = glue::glue("{diferente} ({scales::percent(diferente/Total, .1)})"),
-    Total = glue::glue("{Total} ({scales::percent(Total/Total, .1)})"),
-    grupo = dplyr::case_when(
-      grupo == 1 ~ "1 (Similar de alta freq.)",
-      grupo == 2 ~ "2 (Dissimilar de alta freq.)",
-      grupo == 3 ~ "3 (Similar de baixa freq.)",
-      grupo == 4 ~ "4 (Dissimilar de baixa freq.)"
-    )
-  ) %>% 
-  knitr::kable(col.names = c(
-    "Grupo",
-    "Tonicidade produção e tonicidade alvo coincidem", 
-    "Tonicidade produção e tonicidade alvo não coincidem",
-    "Total"
-  ),
-    caption = "Comparação entre tonicidade da palavra-alvo e tonicidade da pseudopalavra por grupo.",
-    booktabs = TRUE,
-    table.attr = "style='width:100%;'"
-  ) %>% 
-  kableExtra::kable_styling(full_width = TRUE)
-
-```
-
-Uma visão mais detalhada da comparação de tonicidade entre palavras-alvo e 
-pseudopalavras por grupo é apresentada no Gráfico \@ref(fig:tonicidade-fluxo).
+produzidas quando comparados aos grupos 1 e 3. 
 
 
 <!--```{r}
@@ -143,8 +89,6 @@ janitor::adorn_totals(where = "row") # total por coluna, add linha "Total"
 #     Total = glue::glue("{Total} ({scales::percent(Total/Total, .1)})")
 #   ) 
 -->
-
-
 
 Comparando a tonicidade das pseudopalavras e a tonicidade das palavras-alvo 
 (vide Tabela \@ref(tab:tonicidade-pseudoxalvo)), nota-se que aproximadamente 73% das 
@@ -199,7 +143,7 @@ pseudopalavras foram validadas de acordo com o processo descrito anteriormente
 no capítulo \@ref(descricao-estudo) (Descrição).
 
 Cerca de 81% das pseudolavras cuja similaridade/dissimilaridade não foi validada 
-foram classificadas como paroxítonas. Dentre as não validadas aproximadamente 85% 
+foram classificadas como paroxítonas. Dentre as não validadas, aproximadamente 85% 
 das pseudopalavras pertencem ao grupo das similares (\@ref(tab:validacao-grupo). 
 Ou seja, percebe-se que nos grupos 1 (pseudopalavras similares de alta frequência) 
 e 3 (pseudopalavras similares de baixa frequência) a porcentagem de palavras não 
@@ -249,10 +193,10 @@ pseudopalavras::dados %>%
   janitor::adorn_ns(position = "front") %>% 
   knitr::kable(
     col.names = c(
-      "Grupo", "Não Validada", "Quase Validada", 
+      "Grupo de classificação", "Não Validada", "Quase Validada", 
       "Validada"
     ),
-    caption = "Frequência das pseudopalavras nos Grupos, por status de Validação.",
+    caption = "Frequência das pseudopalavras nos Grupos de classificação, por status de Validação.",
     booktabs = TRUE,
     table.attr = "style='width:100%;'"
   #, row.names = c(
@@ -266,7 +210,6 @@ pseudopalavras::dados %>%
   )
 ```
 
-
 Como observação subsequente, podemos ver que a divisão de estrutura da palavra-alvo 
 não é bem distribuída entre as classificações de tonicidades das palavras-alvo. A 
 quantidade de palavras com estrutura CV-CV-CVC em proparoxítonas é pequena uma vez 
@@ -277,15 +220,20 @@ que a frequência de palavras com essas características no _Corpus Brasileiro_ 
 ```{r estrut-tonicidade-producao}
 pseudopalavras::dados %>% 
   dplyr::count(estrutura_palavra, tonicidade_producao) %>% 
-  tidyr::pivot_wider(names_from = estrutura_palavra, values_from = n) %>% 
-  setNames(c("tonicidade", "e1", "e2")) %>% 
   dplyr::mutate(
-    total = e1 + e2,
-    e1 = glue::glue("{e1} ({scales::percent(e1/total)})"),
-    e2 = glue::glue("{e2} ({scales::percent(e2/total)})"),
-    total = glue::glue("{total} ({scales::percent(total/total)})")
+    estrutura_palavra= abjutils::rm_accent(estrutura_palavra)
   ) %>% 
-  dplyr::relocate(tonicidade, e1, e2, total) %>% 
+  tidyr::pivot_wider(names_from = estrutura_palavra, values_from = n) %>% 
+  dplyr::mutate(Total = `CV-CV-CV` + `CV-CV-CVC`) %>% 
+  janitor::adorn_totals() %>% 
+  #setNames(c("tonicidade", "e1", "e2")) %>% 
+  dplyr::mutate(
+    #total = e1 + e2,
+    `CV-CV-CV` = glue::glue("{`CV-CV-CV`} ({scales::percent(`CV-CV-CV`/7271)})"),
+    `CV-CV-CVC` = glue::glue("{`CV-CV-CVC`} ({scales::percent(`CV-CV-CVC`/5240)})"),
+    Total = glue::glue("{Total} ({scales::percent(Total/12511)})")
+  ) %>% 
+  #dplyr::relocate(tonicidade, e1, e2, total) %>% 
   knitr::kable(
     col.names = c("Tonicidade produção", "CV-CV-CV", "CV-CV-CVC", "Total"),
     booktabs = TRUE,
@@ -296,24 +244,16 @@ pseudopalavras::dados %>%
     c(" " = 1, "Estrutura da palavra" = 2, " " = 1)
   )
 ```
+Na Tabela \@ref(estrut-tonicidade-producao), vemos que 85% das pseudopalavras 
+cuja estrutura era CV-CV-CV foram classificadas como paroxítonas, e 79% das pseudopalavras cuja estrutura era CV-CV-CVC foram classificadas como oxítonas, o que corrobora com a afirmação da literatura, de que uma palavra típica da língua portuguesa é formada por sílabas CV e com a tonicidade recaindo na penúltima sílaba (paroxítona), uma vez que o padrão silábico canônico do português é CV e o padrão tônico é o  paroxítono.
 
-Na Tabela \@ref(estrut-tonicidade-producao), vemos que 87% das pseudopalavras 
-cuja estrutura era CV-CV-CV foram classificadas como paroxítonas, e 85% das pseudopalavras
-cuja estrutura era CV-CV-CVC foram classificadas como oxítonas, o que corrobora com a 
-afirmação da literatura, de que a estrutura é a maior, se não única, influência na 
-atribuição da tonicidade em palavras do português brasileiro. A partir disso, vemos a 
-possibilidade de testar a significância dessa discrepância através de testes univariados
-entre a tonicidade da produção e estrutura da palavra. 
+Logo, parece existir influência da estrutura na atribuição da tonicidade em palavras do português brasileiro. A partir disso, vemos a possibilidade de testar a significância dessa discrepância através de testes univariados entre a tonicidade da produção e estrutura da palavra. 
 
 
 ```{r grupo-estrutura-producao-alvo}
 ftable(pseudopalavras::dados$grupo,pseudopalavras::dados$estrutura_palavra,pseudopalavras::dados$tonicidade_producao,pseudopalavras::dados$tonicidade_alvo) 
 ```
-Por fim, na Tabela \@ref(grupo-estrutura-producao-alvo) existe um lapso faltante de dados 
-pois não existe, no português brasileiro, palavras com tonicidade proparoxítona e de alta
-frequência no Corpus com estrutura CV-CV-CVC. Isso pode ser um problema a ser contornado 
-na análise, uma vez que existem combinações de categorias das variáveis grupo e estrutura 
-por nível da tonicidade da palavra-alvo sem informação. 
+Por fim, na Tabela \@ref(grupo-estrutura-producao-alvo) existe um lapso faltante de dados pois não existe, no português brasileiro, palavras com tonicidade proparoxítona e de alta frequência no Corpus com estrutura CV-CV-CVC. Isso pode ser um problema a ser contornado na análise, uma vez que existem combinações de categorias das variáveis grupo e estrutura por nível da tonicidade da palavra-alvo sem informação. 
 
 ## Conclusão da análise descritiva e próximos passos
 
@@ -368,9 +308,7 @@ $H_1$: Há associação entre graduação em letras e a atribuição acentual da
 
 Após os testes, decidimos investigar mais minunciosamente a relação de dependência
 entre as variáveis cujo teste qui-quadrado foi significante. Essa etapa foi realizada
-através de análises de correspondência, que visa medir o grau de associação de variáveis
-categorizadas comparadas. O objetivo é construir uma representação gráfica da associação
-entre as variáveis. 
+através de análises de correspondência, que visa medir o grau de associação de variáveis categorizadas comparadas. O objetivo é construir uma representação gráfica da associação entre as variáveis. 
 
 
 
