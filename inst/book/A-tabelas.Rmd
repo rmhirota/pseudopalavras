@@ -83,48 +83,7 @@ participantes %>%
   ) %>% 
   kableExtra::kable_styling(full_width = TRUE)
 ```
-<br>
-```{r grupo-alvo}
-pseudopalavras::dados %>% dplyr::distinct(palavra_alvo, .keep_all = TRUE) %>% 
-  dplyr::count(tonicidade_alvo, grupo) %>% 
-  tidyr::pivot_wider(names_from = tonicidade_alvo, values_from = n) %>%
-  setNames(c(
-    "grupo", 
-    "oxitona",
-    "paroxitona",
-    "proparoxitona"
-  )) %>%
-  dplyr::mutate(total = oxitona + paroxitona + proparoxitona) %>% 
-  dplyr::transmute(
-    grupo,
-    oxitona = glue::glue("{oxitona} ({scales::percent(oxitona/total, accuracy = .1)})"),
-    paroxitona = glue::glue("{paroxitona} ({scales::percent(paroxitona/total, accuracy = .1)})"),
-    proparoxitona = glue::glue("{proparoxitona} ({scales::percent(proparoxitona/total, accuracy = .1)})"),
-    total = glue::glue("{total} ({scales::percent(total/total, accuracy = .1)})")
-  ) %>% 
-  tidyr::pivot_longer(grupo) %>% 
-  dplyr::transmute(
-    grupo = paste0(name, value),
-    oxitona, paroxitona, proparoxitona, total
-  ) %>% 
-  dplyr::mutate(grupo = dplyr::case_when(
-    grupo == "grupo1" ~ "1 (Similar de alta freq.)",
-    grupo == "grupo2" ~ "2 (Dissimilar de alta freq.)",
-    grupo == "grupo3" ~ "3 (Similar de baixa freq.)",
-    grupo == "grupo4" ~ "4 (Dissimilar de baixa freq.)"
-  )) %>% 
-  knitr::kable(
-    col.names = c(
-      "Grupo", "oxítona", "paroxítona", "proparoxítona", "Total"
-    ),
-    caption = "Frequência do Grupo experimental por Tonicidade da palavra-alvo.",
-    booktabs = TRUE,
-    table.attr = "style='width:100%;'"
-  ) %>% 
-  kableExtra::add_header_above(
-    c(" " = 1, "Tonicidade da palavra alvo" = 3, " " = 1)
-  )
-```
+
 <br>
 ```{r grupo-producao}
 pseudopalavras::dados %>% 
@@ -191,62 +150,10 @@ pseudopalavras::dados %>%
   )
 ```
 <br>
-```{r validacao-grupo}
-pseudopalavras::dados %>% 
-  dplyr::count(grupo, validacao) %>% 
-  tidyr::pivot_wider(names_from = validacao, values_from = n) %>%
-  janitor::adorn_totals(where = c("row")) %>%
-  janitor::adorn_percentages(denominator = "col") %>% 
-  janitor::adorn_pct_formatting(digits = 1) %>% 
-  janitor::adorn_ns(position = "front") %>% 
-  knitr::kable(
-    col.names = c(
-      "Grupo", "Não Validada", "Quase Validada", 
-      "Validada"
-    ),
-    caption = "Frequência das pseudopalavras nos Grupos, por status de Validação.",
-    booktabs = TRUE,
-    table.attr = "style='width:100%;'"
-  #, row.names = c(
-   # "1 (Similar de alta freq.)",
-    #"2 (Dissimilar de alta freq.)",
-    #"3 (Similar de baixa freq.)",
-    #"4 (Dissimilar de baixa freq.)")
-  ) %>% 
-  kableExtra::add_header_above(
-    c(" " = 1, "Status Validação" = 2, " " = 1)
-  )
-```
-<br>
-```{r estrut-tonicidade-pseudo}
-pseudopalavras::dados %>% 
-  dplyr::count(estrutura_palavra, tonicidade_producao) %>% 
-  tidyr::pivot_wider(names_from = estrutura_palavra, values_from = n) %>% 
-  setNames(c("tonicidade", "e1", "e2")) %>% 
-  dplyr::mutate(
-    total = e1 + e2,
-    e1 = glue::glue("{e1} ({scales::percent(e1/total)})"),
-    e2 = glue::glue("{e2} ({scales::percent(e2/total)})")
-  ) %>% 
-  dplyr::relocate(tonicidade, e1, e2, total) %>% 
-  knitr::kable(
-    col.names = c(
-      "Tonicidade palavra produção", "CV-CV-CV", "CV-CV-CVC", "Total"
-    ),
-    caption = "Atribuições acentuais por Estrutura das palavras.",
-    booktabs = TRUE,
-    table.attr = "style='width:100%;'"
-  ) %>% 
-  kableExtra::add_header_above(
-    c(" " = 1, "Estrutura da palavra" = 2, " " = 1)
-  )
-```
 
-
-<br>
-```{r estrut-tonicidade-producao}
-pseudopalavras::dados %>% 
-  dplyr::count(estrutura_palavra, tonicidade_producao) %>% 
+```{r estrut-tonicidade-alvo}
+pseudopalavras::dados %>%  dplyr::distinct(palavra_alvo, .keep_all = TRUE) %>% 
+  dplyr::count(estrutura_palavra, tonicidade_alvo) %>% 
   tidyr::pivot_wider(names_from = estrutura_palavra, values_from = n) %>% 
   setNames(c("tonicidade", "e1", "e2")) %>% 
   dplyr::mutate(
@@ -257,14 +164,16 @@ pseudopalavras::dados %>%
   ) %>% 
   dplyr::relocate(tonicidade, e1, e2, total) %>% 
   knitr::kable(
-    col.names = c("Tonicidade produção", "CV-CV-CV", "CV-CV-CVC", "Total"),
+    col.names = c("Tonicidade palavra-alvo", "CV-CV-CV", "CV-CV-CVC", "Total"),
     booktabs = TRUE,
     table.attr = "style='width:100%;'",
-    caption = "Frequência da Tonicidade da pseudopalavra por Estrutura das palavras."
+    caption = "Frequência da Tonicidade alvo por Estrutura das palavras."
   ) %>% 
   kableExtra::add_header_above(
     c(" " = 1, "Estrutura da palavra" = 2, " " = 1)
   )
 ```
+
+
 
 

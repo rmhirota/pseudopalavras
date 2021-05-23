@@ -3,7 +3,7 @@
 O estudo foi realizado de maneira remota com reuniões individuais entre a pesquisadora 
 e cada um dos participantes via Google Meet. Consistiu em apresentar aos 
 participantes, através do software Psychopy, 372 pseudopalavras agrupadas nos
-denominados grupos de estímulos e registrar a forma como eles reproduziam verbalmente
+denominados grupos de classificação e registrar a forma como eles reproduziam verbalmente
 tais palavras criadas. A seguir, as respostas dos participantes foram classificadas
 de acordo com as três classes de acentuação tônica: oxítona, paroxítona e proparoxítona.
 

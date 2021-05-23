@@ -26,7 +26,7 @@ dados %>%
 # data:  .
 # X-squared = 123.71, df = 6, p-value < 2.2e-16
 
-# CONFIRMAR: número total de palavras em cada grupo é diferente, e o teste usa
+# CONFIRMAR: número total de pseudopalavras em cada grupo é diferente, e o teste usa
 # contagem. Se temos dois tipos aleatórios (falante e pseudopalavra) esses testes
 # ainda fazem sentido?
 

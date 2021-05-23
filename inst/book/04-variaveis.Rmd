@@ -23,7 +23,7 @@ Sardinha. Se a palavra possui mais de 100 mil ocorrências no corpus ela é
 classificada como de alta frequência e se possui menos de 2 mil ocorrências ela é
 classificada como de baixa frequência. A junção da ideia de frequência e similaridade
 entre a palavra alvo e a pseudopalavra resultou na criação de uma variável com 4
-categorias chamada grupo de estímulos.
+categorias chamada grupo de classificação. 
 
 - __Validação__: s = sim, n = não validada e q = quase validada
 - __Taxa de validação__: indica quantas pessoas do estudo preliminar informaram que
@@ -35,7 +35,7 @@ CV-CV-CVC), sendo que C indica Consoante e V indica Vogal
 - __Pseudopalavra__: refere-se a cada um dos estímulos criados
 - __Segmento modificado__: indica qual letra foi modificada na criação da pseudopalavra
 a partir da palavra real (consoante ou vogal)  
-- __Grupo dos estímulos__:  indica o efeito da similaridade (entre a pseudopalavra 
+- __Grupo de classificação__:  indica o efeito da similaridade (entre a pseudopalavra 
 e a palavra real) e da frequência (alta e baixa) na produção acentual
      
   - 1 = pseudopalavras similares de alta frequência    

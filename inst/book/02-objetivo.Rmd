@@ -17,15 +17,15 @@ na acentuação tônica das pseudopalavras?
 
 3. A taxa de similaridade influencia na associação acentual?
 Entender se quanto mais similar a pseudopalavra for da palavra-alvo, maiores são as 
-chances de atribuição do mesmo padrão acentual da palavra-alvo
+chances de atribuição do mesmo padrão acentual da palavra-alvo.
 
 4. As variáveis selecionadas pelo modelo estão em concordância com a literatura 
 da área?  Existem variáveis linguísticas, extralinguísticas -relacionadas aos participantes- 
 e experimentais -relacionadas ao estudo-, que podem, segundo a literatura da área, 
 influenciar o comportamento acentual no português. 
 
-5. Há associação entre graduação em letras e a classificação tônica da pseudopalvra?
-Há associação entre conhecimento em música e a classificação tônica da pseudopalvra? 
+5. Há associação entre graduação em letras e a classificação tônica da pseudopalavra?
+Há associação entre conhecimento em música e a classificação tônica da pseudopalavra? 
 Espera-se que indivíduos com conhecimento em música ou que entraram recentemente em letras
 tenham um comportamento de classificação das pseudopalavras distinto dos demais.
 
