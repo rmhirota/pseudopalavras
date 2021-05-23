@@ -2,13 +2,13 @@
 
 ## REFERÊNCIAS BIBLIOGRÁFICAS {-}
 
-<div id="refs"></div>
-
 ## PROGRAMAS COMPUTACIONAIS UTILIZADOS {-}
 
 Software R (versão 4.0.5)
 
-
 ## ÁREA DE APLICAÇÃO {-}
 
 Linguística (14:110)
+
+
+<div id="refs"></div>

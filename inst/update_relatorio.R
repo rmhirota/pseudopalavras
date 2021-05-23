@@ -10,6 +10,7 @@ readr::read_file("inst/book/pseudopalavras.html") %>%
   readr::write_file("inst/book/relatorio.html")
 
 # fazer print em pdf
+# se não rodar, abrir o relatorio.html e imprimir em pdf
 pagedown::chrome_print(
   "inst/book/relatorio.html",
   output = "inst/book/relatorio/relatorio.pdf",

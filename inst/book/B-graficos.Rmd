@@ -1,4 +1,4 @@
-## Gráficos {#graficos}
+#    Gráficos {#graficos}
 
 ```{r area_linguas }
 knitr::include_graphics("assets/graficos/g1_area_linguas.jpeg")
@@ -52,7 +52,7 @@ pseudopalavras::dados %>%
     grupo == 2 ~ "2 (Dissimilar de alta freq.)",
     grupo == 3 ~ "3 (Similar de baixa freq.)",
     grupo == 4 ~ "4 (Dissimilar de baixa freq.)"
-  ))
+  )) %>% 
   knitr::kable(col.names = c(
     "Grupo", "Tonicidade de produção", "Oxítona", "Paroxítona",
     "Proparoxítona"

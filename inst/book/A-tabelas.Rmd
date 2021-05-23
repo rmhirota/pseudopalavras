@@ -1,6 +1,6 @@
 # (APPENDIX) Apêndices {-} 
 
-## Tabelas {#tabelas}
+# Tabelas {#tabelas}
 
 ```{r perfil-informantes }
 pseudopalavras::dados %>% 
@@ -14,7 +14,7 @@ pseudopalavras::dados %>%
   knitr::kable(
     caption = "Perfil dos participantes de acordo com a Naturalidade.",
     booktabs = TRUE,
-    table.attr = "style='width:80%;'", 
+    table.attr = "style='width:100%;'",
     col.names = c("Naturalidade", "Total")
   ) %>% 
   kableExtra::kable_styling(full_width = TRUE)
@@ -28,7 +28,7 @@ participantes %>%
     col.names = c("Área de formação", "Total"),
     caption = "Frequência da variável dicotômica Área de formação.",
     booktabs = TRUE,
-    table.attr = "style='width:40%;'"
+    table.attr = "style='width:100%;'"
   ) %>% 
   kableExtra::kable_styling(full_width = TRUE)
 ```
@@ -54,7 +54,7 @@ participantes %>%
     col.names = c("Escolaridade", "Outro", "Letras", "Total"),
     caption = "Escolaridade dos participantes pela área de formação.",
     booktabs = TRUE,
-    table.attr = "style='width:40%;'"
+    table.attr = "style='width:100%;'"
   ) %>% 
   kableExtra::kable_styling(full_width = TRUE)
 
@@ -63,11 +63,12 @@ participantes %>%
 ```{r linguas}
 participantes %>% 
   dplyr::count(linguas, sort = TRUE) %>% 
+  dplyr::mutate(linguas = ifelse(linguas == 1, "Sim", "Não")) %>% 
    knitr::kable(
     col.names = c("Conhecimento em línguas", "Total"),
     caption = "Frequência da variável dicotômica Línguas.",
     booktabs = TRUE,
-    table.attr = "style='width:40%;'"
+    table.attr = "style='width:100%;'"
   ) %>% 
   kableExtra::kable_styling(full_width = TRUE)
 ```
@@ -75,11 +76,12 @@ participantes %>%
 ```{r musica}
 participantes %>% 
   dplyr::count(musica, sort = TRUE) %>% 
+  dplyr::mutate(musica = ifelse(musica == 1, "Sim", "Não")) %>% 
   knitr::kable(
     col.names = c("Conhecimento em música", "Total"),
     caption = "Frequência da variável dicotômica Música.",
     booktabs = TRUE,
-    table.attr = "style='width:40%;'"
+    table.attr = "style='width:100%;'"
   ) %>% 
   kableExtra::kable_styling(full_width = TRUE)
 ```
@@ -174,6 +176,6 @@ pseudopalavras::dados %>%  dplyr::distinct(palavra_alvo, .keep_all = TRUE) %>%
   )
 ```
 
-
+\newpage
 
 
