@@ -255,7 +255,7 @@ ftable(pseudopalavras::dados$grupo,pseudopalavras::dados$estrutura_palavra,pseud
 ```
 Por fim, na Tabela \@ref(grupo-estrutura-producao-alvo) existe um lapso faltante de dados pois não existe, no português brasileiro, palavras com tonicidade proparoxítona e de alta frequência no Corpus com estrutura CV-CV-CVC. Isso pode ser um problema a ser contornado na análise, uma vez que existem combinações de categorias das variáveis grupo e estrutura por nível da tonicidade da palavra-alvo sem informação. 
 
-## Conclusão da análise descritiva e próximos passos
+## Conclusão da análise descritiva e próximos passos (ideia 1)
 
 A partir dos resultados presentes nas tabelas da seção anterior, percebe-se um 
 comportamento não homogêneo entre níveis de algumas variáveis.Portanto, o próximo
@@ -309,6 +309,15 @@ $H_1$: Há associação entre graduação em letras e a atribuição acentual da
 Após os testes, decidimos investigar mais minunciosamente a relação de dependência
 entre as variáveis cujo teste qui-quadrado foi significante. Essa etapa foi realizada
 através de análises de correspondência, que visa medir o grau de associação de variáveis categorizadas comparadas. O objetivo é construir uma representação gráfica da associação entre as variáveis. 
+
+## Conclusão da análise descritiva e próximos passos (ideia 2)
+
+Como temos dados no formato de medidas repetidas (falantes acentuando diversas pseudopalavras) e uma mesma palavra-alvo gerou diversas pseupalavras, o pressuposto de independencia entre as observações não é verdadeiro. 
+
+Logo, pensou-se em aplicar um teste de concordância do tipo Kappa para entender se os falantes aplicam a acentuação de tônica nas pseudopalavras de forma distinta. Assim, será possível definir posteriormente se um modelo do tipo aleatório para os falantes é necessário.
+
+Observando a estatística Kappa geral (0.54) temos que existe concordância entre as respostas dos falantes. Porém, apesar das categorias oxítona e pararoxítona possuírem estatísticas Kappa altas(0.61 e 0.54), a categoria proparoxítona possue um baixo grau de concordância entre os falantes (0.14).
+
 
 
 
