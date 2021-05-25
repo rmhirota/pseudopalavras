@@ -182,7 +182,7 @@ pseudopalavras::dados %>%
   )
 
 ```
-
+<br>
 ```{r validacao-grupo}
 pseudopalavras::dados %>% 
   dplyr::count(grupo, validacao) %>% 
@@ -209,6 +209,34 @@ pseudopalavras::dados %>%
     c(" " = 1, "Status Validação" = 2, " " = 1)
   )
 ```
+<br>
+```{r validacao-grupo-tonicidade}
+pseudopalavras::dados %>% 
+  dplyr::count(grupo, tonicidade_producao, validacao) %>% 
+  dplyr::mutate(validacao = dplyr::case_when(
+    validacao == "n" ~ "Não Validada",
+    validacao == "s" ~ "Validada",
+    validacao == "q" ~ "Quase Validada"
+  )) %>% 
+  tidyr::pivot_wider(names_from = validacao, values_from = n) %>% 
+  janitor::adorn_totals() %>% 
+  janitor::adorn_percentages(denominator = "col") %>% 
+  janitor::adorn_pct_formatting(digits = 1) %>% 
+  janitor::adorn_ns(position = "front") %>% 
+  knitr::kable(
+    col.names = c(
+      "Grupo de classificação", "Tonicidade produção", "Não Validada", "Quase Validada", 
+      "Validada"
+    ),
+    caption = "Tonicidade de pseudopalavras por Grupo e Validação.",
+    booktabs = TRUE,
+    table.attr = "style='width:100%;'"
+  ) %>% 
+  kableExtra::add_header_above(
+    c(" " = 2, "Status Validação" = 3)
+  )
+```
+
 
 Como observação subsequente, podemos ver que a divisão de estrutura da palavra-alvo 
 não é bem distribuída entre as classificações de tonicidades das palavras-alvo. A 
