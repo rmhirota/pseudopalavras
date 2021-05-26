@@ -272,7 +272,8 @@ pseudopalavras::dados %>%
     c(" " = 1, "Estrutura da palavra" = 2, " " = 1)
   )
 ```
-Na Tabela \@ref(estrut-tonicidade-producao), vemos que 85% das pseudopalavras 
+
+Na Tabela \@ref(tab:estrut-tonicidade-producao), vemos que 85% das pseudopalavras 
 cuja estrutura era CV-CV-CV foram classificadas como paroxítonas, e 79% das pseudopalavras cuja estrutura era CV-CV-CVC foram classificadas como oxítonas, o que corrobora com a afirmação da literatura, de que uma palavra típica da língua portuguesa é formada por sílabas CV e com a tonicidade recaindo na penúltima sílaba (paroxítona), uma vez que o padrão silábico canônico do português é CV e o padrão tônico é o  paroxítono.
 
 Logo, parece existir influência da estrutura na atribuição da tonicidade em palavras do português brasileiro. A partir disso, vemos a possibilidade de testar a significância dessa discrepância através de testes univariados entre a tonicidade da produção e estrutura da palavra. 

@@ -2,6 +2,7 @@ tab:grupo-tonicidade
 tab:tonicidade-pseudoxalvo
 tab:validacao-producao
 tab:validacao-grupo
+tab:validacao-grupo-tonicidade
 tab:estrut-tonicidade-producao
 tab:perfil-informantes
 tab:area-formacao
@@ -28,7 +29,8 @@ sexo-e-idade
 naturalidade
 área-de-formação
 variáveis-linguísticas-1
-conclusão-da-análise-descritiva-e-próximos-passos
+conclusão-da-análise-descritiva-e-próximos-passos-ideia-1
+conclusão-da-análise-descritiva-e-próximos-passos-ideia-2
 univariada
 tabelas
 graficos

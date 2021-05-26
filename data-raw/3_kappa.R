@@ -17,7 +17,7 @@ kappam.fleiss(da_kappa, detail = TRUE)
 library(irrCAC)
 # vignette: https://cran.r-project.org/web/packages/irrCAC/vignettes/overview.html
 
-da_kappa <- pseudopalavras::dados %>%
+da <- pseudopalavras::dados %>%
   dplyr::select(informante, tonicidade_producao, pseudopalavra) %>%
   dplyr::group_by(pseudopalavra) %>%
   dplyr::summarise(
@@ -27,9 +27,50 @@ da_kappa <- pseudopalavras::dados %>%
   ) %>%
   dplyr::select(-pseudopalavra)
 
-gwet.ac1.dist(da_kappa)
-# fleiss.kappa.dist(da_kappa)
+gwet.ac1.dist(da)
+# com esse pacote não tem como fazer o teste para cada nível
 
+
+# Teste para cada grupo ---------------------------------------------------
+
+teste_grupo <- function(num_grupo) {
+  da <- pseudopalavras::dados %>%
+    dplyr::filter(grupo == num_grupo) %>%
+    dplyr::select(informante, tonicidade_producao, pseudopalavra) %>%
+    dplyr::group_by(pseudopalavra) %>%
+    dplyr::summarise(
+      oxitona = sum(tonicidade_producao == "oxítona"),
+      paroxitona = sum(tonicidade_producao == "paroxítona"),
+      proparoxitona = sum(tonicidade_producao == "proparoxítona")
+    ) %>%
+    dplyr::select(-pseudopalavra)
+  gwet.ac1.dist(da) %>%
+    dplyr::mutate(grupo = paste0("Grupo ", num_grupo)) %>%
+    dplyr::relocate(grupo)
+}
+
+purrr::map_dfr(1:4, teste_grupo)
+
+
+# Teste para cada estrutura -----------------------------------------------
+
+teste_estrutura <- function(estrut) {
+  da <- pseudopalavras::dados %>%
+    dplyr::filter(estrutura_palavra == estrut) %>%
+    dplyr::select(informante, tonicidade_producao, pseudopalavra) %>%
+    dplyr::group_by(pseudopalavra) %>%
+    dplyr::summarise(
+      oxitona = sum(tonicidade_producao == "oxítona"),
+      paroxitona = sum(tonicidade_producao == "paroxítona"),
+      proparoxitona = sum(tonicidade_producao == "proparoxítona")
+    ) %>%
+    dplyr::select(-pseudopalavra)
+  gwet.ac1.dist(da) %>%
+    dplyr::mutate(estrutura = estrut) %>%
+    dplyr::relocate(estrutura)
+}
+
+purrr::map_dfr(unique(pseudopalavras::dados$estrutura_palavra), teste_estrutura)
 
 
 
