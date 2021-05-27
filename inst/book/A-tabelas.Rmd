@@ -109,14 +109,14 @@ pseudopalavras::dados %>%
   ) %>% 
   knitr::kable(
     col.names = c(
-      "Tonicidade produção", 
+      "Tonicidade da pseudopalavra", 
       "1 (Similar de alta freq.)",
       "2 (Dissimilar de alta freq.)",
       "3 (Similar de baixa freq.)",
       "4 (Dissimilar de baixa freq.)",
       "Total"
     ),
-    caption = "Frequência do Grupo de classificação por Tonicidade de produção (da pseudopalavra).",
+    caption = "Frequência do Grupo de classificação por Tonicidade da pseudopalavra.",
     booktabs = TRUE,
     table.attr = "style='width:100%;'"
   ) %>% 
@@ -141,7 +141,7 @@ pseudopalavras::dados %>%
     total = glue::glue("{total} ({scales::percent(total/12511, .1)})")
   ) %>% 
   knitr::kable(col.names = c(
-      "Tonicidade produção", "oxítona", "paroxítona", "proparoxítona", "Total"
+      "Tonicidade da pseudopalavra", "oxítona", "paroxítona", "proparoxítona", "Total"
     ),
     caption = "Frequência da tonicidade das palavras-alvo por nível de tonicidade das pseudopalavras.",
     booktabs = TRUE,
@@ -149,30 +149,6 @@ pseudopalavras::dados %>%
   ) %>% 
   kableExtra::add_header_above(
     c(" " = 1, "Tonicidade da palavra-alvo" = 3, " " = 1)
-  )
-```
-<br>
-
-```{r estrut-tonicidade-alvo}
-pseudopalavras::dados %>%  dplyr::distinct(palavra_alvo, .keep_all = TRUE) %>% 
-  dplyr::count(estrutura_palavra, tonicidade_alvo) %>% 
-  tidyr::pivot_wider(names_from = estrutura_palavra, values_from = n) %>% 
-  setNames(c("tonicidade", "e1", "e2")) %>% 
-  dplyr::mutate(
-    total = e1 + e2,
-    e1 = glue::glue("{e1} ({scales::percent(e1/total)})"),
-    e2 = glue::glue("{e2} ({scales::percent(e2/total)})"),
-    total = glue::glue("{total} ({scales::percent(total/total)})")
-  ) %>% 
-  dplyr::relocate(tonicidade, e1, e2, total) %>% 
-  knitr::kable(
-    col.names = c("Tonicidade palavra-alvo", "CV-CV-CV", "CV-CV-CVC", "Total"),
-    booktabs = TRUE,
-    table.attr = "style='width:100%;'",
-    caption = "Frequência da Tonicidade alvo por Estrutura das palavras."
-  ) %>% 
-  kableExtra::add_header_above(
-    c(" " = 1, "Estrutura da palavra" = 2, " " = 1)
   )
 ```
 
@@ -207,81 +183,6 @@ pseudopalavras::dados %>%
 
 
 
-<br>
-```{r gwet-grupo}
-teste_grupo <- function(num_grupo) {
-  da <- pseudopalavras::dados %>%
-    dplyr::filter(grupo == num_grupo) %>%
-    dplyr::select(informante, tonicidade_producao, pseudopalavra) %>%
-    dplyr::group_by(pseudopalavra) %>%
-    dplyr::summarise(
-      oxitona = sum(tonicidade_producao == "oxítona"),
-      paroxitona = sum(tonicidade_producao == "paroxítona"),
-      proparoxitona = sum(tonicidade_producao == "proparoxítona")
-    ) %>%
-    dplyr::select(-pseudopalavra)
-  gwet.ac1.dist(da) %>%
-    dplyr::mutate(grupo = paste0("Grupo ", num_grupo)) %>%
-    dplyr::relocate(grupo)
-}
-
-purrr::map_dfr(1:4, teste_grupo)%>%select(grupo,coeff)%>%
-knitr::kable(col.names=c("Grupo de Classificação","Valor da Estatística"), 
-    booktabs = TRUE,
-    table.attr = "style='width:100%;'")%>%
-  kableExtra::kable_styling(full_width = TRUE)
-```
-
-```{r gwet-estrutura}
-teste_estrutura <- function(estrut) {
-  da <- pseudopalavras::dados %>%
-    dplyr::filter(estrutura_palavra == estrut) %>%
-    dplyr::select(informante, tonicidade_producao, pseudopalavra) %>%
-    dplyr::group_by(pseudopalavra) %>%
-    dplyr::summarise(
-      oxitona = sum(tonicidade_producao == "oxítona"),
-      paroxitona = sum(tonicidade_producao == "paroxítona"),
-      proparoxitona = sum(tonicidade_producao == "proparoxítona")
-    ) %>%
-    dplyr::select(-pseudopalavra)
-  gwet.ac1.dist(da) %>%
-    dplyr::mutate(estrutura = estrut) %>%
-    dplyr::relocate(estrutura)
-}
-
-purrr::map_dfr(unique(pseudopalavras::dados$estrutura_palavra), teste_estrutura)%>%select(estrutura,coeff)%>%
-knitr::kable(col.names=c("Estrutura da Palavra","Valor da Estatística"), 
-    booktabs = TRUE,
-    table.attr = "style='width:100%;'")%>%
-  kableExtra::kable_styling(full_width = TRUE)
-
-```
-
-<b>
-```{r gwet-segmento}
-teste_segmento <- function(seg) {
-  da <- pseudopalavras::dados %>%
-    dplyr::filter(segmento_modificado == seg) %>%
-    dplyr::select(informante, tonicidade_producao, pseudopalavra) %>%
-    dplyr::group_by(pseudopalavra) %>%
-    dplyr::summarise(
-      oxitona = sum(tonicidade_producao == "oxítona"),
-      paroxitona = sum(tonicidade_producao == "paroxítona"),
-      proparoxitona = sum(tonicidade_producao == "proparoxítona")
-    ) %>%
-    dplyr::select(-pseudopalavra)
-  gwet.ac1.dist(da) %>%
-    dplyr::mutate(segmento_modificado = seg) %>%
-    dplyr::relocate(segmento_modificado)
-}
-
-purrr::map_dfr(unique(pseudopalavras::dados$segmento_modificado), teste_segmento)%>%select(segmento_modificado,coeff)%>%
-knitr::kable(col.names=c("Segmento Modificado","Valor da Estatística"), 
-    booktabs = TRUE,
-    table.attr = "style='width:100%;'")%>%
-  kableExtra::kable_styling(full_width = TRUE)
-
-```
 
 
 \newpage
