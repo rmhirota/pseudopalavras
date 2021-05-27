@@ -1,11 +1,11 @@
 #    Gráficos {#graficos}
 
-```{r area_linguas }
+```{r area_linguas}
 knitr::include_graphics("assets/graficos/g1_area_linguas.jpeg")
 ```
 <br>
 
-```{r tonicidade-fluxo}
+```{r tonicidade-fluxo, echo=FALSE, message=FALSE, warning=FALSE}
 library(ggalluvial)
 pseudopalavras::dados %>% 
   dplyr::mutate(acerto = tonicidade_producao == tonicidade_alvo) %>% 

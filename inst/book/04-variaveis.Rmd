@@ -47,8 +47,9 @@ Ressaltamos que essa variável não foi controlada durante a coleta
 de dados, ou seja, não foi pré-definido uma quantidade de palavras de cada categoria
 em cada conjunto apresentado aos participantes. 
     
-- __Taxa de similaridade__: 1, 2, 3 (grupos similares), 5, 6, 7, 8, 9, 10 (grupos
-dissimilares)
+- __Taxa de similaridade__: Para mudanças de consoante:1, 2, 3 (grupos similares), 5, 6, 7
+, 8, 9, 10 (grupos dissimilares); para mudanças de vogal :1 (grupos similares), 5, 6, 7, 8 
+(grupos dissimilares)
 
 
 ## Variáveis Extralinguísticas

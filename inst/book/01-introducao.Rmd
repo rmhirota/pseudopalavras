@@ -30,11 +30,6 @@ português atribuem a tonicidade em pseudopalavras parcialmente relacionadas a v
 existentes no idioma. Em outras palavras, busca-se compreender como o indivíduo,
 ao se deparar com uma palavra nova, nesse caso, uma pseudopalavra, define a sílaba 
 tônica. Além disso, busca-se entender quais são os outros fatores, tais como os
-conhecimentos linguísticos do falante e as estruturas linguísticas das palavras que
+conhecimentos linguísticos do falante e as estruturas linguísticas das palavras, que
 podem influenciar nesse processo de classificação e portanto da determinação da entonação.
-
-
-<!-- ## Organização do trabalho -->
-
-<!-- O relatório foi organizado em XX capítulos, além desta introdução. No Capítulo \@ref(inferencia), apresentamos o modelo proposto, procedimento de análise e organização dos dados. No Capítulo \@ref(conclusoes), apresentamos os principais resultados da análise, organizados de acordo com as questões levantadas pela pesquisa. -->
 
