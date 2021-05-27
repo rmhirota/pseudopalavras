@@ -55,6 +55,7 @@ pseudopalavras nesse estudo parece ir de acordo com a afirmação de
 
 > Podemos considerar que o acento proparoxítono é marcado, no sentido de que é menos usual. É um acento especial, contrário à tendência geral de acentuar a penúltima sílaba
 
+
 ```{r grupo-tonicidade}
 pseudopalavras::dados %>% 
   dplyr::count(tonicidade_producao) %>% 
@@ -341,11 +342,11 @@ através de análises de correspondência, que visa medir o grau de associação
 
 ## Conclusão da análise descritiva e próximos passos (ideia 2)
 
-Como temos dados no formato de medidas repetidas (falantes acentuando diversas pseudopalavras) e uma mesma palavra-alvo gerou diversas pseupalavras, o pressuposto de independencia entre as observações não é verdadeiro. 
+Como temos dados no formato de medidas repetidas (falantes acentuando diversas pseudopalavras) e uma mesma palavra-alvo gerou diversas pseupalavras, o pressuposto de independência entre as observações não é verdadeiro. 
 
-Logo, pensou-se em aplicar um teste de concordância do tipo Kappa para entender se os falantes aplicam a acentuação de tônica nas pseudopalavras de forma distinta. Assim, será possível definir posteriormente se um modelo do tipo aleatório para os falantes é necessário.
+Logo, pensou-se em aplicar um teste de concordância do tipo Kappa para entender se os falantes aplicam a acentuação tônica nas pseudopalavras de forma distinta. Assim, será possível definir posteriormente se um modelo do tipo aleatório para os falantes é necessário.
 
-Observando a estatística Kappa geral (0.54) temos que existe concordância entre as respostas dos falantes. Porém, apesar das categorias oxítona e pararoxítona possuírem estatísticas Kappa altas(0.61 e 0.54), a categoria proparoxítona possue um baixo grau de concordância entre os falantes (0.14).
+Observando a estatística Kappa geral (0.54) temos que existe concordância entre as respostas dos falantes. Porém, apesar das categorias oxítona e pararoxítona possuírem estatísticas Kappa altas(0.61 e 0.54), a categoria proparoxítona possui um baixo grau de concordância entre os falantes (0.14).
 
 
 

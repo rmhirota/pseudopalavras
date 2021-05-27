@@ -165,3 +165,7 @@ prop.table(table(dados$tonicidade_producao,dados$estrutura_palavra),2)*100
 dados %>% dplyr::group_by(pseudopalavra) %>%  dplyr::count()%>% View()
 dados %>% dplyr::distinct(palavra_alvo) %>% dplyr::count()
 
+
+
+
+

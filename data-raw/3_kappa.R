@@ -1,5 +1,5 @@
 library(magrittr)
-
+library(dplyr)
 # Teste Kappa -------------------------------------------------------------
 library(irr)
 # documentação: https://www.rdocumentation.org/packages/irr/versions/0.84.1/topics/kappam.fleiss
@@ -73,5 +73,47 @@ teste_estrutura <- function(estrut) {
 purrr::map_dfr(unique(pseudopalavras::dados$estrutura_palavra), teste_estrutura)
 
 
+
+#teste para segmento modificado
+
+
+teste_segmento <- function(seg) {
+  da <- pseudopalavras::dados %>%
+    dplyr::filter(segmento_modificado == seg) %>%
+    dplyr::select(informante, tonicidade_producao, pseudopalavra) %>%
+    dplyr::group_by(pseudopalavra) %>%
+    dplyr::summarise(
+      oxitona = sum(tonicidade_producao == "oxítona"),
+      paroxitona = sum(tonicidade_producao == "paroxítona"),
+      proparoxitona = sum(tonicidade_producao == "proparoxítona")
+    ) %>%
+    dplyr::select(-pseudopalavra)
+  gwet.ac1.dist(da) %>%
+    dplyr::mutate(segmento_modificado = seg) %>%
+    dplyr::relocate(segmento_modificado)
+}
+
+purrr::map_dfr(unique(pseudopalavras::dados$segmento_modificado), teste_segmento)
+
+
+#teste para silaba modificada
+
+teste_silaba <- function(silab) {
+  da <- pseudopalavras::dados %>%
+    dplyr::filter(silaba_modificada == silab) %>%
+    dplyr::select(informante, tonicidade_producao, pseudopalavra) %>%
+    dplyr::group_by(pseudopalavra) %>%
+    dplyr::summarise(
+      oxitona = sum(tonicidade_producao == "oxítona"),
+      paroxitona = sum(tonicidade_producao == "paroxítona"),
+      proparoxitona = sum(tonicidade_producao == "proparoxítona")
+    ) %>%
+    dplyr::select(-pseudopalavra)
+  gwet.ac1.dist(da) %>%
+    dplyr::mutate(silaba_modificada = silab) %>%
+    dplyr::relocate(silaba_modificada)
+}
+
+purrr::map_dfr(unique(pseudopalavras::dados$silaba_modificada), teste_silaba)
 
 
