@@ -117,3 +117,4 @@ teste_silaba <- function(silab) {
 purrr::map_dfr(unique(pseudopalavras::dados$silaba_modificada), teste_silaba)
 
 
+
