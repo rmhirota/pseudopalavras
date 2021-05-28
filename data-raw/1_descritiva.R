@@ -30,9 +30,9 @@ g_area <- pessoas %>%
   )) +
   ggplot2::geom_col() +
   ggplot2::geom_text(position = ggplot2::position_stack(vjust = .5)) +
-  ggplot2::scale_fill_grey(start = 0.4) +
+  ggplot2::scale_fill_manual(values=c("lemonchiffon2","plum3")) +
   # ggplot2::scale_fill_viridis_d(option = "cividis", begin = 0.4) +
-  ggplot2::theme_minimal(14) +
+  ggplot2::theme_minimal(12) +
   ggplot2::labs(
     x = "Conhecimento de outra(s) língua(s)",
     y = "N",
@@ -167,5 +167,21 @@ dados %>% dplyr::distinct(palavra_alvo) %>% dplyr::count()
 
 
 
+g_validacao = pseudopalavras::dados %>%
+  dplyr::count(grupo, validacao) %>%
+  # dplyr::filter(grupo == 1) %>%
+  dplyr::mutate(validacao = dplyr::case_when(
+    validacao == "n" ~ "Não validada",
+    validacao == "q" ~ "Quase validada",
+    validacao == "s" ~ "Validada"
+  )) %>%
+  ggplot2::ggplot(ggplot2::aes(
+    x = grupo, y = n, fill = validacao
+  )) +
+  scale_fill_manual(name="Status",values=c("orchid3","lemonchiffon2","plum3"))+
+  labs(x="Grupo de Classificação", y= "N")+
+  ggplot2::geom_col()
+
+ggplot2::ggsave("inst/book/assets/graficos/g1_validacao_grupo.jpeg", g_validacao)
 
 

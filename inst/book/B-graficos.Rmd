@@ -8,19 +8,20 @@ knitr::include_graphics("assets/graficos/g1_area_linguas.jpeg")
 ```{r tonicidade-fluxo, echo=FALSE, message=FALSE, warning=FALSE}
 library(ggalluvial)
 pseudopalavras::dados %>% 
-  dplyr::mutate(acerto = tonicidade_producao == tonicidade_alvo) %>% 
-  dplyr::count(grupo, tonicidade_producao, tonicidade_alvo, acerto) %>% 
-  dplyr::filter(grupo == 1) %>%
+  dplyr::mutate(Coincidente = tonicidade_producao == tonicidade_alvo) %>% 
+  dplyr::count(grupo, tonicidade_producao, tonicidade_alvo, Coincidente) %>% 
+  #dplyr::filter(grupo == 1) %>%
   ggplot2::ggplot(ggplot2::aes(
     axis1 = tonicidade_alvo, axis2 = tonicidade_producao, y = n
   )) +
-  geom_alluvium(ggplot2::aes(fill = acerto)) +
+  geom_alluvium(ggplot2::aes(fill = Coincidente)) +
   geom_stratum() +
   ggplot2::geom_text(
     stat = "stratum", 
     ggplot2::aes(label = after_stat(stratum))
   ) +
-  theme_minimal() 
+  scale_fill_viridis_d()+
+  theme_minimal() +
   ggplot2::facet_wrap(~grupo)
   
 
@@ -36,6 +37,7 @@ pseudopalavras::dados %>%
     x = tonicidade_alvo, y = n, fill = tonicidade_producao
   )) +
   ggplot2::geom_col() +
+  scale_fill_viridis_d()+
   ggplot2::facet_wrap(~grupo)
   
 
@@ -63,7 +65,9 @@ pseudopalavras::dados %>%
   ) %>% 
   kableExtra::kable_styling(full_width = TRUE)
 ```
-
+```{r validacao_grupo}
+knitr::include_graphics("assets/graficos/g1_validacao_grupo.jpeg")
+```
 
 
 
