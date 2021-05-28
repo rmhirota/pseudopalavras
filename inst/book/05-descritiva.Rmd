@@ -143,7 +143,6 @@ das palavras-alvo."
 ```
 
 
-
 Como observação subsequente, podemos ver que a divisão de estrutura da palavra-alvo 
 não é bem distribuída entre as classificações de tonicidades das palavras-alvo. A 
 quantidade de palavras com estrutura CV-CV-CVC em proparoxítonas é pequena uma vez 
