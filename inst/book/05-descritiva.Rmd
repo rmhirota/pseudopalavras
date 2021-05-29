@@ -362,6 +362,7 @@ níveis de concordância.
 
 
 ```{r gwet-geral}
+library(irrCAC)
 da <- pseudopalavras::dados %>%
   dplyr::select(informante, tonicidade_producao, pseudopalavra) %>%
   dplyr::group_by(pseudopalavra) %>%
@@ -372,10 +373,13 @@ da <- pseudopalavras::dados %>%
   ) %>%
   dplyr::select(-pseudopalavra)
 
-gwet.ac1.dist(da)%>%select(coeff.name,coeff)%>%
-knitr::kable(col.names=c("Estatística", "Valor da Estatística"), 
+gwet.ac1.dist(da) %>%
+  dplyr::select(coeff.name, coeff) %>%
+  knitr::kable(
+    col.names = c("Estatística", "Valor da Estatística"), 
     booktabs = TRUE,
-    table.attr = "style='width:100%;'")%>%
+    table.attr = "style='width:100%;'"
+  )%>%
   kableExtra::kable_styling(full_width = TRUE)
 ```
 

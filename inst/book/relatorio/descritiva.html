@@ -181,31 +181,33 @@ logo, essa variável foi categorizada em dois níveis. A Tabela
 influência do curso de Letras na categorização das pseudopalavras é um dos
 fatores de possível interesse na análise dos dados.</p>
 <p>Analisando a distribuição por formação (Tabela <a href="tabelas.html#tab:area-escolaridade">A.3</a>),
-15 (55,9%) participantes são de outras áreas e 19 (44,1%) são da área de Letras; no entanto, cruzando com as informações de escolaridade, notamos que o grupo majoritário são estudantes de Letras com Ensino Superior Incompleto (11 pessoas, o que representa 32,4% do total). Também
-destacamos que a amostra a nível de indivíduos é pequena e possivelmente não
-representativa da população brasileira, pois apenas um indivíduo tem nível de
-escolaridade abaixo do universitário.</p>
+15 (55,9%) participantes são de outras áreas e 19 (44,1%) são da área de Letras;
+no entanto, cruzando com as informações de escolaridade, notamos que o grupo
+majoritário são estudantes de Letras com Ensino Superior Incompleto (11 pessoas,
+o que representa 32,4% do total). Também destacamos que a amostra a nível de
+indivíduos é pequena e possivelmente não representativa da população brasileira,
+pois apenas um indivíduo tem nível de escolaridade abaixo do universitário.</p>
 <p>Outras variáveis relacionadas à linguagem (línguas e música) também foram
 transformadas em variáveis binárias, pois há interesse em entender se o
 conhecimento nessas áreas afeta a percepção da tonicidade de palavras. A
 distribuição das variáveis já agrupadas também pode ser observada nas Tabelas
 <a href="tabelas.html#tab:linguas">A.4</a> e <a href="tabelas.html#tab:musica">A.5</a>, respectivamente.</p>
-<p>Observamos no Gráfico @ref(fig:area_linguas)
-que, dos participantes que têm conhecimento de outras línguas, mais
-de metade (57,7%) são do curso de Letras, e todas as pessoas sem nenhum
-conhecimento de outro idioma são de outras áreas. Isso pode levar a um
-confundimento do efeito dessas duas variáveis, pois não há nenhum indivíduo que
-curse Letras sem conhecimento de outras línguas no estudo.</p>
+<p>Observamos no Gráfico @ref(fig:area_linguas) que, dos participantes que
+têm conhecimento de outras línguas, mais de metade (57,7%) são do curso de Letras,
+e todas as pessoas sem nenhum conhecimento de outro idioma são de outras áreas.
+Isso pode levar a um confundimento do efeito dessas duas variáveis, pois não há
+nenhum indivíduo que curse Letras sem conhecimento de outras línguas no estudo.</p>
 </div>
 </div>
 <div id="variáveis-linguísticas-1" class="section level2" number="5.2">
 <h2><span class="header-section-number">5.2</span> Variáveis linguísticas</h2>
-<p>A tonacidade de produção (classificação da pseudopalavra) do tipo proparoxítona
-é a menos expressiva na base,enquanto a categoria paroxítona (penúltima sílaba é tônica) aparece com maior frequência nas respostas dos participantes, como visto na Tabela <a href="descritiva.html#tab:grupo-tonicidade">5.1</a> a seguir. Portanto, o processo de acentuação das
-pseudopalavras nesse estudo parece ir de acordo com a afirmação de
-<span class="citation"><a href="#ref-collischonn1999" role="doc-biblioref">COLLISCHONN</a> (<a href="#ref-collischonn1999" role="doc-biblioref">1999</a>)</span> de que</p>
+<p>A tonicidade de produção (classificação da pseudopalavra) do tipo proparoxítona
+é a menos expressiva na base,enquanto a categoria paroxítona aparece com maior
+frequência nas respostas dos participantes, como visto na Tabela <a href="descritiva.html#tab:grupo-tonicidade">5.1</a>
+a seguir. Portanto, o processo de acentuação das pseudopalavras nesse estudo parece
+ir de acordo com a afirmação de <span class="citation"><a href="#ref-collischonn1999" role="doc-biblioref">COLLISCHONN</a> (<a href="#ref-collischonn1999" role="doc-biblioref">1999</a>)</span> de que</p>
 <blockquote>
-<p>Podemos considerar que o acento proparoxítono é marcado, no sentido de que é menos usual. É um acento especial, contrário à tendência geral de acentuar a penúltima sílaba</p>
+<p>Podemos considerar que o acento proparoxítono é marcado, no sentido de que é menos usual. É um acento especial, contrário à tendência geral de acentuar a penúltima sílaba.</p>
 </blockquote>
 <table style="width:100%; margin-left: auto; margin-right: auto;" class="table">
 <caption>
@@ -271,7 +273,8 @@ janitor::adorn_totals(where = "row") # total por coluna, add linha "Total"
 pseudopalavras classificadas como proparoxítonas tinham uma palavra-alvo de
 tonicidade proparoxítona. Entretanto, cerca de 77% das pseudopalavras que têm
 como alvo uma palavra proparoxítona foram categorizadas pelos participantes como
-paroxítonas (Tabela <a href="tabelas.html#tab:tonicidade-pseudoxalvo2">A.7</a>).</p>
+paroxítonas (Tabela <a href="tabelas.html#tab:tonicidade-pseudoxalvo2">A.7</a>). Esse fluxo pode ser
+analisado graficamente na Figura <a href="graficos.html#fig:tonicidade-fluxo">B.1</a>.</p>
 <p>Além disso, nota-se também que pseudopalavras originadas de palavras-alvo oxítonas
 e paroxítonas foram acentuadas de forma razoavelmente uniforme entre oxítonas e
 paroxítonas, o que não ocorre com as pseudopalavras criadas a partir de palavras-alvo
@@ -367,12 +370,655 @@ proparoxítona
 </tr>
 </tbody>
 </table>
-<p>Na Tabela <a href="descritiva.html#tab:validacao-producao">5.3</a> aproximadamente 73% das
-pseudopalavras foram validadas de acordo com o processo descrito anteriormente
-no capítulo <a href="descricao-estudo.html#descricao-estudo">3</a> (Descrição).</p>
+<p>Como observação subsequente, podemos ver que a divisão de estrutura da palavra-alvo
+não é bem distribuída entre as classificações de tonicidades das palavras-alvo. A
+quantidade de palavras com estrutura CV-CV-CVC em proparoxítonas é pequena uma vez
+que a frequência de palavras com essas características no <em>Corpus Brasileiro</em> é baixa
+(vide Tabela <a href="tabelas.html#tab:estrut-tonicidade-alvo">A.8</a>).</p>
+<table style="width:100%;">
+<caption>
+<span id="tab:estrut-tonicidade-producao">Tabela 5.3: </span>Frequência da Tonicidade da pseudopalavra por Estrutura das palavras.
+</caption>
+<thead>
+<tr>
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="1">
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Estrutura da palavra
+</div>
+</th>
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="1">
+</th>
+</tr>
+<tr>
+<th style="text-align:left;">
+Tonicidade produção
+</th>
+<th style="text-align:left;">
+CV-CV-CV
+</th>
+<th style="text-align:left;">
+CV-CV-CVC
+</th>
+<th style="text-align:left;">
+Total
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+oxítona
+</td>
+<td style="text-align:left;">
+748 (10.3%)
+</td>
+<td style="text-align:left;">
+4156 (79%)
+</td>
+<td style="text-align:left;">
+4904 (39%)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+paroxítona
+</td>
+<td style="text-align:left;">
+6200 (85.3%)
+</td>
+<td style="text-align:left;">
+963 (18%)
+</td>
+<td style="text-align:left;">
+7163 (57%)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+proparoxítona
+</td>
+<td style="text-align:left;">
+323 (4.4%)
+</td>
+<td style="text-align:left;">
+121 (2%)
+</td>
+<td style="text-align:left;">
+444 (4%)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Total
+</td>
+<td style="text-align:left;">
+7271 (100.0%)
+</td>
+<td style="text-align:left;">
+5240 (100%)
+</td>
+<td style="text-align:left;">
+12511 (100%)
+</td>
+</tr>
+</tbody>
+</table>
+<p>Na Tabela <a href="descritiva.html#tab:estrut-tonicidade-producao">5.3</a>, vemos que 85% das pseudopalavras
+cuja estrutura era CV-CV-CV foram classificadas como paroxítonas, e 79% das pseudopalavras cuja estrutura era CV-CV-CVC foram classificadas como oxítonas, o que corrobora com a afirmação da literatura, de que uma palavra típica da língua portuguesa é formada por sílabas CV e com a tonicidade recaindo na penúltima sílaba (paroxítona), uma vez que o padrão silábico canônico do português é CV e o padrão tônico é o paroxítono.</p>
+<p>Logo, parece existir influência da estrutura na atribuição da tonicidade em palavras do português brasileiro. A partir disso, vemos a possibilidade de testar a significância dessa discrepância através de testes univariados entre a tonicidade da produção e estrutura da palavra.</p>
+<table style="width:100%;">
+<caption>
+<span id="tab:grupo-estrutura-producao-alvo">Tabela 5.4: </span>Tonicidade de pseudopalavras por Grupo, Estrutura e Tonicidade da palavra-alvo
+</caption>
+<thead>
+<tr>
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="3">
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="3">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Tonicidade Alvo
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:left;">
+Grupo de Classificação
+</th>
+<th style="text-align:left;">
+Estrutura da Palavra
+</th>
+<th style="text-align:left;">
+Tonicidade Produção
+</th>
+<th style="text-align:left;">
+Oxítona
+</th>
+<th style="text-align:left;">
+Paroxítona
+</th>
+<th style="text-align:left;">
+Proparoxítona
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+CV-CV-CV
+</td>
+<td style="text-align:left;">
+oxítona
+</td>
+<td style="text-align:left;">
+80 (1.7%)
+</td>
+<td style="text-align:left;">
+30 (0.6%)
+</td>
+<td style="text-align:left;">
+17 (0.6%)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+CV-CV-CV
+</td>
+<td style="text-align:left;">
+paroxítona
+</td>
+<td style="text-align:left;">
+520 (10.7%)
+</td>
+<td style="text-align:left;">
+562 (11.6%)
+</td>
+<td style="text-align:left;">
+464 (16.4%)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+CV-CV-CV
+</td>
+<td style="text-align:left;">
+proparoxítona
+</td>
+<td style="text-align:left;">
+4 (0.1%)
+</td>
+<td style="text-align:left;">
+17 (0.4%)
+</td>
+<td style="text-align:left;">
+125 (4.4%)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+CV-CV-CVC
+</td>
+<td style="text-align:left;">
+oxítona
+</td>
+<td style="text-align:left;">
+558 (11.5%)
+</td>
+<td style="text-align:left;">
+392 (8.1%)
+</td>
+<td style="text-align:left;">
+NA (-)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+CV-CV-CVC
+</td>
+<td style="text-align:left;">
+paroxítona
+</td>
+<td style="text-align:left;">
+50 (1.0%)
+</td>
+<td style="text-align:left;">
+209 (4.3%)
+</td>
+<td style="text-align:left;">
+NA (-)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+CV-CV-CVC
+</td>
+<td style="text-align:left;">
+proparoxítona
+</td>
+<td style="text-align:left;">
+1 (0.0%)
+</td>
+<td style="text-align:left;">
+6 (0.1%)
+</td>
+<td style="text-align:left;">
+NA (-)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+CV-CV-CV
+</td>
+<td style="text-align:left;">
+oxítona
+</td>
+<td style="text-align:left;">
+41 (0.8%)
+</td>
+<td style="text-align:left;">
+44 (0.9%)
+</td>
+<td style="text-align:left;">
+41 (1.4%)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+CV-CV-CV
+</td>
+<td style="text-align:left;">
+paroxítona
+</td>
+<td style="text-align:left;">
+553 (11.4%)
+</td>
+<td style="text-align:left;">
+546 (11.3%)
+</td>
+<td style="text-align:left;">
+544 (19.2%)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+CV-CV-CV
+</td>
+<td style="text-align:left;">
+proparoxítona
+</td>
+<td style="text-align:left;">
+7 (0.1%)
+</td>
+<td style="text-align:left;">
+13 (0.3%)
+</td>
+<td style="text-align:left;">
+21 (0.7%)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+CV-CV-CVC
+</td>
+<td style="text-align:left;">
+oxítona
+</td>
+<td style="text-align:left;">
+539 (11.1%)
+</td>
+<td style="text-align:left;">
+487 (10.1%)
+</td>
+<td style="text-align:left;">
+NA (-)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+CV-CV-CVC
+</td>
+<td style="text-align:left;">
+paroxítona
+</td>
+<td style="text-align:left;">
+66 (1.4%)
+</td>
+<td style="text-align:left;">
+109 (2.3%)
+</td>
+<td style="text-align:left;">
+NA (-)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+CV-CV-CVC
+</td>
+<td style="text-align:left;">
+proparoxítona
+</td>
+<td style="text-align:left;">
+1 (0.0%)
+</td>
+<td style="text-align:left;">
+6 (0.1%)
+</td>
+<td style="text-align:left;">
+NA (-)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+CV-CV-CV
+</td>
+<td style="text-align:left;">
+oxítona
+</td>
+<td style="text-align:left;">
+191 (3.9%)
+</td>
+<td style="text-align:left;">
+86 (1.8%)
+</td>
+<td style="text-align:left;">
+33 (1.2%)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+CV-CV-CV
+</td>
+<td style="text-align:left;">
+paroxítona
+</td>
+<td style="text-align:left;">
+411 (8.5%)
+</td>
+<td style="text-align:left;">
+510 (10.5%)
+</td>
+<td style="text-align:left;">
+510 (18.0%)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+CV-CV-CV
+</td>
+<td style="text-align:left;">
+proparoxítona
+</td>
+<td style="text-align:left;">
+7 (0.1%)
+</td>
+<td style="text-align:left;">
+12 (0.2%)
+</td>
+<td style="text-align:left;">
+65 (2.3%)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+CV-CV-CVC
+</td>
+<td style="text-align:left;">
+oxítona
+</td>
+<td style="text-align:left;">
+563 (11.6%)
+</td>
+<td style="text-align:left;">
+360 (7.4%)
+</td>
+<td style="text-align:left;">
+75 (2.6%)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+CV-CV-CVC
+</td>
+<td style="text-align:left;">
+paroxítona
+</td>
+<td style="text-align:left;">
+43 (0.9%)
+</td>
+<td style="text-align:left;">
+232 (4.8%)
+</td>
+<td style="text-align:left;">
+54 (1.9%)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+CV-CV-CVC
+</td>
+<td style="text-align:left;">
+proparoxítona
+</td>
+<td style="text-align:left;">
+1 (0.0%)
+</td>
+<td style="text-align:left;">
+9 (0.2%)
+</td>
+<td style="text-align:left;">
+73 (2.6%)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:left;">
+CV-CV-CV
+</td>
+<td style="text-align:left;">
+oxítona
+</td>
+<td style="text-align:left;">
+128 (2.6%)
+</td>
+<td style="text-align:left;">
+39 (0.8%)
+</td>
+<td style="text-align:left;">
+18 (0.6%)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:left;">
+CV-CV-CV
+</td>
+<td style="text-align:left;">
+paroxítona
+</td>
+<td style="text-align:left;">
+457 (9.4%)
+</td>
+<td style="text-align:left;">
+562 (11.6%)
+</td>
+<td style="text-align:left;">
+561 (19.8%)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:left;">
+CV-CV-CV
+</td>
+<td style="text-align:left;">
+proparoxítona
+</td>
+<td style="text-align:left;">
+18 (0.4%)
+</td>
+<td style="text-align:left;">
+6 (0.1%)
+</td>
+<td style="text-align:left;">
+28 (1.0%)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:left;">
+CV-CV-CVC
+</td>
+<td style="text-align:left;">
+oxítona
+</td>
+<td style="text-align:left;">
+542 (11.2%)
+</td>
+<td style="text-align:left;">
+501 (10.4%)
+</td>
+<td style="text-align:left;">
+139 (4.9%)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:left;">
+CV-CV-CVC
+</td>
+<td style="text-align:left;">
+paroxítona
+</td>
+<td style="text-align:left;">
+54 (1.1%)
+</td>
+<td style="text-align:left;">
+94 (1.9%)
+</td>
+<td style="text-align:left;">
+52 (1.8%)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:left;">
+CV-CV-CVC
+</td>
+<td style="text-align:left;">
+proparoxítona
+</td>
+<td style="text-align:left;">
+10 (0.2%)
+</td>
+<td style="text-align:left;">
+3 (0.1%)
+</td>
+<td style="text-align:left;">
+11 (0.4%)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Total
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+4845 (100.0%)
+</td>
+<td style="text-align:left;">
+4835 (100.0%)
+</td>
+<td style="text-align:left;">
+2831 (100.0%)
+</td>
+</tr>
+</tbody>
+</table></li>
+</ul></li>
+</ul>
+<p>Analisando a divisão por grupo de classificação, na Tabela <a href="#grupo-estrutura-producao-alvo"><strong>??</strong></a>,
+é possível notar que há um lapso faltante de dados pois não existe, no português brasileiro,
+palavras com tonicidade proparoxítona e de alta frequência no Corpus com estrutura CV-CV-CVC.
+Isso pode ser um problema a ser contornado na análise, uma vez que existem combinações de
+categorias das variáveis grupo e estrutura por nível da tonicidade da palavra-alvo sem informação.</p>
+<p>Por fim, explorando os dados no âmbito de validação, vemos, na Tabela <a href="descritiva.html#tab:validacao-producao">5.5</a>,
+que aproximadamente 73% das pseudopalavras foram validadas de acordo com o processo descrito
+anteriormente no capítulo <a href="descricao-estudo.html#descricao-estudo">3</a> (Descrição).</p>
 <p>Cerca de 81% das pseudolavras cuja similaridade/dissimilaridade não foi validada
 foram classificadas como paroxítonas. Dentre as não validadas, aproximadamente 85%
-das pseudopalavras pertencem ao grupo das similares (<a href="descritiva.html#tab:validacao-grupo">5.4</a>.
+das pseudopalavras pertencem ao grupo das similares (<a href="descritiva.html#tab:validacao-grupo">5.6</a>.
 Ou seja, percebe-se que nos grupos 1 (pseudopalavras similares de alta frequência)
 e 3 (pseudopalavras similares de baixa frequência) a porcentagem de palavras não
 validadas é superior aos demais grupos, o que parece indicar que a validação de
@@ -381,7 +1027,7 @@ como similares a palavra-alvo podem ser associadas a mais de uma palavra real pe
 falantes.</p>
 <table style="width:100%; margin-left: auto; margin-right: auto;" class="table">
 <caption>
-<span id="tab:validacao-producao">Tabela 5.3: </span>Frequência da tonicidade das pseudopalavras, por nível da variável Validação.
+<span id="tab:validacao-producao">Tabela 5.5: </span>Frequência da tonicidade das pseudopalavras, por nível da variável Validação.
 </caption>
 <thead>
 <tr>
@@ -472,7 +1118,7 @@ Total
 <br>
 <table style="width:100%;">
 <caption>
-<span id="tab:validacao-grupo">Tabela 5.4: </span>Frequência das pseudopalavras nos Grupos de classificação, por status de Validação.
+<span id="tab:validacao-grupo">Tabela 5.6: </span>Frequência das pseudopalavras nos Grupos de classificação, por status de Validação.
 </caption>
 <thead>
 <tr>
@@ -574,389 +1220,7 @@ Total
 </tr>
 </tbody>
 </table>
-<br>
-<table style="width:100%;">
-<caption>
-<span id="tab:validacao-grupo-tonicidade">Tabela 5.5: </span>Tonicidade de pseudopalavras por Grupo e Validação.
-</caption>
-<thead>
-<tr>
-<th style="empty-cells: hide;border-bottom:hidden;" colspan="2">
-</th>
-<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="3">
-<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
-Status Validação
-</div>
-</th>
-</tr>
-<tr>
-<th style="text-align:left;">
-Grupo de classificação
-</th>
-<th style="text-align:left;">
-Tonicidade produção
-</th>
-<th style="text-align:left;">
-Não Validada
-</th>
-<th style="text-align:left;">
-Quase Validada
-</th>
-<th style="text-align:left;">
-Validada
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-1
-</td>
-<td style="text-align:left;">
-oxítona
-</td>
-<td style="text-align:left;">
-82 (3.9%)
-</td>
-<td style="text-align:left;">
-44 (3.3%)
-</td>
-<td style="text-align:left;">
-951 (10.5%)
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-1
-</td>
-<td style="text-align:left;">
-paroxítona
-</td>
-<td style="text-align:left;">
-673 (31.8%)
-</td>
-<td style="text-align:left;">
-141 (10.5%)
-</td>
-<td style="text-align:left;">
-991 (11.0%)
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-1
-</td>
-<td style="text-align:left;">
-proparoxítona
-</td>
-<td style="text-align:left;">
-17 (0.8%)
-</td>
-<td style="text-align:left;">
-17 (1.3%)
-</td>
-<td style="text-align:left;">
-119 (1.3%)
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-2
-</td>
-<td style="text-align:left;">
-oxítona
-</td>
-<td style="text-align:left;">
-38 (1.8%)
-</td>
-<td style="text-align:left;">
-154 (11.4%)
-</td>
-<td style="text-align:left;">
-960 (10.6%)
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-2
-</td>
-<td style="text-align:left;">
-paroxítona
-</td>
-<td style="text-align:left;">
-96 (4.5%)
-</td>
-<td style="text-align:left;">
-210 (15.6%)
-</td>
-<td style="text-align:left;">
-1512 (16.7%)
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-2
-</td>
-<td style="text-align:left;">
-proparoxítona
-</td>
-<td style="text-align:left;">
-1 (0.0%)
-</td>
-<td style="text-align:left;">
-8 (0.6%)
-</td>
-<td style="text-align:left;">
-39 (0.4%)
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-3
-</td>
-<td style="text-align:left;">
-oxítona
-</td>
-<td style="text-align:left;">
-183 (8.6%)
-</td>
-<td style="text-align:left;">
-109 (8.1%)
-</td>
-<td style="text-align:left;">
-1016 (11.2%)
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-3
-</td>
-<td style="text-align:left;">
-paroxítona
-</td>
-<td style="text-align:left;">
-824 (38.9%)
-</td>
-<td style="text-align:left;">
-87 (6.5%)
-</td>
-<td style="text-align:left;">
-849 (9.4%)
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-3
-</td>
-<td style="text-align:left;">
-proparoxítona
-</td>
-<td style="text-align:left;">
-37 (1.7%)
-</td>
-<td style="text-align:left;">
-7 (0.5%)
-</td>
-<td style="text-align:left;">
-123 (1.4%)
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-4
-</td>
-<td style="text-align:left;">
-oxítona
-</td>
-<td style="text-align:left;">
-32 (1.5%)
-</td>
-<td style="text-align:left;">
-222 (16.5%)
-</td>
-<td style="text-align:left;">
-1113 (12.3%)
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-4
-</td>
-<td style="text-align:left;">
-paroxítona
-</td>
-<td style="text-align:left;">
-134 (6.3%)
-</td>
-<td style="text-align:left;">
-333 (24.7%)
-</td>
-<td style="text-align:left;">
-1313 (14.5%)
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-4
-</td>
-<td style="text-align:left;">
-proparoxítona
-</td>
-<td style="text-align:left;">
-1 (0.0%)
-</td>
-<td style="text-align:left;">
-16 (1.2%)
-</td>
-<td style="text-align:left;">
-59 (0.7%)
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Total
-</td>
-<td style="text-align:left;">
-<ul>
-<li></td>
-<td style="text-align:left;">
-2118 (100.0%)
-</td>
-<td style="text-align:left;">
-1348 (100.0%)
-</td>
-<td style="text-align:left;">
-9045 (100.0%)
-</td>
-</tr>
-</tbody>
-</table></li>
-</ul>
-<p>Como observação subsequente, podemos ver que a divisão de estrutura da palavra-alvo
-não é bem distribuída entre as classificações de tonicidades das palavras-alvo. A
-quantidade de palavras com estrutura CV-CV-CVC em proparoxítonas é pequena uma vez
-que a frequência de palavras com essas características no <em>Corpus Brasileiro</em> é baixa
-(vide Tabela <a href="tabelas.html#tab:estrut-tonicidade-alvo">A.8</a>).</p>
-<table style="width:100%;">
-<caption>
-<span id="tab:estrut-tonicidade-producao">Tabela 5.6: </span>Frequência da Tonicidade da pseudopalavra por Estrutura das palavras.
-</caption>
-<thead>
-<tr>
-<th style="empty-cells: hide;border-bottom:hidden;" colspan="1">
-</th>
-<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2">
-<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
-Estrutura da palavra
-</div>
-</th>
-<th style="empty-cells: hide;border-bottom:hidden;" colspan="1">
-</th>
-</tr>
-<tr>
-<th style="text-align:left;">
-Tonicidade produção
-</th>
-<th style="text-align:left;">
-CV-CV-CV
-</th>
-<th style="text-align:left;">
-CV-CV-CVC
-</th>
-<th style="text-align:left;">
-Total
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-oxítona
-</td>
-<td style="text-align:left;">
-748 (10.3%)
-</td>
-<td style="text-align:left;">
-4156 (79%)
-</td>
-<td style="text-align:left;">
-4904 (39%)
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-paroxítona
-</td>
-<td style="text-align:left;">
-6200 (85.3%)
-</td>
-<td style="text-align:left;">
-963 (18%)
-</td>
-<td style="text-align:left;">
-7163 (57%)
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-proparoxítona
-</td>
-<td style="text-align:left;">
-323 (4.4%)
-</td>
-<td style="text-align:left;">
-121 (2%)
-</td>
-<td style="text-align:left;">
-444 (4%)
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Total
-</td>
-<td style="text-align:left;">
-7271 (100.0%)
-</td>
-<td style="text-align:left;">
-5240 (100%)
-</td>
-<td style="text-align:left;">
-12511 (100%)
-</td>
-</tr>
-</tbody>
-</table>
-<p>Na Tabela <a href="#estrut-tonicidade-producao"><strong>??</strong></a>, vemos que 85% das pseudopalavras
-cuja estrutura era CV-CV-CV foram classificadas como paroxítonas, e 79% das pseudopalavras cuja estrutura era CV-CV-CVC foram classificadas como oxítonas, o que corrobora com a afirmação da literatura, de que uma palavra típica da língua portuguesa é formada por sílabas CV e com a tonicidade recaindo na penúltima sílaba (paroxítona), uma vez que o padrão silábico canônico do português é CV e o padrão tônico é o paroxítono.</p>
-<p>Logo, parece existir influência da estrutura na atribuição da tonicidade em palavras do português brasileiro. A partir disso, vemos a possibilidade de testar a significância dessa discrepância através de testes univariados entre a tonicidade da produção e estrutura da palavra.</p>
-<pre><code>FALSE                            oxítona paroxítona proparoxítona
-FALSE                                                            
-FALSE 1 CV-CV-CV  oxítona             80         30            17
-FALSE             paroxítona         520        562           464
-FALSE             proparoxítona        4         17           125
-FALSE   CV-CV-CVC oxítona            558        392             0
-FALSE             paroxítona          50        209             0
-FALSE             proparoxítona        1          6             0
-FALSE 2 CV-CV-CV  oxítona             41         44            41
-FALSE             paroxítona         553        546           544
-FALSE             proparoxítona        7         13            21
-FALSE   CV-CV-CVC oxítona            539        487             0
-FALSE             paroxítona          66        109             0
-FALSE             proparoxítona        1          6             0
-FALSE 3 CV-CV-CV  oxítona            191         86            33
-FALSE             paroxítona         411        510           510
-FALSE             proparoxítona        7         12            65
-FALSE   CV-CV-CVC oxítona            563        360            75
-FALSE             paroxítona          43        232            54
-FALSE             proparoxítona        1          9            73
-FALSE 4 CV-CV-CV  oxítona            128         39            18
-FALSE             paroxítona         457        562           561
-FALSE             proparoxítona       18          6            28
-FALSE   CV-CV-CVC oxítona            542        501           139
-FALSE             paroxítona          54         94            52
-FALSE             proparoxítona       10          3            11</code></pre>
-<p>Por fim, na Tabela <a href="#grupo-estrutura-producao-alvo"><strong>??</strong></a> existe um lapso faltante de dados pois não existe, no português brasileiro, palavras com tonicidade proparoxítona e de alta frequência no Corpus com estrutura CV-CV-CVC. Isso pode ser um problema a ser contornado na análise, uma vez que existem combinações de categorias das variáveis grupo e estrutura por nível da tonicidade da palavra-alvo sem informação.</p>
+<p><br></p>
 </div>
 <div id="conclusão-da-análise-descritiva-e-próximos-passos-ideia-1" class="section level2" number="5.3">
 <h2><span class="header-section-number">5.3</span> Conclusão da análise descritiva e próximos passos (ideia 1)</h2>
@@ -1009,13 +1273,45 @@ diferente no processo de acentuação tônica</li>
 <span class="math inline">\(H_1\)</span>: Há associação entre graduação em letras e a atribuição acentual da pseudopalavra.</p>
 <p>Após os testes, decidimos investigar mais minunciosamente a relação de dependência
 entre as variáveis cujo teste qui-quadrado foi significante. Essa etapa foi realizada
-através de análises de correspondência, que visa medir o grau de associação de variáveis categorizadas comparadas. O objetivo é construir uma representação gráfica da associação entre as variáveis.</p>
+através de análises de correspondência, que visa medir o grau de associação de variáveis
+categorizadas comparadas. O objetivo é construir uma representação gráfica da associação
+entre as variáveis.</p>
 </div>
 <div id="conclusão-da-análise-descritiva-e-próximos-passos-ideia-2" class="section level2" number="5.4">
 <h2><span class="header-section-number">5.4</span> Conclusão da análise descritiva e próximos passos (ideia 2)</h2>
-<p>Como temos dados no formato de medidas repetidas (falantes acentuando diversas pseudopalavras) e uma mesma palavra-alvo gerou diversas pseupalavras, o pressuposto de independencia entre as observações não é verdadeiro.</p>
-<p>Logo, pensou-se em aplicar um teste de concordância do tipo Kappa para entender se os falantes aplicam a acentuação de tônica nas pseudopalavras de forma distinta. Assim, será possível definir posteriormente se um modelo do tipo aleatório para os falantes é necessário.</p>
-<p>Observando a estatística Kappa geral (0.54) temos que existe concordância entre as respostas dos falantes. Porém, apesar das categorias oxítona e pararoxítona possuírem estatísticas Kappa altas(0.61 e 0.54), a categoria proparoxítona possue um baixo grau de concordância entre os falantes (0.14).</p>
+<p>Dado que temos dados no formato de medidas repetidas (falantes acentuando diversas pseudopalavras)
+e uma mesma palavra-alvo gerou diversas pseupalavras, o pressuposto de independência entre as
+observações não é verdadeiro. Logo, surgiu a necessidade de aplicar testes de concordância do
+tipo Kappa para entender a relevância de variáveis inicialmente consideradas importantes para o modelo.</p>
+<p>Como os níveis da variável resposta (tonicidade da pseudopalavra) tem uma distribuição desbalanceada,
+houve a necessidade de utilizar um fator corretor no cálculo da estatística Kappa. Assim, para esse
+conjunto de dados, foi adotado a estatística de Gwet, comumente utilizada em amostras desbalanceadas.</p>
+<p>Observando o resultado geral (vide Tabela <a href="#tab:gwet-geral"><strong>??</strong></a>), é possível notar que aparentemente
+há concordância na variável resposta entre os falantes. Já na Tabela <a href="#tab:gwet-grupo"><strong>??</strong></a>, vemos que
+há semelhança entre os grupos 1 e 3 (similares) e 2 e 4 (dissimilares), sendo nas dissimilares os maiores
+níveis de concordância.</p>
+<table style="width:100%; margin-left: auto; margin-right: auto;" class="table">
+<thead>
+<tr>
+<th style="text-align:left;">
+Estatística
+</th>
+<th style="text-align:right;">
+Valor da Estatística
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Gwet’s AC1
+</td>
+<td style="text-align:right;">
+0.6775543
+</td>
+</tr>
+</tbody>
+</table>
 
 </div>
 </div>

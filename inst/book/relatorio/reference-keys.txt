@@ -1,9 +1,9 @@
 tab:grupo-tonicidade
 tab:tonicidade-pseudoxalvo
+tab:estrut-tonicidade-producao
+tab:grupo-estrutura-producao-alvo
 tab:validacao-producao
 tab:validacao-grupo
-tab:validacao-grupo-tonicidade
-tab:estrut-tonicidade-producao
 tab:perfil-informantes
 tab:area-formacao
 tab:area-escolaridade
@@ -12,6 +12,8 @@ tab:musica
 tab:grupo-producao
 tab:tonicidade-pseudoxalvo2
 tab:estrut-tonicidade-alvo
+tab:validacao-grupo-tonicidade
+fig:tonicidade-fluxo
 tab:unnamed-chunk-2
 introducao
 objetivos
