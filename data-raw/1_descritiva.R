@@ -37,7 +37,9 @@ g_area <- pessoas %>%
     x = "Conhecimento de outra(s) língua(s)",
     y = "N",
     fill = "Área de formação"
-  )
+  )+
+  theme(plot.background = element_rect(fill = 'floralwhite', color = "floralwhite"))
+
 ggplot2::ggsave("inst/book/assets/graficos/g1_area_linguas.jpeg", g_area,width=14, height = 7)
 
 # Área de formação e escolaridade
@@ -182,7 +184,8 @@ g_validacao = pseudopalavras::dados %>%
   labs(x="Grupo de Classificação", y= "N")+
   ggplot2::geom_col() +
   ggplot2::scale_fill_viridis_d() +
-  ggplot2::theme_minimal()
+  ggplot2::theme_minimal()+
+  theme(plot.background = element_rect(fill = 'floralwhite', color = "floralwhite"))
 
 ggplot2::ggsave("inst/book/assets/graficos/g1_validacao_grupo.jpeg", g_validacao,width=14, height = 7)
 
@@ -205,7 +208,8 @@ g_fluxo = pseudopalavras::dados %>%
   ) +
   scale_fill_viridis_d()+
   theme_minimal() +
-  ggplot2::facet_wrap(~grupo)
+  ggplot2::facet_wrap(~grupo)+
+  theme(plot.background = element_rect(fill = 'floralwhite', color = "floralwhite"))
 
 ggplot2::ggsave("inst/book/assets/graficos/g1_fluxo.jpeg", g_fluxo, width=14, height = 7)
 
