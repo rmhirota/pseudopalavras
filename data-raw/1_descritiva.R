@@ -38,7 +38,7 @@ g_area <- pessoas %>%
     y = "N",
     fill = "Área de formação"
   )
-ggplot2::ggsave("inst/book/assets/graficos/g1_area_linguas.jpeg", g_area)
+ggplot2::ggsave("inst/book/assets/graficos/g1_area_linguas.jpeg", g_area,width=14, height = 7)
 
 # Área de formação e escolaridade
 pessoas %>%
@@ -182,6 +182,34 @@ g_validacao = pseudopalavras::dados %>%
   labs(x="Grupo de Classificação", y= "N")+
   ggplot2::geom_col()
 
-ggplot2::ggsave("inst/book/assets/graficos/g1_validacao_grupo.jpeg", g_validacao)
+ggplot2::ggsave("inst/book/assets/graficos/g1_validacao_grupo.jpeg", g_validacao,width=14, height = 7)
+
+
+
+
+
+
+library(ggalluvial)
+g_fluxo = pseudopalavras::dados %>%
+  dplyr::mutate(Coincidente = tonicidade_producao == tonicidade_alvo) %>%
+  dplyr::count(grupo, tonicidade_producao, tonicidade_alvo, Coincidente) %>%
+  #dplyr::filter(grupo == 1) %>%
+  ggplot2::ggplot(ggplot2::aes(
+    axis1 = tonicidade_alvo, axis2 = tonicidade_producao, y = n
+  )) +
+  geom_alluvium(ggplot2::aes(fill = Coincidente)) +
+  geom_stratum() +
+  ggplot2::geom_text(
+    stat = "stratum",
+    ggplot2::aes(label = after_stat(stratum))
+  ) +
+  scale_fill_viridis_d()+
+  theme_minimal() +
+  ggplot2::facet_wrap(~grupo)
+
+ggplot2::ggsave("inst/book/assets/graficos/g1_fluxo.jpeg", g_fluxo, width=14, height = 7)
+
+
+
 
 
