@@ -1,7 +1,52 @@
 # Gráficos {#graficos}
 
 ```{r area_linguas, fig.cap = "Conhecimento de outras línguas por área de estudo"}
-knitr::include_graphics("assets/graficos/g1_area_linguas.jpeg")
+ participantes %>%
+  dplyr::mutate(linguas = ifelse(linguas == 0, "Não", "Sim")) %>%
+  dplyr::count(area_formacao, linguas, sort = TRUE) %>%
+  dplyr::group_by(linguas) %>%
+  dplyr::mutate(pct = scales::percent(n/sum(n), .1)) %>%
+  ggplot2::ggplot(ggplot2::aes(
+    x = linguas, y = n, fill = area_formacao,
+    label = glue::glue("{n} ({pct})")
+  )) +
+  ggplot2::geom_col() +
+  ggplot2::geom_text(position = ggplot2::position_stack(vjust = .5)) +
+  ggplot2::scale_fill_viridis_d(option = "cividis", begin = 0.4) +
+  ggplot2::theme_minimal(18) +
+  ggplot2::labs(
+    x = "Conhecimento de outra(s) língua(s)",
+    y = "N",
+    fill = "Área de formação")
+```
+<br>
+
+```{r idade_genero, fig.cap = "Tdade dos participantes distribuída pelo genêro"}
+participantes %>%
+  dplyr::mutate(idade_cat = dplyr::case_when(
+    idade <= 20 ~ "Entre 18 e 20 anos",
+    idade <= 30 ~ "Entre 21 e 30 anos",
+    idade <= 38 ~ "Entre 31 e 38 anos",
+    TRUE ~ "Entre 38 e 60 anos",
+  )) %>%
+  dplyr::count(genero, idade_cat) %>%
+  dplyr::group_by(idade_cat) %>%
+  dplyr::mutate(pct = scales::percent(n/sum(n), .1)) %>% 
+  ggplot2::ggplot(ggplot2::aes(y = n, x = idade_cat, fill = genero,
+                               label = glue::glue("{n} ({pct})"))) +
+  ggplot2::geom_col() +
+  ggplot2::geom_text(position = ggplot2::position_stack(vjust = .5)) +
+  ggplot2::scale_fill_viridis_d(option = "cividis", begin = 0.4) +
+  ggplot2::theme_minimal(18) +
+  ggplot2::labs(
+    x = "Idade",
+    y = "N",
+    fill = "Gênero"
+  ) +
+  ggplot2::labs(
+    x = "Idade categorizada dos participantes",
+    y = "N",
+    fill = "Gênero")
 ```
 <br>
 
@@ -25,47 +70,54 @@ pseudopalavras::dados %>%
   ggplot2::facet_wrap(~grupo)
   
 ```
+<br>
 
-
-```{r}
-pseudopalavras::dados %>% 
-  dplyr::count(grupo, tonicidade_producao, tonicidade_alvo) %>% 
-  # dplyr::filter(grupo == 1) %>% 
-  ggplot2::ggplot(ggplot2::aes(
-    x = tonicidade_alvo, y = n, fill = tonicidade_producao
-  )) +
-  ggplot2::geom_col() +
-  scale_fill_viridis_d()+
-  ggplot2::facet_wrap(~grupo)
-  
-
-
-```
-
-
-```{r}
-pseudopalavras::dados %>% 
-  dplyr::count(grupo, tonicidade_producao, tonicidade_alvo) %>% 
-  tidyr::pivot_wider(names_from = tonicidade_alvo, values_from = n) %>% 
-  dplyr::mutate(grupo = dplyr::case_when(
-    grupo == 1 ~ "1 (Similar de alta freq.)",
-    grupo == 2 ~ "2 (Dissimilar de alta freq.)",
-    grupo == 3 ~ "3 (Similar de baixa freq.)",
-    grupo == 4 ~ "4 (Dissimilar de baixa freq.)"
-  )) %>% 
-  knitr::kable(col.names = c(
-    "Grupo", "Tonicidade de produção", "Oxítona", "Paroxítona",
-    "Proparoxítona"
-  ),
-    caption = "Distribuição das respostas nos níveis da variável Tonicidade de produção.",
-    booktabs = TRUE,
-    table.attr = "style='width:100%;'"
-  ) %>% 
-  kableExtra::kable_styling(full_width = TRUE)
-```
 ```{r validacao_grupo}
-knitr::include_graphics("assets/graficos/g1_validacao_grupo.jpeg")
+pseudopalavras::dados %>%
+  dplyr::count(grupo, validacao,name='qtd') %>%
+  # dplyr::filter(grupo == 1) %>%
+  dplyr::mutate(validacao = dplyr::case_when(
+    validacao == "n" ~ "Não validada",
+    validacao == "q" ~ "Quase validada",
+    validacao == "s" ~ "Validada"
+  )) %>% 
+  dplyr::group_by(grupo) %>%
+  dplyr::mutate(pct = scales::percent(qtd/sum(qtd), .1)) %>% 
+  ggplot2::ggplot(ggplot2::aes(y = qtd, x = grupo, fill = validacao,
+                               label = glue::glue("{qtd} ({pct})"))) +
+  ggplot2::geom_col() +
+  ggplot2::geom_text(position = ggplot2::position_stack(vjust = .5)) +
+  ggplot2::scale_fill_viridis_d(option = "cividis", begin = 0.4) + 
+  labs(x="Grupo de Classificação", y= "N", fill = "Validação")+
+  ggplot2::theme_minimal(15)
 ```
-
+<br>
+```{r silaba-modificad, fig.cap = "Sílaba Modificada nas pseudopalavras"}
+ pseudopalavras::dados %>%
+  dplyr::mutate(silaba_modificada = dplyr::case_when(
+    silaba_modificada == 1 ~ "Primeira sílaba modificada",
+    silaba_modificada == 2 ~ "Segunda sílaba modificada",
+    silaba_modificada == 3 ~ "Terceira sílaba modificada",
+    silaba_modificada == 0 ~ "Mais de duas sílabas modificadas",
+  )) %>% 
+  dplyr::count(silaba_modificada) %>%
+  dplyr::mutate(percentual = scales::percent(n/sum(n))) %>% 
+  ggplot(aes(x ="", y=n, fill=silaba_modificada),label=n) +
+  geom_bar(width = 1, stat = "identity") + 
+  coord_polar("y", start = 0, direction = -1) + 
+  theme(
+    axis.title.x = element_blank(),
+    axis.title.y = element_blank(),
+    panel.border = element_blank(),
+    panel.grid=element_blank(),
+    axis.ticks = element_blank(),
+    panel.background = element_blank(),
+    axis.text.x=element_blank(),
+    legend.title = element_text())+
+  geom_text(aes(x ="", y=n, label = percentual),
+            position = position_stack(vjust = 0.5)) +
+  labs(fill="Sílaba Modificada")+
+  ggplot2::scale_fill_viridis_d(option = "cividis", begin = 0.4) 
+```
 
 

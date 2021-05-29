@@ -152,31 +152,6 @@ pseudopalavras::dados %>%
 ```
 <br>
 
-```{r estrut-tonicidade-alvo}
-pseudopalavras::dados %>%  dplyr::distinct(palavra_alvo, .keep_all = TRUE) %>% 
-  dplyr::count(estrutura_palavra, tonicidade_alvo) %>% 
-  tidyr::pivot_wider(names_from = estrutura_palavra, values_from = n) %>% 
-  setNames(c("tonicidade", "e1", "e2")) %>% 
-  dplyr::mutate(
-    total = e1 + e2,
-    e1 = glue::glue("{e1} ({scales::percent(e1/total)})"),
-    e2 = glue::glue("{e2} ({scales::percent(e2/total)})"),
-    total = glue::glue("{total} ({scales::percent(total/total)})")
-  ) %>% 
-  dplyr::relocate(tonicidade, e1, e2, total) %>% 
-  knitr::kable(
-    col.names = c("Tonicidade palavra-alvo", "CV-CV-CV", "CV-CV-CVC", "Total"),
-    booktabs = TRUE,
-    table.attr = "style='width:100%;'",
-    caption = "Frequência da Tonicidade alvo por Estrutura das palavras."
-  ) %>% 
-  kableExtra::add_header_above(
-    c(" " = 1, "Estrutura da palavra" = 2, " " = 1)
-  )
-```
-
-<br>
-
 ```{r validacao-grupo-tonicidade}
 pseudopalavras::dados %>% 
   dplyr::count(grupo, tonicidade_producao, validacao) %>% 

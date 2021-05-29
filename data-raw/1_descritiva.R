@@ -178,13 +178,13 @@ g_validacao = pseudopalavras::dados %>%
   ggplot2::ggplot(ggplot2::aes(
     x = grupo, y = n, fill = validacao
   )) +
-  scale_fill_manual(name="Status",values=c("orchid3","lemonchiffon2","plum3"))+
+  #scale_fill_manual(name="Status",values=c("orchid3","lemonchiffon2","plum3"))+
   labs(x="Grupo de Classificação", y= "N")+
-  ggplot2::geom_col()
+  ggplot2::geom_col() +
+  ggplot2::scale_fill_viridis_d() +
+  ggplot2::theme_minimal()
 
 ggplot2::ggsave("inst/book/assets/graficos/g1_validacao_grupo.jpeg", g_validacao,width=14, height = 7)
-
-
 
 
 
