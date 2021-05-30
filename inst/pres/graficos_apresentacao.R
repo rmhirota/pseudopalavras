@@ -14,12 +14,13 @@ g_f=pseudopalavras::dados %>%
     stat = "stratum",
     ggplot2::aes(label = after_stat(stratum))
   ) +
+  labs(fill="Tonicidade Alvo", y="N", x="Grupo")+
   ggplot2::scale_fill_viridis_d()+
   ggplot2::theme_minimal() +
   ggplot2::facet_wrap(~grupo)+
-  theme(plot.background = element_rect(fill = 'floralwhite', color = "floralwhite"))
+  theme(plot.background = element_rect(fill = '#fffaf5ff', color = "#fffaf5ff"))
 
-ggplot2::ggsave("inst/book/assets/graficos/g_fluxo_apresentacao.jpeg", g_f, width=14, height = 7)
+ggplot2::ggsave("inst/book/assets/graficos/g_fluxo_apresentacao.jpeg", g_f, width=10, height = 8)
 
 #pizza
 g_pizza=pseudopalavras::dados %>%
@@ -47,7 +48,7 @@ g_pizza=pseudopalavras::dados %>%
             position = position_stack(vjust = 0.5)) +
   labs(fill="Sílaba Modificada")+
   ggplot2::scale_fill_manual(values=c("turquoise4","mediumturquoise","orchid4","khaki" ))+
-  theme(plot.background = element_rect(fill = 'floralwhite', color = "floralwhite"))
+  theme(plot.background = element_rect(fill = '#fffaf5ff', color = "#fffaf5ff"))
 
 
 ggplot2::ggsave("inst/book/assets/graficos/g_pizza.jpeg", g_pizza, width=13, height = 10)
@@ -72,7 +73,7 @@ linguas=pessoas %>%
     y = "N",
     fill = "Área de formação")+
   ggplot2::scale_fill_manual(values=c("turquoise4","orchid4" ))+
-  theme(plot.background = element_rect(fill = 'floralwhite', color = "floralwhite"))
+  theme(plot.background = element_rect(fill = '#fffaf5ff', color = "#fffaf5ff"))
 
 
 
@@ -99,7 +100,7 @@ val = pseudopalavras::dados %>%
   ggplot2::scale_fill_manual(values=c("turquoise4","khaki","orchid4" )) +
   labs(x="Grupo de Classificação", y= "N", fill = "Validação")+
   ggplot2::theme_minimal(15)+
-  theme(plot.background = element_rect(fill = 'floralwhite', color = "floralwhite"))
+  theme(plot.background = element_rect(fill = '#fffaf5ff', color = "#fffaf5ff"))
 
 
 
