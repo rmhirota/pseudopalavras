@@ -215,5 +215,32 @@ ggplot2::ggsave("inst/book/assets/graficos/g1_fluxo.jpeg", g_fluxo, width=14, he
 
 
 
+#silaba por tonicidade
+
+pseudopalavras::dados %>%
+  dplyr::count(tonicidade_alvo,tonicidade_producao, silaba_modificada)%>%
+  dplyr::mutate(silaba_modificada = dplyr::case_when(
+  silaba_modificada == "0" ~ "Mais de uma sílaba modificada",
+  silaba_modificada == "1" ~ "Primeira sílaba modificada",
+  silaba_modificada == "2" ~ "Segunda sílaba modificada",
+  silaba_modificada == "3" ~ "Terceira sílaba modificada"
+))%>%
+  tidyr::pivot_wider(names_from = silaba_modificada, values_from = n) %>%
+  janitor::adorn_totals() %>%
+  janitor::adorn_percentages(denominator = "col") %>%
+  janitor::adorn_pct_formatting(digits = 1) %>%
+  janitor::adorn_ns(position = "front") %>%
+  knitr::kable(
+    col.names = c(
+      "Tonicidade Alvo", "Tonicidade Produção", "Mais de uma sílaba modificada",
+      "Primeira sílaba modificada", "Segunda sílaba modificada", "Terceira sílaba modificada"
+    ),
+    caption = "Tonicidade de pseudopalavras por Tonicidade Alvo e Silaba Modificada",
+    booktabs = TRUE,
+    table.attr = "style='width:100%;'"
+  ) %>%
+  kableExtra::add_header_above(
+    c(" " = 2, "Tonicidade Alvo" = 2, " "=2)
+  )
 
 
