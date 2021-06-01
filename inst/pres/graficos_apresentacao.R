@@ -84,6 +84,7 @@ ggplot2::ggsave("inst/book/assets/graficos/g_linguas_app.jpeg", linguas, width=8
 
 #validacao
 val = pseudopalavras::dados %>%
+  dplyr::distinct(pseudopalavra, .keep_all = TRUE)%>%
   dplyr::count(grupo, validacao,name='qtd') %>%
   # dplyr::filter(grupo == 1) %>%
   dplyr::mutate(validacao = dplyr::case_when(
