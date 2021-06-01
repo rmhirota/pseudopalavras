@@ -117,4 +117,23 @@ teste_silaba <- function(silab) {
 purrr::map_dfr(unique(pseudopalavras::dados$silaba_modificada), teste_silaba)
 
 
+#teste para musicos
+
+teste_musica <- function(musica) {
+  da <- pseudopalavras::dados %>%
+    dplyr::filter(musica == musica) %>%
+    dplyr::select(informante, tonicidade_producao, pseudopalavra) %>%
+    dplyr::group_by(pseudopalavra) %>%
+    dplyr::summarise(
+      oxitona = sum(tonicidade_producao == "oxítona"),
+      paroxitona = sum(tonicidade_producao == "paroxítona"),
+      proparoxitona = sum(tonicidade_producao == "proparoxítona")
+    ) %>%
+    dplyr::select(-pseudopalavra)
+  gwet.ac1.dist(da) %>%
+    dplyr::mutate(musica = musica) %>%
+    dplyr::relocate(musica)
+}
+
+purrr::map_dfr(unique(pseudopalavras::dados$musica), teste_musica)
 

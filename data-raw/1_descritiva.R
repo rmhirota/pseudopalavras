@@ -140,7 +140,7 @@ pseudopalavras::dados %>%
 
 # Tonicidade observada na pseudopalavra e tonicidade da palavra-alvo
 pseudopalavras::dados %>%
-  dplyr::count(tonicidade_producao, tonicidade_alvo) %>%
+  dplyr::count(estrutura_palavra, tonicidade_alvo) %>%
   knitr::kable()
 
 # Vizinhança Fonológica e Vizinhança Tonicidade (Validação)
