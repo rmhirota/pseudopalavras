@@ -93,13 +93,17 @@ val = pseudopalavras::dados %>%
     validacao == "s" ~ "Validada"
   )) %>%
   dplyr::group_by(grupo) %>%
-  dplyr::mutate(pct = scales::percent(qtd/sum(qtd), .1)) %>%
-  ggplot2::ggplot(ggplot2::aes(y = qtd, x = grupo, fill = validacao,
-                               label = glue::glue("{qtd} ({pct})"))) +
+  dplyr::mutate(
+    pct = qtd/sum(qtd),
+    pct_label = scales::percent(qtd/sum(qtd), .1)
+  ) %>%
+  ggplot2::ggplot(ggplot2::aes(y = pct, x = grupo, fill = validacao,
+                               label = glue::glue("{qtd} ({pct_label})"))) +
   ggplot2::geom_col() +
   ggplot2::geom_text(position = ggplot2::position_stack(vjust = .5)) +
   ggplot2::scale_fill_manual(values=c("turquoise4","khaki","orchid4" )) +
-  labs(x="Grupo de Classificação", y= "N", fill = "Validação")+
+  ggplot2::scale_y_continuous(labels = scales::label_percent()) +
+  ggplot2::labs(x="Grupo de Classificação", fill = "Validação", y = "")+
   ggplot2::theme_minimal(15)+
   theme(plot.background = element_rect(fill = '#fffaf5ff', color = "#fffaf5ff"))
 
