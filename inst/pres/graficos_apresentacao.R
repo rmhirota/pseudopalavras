@@ -1,12 +1,15 @@
 #fluxo
 
 library(ggalluvial)
+nomes = c("1" ="Grupo Similar de Alta Frequência","2" = "Grupo Similar de Baixa Frequência",
+          "3" = "Grupo Dissimilar de Alta Frequência","4" = "Grupo Dissimilar de Baixa Frequência")
+
 g_f=pseudopalavras::dados %>%
   dplyr::mutate(Coincidente = tonicidade_producao == tonicidade_alvo) %>%
   dplyr::count(grupo, tonicidade_producao, tonicidade_alvo, Coincidente) %>%
-  #dplyr::filter(grupo == 1) %>%
+  dplyr::mutate(pct = n/sum(n)) %>%
   ggplot2::ggplot(ggplot2::aes(
-    axis1 = tonicidade_alvo, axis2 = tonicidade_producao, y = n
+    axis1 = tonicidade_alvo, axis2 = tonicidade_producao, y = pct
   )) +
   geom_alluvium(ggplot2::aes(fill = tonicidade_alvo)) +
   geom_stratum() +
@@ -14,13 +17,109 @@ g_f=pseudopalavras::dados %>%
     stat = "stratum",
     ggplot2::aes(label = after_stat(stratum))
   ) +
-  labs(fill="Tonicidade Alvo", y="N", x="Grupo")+
+  labs(fill="Tonicidade Alvo", y="N", x="Grupos de classificação")+
+  ggplot2::scale_y_continuous(labels = scales::label_percent()) +
   ggplot2::scale_fill_viridis_d()+
   ggplot2::theme_minimal() +
-  ggplot2::facet_wrap(~grupo)+
-  theme(plot.background = element_rect(fill = '#fffaf5ff', color = "#fffaf5ff"))
+  ggplot2::facet_wrap(~grupo,labeller = labeller(grupo = nomes))+
+  theme(plot.background = element_rect(fill = '#fffaf5ff', color = "#fffaf5ff"),
+        axis.text.x=element_blank())
 
 ggplot2::ggsave("inst/book/assets/graficos/g_fluxo_apresentacao.jpeg", g_f, width=10, height = 8)
+
+g_f1 = pseudopalavras::dados %>%
+  dplyr::mutate(Coincidente = tonicidade_producao == tonicidade_alvo) %>%
+  dplyr::count(grupo, tonicidade_producao, tonicidade_alvo, Coincidente) %>%
+  dplyr::filter(grupo == 1) %>%
+  dplyr::mutate(pct = n/sum(n)) %>%
+  ggplot2::ggplot(ggplot2::aes(
+    axis1 = tonicidade_alvo, axis2 = tonicidade_producao, y = pct
+  )) +
+  geom_alluvium(ggplot2::aes(fill = tonicidade_alvo)) +
+  geom_stratum() +
+  ggplot2::geom_text(
+    stat = "stratum",
+    ggplot2::aes(label = after_stat(stratum))
+  ) +
+  labs(fill="Tonicidade Alvo", y="", x="Grupo Similar de Alta Frequência")+
+  ggplot2::scale_y_continuous(labels = scales::label_percent()) +
+  ggplot2::scale_fill_viridis_d()+
+  ggplot2::theme_minimal() +
+  theme(plot.background = element_rect(fill = '#fffaf5ff', color = "#fffaf5ff"),
+        axis.text.x=element_blank())
+
+ggplot2::ggsave("inst/book/assets/graficos/g_fluxo_1.jpeg", g_f1, width=8, height = 6)
+
+g_f2 = pseudopalavras::dados %>%
+  dplyr::mutate(Coincidente = tonicidade_producao == tonicidade_alvo) %>%
+  dplyr::count(grupo, tonicidade_producao, tonicidade_alvo, Coincidente) %>%
+  dplyr::filter(grupo == 2) %>%
+  dplyr::mutate(pct = n/sum(n)) %>%
+  ggplot2::ggplot(ggplot2::aes(
+    axis1 = tonicidade_alvo, axis2 = tonicidade_producao, y = pct
+  )) +
+  geom_alluvium(ggplot2::aes(fill = tonicidade_alvo)) +
+  geom_stratum() +
+  ggplot2::geom_text(
+    stat = "stratum",
+    ggplot2::aes(label = after_stat(stratum))
+  ) +
+  labs(fill="Tonicidade Alvo", y="", x="Grupo Dissimilar de Alta Frequência")+
+  ggplot2::scale_y_continuous(labels = scales::label_percent()) +
+  ggplot2::scale_fill_viridis_d()+
+  ggplot2::theme_minimal() +
+  theme(plot.background = element_rect(fill = '#fffaf5ff', color = "#fffaf5ff"),
+        axis.text.x=element_blank())
+
+ggplot2::ggsave("inst/book/assets/graficos/g_fluxo_2.jpeg", g_f2, width=8, height = 6)
+
+g_f3 = pseudopalavras::dados %>%
+  dplyr::mutate(Coincidente = tonicidade_producao == tonicidade_alvo) %>%
+  dplyr::count(grupo, tonicidade_producao, tonicidade_alvo, Coincidente) %>%
+  dplyr::filter(grupo == 3) %>%
+  dplyr::mutate(pct = n/sum(n)) %>%
+  ggplot2::ggplot(ggplot2::aes(
+    axis1 = tonicidade_alvo, axis2 = tonicidade_producao, y = pct
+  )) +
+  geom_alluvium(ggplot2::aes(fill = tonicidade_alvo)) +
+  geom_stratum() +
+  ggplot2::geom_text(
+    stat = "stratum",
+    ggplot2::aes(label = after_stat(stratum))
+  ) +
+  labs(fill="Tonicidade Alvo", y="", x="Grupo Similar de Alta Frequência")+
+  ggplot2::scale_y_continuous(labels = scales::label_percent()) +
+  ggplot2::scale_fill_viridis_d()+
+  ggplot2::theme_minimal() +
+  theme(plot.background = element_rect(fill = '#fffaf5ff', color = "#fffaf5ff"),
+        axis.text.x=element_blank())
+
+ggplot2::ggsave("inst/book/assets/graficos/g_fluxo_3.jpeg", g_f3, width=8, height = 6)
+
+g_f4 = pseudopalavras::dados %>%
+  dplyr::mutate(Coincidente = tonicidade_producao == tonicidade_alvo) %>%
+  dplyr::count(grupo, tonicidade_producao, tonicidade_alvo, Coincidente) %>%
+  dplyr::filter(grupo == 4) %>%
+  dplyr::mutate(pct = n/sum(n)) %>%
+  ggplot2::ggplot(ggplot2::aes(
+    axis1 = tonicidade_alvo, axis2 = tonicidade_producao, y = pct
+  )) +
+  geom_alluvium(ggplot2::aes(fill = tonicidade_alvo)) +
+  geom_stratum() +
+  ggplot2::geom_text(
+    stat = "stratum",
+    ggplot2::aes(label = after_stat(stratum))
+  ) +
+  labs(fill="Tonicidade Alvo", y="", x="Grupo Dissimilar de Baixa Frequência")+
+  ggplot2::scale_y_continuous(labels = scales::label_percent()) +
+  ggplot2::scale_fill_viridis_d()+
+  ggplot2::theme_minimal() +
+  theme(plot.background = element_rect(fill = '#fffaf5ff', color = "#fffaf5ff"),
+        axis.text.x=element_blank())
+
+ggplot2::ggsave("inst/book/assets/graficos/g_fluxo_4.jpeg", g_f4, width=8, height = 6)
+
+
 
 #pizza
 g_pizza=pseudopalavras::dados %>%
@@ -100,7 +199,7 @@ val = pseudopalavras::dados %>%
   ggplot2::ggplot(ggplot2::aes(y = pct, x = grupo, fill = validacao,
                                label = glue::glue("{qtd} ({pct_label})"))) +
   ggplot2::geom_col() +
-  ggplot2::geom_text(position = ggplot2::position_stack(vjust = .5)) +
+  ggplot2::geom_text(position = ggplot2::position_stack(vjust = .5),size=5) +
   ggplot2::scale_fill_manual(values=c("turquoise4","khaki","orchid4" )) +
   ggplot2::scale_y_continuous(labels = scales::label_percent()) +
   ggplot2::labs(x="Grupo de Classificação", fill = "Validação", y = "")+
