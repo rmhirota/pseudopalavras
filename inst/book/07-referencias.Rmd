@@ -6,6 +6,13 @@
 
 Software R (versão 4.0.5)
 
+## TÉCNICAS ESTATÍSTICAS UTILIZADAS
+
+Análise Descritiva Unidimensional (03:010)
+Análise de Dados Categorizados (06:030)
+Outros (07:990)
+
+
 ## ÁREA DE APLICAÇÃO {-}
 
 Linguística (14:110)
