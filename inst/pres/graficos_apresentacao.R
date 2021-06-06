@@ -1,8 +1,8 @@
 #fluxo
 
 library(ggalluvial)
-nomes = c("1" ="Grupo Similar de Alta Frequência","2" = "Grupo Similar de Baixa Frequência",
-          "3" = "Grupo Dissimilar de Alta Frequência","4" = "Grupo Dissimilar de Baixa Frequência")
+nomes = c("1" ="Grupo Similar de Alta Frequência","2" = "Grupo Dissimilar de Alta Frequência",
+          "3" = "Grupo Similar de Baixa Frequência","4" = "Grupo Dissimilar de Baixa Frequência")
 
 g_f=pseudopalavras::dados %>%
   dplyr::mutate(Coincidente = tonicidade_producao == tonicidade_alvo) %>%
@@ -39,8 +39,8 @@ g_f1 = pseudopalavras::dados %>%
   geom_stratum() +
   ggplot2::geom_text(
     stat = "stratum",
-    ggplot2::aes(label = after_stat(stratum))
-  ) +
+    ggplot2::aes(label = paste0(..stratum.., "\n", scales::percent(..count.., accuracy = .1)), stat = "stratum"))+
+                       #percent(after_stat(prop), accuracy = .1))))+
   labs(fill="Tonicidade Alvo", y="", x="Grupo Similar de Alta Frequência")+
   ggplot2::scale_y_continuous(labels = scales::label_percent()) +
   ggplot2::scale_fill_viridis_d()+
@@ -62,8 +62,7 @@ g_f2 = pseudopalavras::dados %>%
   geom_stratum() +
   ggplot2::geom_text(
     stat = "stratum",
-    ggplot2::aes(label = after_stat(stratum))
-  ) +
+    ggplot2::aes(label = paste0(..stratum.., "\n", scales::percent(..count.., accuracy = .1)), stat = "stratum"))+
   labs(fill="Tonicidade Alvo", y="", x="Grupo Dissimilar de Alta Frequência")+
   ggplot2::scale_y_continuous(labels = scales::label_percent()) +
   ggplot2::scale_fill_viridis_d()+
@@ -85,9 +84,8 @@ g_f3 = pseudopalavras::dados %>%
   geom_stratum() +
   ggplot2::geom_text(
     stat = "stratum",
-    ggplot2::aes(label = after_stat(stratum))
-  ) +
-  labs(fill="Tonicidade Alvo", y="", x="Grupo Similar de Alta Frequência")+
+    ggplot2::aes(label = paste0(..stratum.., "\n", scales::percent(..count.., accuracy = .1)), stat = "stratum"))+
+  labs(fill="Tonicidade Alvo", y="", x="Grupo Similar de Baixa Frequência")+
   ggplot2::scale_y_continuous(labels = scales::label_percent()) +
   ggplot2::scale_fill_viridis_d()+
   ggplot2::theme_minimal() +
@@ -108,8 +106,7 @@ g_f4 = pseudopalavras::dados %>%
   geom_stratum() +
   ggplot2::geom_text(
     stat = "stratum",
-    ggplot2::aes(label = after_stat(stratum))
-  ) +
+    ggplot2::aes(label = paste0(..stratum.., "\n", scales::percent(..count.., accuracy = .1)), stat = "stratum"))+
   labs(fill="Tonicidade Alvo", y="", x="Grupo Dissimilar de Baixa Frequência")+
   ggplot2::scale_y_continuous(labels = scales::label_percent()) +
   ggplot2::scale_fill_viridis_d()+

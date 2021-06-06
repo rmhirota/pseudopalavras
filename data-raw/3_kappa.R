@@ -119,9 +119,9 @@ purrr::map_dfr(unique(pseudopalavras::dados$silaba_modificada), teste_silaba)
 
 #teste para musicos
 
-teste_musica <- function(musica) {
+teste_musica <- function(music) {
   da <- pseudopalavras::dados %>%
-    dplyr::filter(musica == musica) %>%
+    dplyr::filter(musica == music) %>%
     dplyr::select(informante, tonicidade_producao, pseudopalavra) %>%
     dplyr::group_by(pseudopalavra) %>%
     dplyr::summarise(
@@ -131,7 +131,7 @@ teste_musica <- function(musica) {
     ) %>%
     dplyr::select(-pseudopalavra)
   gwet.ac1.dist(da) %>%
-    dplyr::mutate(musica = musica) %>%
+    dplyr::mutate(musica = music) %>%
     dplyr::relocate(musica)
 }
 
