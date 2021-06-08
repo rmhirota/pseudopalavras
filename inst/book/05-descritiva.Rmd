@@ -70,7 +70,7 @@ pseudopalavras::dados %>%
   kableExtra::kable_styling(full_width = TRUE)
 ```
 
-De forma geral, comparando a tonicidade das pseudopalavras e a tonicidade das palavras-alvo (vide Tabela \@ref(tab:tonicidade-pseudoxalvo)), nota-se que aproximadamente 73% das pseudopalavras classificadas como proparoxítonas tinham uma palavra-alvo de tonicidade proparoxítona. Entretanto, cerca de 77% das pseudopalavras que têm como alvo uma palavra proparoxítona foram categorizadas pelos participantes como paroxítonas (Tabela \@ref(tab:tonicidade-pseudoxalvo2)). 
+De forma geral, comparando a tonicidade da produção e a tonicidade das palavras-alvo (vide Tabela \@ref(tab:tonicidade-pseudoxalvo)), nota-se que aproximadamente 73% das pseudopalavras classificadas como proparoxítonas tinham uma palavra-alvo de tonicidade proparoxítona. Entretanto, cerca de 77% das pseudopalavras que têm como alvo uma palavra proparoxítona foram categorizadas pelos participantes como paroxítonas (Tabela \@ref(tab:tonicidade-pseudoxalvo2)). 
 
 Além disso, nota-se também que pseudopalavras originadas de palavras-alvo oxítonas 
 e paroxítonas foram acentuadas de forma razoavelmente uniforme entre oxítonas e 
@@ -104,7 +104,7 @@ pseudopalavras::dados %>%
     ),
     booktabs = TRUE,
     table.attr = "style='width:100%;'",
-    caption = "Frequência da tonicidade das pseudopalavras por nível de tonicidade 
+    caption = "Frequência da tonicidade da produção por nível de tonicidade 
 das palavras-alvo."
   ) %>% 
   kableExtra::kable_styling(full_width = TRUE) %>% 
@@ -118,7 +118,7 @@ Observa-se na Tabela \@ref(tab:grupo-producao) que os grupos de classificação 
 referência original) apresentam uma proporção menor de proparoxítonas
 produzidas quando comparados aos grupos 1 e 3. 
 
-O fluxo entre tonicidade da palavra-alvo e tonicidade da pseudopalavra pode ser analisado graficamente por grupo de classificação na Figura \@ref(fig:tonicidade-fluxo).
+O fluxo entre tonicidade da palavra-alvo e tonicidade da produção pode ser analisado graficamente por grupo de classificação na Figura \@ref(fig:tonicidade-fluxo).
 
 ```{r tonicidade-fluxo, fig.cap = "Tonicidade de palavra-alvo e pseudopalavra"}
 library(ggalluvial)
@@ -148,7 +148,7 @@ pseudopalavras::dados %>%
 ```
 No geral, podemos ver que há um "confundimento" entre oxítonas e paroxítonas em todos os grupos de classificação, ou seja, muitas pseudopalavras cuja palavra de referência é paroxítona foram classificadas pelos falantes como oxítonas, e vice-versa.
 
-Consegue-se perceber que nos grupos de baixa frequência, a quantidade de pseudopalavras que foram classificada como oxítona e cuja tonicidade da palavra-alvo era proparoxítona é consideravelmente maior do que nos grupos de alta frequencia. Supomos que o fato de a palavra ser de baixa frequência faz com que seja mais dificil ter uma referencia na mesma estrutura.Além disso, para os grupos dissimilares a quantidade de pseudopalavras acentuadas como proparoxítonas é ainda menor do que nos grupos similares, o que pode concordra com a hipotese de que quando o falante perde a referencia de uma palavra real, ele acaba acentuando-a de acordo com um padrão, que seria o paroxítono. Cada um dos gráficos de fluxo pode ser visto detalhadamente no Apêndice B-Gráficos.
+Consegue-se perceber que nos grupos de baixa frequência, a quantidade de pseudopalavras que foram classificadas como oxítona e cuja tonicidade da palavra-alvo era proparoxítona é consideravelmente maior do que nos grupos de alta frequência. Supomos que o fato de a palavra ser de baixa frequência faz com que seja mais dificil ter uma referência na mesma estrutura. Além disso, para os grupos dissimilares a quantidade de pseudopalavras acentuadas como proparoxítonas é ainda menor do que nos grupos similares, o que pode concorda com a hipótese de que quando o falante perde a referência de uma palavra real, ele acaba acentuando-a de acordo com um padrão, que seria o paroxítono. Cada um dos gráficos de fluxo pode ser visto detalhadamente no Apêndice B-Gráficos.
 
 Na Tabela \@ref(tab:estrut-tonicidade-producao), vemos que 85% das pseudopalavras 
 cuja estrutura era CV-CV-CV foram classificadas como paroxítonas, e 79% das pseudopalavras cuja estrutura era CV-CV-CVC foram classificadas como oxítonas, o que corrobora com a afirmação da literatura de que uma palavra típica da língua portuguesa é formada por sílabas CV e com a tonicidade recaindo na penúltima sílaba (paroxítona), uma vez que o padrão silábico canônico do português é CV e o padrão tônico é o paroxítono. Logo, parece existir forte influência da estrutura na atribuição da tonicidade em palavras do português brasileiro.
@@ -174,7 +174,7 @@ pseudopalavras::dados %>%
     col.names = c("Tonicidade produção", "CV-CV-CV", "CV-CV-CVC", "Total"),
     booktabs = TRUE,
     table.attr = "style='width:100%;'",
-    caption = "Frequência da Tonicidade da pseudopalavra por Estrutura das palavras."
+    caption = "Frequência da Tonicidade da produção por Estrutura das palavras."
   ) %>% 
   kableExtra::add_header_above(
     c(" " = 1, "Estrutura da palavra" = 2, " " = 1)
@@ -198,7 +198,7 @@ pseudopalavras::dados %>%
     ),
     booktabs = TRUE,
     table.attr = "style='width:100%;'",
-    caption = "Frequência da tonicidade das pseudopalavras, por nível da variável Validação."
+    caption = "Frequência da tonicidade das produção, por nível da variável Validação."
   ) %>% 
   kableExtra::kable_styling(full_width = TRUE) %>% 
   kableExtra::add_header_above(
@@ -220,7 +220,8 @@ das pseudopalavras pertencem ao grupo das similares (\@ref(fig:validacao-grupo).
 Ou seja, percebe-se que nos grupos 1 (pseudopalavras similares de alta frequência) 
 e 3 (pseudopalavras similares de baixa frequência) a porcentagem de palavras não 
 validadas é superior aos demais grupos, o que parece indicar que a validação de
-palavras similares é mais complexa e difícil, uma vez que pseudopalavras classificadas como similares a palavra-alvo podem ser associadas a mais de uma palavra real pelos falantes. 
+palavras similares é mais complexa e difícil, uma vez que pseudopalavras classificadas 
+como similares a palavra-alvo podem ser associadas a mais de uma palavra real pelos falantes. 
 
 ```{r validacao-grupo}
 pseudopalavras::dados %>%
@@ -250,10 +251,13 @@ pseudopalavras::dados %>%
 
 ## Análise de Concordância 
 
-Como nossa base de dados está no formato de medidas repetidas (falantes acentuando diversas pseudopalavras) e uma mesma palavra-alvo gerou diversas pseupalavras, o pressuposto de independência entre as observações não é verdadeiro. Logo, optamos  por medir a concordância na acentuação dos falantes através de uma Estatística do tipo Kappa, separando as análises em cada nível das seguintes variáveis: Grupo de Classificação, Estrutura da palavra e Segmento Modificado
+Como nossa base de dados está no formato de medidas repetidas (falantes acentuando diversas pseudopalavras) e uma mesma palavra-alvo gerou diversas pseupalavras, o pressuposto de independência entre as observações não é verdadeiro. Logo, optamos  por medir a concordância entre a acentuação dos falantes  através de uma Estatística do tipo Kappa, separando as análises em cada nível das seguintes variáveis: Grupo de Classificação, Estrutura da palavra e Segmento Modificado. 
 
-Busca-se investigar o grau de concordância entre os falantes quanto a classificação das 372  pseudopalavras em oxítona, paroxítona e proparoxítona. Como os níveis da variável resposta (tonicidade da pseudopalavra) têm uma distribuição desbalanceada,
-houve a necessidade de utilizar um fator corretor no cálculo da estatística Kappa. Assim, para esse conjunto de dados, foi adotado a estatística de Gwet, medida que de acordo com a literatura pode ser utilizada em amostras desbalanceadas. 
+Busca-se investigar o grau de concordância entre os falantes quanto a classificação das 372 
+pseudopalavras em oxítona, paroxítona e proparoxítona. Como os níveis da variável resposta (tonicidade
+da produção) têm uma distribuição desbalanceada, houve a necessidade de utilizar um fator corretor
+no cálculo da estatística Kappa. Assim, para esse conjunto de dados, foi adotado a estatística de Gwet,
+medida que, de acordo com a literatura, pode ser utilizada em amostras desbalanceadas. 
 
 __AC1 de Gwet:__ Coeficiente para n experimentos com r avaliadores que utilizam um sistema de classificação em Q categorias
 
@@ -266,7 +270,7 @@ $p_{e\gamma}$ = probabilidade de concordância ao acaso
 $p_a$ = probabilidade de concordância geral
 $\pi_q$ = probabilidade de classificação na categoria q
 
-Quanto mais próximo de 1 menor a probabilidade de a concordância acontecer devido ao acaso, ou seja, melhor a concorânci entre os falantes na classificação das pseudopalavras. Altman, DG (1991) define os seguintes pontos de corte para a interpretação da estatística Kappa (e, consequentemente, do AC1)
+Quanto mais próximo de 1 menor a probabilidade de a concordância acontecer devido ao acaso, ou seja, melhor a concordância entre os falantes na classificação das pseudopalavras. Altman, DG (1991) define os seguintes pontos de corte para a interpretação da estatística Kappa (e, consequentemente, do AC1)
 
 ```{r ponto-corte}
 tabela = data.frame(x=c("AC1 < 0,20","0,2 <= AC1 < 0,4","0,4 <= AC1 < 0,6",
@@ -309,7 +313,7 @@ gwet.ac1.dist(da) %>%
 
 Já na Tabela \@ref(tab:gwet-grupo),vemos que há semelhança de concordância entre os grupos similares e dissimilares, sendo nas dissimilares os maiores níveis de concordância (0.75 e 0.71). Porém em todos os casos pode se considerar que a concordância foi boa. 
 
-Uma hipótese para O fato de os falantes concordarem mais nos grupos dissimilares seria de que quanto menos referência entre a pseudopalavra e uma palavra real, maior a chance de o falante acentuar como paroxítona (seguir um padrão)
+Uma hipótese para o fato de os falantes concordarem mais nos grupos dissimilares seria de que quanto menos referência entre a pseudopalavra e uma palavra real, maior a chance de o falante utilizar outra característica para definir a tonicidade (como por exemplo a estrutura da palavra). 
 
 ```{r gwet-grupo}
 teste_grupo <- function(num_grupo) {
@@ -339,7 +343,7 @@ purrr::map_dfr(1:4, teste_grupo) %>%
   kableExtra::kable_styling(full_width = TRUE)
 ```
 
-Em relação a estrutura da palavra, há uma maior concordância nas respostas dos falantes cujas pseudopalavras estão no nível CV-CV-CV como visto na  \@ref(tab:gwet-estrutura). Dado que dentro da estrutura CV-CV-CV 85% das pseudopalavras nesse nível foram classificadas como paroxítonas, parece existir uma concordância alta entre os falantes de seguirem essa tonicidade
+Em relação a estrutura da palavra, há uma maior concordância nas respostas dos falantes cujas pseudopalavras estão no nível CV-CV-CV, como visto na  \@ref(tab:gwet-estrutura). Dado que dentro da estrutura CV-CV-CV 85% das pseudopalavras nesse nível foram classificadas como paroxítonas, parece existir uma concordância alta entre os falantes de seguirem essa tonicidade.
 
 ```{r gwet-estrutura}
 teste_estrutura <- function(estrut) {
@@ -368,18 +372,18 @@ purrr::map_dfr(unique(pseudopalavras::dados$estrutura_palavra), teste_estrutura)
   kableExtra::kable_styling(full_width = TRUE)
 
 ```
-Por fim, em relação ao segmento modificado, vemos que há semelhança na medida de concordância entre os dois níveis de mudança (0.67 e 0.68). Ou seja, os falantes concordam na tonicidade da pseudopalavra de forma muito parecida entre os dois níveis como visto na \@ref(tab:gwet-segmento).
+
+Por fim, em relação ao segmento modificado, vemos que há semelhança na medida de concordância entre os dois níveis de mudança (0.67 e 0.68). Ou seja, os falantes concordam na tonicidade da produção de forma muito parecida entre os dois níveis como visto na \@ref(tab:gwet-segmento).
 
 ## Resumo da Análise Descritiva
 
-No geral, podemos ver que há um grande “confundimento” entre oxítonas e paroxítonas, além dos participantes acentuarem as pseudopalavras de forma paroxítona com bastante frequência. Logo, isso pode ser um indicativo de que o acento na penúltima sílaba é o padrão seguido pelos falantes do português btasileiro.
+No geral, podemos ver que há um grande “confundimento” entre oxítonas e paroxítonas, além dos participantes acentuarem as pseudopalavras de forma paroxítona com bastante frequência. Logo, isso reforça a teoria de que o acento na penúltima sílaba é o padrão seguido pelos falantes do português brasileiro.
 
-Além diss, dificilmente um falante acentua uma palavra desconhecida de forma proparoxítona e as volumetrias parecem ir ao encontro das teorias fonológicas de que
-se a palavra terminar em consoante o acento será oxítono e se terminar em vogal, o acento é paroxítono.
+Além disso, dificilmente um falante acentua uma palavra desconhecida de forma proparoxítona e as volumetrias parecem ir ao encontro das teorias fonológicas de que se a palavra terminar em consoante o acento será oxítono e se terminar em vogal, o acento é paroxítono.
 
 A análise de concordância parece indicar que as variáveis Grupo de classificação e Estrutura da palavra são importantes para a atribuição do acento tônico, visto que seus níveis apresentaram estatísticas de Gwet levemente diferentes entre si.
 
-A partir desses resultados, serão desenvolvidos __Modelos de Regressão Mistos Multinomiais__ com o falante como efeito aleatório, pois há interesse em analisar variáveis relacionadas aos indivíduos.
+A partir desses resultados, serão desenvolvidos __Modelos de Regressão Mistos Multinomiais__ com o falante como efeito aleatório, pois há interesse em analisar variáveis relacionadas aos indivíduos. 
 
 
 

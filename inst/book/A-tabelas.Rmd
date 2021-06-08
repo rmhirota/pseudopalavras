@@ -104,7 +104,7 @@ pseudopalavras::dados %>%
   knitr::kable(col.names = c(
       "Tonicidade produção", "oxítona", "paroxítona", "proparoxítona", "Total"
     ),
-    caption = "Frequência da tonicidade das palavras-alvo por nível de tonicidade das pseudopalavras.",
+    caption = "Frequência da tonicidade das palavras-alvo por nível de tonicidade de produção",
     booktabs = TRUE,
     table.attr = "style='width:100%;'"
   ) %>% 
@@ -171,7 +171,7 @@ pseudopalavras::dados %>%
       "Grupo de classificação", "Tonicidade produção", "Não Validada", "Quase Validada", 
       "Validada"
     ),
-    caption = "Tonicidade de pseudopalavras por Grupo e Validação.",
+    caption = "Tonicidade de produção por Grupo e Validação.",
     booktabs = TRUE,
     table.attr = "style='width:100%;'"
   ) %>% 

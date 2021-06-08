@@ -8,7 +8,7 @@ acentual no português. A seguir, listamos as variáveis pré-selecionadas para 
   
 ## Variável Dependente
 
-A variável resposta de interesse é __Tonicidade da pseudopalavra__, ou seja, a
+A variável resposta de interesse é __Tonicidade de produção__, ou seja, a
 classificação acentual tônica da pseudopalavra (oxítona, paroxítona e proparoxítona).
   
   
