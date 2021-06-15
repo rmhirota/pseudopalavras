@@ -2,21 +2,28 @@ library(mclogit) #unico que funcionou
 library(mlogit)
 library(lme4)
 library(mixcat)
+library(gamlss)
+library(nnet)
 
 base = pseudopalavras::dados%>%mutate(tonicidade_producao = as.factor(tonicidade_producao),
                                       tonicidade_alvo = as.factor(tonicidade_alvo),
                                       estrutura_palavra = as.factor(estrutura_palavra),
                                       grupo = as.factor(grupo),
-                                      musica = as.factor(musica))
+                                      musica = as.factor(musica),
+                                      aleatorizacao = as.factor(aleatorizacao))
 
 
 
 m = mblogit(tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
-              grupo +musica+linguas,random = ~1|informante,data=base)
+              grupo+aleatorizacao+musica+linguas,random = ~1|informante,data=base)
 
 # random = ~1|informante,
 #/eb, subset=classd!="Farmers")
 summary(m)
+
+
+
+
 
 '''
 da <- pseudopalavras::dados %>%
@@ -55,4 +62,28 @@ m4 = npmlt(base$tonicidade_producao ~ base$tonicidade_alvo+base$estrutura_palavr
 summary(m4)
 
 
+#-----------
 
+m5 = gamlss(tonicidade_producao~ tonicidade_alvo+estrutura_palavra+
+              grupo, data = na.omit(base), family = multinomial)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#-----
+
+base$tonicidade_producao <- relevel(base$tonicidade_producao, ref = "paroxítona")
+m6 = multinom(base$tonicidade_producao ~ base$tonicidade_alvo+base$estrutura_palavra+
+                base$grupo, data = base)
+summary(m6)
