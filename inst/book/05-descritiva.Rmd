@@ -142,7 +142,7 @@ pseudopalavras::dados %>%
   ggplot2::scale_fill_viridis_d()+
   ggplot2::theme_minimal() +
   ggplot2::facet_wrap(~grupo,labeller = labeller(grupo = nomes))+
-  theme(plot.background = element_rect(fill = '#fffaf5ff', color = "#fffaf5ff"),
+  theme(
         axis.text.x=element_blank())
   
 ```

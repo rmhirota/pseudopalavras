@@ -68,7 +68,7 @@ pseudopalavras::dados %>%
   ggplot2::scale_y_continuous(labels = scales::label_percent()) +
   ggplot2::scale_fill_viridis_d()+
   ggplot2::theme_minimal() +
-  theme(plot.background = element_rect(fill = '#fffaf5ff', color = "#fffaf5ff"),
+  theme(
         axis.text.x=element_blank())
 
 ```
@@ -93,7 +93,7 @@ pseudopalavras::dados %>%
   ggplot2::scale_y_continuous(labels = scales::label_percent()) +
   ggplot2::scale_fill_viridis_d()+
   ggplot2::theme_minimal() +
-  theme(plot.background = element_rect(fill = '#fffaf5ff', color = "#fffaf5ff"),
+  theme(
         axis.text.x=element_blank())
 
 ````
@@ -119,7 +119,7 @@ pseudopalavras::dados %>%
   ggplot2::scale_y_continuous(labels = scales::label_percent()) +
   ggplot2::scale_fill_viridis_d()+
   ggplot2::theme_minimal() +
-  theme(plot.background = element_rect(fill = '#fffaf5ff', color = "#fffaf5ff"),
+  theme(
         axis.text.x=element_blank())
 
 ```
@@ -144,7 +144,7 @@ pseudopalavras::dados %>%
   ggplot2::scale_y_continuous(labels = scales::label_percent()) +
   ggplot2::scale_fill_viridis_d()+
   ggplot2::theme_minimal() +
-  theme(plot.background = element_rect(fill = '#fffaf5ff', color = "#fffaf5ff"),
+  theme(
         axis.text.x=element_blank())
 ```
 
