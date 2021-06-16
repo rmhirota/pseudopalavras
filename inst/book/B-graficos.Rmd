@@ -1,6 +1,6 @@
 # Gráficos {#graficos}
 
-```{r idade_genero, fig.cap = "Idade dos participantes distribuída pelo genêro"}
+```{r idade_genero, fig.cap = "Idade dos participantes distribuída pelo Genêro"}
 participantes %>%
   dplyr::mutate(idade_cat = dplyr::case_when(
     idade <= 20 ~ "Entre 18 e 20 anos",
@@ -28,7 +28,7 @@ participantes %>%
     fill = "Gênero")
 ```
 <br>
-```{r area_linguas, fig.cap = "Conhecimento de outras línguas por área de formação"}
+```{r area_linguas, fig.cap = "Conhecimento em outras línguas por área de formação"}
  participantes %>%
   dplyr::mutate(linguas = ifelse(linguas == 0, "Não", "Sim")) %>%
   dplyr::count(area_formacao, linguas, sort = TRUE) %>%
@@ -43,7 +43,7 @@ participantes %>%
   ggplot2::scale_fill_manual(values=c("turquoise4","orchid4" ))+
   ggplot2::theme_minimal(18) +
   ggplot2::labs(
-    x = "Conhecimento de outra(s) língua(s)",
+    x = "Conhecimento em outra(s) língua(s)",
     y = "N",
     fill = "Área de formação")
 ```
@@ -64,7 +64,7 @@ pseudopalavras::dados %>%
     stat = "stratum",
     ggplot2::aes(label = after_stat(stratum))
   ) +
-  labs(fill="Tonicidade Alvo", y="", x="Grupo Similar de Alta Frequência")+
+  labs(fill="Tonicidade da palavra-alvo", y="", x="Grupo Similar de Alta Frequência")+
   ggplot2::scale_y_continuous(labels = scales::label_percent()) +
   ggplot2::scale_fill_viridis_d()+
   ggplot2::theme_minimal() +
@@ -89,7 +89,7 @@ pseudopalavras::dados %>%
     stat = "stratum",
     ggplot2::aes(label = after_stat(stratum))
   ) +
-  labs(fill="Tonicidade Alvo", y="", x="Grupo Dissimilar de Alta Frequência")+
+  labs(fill="Tonicidade da palavra-alvo", y="", x="Grupo Dissimilar de Alta Frequência")+
   ggplot2::scale_y_continuous(labels = scales::label_percent()) +
   ggplot2::scale_fill_viridis_d()+
   ggplot2::theme_minimal() +
@@ -115,7 +115,7 @@ pseudopalavras::dados %>%
     stat = "stratum",
     ggplot2::aes(label = after_stat(stratum))
   ) +
-  labs(fill="Tonicidade Alvo", y="", x="Grupo Similar de Baixa Frequência")+
+  labs(fill="Tonicidade da palavra-alvo", y="", x="Grupo Similar de Baixa Frequência")+
   ggplot2::scale_y_continuous(labels = scales::label_percent()) +
   ggplot2::scale_fill_viridis_d()+
   ggplot2::theme_minimal() +
@@ -140,7 +140,7 @@ pseudopalavras::dados %>%
     stat = "stratum",
     ggplot2::aes(label = after_stat(stratum))
   ) +
-  labs(fill="Tonicidade Alvo", y="", x="Grupo Dissimilar de Baixa Frequência")+
+  labs(fill="Tonicidade da palavra-alvo", y="", x="Grupo Dissimilar de Baixa Frequência")+
   ggplot2::scale_y_continuous(labels = scales::label_percent()) +
   ggplot2::scale_fill_viridis_d()+
   ggplot2::theme_minimal() +
