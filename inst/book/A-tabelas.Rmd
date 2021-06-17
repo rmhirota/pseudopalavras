@@ -51,11 +51,17 @@ participantes %>%
     Outro:Total, ~paste0(.x, " (", scales::percent(.x/34, .1), ")"))) %>% 
   knitr::kable(
     col.names = c("Escolaridade", "Outro", "Letras", "Total"),
-    caption = "Escolaridade dos participantes pela área de formação.",
+    caption = "Escolaridade dos participantes pela Área de formação.",
     booktabs = TRUE,
     table.attr = "style='width:100%;'"
   ) %>% 
-  kableExtra::kable_styling(full_width = TRUE)
+  kableExtra::kable_styling(full_width = TRUE) %>% 
+  kableExtra::add_header_above(
+    header = c(" " = 1, "Área de formação" = 2, " " = 1), 
+    #border_left = TRUE,
+    #border_right = TRUE,
+    #extra_css = "border-left:2px solid grey;"
+  )
 
 ```
 <br>
@@ -171,7 +177,7 @@ pseudopalavras::dados %>%
       "Grupo de classificação", "Tonicidade produção", "Não Validada", "Quase Validada", 
       "Validada"
     ),
-    caption = "Tonicidade de produção por Grupo e Validação.",
+    caption = "Tonicidade de produção por Grupo de classificação e Validação.",
     booktabs = TRUE,
     table.attr = "style='width:100%;'"
   ) %>% 
@@ -179,7 +185,6 @@ pseudopalavras::dados %>%
     c(" " = 2, "Status Validação" = 3)
   )
 ```
-
 <br>
 
 ```{r gwet-segmento}

@@ -26,15 +26,18 @@ entre a palavra alvo e a pseudopalavra resultou na criação de uma variável co
 categorias chamada grupo de classificação. 
 
 - __Validação__: s = sim, n = não validada e q = quase validada
+- __Vizinhança tonicidade__: indica qual foi o padrão acentual das palavras que os participantes julgaram similares a pseudopalavras criada; apenas para pseudopalavras não validadas
 - __Taxa de validação__: indica quantas pessoas do estudo preliminar informaram que
 a palavra era similar ou dissimilar
 - __Palavra alvo__: palavra real que deu origem à pseudopalavra  
 - __Tonicidade da palavra alvo__: oxítona, paroxítona e proparoxítona
-- __Estrutura da palavra alvo__: indica qual é a estrutura da pseudopalavra (CV-CV-CV ou 
+- __Estrutura da palavra__: indica qual é a estrutura da pseudopalavra (CV-CV-CV ou 
 CV-CV-CVC), sendo que C indica Consoante e V indica Vogal
-- __Pseudopalavra__: refere-se a cada um dos estímulos criados
+- __Pseudopalavra__: refere-se a cada uma das palavras criadas
 - __Segmento modificado__: indica qual letra foi modificada na criação da pseudopalavra
 a partir da palavra real (consoante ou vogal)  
+- __Sílaba modificada__: 1,2,3 ( 1º,2º,3º) ou 0 quando mais de uma sílaba
+ foi modificada (caso das palavras dissimilares)
 - __Grupo de classificação__:  indica o efeito da similaridade (entre a pseudopalavra 
 e a palavra real) e da frequência (alta e baixa) na produção acentual
      
@@ -47,9 +50,7 @@ Ressaltamos que essa variável não foi controlada durante a coleta
 de dados, ou seja, não foi pré-definido uma quantidade de palavras de cada categoria
 em cada conjunto apresentado aos participantes. 
     
-- __Taxa de similaridade__: Para mudanças de consoante:1, 2, 3 (grupos similares), 5, 6, 7
-, 8, 9, 10 (grupos dissimilares); para mudanças de vogal :1 (grupos similares), 5, 6, 7, 8 
-(grupos dissimilares)
+- __Taxa de similaridade__: Para mudanças de consoante:1, 2, 3 (grupos similares), 5, 6, 7, 8, 9, 10 (grupos dissimilares); para mudanças de vogal :1 (grupos similares), 5, 6, 7, 8 (grupos dissimilares)
 
 
 ## Variáveis Extralinguísticas
@@ -57,8 +58,7 @@ em cada conjunto apresentado aos participantes.
 - __Participante__: identifica os 34 participantes do experimento
 - __Idade__: de 18 a 60 (anos)
 - __Gênero__: feminino e masculino
-- __Naturalidade__: indica a cidade em que o participante nasceu
-- __Escolaridade__: ensino fundamental a mestrado
+- __Escolaridade__: categorizada em Fundamental Completo, Superior Completo, Superior Incompleto e Pós-Graduação (Completo ou Incompleta)
 - __Área de formação__: 0 = outros e 1 = letras
 - __Línguas__: 0 = não tem conhecimento em línguas e 1 = tem conhecimento em línguas
 - __Música__: 0 = não tem conhecimento em música e 1 = tem conhecimento em música

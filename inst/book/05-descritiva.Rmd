@@ -104,7 +104,7 @@ pseudopalavras::dados %>%
     ),
     booktabs = TRUE,
     table.attr = "style='width:100%;'",
-    caption = "Frequência da tonicidade da produção por nível de tonicidade 
+    caption = "Frequência da Tonicidade de produção por nível de Tonicidade 
 das palavras-alvo."
   ) %>% 
   kableExtra::kable_styling(full_width = TRUE) %>% 
@@ -137,12 +137,12 @@ pseudopalavras::dados %>%
     stat = "stratum",
     ggplot2::aes(label = after_stat(stratum))
   ) +
-  labs(fill="Tonicidade Alvo", y="N", x="Grupos de classificação")+
+  labs(fill="Tonicidade da palavra-alvo", y="N", x="Grupos de classificação")+
   ggplot2::scale_y_continuous(labels = scales::label_percent()) +
   ggplot2::scale_fill_viridis_d()+
   ggplot2::theme_minimal() +
   ggplot2::facet_wrap(~grupo,labeller = labeller(grupo = nomes))+
-  theme(plot.background = element_rect(fill = '#fffaf5ff', color = "#fffaf5ff"),
+  theme(
         axis.text.x=element_blank())
   
 ```
@@ -174,7 +174,7 @@ pseudopalavras::dados %>%
     col.names = c("Tonicidade produção", "CV-CV-CV", "CV-CV-CVC", "Total"),
     booktabs = TRUE,
     table.attr = "style='width:100%;'",
-    caption = "Frequência da Tonicidade da produção por Estrutura das palavras."
+    caption = "Frequência da Tonicidade de produção por Estrutura das palavras."
   ) %>% 
   kableExtra::add_header_above(
     c(" " = 1, "Estrutura da palavra" = 2, " " = 1)
@@ -198,11 +198,11 @@ pseudopalavras::dados %>%
     ),
     booktabs = TRUE,
     table.attr = "style='width:100%;'",
-    caption = "Frequência da tonicidade das produção, por nível da variável Validação."
+    caption = "Frequência da Tonicidade de produção, por nível da variável Validação."
   ) %>% 
   kableExtra::kable_styling(full_width = TRUE) %>% 
   kableExtra::add_header_above(
-    header = c(" " = 1, "Status Validação" = 2, " " = 1), 
+    header = c(" " = 1, "Validação" = 2, " " = 1), 
     #border_left = TRUE,
     #border_right = TRUE,
     #extra_css = "border-left:2px solid grey;"
@@ -335,7 +335,7 @@ teste_grupo <- function(num_grupo) {
 purrr::map_dfr(1:4, teste_grupo) %>%
   dplyr::select(grupo, coeff) %>%
   knitr::kable(
-    col.names=c("Grupo de Classificação","Valor da Estatística"), 
+    col.names=c("Grupo de classificação","Valor da Estatística"), 
     caption = "Estatística de Gwet para cada nível da variável Grupo de classificação).",
     booktabs = TRUE,
     table.attr = "style='width:100%;'"
@@ -365,7 +365,7 @@ teste_estrutura <- function(estrut) {
 purrr::map_dfr(unique(pseudopalavras::dados$estrutura_palavra), teste_estrutura) %>% 
   dplyr::select(estrutura, coeff)%>%
   knitr::kable(
-    col.names=c("Estrutura da Palavra","Valor da Estatística"), 
+    col.names=c("Estrutura da palavra","Valor da Estatística"), 
     booktabs = TRUE,
     table.attr = "style='width:100%;'"
   )%>%
