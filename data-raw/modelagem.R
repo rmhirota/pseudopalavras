@@ -12,15 +12,19 @@ base = pseudopalavras::dados%>%mutate(tonicidade_producao = as.factor(tonicidade
                                       musica = as.factor(musica),
                                       aleatorizacao = as.factor(aleatorizacao))
 
-
+base$tonicidade_producao = relevel(base$tonicidade_producao, ref = "paroxítona")
 
 m = mblogit(tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
               grupo+aleatorizacao+musica+linguas,random = ~1|informante,data=base)
 
+
+mt = mclogit(tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
+                   grupo+aleatorizacao+musica+linguas,random = ~1|informante,data=base)
 # random = ~1|informante,
 #/eb, subset=classd!="Farmers")
 summary(m)
 
+summary(mt)
 
 
 
