@@ -1,9 +1,11 @@
-library(mclogit) #unico que funcionou
-library(mlogit)
-library(lme4)
-library(mixcat)
-library(gamlss)
-library(nnet)
+#library(mclogit) #unico que funcionou
+#library(mlogit)
+#library(lme4)
+#library(mixcat)
+library(gamlss) #ESCOLHIDO
+#library(nnet)
+library(multgee)
+
 
 base = pseudopalavras::dados%>%mutate(
                                       informante=as.factor(informante),
@@ -38,48 +40,14 @@ m = mblogit(tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
 summary(m)
 
 
-m2 = mblogit(tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
-               grupo+segmento_modificado+silaba_modificada+
-               aleatorizacao+musica+linguas+genero+escolaridade+idade+
-               area_formacao,random = ~1|informante,data=base)
-
-summary(m2)
-
-
-
-m3 = mblogit(tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
-               grupo+segmento_modificado,
-             random = ~1|informante,data=base)
-
-summary(m3)
-
-
-qqnorm(m$random.effects[[1]])
-qqline(m$random.effects[[1]], col = "steelblue", lwd = 2)
-
-
-qqnorm(m3$random.effects[[1]])
-qqline(m3$random.effects[[1]], col = "purple", lwd = 2)
-
-
 #------------------------------------------
 
-#nnet
-
-mn = multinom(tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
-                grupo+segmento_modificado,random = ~1|informante, base)
-summary(mn)
-
-
-
-#------------------------------------------
 
 #gamlss
 
-set.seed(1)
-
 mg = gamlss(formula = tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
-              grupo+segmento_modificado+silaba_modificada+musica+linguas+re(random=~1|informante),
+              grupo+segmento_modificado+silaba_modificada+aleatorizacao+bloco_apresentacao+
+              musica+linguas+genero+area_formacao+escolaridade+idade+re(random=~1|informante),
             data=base,control = gamlss.control(n.cyc = 30), family = gamlss.dist::MN3())
 
 
@@ -88,8 +56,40 @@ summary(mg)
 getSmo(mg)
 
 obj=str(mg)
-qqnorm(mg$mu.coefSmo[[1]]$coefficients$random[[1]])
-qqline(mg$mu.coefSmo[[1]]$coefficients$random[[1]], col = "steelblue", lwd = 2)
+
+stepGAIC(mg) #AIC
+
+stepGAIC(mg, k=log(12511)) #BIC - ainda tem duvida
+
+readr::write_rds(mg, "data-raw/modelo_aic.rds") #salva a saida em um objeto
+
+mf = gamlss(formula = tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
+              grupo+segmento_modificado+silaba_modificada+aleatorizacao+bloco_apresentacao+
+              re(random=~1|informante),
+            data=base,control = gamlss.control(n.cyc = 30), family = gamlss.dist::MN3())
+
+summary(mf)
+
+
+mf2 = gamlss(formula = as.character(tonicidade_producao) ~ tonicidade_alvo+estrutura_palavra+
+              grupo+segmento_modificado+silaba_modificada+aleatorizacao+bloco_apresentacao+
+              re(random=~1|informante), data=base,control = gamlss.control(n.cyc = 30),
+             family = gamlss.dist::MULTIN(type = "3"),
+)
+
+summary(mf2)
+
+str(mf)
+#usamos residuo do modelo ou residuo do parametro aleatorio?
+
+plot(mf) #graficos dos residuos
+plot(ranef(getSmo(mf))) #grafico dos efeitos - não
+vcov(mg) #matriz de covariancia dos betas estimados
+qqnorm(mf$mu.coefSmo[[1]]$coefficients$random[[1]])
+qqline(mf$mu.coefSmo[[1]]$coefficients$random[[1]], col = "steelblue", lwd = 2)
+
+wp(mf) #grafico de residuo do gilberto/patriota
+
 
 summary(getSmo(mg)) # summary
 ranef(getSmo(mg)) # random effect estimates
