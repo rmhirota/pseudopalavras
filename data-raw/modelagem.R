@@ -5,89 +5,95 @@ library(mixcat)
 library(gamlss)
 library(nnet)
 
-base = pseudopalavras::dados%>%mutate(tonicidade_producao = as.factor(tonicidade_producao),
+base = pseudopalavras::dados%>%mutate(
+                                      informante=as.factor(informante),
+                                      tonicidade_producao = as.factor(tonicidade_producao),
                                       tonicidade_alvo = as.factor(tonicidade_alvo),
                                       estrutura_palavra = as.factor(estrutura_palavra),
                                       grupo = as.factor(grupo),
                                       musica = as.factor(musica),
-                                      aleatorizacao = as.factor(aleatorizacao))
+                                      aleatorizacao = as.factor(aleatorizacao),
+                                      bloco_apresentacao = as.factor(bloco_apresentacao),
+                                      vizinhanca_tonicidade = as.factor(vizinhanca_tonicidade),
+                                      segmento_modificado = as.factor(segmento_modificado),
+                                      silaba_modificada = as.factor(silaba_modificada),
+                                      genero = as.factor(genero),
+                                      escolaridade = as.factor(escolaridade),
+                                      area_formacao = as.factor(area_formacao),
+                                      linguas = as.factor(linguas))%>%select(
+                                        -c(vizinhanca_tonicidade, vizinhanca_fonologica))
+
 
 base$tonicidade_producao = relevel(base$tonicidade_producao, ref = "paroxítona")
 
 m = mblogit(tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
-              grupo+aleatorizacao+musica+linguas,random = ~1|informante,data=base)
+              grupo+segmento_modificado+silaba_modificada+bloco_apresentacao+
+              aleatorizacao+musica+linguas+genero+escolaridade+idade+
+              area_formacao,random = ~1|informante,data=base)
 
 
-mt = mclogit(tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
-                   grupo+aleatorizacao+musica+linguas,random = ~1|informante,data=base)
+
 # random = ~1|informante,
 #/eb, subset=classd!="Farmers")
 summary(m)
 
-summary(mt)
 
+m2 = mblogit(tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
+               grupo+segmento_modificado+silaba_modificada+
+               aleatorizacao+musica+linguas+genero+escolaridade+idade+
+               area_formacao,random = ~1|informante,data=base)
 
-
-
-'''
-da <- pseudopalavras::dados %>%
-  dplyr::transmute(
-    informante,
-    pseudopalavra,
-    tonicidade_producao = as.factor(tonicidade_producao),
-    tonicidade_alvo = as.factor(tonicidade_alvo),
-    estrutura_palavra = as.factor(estrutura_palavra)
-  )
-da_mlogit <- dfidx::dfidx(da, shape = "long", idx = c("informante", "pseudopalavra"))
-fit_mlogit <- mlogit::mlogit(
-  tonicidade_producao ~ tonicidade_alvo + estrutura_palavra | informante,
-  data = da_mlogit
-)
-summary(fit_mlogit)
-'''
-
-m2 = mlogit(tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
-              grupo +musica|informante,rpar = c(musica='n'),correlation = T, data = base,
-            reflevel = "paroxítona")
 summary(m2)
 
 
 
-
-m3 = glmer(tonicidade_producao~ tonicidade_alvo+estrutura_palavra+
-             grupo+ (1|informante), data=base, family = binomial)
+m3 = mblogit(tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
+               grupo+segmento_modificado,
+             random = ~1|informante,data=base)
 
 summary(m3)
 
 
-m4 = npmlt(base$tonicidade_producao ~ base$tonicidade_alvo+base$estrutura_palavra+
-             base$grupo, random = ~1+base$informante)
-
-summary(m4)
+qqnorm(m$random.effects[[1]])
+qqline(m$random.effects[[1]], col = "steelblue", lwd = 2)
 
 
-#-----------
-
-m5 = gamlss(tonicidade_producao~ tonicidade_alvo+estrutura_palavra+
-              grupo, data = na.omit(base), family = multinomial)
+qqnorm(m3$random.effects[[1]])
+qqline(m3$random.effects[[1]], col = "purple", lwd = 2)
 
 
+#------------------------------------------
 
+#nnet
 
-
-
-
+mn = multinom(tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
+                grupo+segmento_modificado,random = ~1|informante, base)
+summary(mn)
 
 
 
+#------------------------------------------
+
+#gamlss
+
+set.seed(1)
+
+mg = gamlss(formula = tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
+              grupo+segmento_modificado+silaba_modificada+musica+linguas+re(random=~1|informante),
+            data=base,control = gamlss.control(n.cyc = 30), family = gamlss.dist::MN3())
 
 
 
+summary(mg)
+getSmo(mg)
+
+obj=str(mg)
+qqnorm(mg$mu.coefSmo[[1]]$coefficients$random[[1]])
+qqline(mg$mu.coefSmo[[1]]$coefficients$random[[1]], col = "steelblue", lwd = 2)
+
+summary(getSmo(mg)) # summary
+ranef(getSmo(mg)) # random effect estimates
+coef(getSmo(mg)) # fitted coefficients
+intervals(getSmo(mg)) # Confidence intervals
 
 
-#-----
-
-base$tonicidade_producao <- relevel(base$tonicidade_producao, ref = "paroxítona")
-m6 = multinom(base$tonicidade_producao ~ base$tonicidade_alvo+base$estrutura_palavra+
-                base$grupo, data = base)
-summary(m6)
