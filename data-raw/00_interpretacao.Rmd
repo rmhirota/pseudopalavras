@@ -1,0 +1,70 @@
+__Modelo 1__
+
+```{r}
+mblogit(formula = tonicidade_producao ~ tonicidade_alvo + estrutura_palavra + 
+    grupo + segmento_modificado + silaba_modificada + bloco_apresentacao + 
+    aleatorizacao + area_formacao, data = base, random = ~1 | 
+    informante)
+```
+
+Oxítona vs paroxítona
+
+Significantes: 
+- tonicidade_alvoparoxítona 
+a chance de resposta oxítona é 0.24 vezes (e^-1.42) a chance de resposta paroxítona quando a palavra-alvo é paroxítona
+
+- tonicidade_alvoproparoxítona 
+a chance de resposta proparoxítona é 7 vezes (e^-2.02) a chance de resposta paroxítona quando a palavra-alvo é proparoxítona
+
+a probabilidadechance de resposta oxítona é 1 vez (e^0) a chance de resposta paroxítona quando a palavra-alvo é oxítona (intercepto = 0)
+
+- estrutura_palavraCV-CV-CVC 
+a chance de resposta oxítona é 93 vezes (e^-4.54) a chance de resposta paroxítona quando a estrutura é CV-CV-CVc
+
+a chance de resposta oxítona é 1 vez (e^0) a chance de resposta paroxítona quando a estrutura é CV-CV-CV (intercepto = 0)
+
+- grupo3  
+a chance de resposta oxítona é 1.65 vezes (e^1.65) a chance de resposta paroxítona quando o grupo é 3. Similar + baixa frequencia
+
+a chance de resposta oxítona é 1 vez (e^0) a chance de resposta paroxítona quando o grupo é 1 (intercepto = 0). Similar + alta freq
+
+- bloco_apresentacao2  
+a chance de resposta oxítona é 1 vez (e^0) a chance resposta paroxítona quando o bloco é 2 
+
+a chance de resposta oxítona é 1 vez (e^0) a chance de resposta paroxítona quando o bloco é 1 (intercepto = 0)
+
+- bloco_apresentacao4 
+a chance de resposta oxítona é 1.67 vezes (e^0.5) a chance de resposta paroxítona quando o bloco é 4
+
+- aleatorizacao
+a chance de resposta oxítona é 2 vez (e^0.75) a chance de resposta paroxítona quando ocorreu aleatorização.
+
+a chance de resposta oxítona é 1 vez (e^0) a chance de resposta paroxítona quando n ocorreu aleatorização. (intercepto = 0)
+
+
+Proparoxítona vs paroxítona
+
+Significantes: 
+
+- tonicidade_alvoproparoxítona
+a chance de resposta proparoxítonaé 0.76 vezes (e^-0.28) a chance de resposta paroxítona quando a palavra alvo é proparoxítona 
+
+a chance de resposta proparoxítona é  1 vez (e^-0) a chance de resposta paroxítona quando a palavra alvo é oxítona 
+
+- estrutura_palavraCV-CV-CVC 
+a chance de resposta proparoxítona é  7,4 vez (e^-2.01) a chance resposta paroxítona quando a palavra alvo é oxítona
+
+a chance de resposta proparoxítona é  1 vez (e^-0) a chance de resposta paroxítona quando a estrutura é CV-CV-CV (intercepto = 0)
+
+- segmento_modificadovogal
+a chance de resposta proparoxítona é  1.4 vez (e^-0.33) a chance de resposta paroxítona quando a silaba modificada foi uma vogal
+
+a chance de resposta proparoxítona é  1 vez (e^-0) a chance de resposta paroxítona quando a silaba modificada foi consoante (intercepto = 0)
+
+- bloco_apresentacao2
+a chance de resposta proparoxítona é 0.37 vez (e^-0.99) a chance de resposta paroxítona quando o bloco é 2 
+
+- bloco_apresentacao3 
+a chance de resposta proparoxítona é  0.68 vez (e^-0.39) a chance de resposta paroxítona quando o bloco é 3
+
+a chance de resposta proparoxítona é  1 vez (e^-0) a chance resposta paroxítona quando o bloco é 1 (intercepto = 0)
