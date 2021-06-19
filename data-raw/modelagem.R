@@ -7,6 +7,7 @@ library(gamlss) #ESCOLHIDO
 library(multgee)
 
 
+
 base = pseudopalavras::dados%>%mutate(
                                       informante=as.factor(informante),
                                       tonicidade_producao = as.factor(tonicidade_producao),
