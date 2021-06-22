@@ -26,13 +26,15 @@ base = pseudopalavras::dados%>%mutate(
                                       linguas = as.factor(linguas))%>%select(
                                         -c(vizinhanca_tonicidade, vizinhanca_fonologica))
 
-# n apresentou NA quanto usa proparoxítona de base
+#tudo fica melhor sem silaba modificada KK
 base$tonicidade_producao = relevel(base$tonicidade_producao, ref = "paroxítona")
 
 m = mblogit(tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
-              grupo+segmento_modificado+silaba_modificada+bloco_apresentacao+
-              aleatorizacao+musica+linguas+genero+escolaridade+idade+
-              area_formacao,random = ~1|informante,data=base)
+              grupo+segmento_modificado+bloco_apresentacao+
+              aleatorizacao+musica+linguas+idade,
+            random = ~1|informante,data=base, epsilon = 1e-08,maxit = 25)
+
+summary(m)
 
 m1 = mblogit(tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
               grupo+segmento_modificado+silaba_modificada+bloco_apresentacao+
