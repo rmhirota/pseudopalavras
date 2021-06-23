@@ -1,10 +1,9 @@
 library(mclogit) #unico que funcionou
-#library(mlogit)
-#library(lme4)
-#library(mixcat)
-library(gamlss) #ESCOLHIDO
-#library(nnet)
-library(multgee)
+library(dplyr)
+library(MASS)
+library(ggplot2)
+library(DHARMa)
+devtools::install()
 
 
 
@@ -26,104 +25,115 @@ base = pseudopalavras::dados%>%mutate(
                                       linguas = as.factor(linguas))%>%select(
                                         -c(vizinhanca_tonicidade, vizinhanca_fonologica))
 
-#tudo fica melhor sem silaba modificada KK
+
 base$tonicidade_producao = relevel(base$tonicidade_producao, ref = "paroxítona")
+base$escolaridade = relevel(base$escolaridade, ref = "Superior Incompleto")
+base$aleatorizacao = relevel(base$aleatorizacao, ref = "s")
 
-m = mblogit(tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
+#Modelo Nulo
+m0 = mblogit(tonicidade_producao ~ 1,
+             random = ~1|informante,data=base, epsilon = 1e-08,maxit = 30)
+
+summary(m0)
+
+
+#Modelo Completo
+mt = mblogit(tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
               grupo+segmento_modificado+bloco_apresentacao+
-              aleatorizacao+musica+linguas+idade,
-            random = ~1|informante,data=base, epsilon = 1e-08,maxit = 25)
+              aleatorizacao+musica+linguas+idade+genero+escolaridade+area_formacao,
+            random = ~1|informante,data=base, epsilon = 1e-08,maxit = 30)
 
-summary(m)
+summary(mt)
 
+#Modelo retirando Linguas - maior p valor nos dois modelos
 m1 = mblogit(tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
-              grupo+segmento_modificado+silaba_modificada+bloco_apresentacao+
-              aleatorizacao+escolaridade,random = ~1|informante,data=base)
-
-
+               grupo+segmento_modificado+bloco_apresentacao+
+               aleatorizacao+musica+idade+genero+escolaridade+area_formacao,
+             random = ~1|informante,data=base, epsilon = 1e-08,maxit = 30 )
 summary(m1)
-#/eb, subset=classd!="Farmers")
 
 
+#Modelo retirando Genero - maior p valor nos dois modelos
+m2 = mblogit(tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
+               grupo+segmento_modificado+bloco_apresentacao+
+               aleatorizacao+musica+idade+escolaridade+area_formacao,
+             random = ~1|informante,data=base, epsilon = 1e-08,maxit = 30 )
+summary(m2)
 
-#------------------------------------------
+#Modelo retirando Musica - maior p valor nos dois modelos
+m3 = mblogit(tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
+               grupo+segmento_modificado+bloco_apresentacao+
+               aleatorizacao+idade+escolaridade+area_formacao,
+             random = ~1|informante,data=base, epsilon = 1e-08,maxit = 30 )
+summary(m3)
+
+#Modelo retirando Area de formação - maior p valor nos dois modelos
+m4 = mblogit(tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
+               grupo+segmento_modificado+bloco_apresentacao+
+               aleatorizacao+idade+escolaridade,
+             random = ~1|informante,data=base, epsilon = 1e-08,maxit = 30 )
+summary(m4)
+
+#Modelo retirando Idade - maior p valor nos dois modelos
+m5 = mblogit(tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
+               grupo+segmento_modificado+bloco_apresentacao+
+               aleatorizacao+escolaridade,
+             random = ~1|informante,data=base, epsilon = 1e-08,maxit = 30 )
+summary(m5)
 
 
-#gamlss
+getSummary.mblogit(m1)
+mclogit:::summary.mblogit(m1)
 
-mg = gamlss(formula = tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
-              grupo+segmento_modificado+silaba_modificada+aleatorizacao+bloco_apresentacao+
-              musica+linguas+genero+area_formacao+escolaridade+idade+re(random=~1|informante),
-            data=base,control = gamlss.control(n.cyc = 30), family = gamlss.dist::MN3())
+#Comparando os AIC
+mclogit:::AIC.mclogit(mt)
+mclogit:::AIC.mclogit(m5)
 
-summary(mg)
-getSmo(mg)
+#Vendo o quanto o AIC é afetado ao tirar uma variável com apenas um nível significante (Escolaridade)
+m6 = mblogit(tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
+               grupo+segmento_modificado+bloco_apresentacao+
+               aleatorizacao,
+             random = ~1|informante,data=base, epsilon = 1e-08,maxit = 30 )
+summary(m6)
 
-mg1 = gamlss(formula = tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
-              grupo+segmento_modificado+silaba_modificada+aleatorizacao+bloco_apresentacao+
-              musica+linguas+area_formacao+re(random=~1|informante),
-            data=base,control = gamlss.control(n.cyc = 30), family = gamlss.dist::MN3())
+mclogit:::AIC.mclogit(m5)
+mclogit:::AIC.mclogit(m6)
 
-summary(mg1)
-getSmo(mg1)
+#Vendo o quanto o AIC é afetado ao tirar uma variável com apenas um nível significante (Aleatorização)
+m7 = mblogit(tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
+               grupo+segmento_modificado+bloco_apresentacao,
+             random = ~1|informante,data=base, epsilon = 1e-08,maxit = 30 )
+summary(m7)
 
-mg2 = gamlss(formula = tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
-               grupo+segmento_modificado+silaba_modificada+aleatorizacao+bloco_apresentacao+
-               musica+linguas+area_formacao+re(random=~1|informante),
-             data=base,control = gamlss.control(n.cyc = 30), family = MULTIN(type = "3"))
+mclogit:::AIC.mclogit(m6)
+mclogit:::AIC.mclogit(m7)
 
-summary(mg2)
-getSmo(mg2)
+#O AIC piorou tirando as variáveis com níveis não significantes, então mantemos e testamos a variável de indivíduo Linguas
+m8 = mblogit(tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
+               grupo+segmento_modificado+bloco_apresentacao+linguas,
+             random = ~1|informante,data=base, epsilon = 1e-08,maxit = 30 )
+summary(m8)
 
-mg3 = gamlss(formula = tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
-               grupo+segmento_modificado+silaba_modificada,
-             sigma.formula = tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
-               grupo+segmento_modificado+silaba_modificada,
-             data=base,control = gamlss.control(n.cyc = 100), family = MULTIN(type = "3"))
+mclogit:::AIC.mclogit(m6)
+mclogit:::AIC.mclogit(m8)
 
-summary(mg3)
-getSmo(mg3)
+#Piorou, então definimos o modelo final:
 
-obj=str(mg)
-
-stepGAIC(mg) #AIC
-
-stepGAIC(mg, k=log(12511)) #BIC - ainda tem duvida
-
-readr::write_rds(mg, "data-raw/modelo_aic.rds") #salva a saida em um objeto
-
-mf = gamlss(formula = tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
-              grupo+segmento_modificado+silaba_modificada+aleatorizacao+bloco_apresentacao+
-              re(random=~1|informante),
-            data=base,control = gamlss.control(n.cyc = 30), family = gamlss.dist::MN3())
-
+mf = mblogit(tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
+               grupo+segmento_modificado+bloco_apresentacao+
+               aleatorizacao,
+             random = ~1|informante,data=base, epsilon = 1e-08,maxit = 30 )
 summary(mf)
 
 
-mf2 = gamlss(formula = as.character(tonicidade_producao) ~ tonicidade_alvo+estrutura_palavra+
-              grupo+segmento_modificado+silaba_modificada+aleatorizacao+bloco_apresentacao+
-              re(random=~1|informante), data=base,control = gamlss.control(n.cyc = 30),
-             family = gamlss.dist::MULTIN(type = "3"),
-)
+qqnorm(mf$random.effects[[1]])
+qqline(mf$random.effects[[1]], color ="red")
 
-summary(mf2)
+residuals.mclogit() #nao deu certo
+DHARMa::simulateResiduals(mf) #não deu certo
+mclogit:::residuals.mclogit(mf)
 
-str(mf)
-#usamos residuo do modelo ou residuo do parametro aleatorio?
-
-plot(mf) #graficos dos residuos
-plot(ranef(getSmo(mf))) #grafico dos efeitos - não
-vcov(mg) #matriz de covariancia dos betas estimados
-qqnorm(mf$mu.coefSmo[[1]]$coefficients$random[[1]])
-qqline(mf$mu.coefSmo[[1]]$coefficients$random[[1]], col = "steelblue", lwd = 2)
-
-wp(mf) #grafico de residuo do gilberto/patriota
-
-
-summary(getSmo(mg)) # summary
-ranef(getSmo(mg)) # random effect estimates
-coef(getSmo(mg)) # fitted coefficients
-intervals(getSmo(mg)) # Confidence intervals
+predict(mf, type="response")
 
 
 #------------------------Apenas palavras validadas
