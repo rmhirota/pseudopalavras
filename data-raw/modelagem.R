@@ -3,6 +3,9 @@ library(dplyr)
 library(MASS)
 library(ggplot2)
 library(DHARMa)
+library(tidyr)
+library(epiR)
+library(pROC)
 devtools::install()
 
 
@@ -133,12 +136,56 @@ residuals.mclogit() #nao deu certo
 DHARMa::simulateResiduals(mf) #não deu certo
 mclogit:::residuals.mclogit(mf)
 
-predict(mf, type="response")
+
+#Nos dá as probabilidades (p1,p2,p3) por linha da base
+p = predict(mf, type="response")
+p = as.data.frame(p)
+
+#Queremos ver se a maior probabilidade coincide com a tonicidade alvo
+
+comp = p%>%mutate(ind = row_number())%>%
+  pivot_longer(cols = paroxítona:proparoxítona)%>%
+  group_by(ind)%>%
+  slice(which.max(value))%>%
+  pull(name)%>%
+  mutate(p, max = .)
+
+
+data.frame(rm = comp$max, re = pseudopalavras::dados$tonicidade_producao)%>%filter(rm== "proparoxítona")
+
+#Nos dá o comparativo entre a variável resposta e a resposta que o modelo daria
+t = table(comp$max,pseudopalavras::dados$tonicidade_producao)
+epi.tests(t, conf.level = 0.95)
+as.data.frame(comp$max)%>%group_by(`comp$max`)%>%count()
+
+as.data.frame(pseudopalavras::dados$tonicidade_producao)%>%group_by(`pseudopalavras::dados$tonicidade_producao`)%>%count()
+
+
+pr = predict(mf, type="response")
+
+
+#fiz mas nao entendi KKK
+
+roc = multiclass.roc(pseudopalavras::dados$tonicidade_producao, pr, levels =
+                       c("oxítona","paroxítona","proparoxítona"))
+rs = roc[['rocs']]
+plot.roc(rs$`paroxítona/oxítona`[[1]])
+plot.roc(rs$`paroxítona/oxítona`[[2]])
+plot.roc(rs$`paroxítona/proparoxítona`[[1]])
+plot.roc(rs$`paroxítona/proparoxítona`[[2]])
+plot.roc(rs$`oxítona/proparoxítona`[[1]])
+plot.roc(rs$`oxítona/proparoxítona`[[2]])
+
+
+
+
+
+
 
 
 #------------------------Apenas palavras validadas
 
-base = pseudopalavras::dados %>%       #10.393
+basev = pseudopalavras::dados %>%       #10.393
   filter(validacao == 's'| validacao == 'q' ) %>%
   mutate(
   informante=as.factor(informante),
@@ -155,17 +202,21 @@ base = pseudopalavras::dados %>%       #10.393
   genero = as.factor(genero),
   escolaridade = as.factor(escolaridade),
   area_formacao = as.factor(area_formacao),
-  linguas = as.factor(linguas))%>%select(
-    -c(vizinhanca_tonicidade, vizinhanca_fonologica))
+  linguas = as.factor(linguas)) %>% select(
+  -c(vizinhanca_tonicidade, vizinhanca_fonologica )
+  )
 
-base$tonicidade_producao = relevel(base$tonicidade_producao, ref = "paroxítona")
+basev$tonicidade_producao = relevel(basev$tonicidade_producao, ref = "paroxítona")
+basev$escolaridade = relevel(basev$escolaridade, ref = "Superior Incompleto")
+basev$aleatorizacao = relevel(basev$aleatorizacao, ref = "s")
 
 m_val = mblogit(tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
-              grupo+segmento_modificado+silaba_modificada+bloco_apresentacao+
-              aleatorizacao+musica+linguas+genero+escolaridade+idade+
-              area_formacao,random = ~1|informante,data=base)
+              grupo+segmento_modificado+bloco_apresentacao+
+              aleatorizacao,random = ~1|informante,data=basev)
+
+
 summary(m_val)
 m_val2 = MASS::stepAIC(mblogit(tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
           grupo+segmento_modificado+silaba_modificada+bloco_apresentacao+
           aleatorizacao+musica+linguas+genero+escolaridade+idade+
-          area_formacao,random = ~1|informante,data=base))
+          area_formacao,random = ~1|informante,data=basev))
