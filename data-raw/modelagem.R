@@ -140,6 +140,10 @@ summary(mf)
 qqnorm(mf$random.effects[[1]])
 qqline(mf$random.effects[[1]], col ="red")
 
+
+#mf$deviance.residuals: ver a expressão desse resíduo
+
+
 # qqplot resíduos
 residuals.mclogit() #nao deu certo
 DHARMa::simulateResiduals(mf) #não deu certo
@@ -188,43 +192,9 @@ pROC::plot.roc(rs$`oxítona/proparoxítona`[[2]])
 
 
 
+#Resíduos
 
-
-
-#------------------------Apenas palavras validadas
-
-basev = pseudopalavras::dados %>%       #10.393
-  filter(validacao == 's'| validacao == 'q' ) %>%
-  mutate(
-  informante=as.factor(informante),
-  tonicidade_producao = as.factor(tonicidade_producao),
-  tonicidade_alvo = as.factor(tonicidade_alvo),
-  estrutura_palavra = as.factor(estrutura_palavra),
-  grupo = as.factor(grupo),
-  musica = as.factor(musica),
-  aleatorizacao = as.factor(aleatorizacao),
-  bloco_apresentacao = as.factor(bloco_apresentacao),
-  vizinhanca_tonicidade = as.factor(vizinhanca_tonicidade),
-  segmento_modificado = as.factor(segmento_modificado),
-  silaba_modificada = as.factor(silaba_modificada),
-  genero = as.factor(genero),
-  escolaridade = as.factor(escolaridade),
-  area_formacao = as.factor(area_formacao),
-  linguas = as.factor(linguas)) %>% select(
-  -c(vizinhanca_tonicidade, vizinhanca_fonologica )
-  )
-
-basev$tonicidade_producao = relevel(basev$tonicidade_producao, ref = "paroxítona")
-basev$escolaridade = relevel(basev$escolaridade, ref = "Superior Incompleto")
-basev$aleatorizacao = relevel(basev$aleatorizacao, ref = "s")
-
-m_val = mblogit(tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
-              grupo+segmento_modificado+bloco_apresentacao+
-              aleatorizacao,random = ~1|informante,data=basev)
-
-
-summary(m_val)
-m_val2 = MASS::stepAIC(mblogit(tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
-          grupo+segmento_modificado+silaba_modificada+bloco_apresentacao+
-          aleatorizacao+musica+linguas+genero+escolaridade+idade+
-          area_formacao,random = ~1|informante,data=basev))
+plot(mf$deviance.residuals)
+plot(residuals(mf))
+plot(mf)
+deviance(mf)

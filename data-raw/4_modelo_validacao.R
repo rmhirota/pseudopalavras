@@ -2,6 +2,8 @@ library(mclogit)
 
 # modelos salvos ----------------------------------------------------------
 
+summary(mf)
+
 # modelo com base apenas de validados e quase validados
 validados_mf <- readr::read_rds("data-raw/m_validados_mf.rds")
 summary(validados_mf)
@@ -140,6 +142,44 @@ validados_mf_similar <- mblogit(
 summary(validados_mf_similar)
 readr::write_rds(validados_mf_similar, "data-raw/m_validados_mf_similar.rds")
 
+# testando diminuindo as não validadas -------------------------------------------
+
+#Tirando 25% das não validadas aleatoriamente
+pseudopalavras_nval <- base%>% filter(validacao == 'n') %>%distinct(pseudopalavra)
+set.seed(8)
+pseudo_escolhidas <- sample_n(as.data.frame(pseudopalavras_nval), 16)
+base_nval_filtrado <- base %>% filter( !pseudopalavra %in% c("firafe","pafeta","tibela",
+        "taleto","patuta","farefo","cobare","davavel","pileto","pabeto","lateta","tarana",
+        "titale","patala","sacala","dipinar"))
+
+
+
+#primeiro linguas, genero, musica, area de formacao, idade, escolaridade
+mf_25 <- mblogit(
+  tonicidade_producao ~ tonicidade_alvo + estrutura_palavra +
+    grupo+segmento_modificado+bloco_apresentacao + aleatorizacao,
+  random = ~1|informante,
+  data = base_nval_filtrado,
+  epsilon = 1e-08, maxit = 30,
+  method = "PQL"
+)
+summary(mf_25)
+
+
+#Tirando 75% das não validadas aleatoriamente
+pseudo_escolhidas <- sample_n(as.data.frame(pseudopalavras_nval), 47)
+base_nval_filtrado <- base %>% filter(!pseudopalavra %in% c( "cadada","tapina","pafeta","firufo" , "canadu"  ,"recitol", "jomite" , "sacala" , "puteta" , "taleto",
+                                                              "tibela","cobare","tarana","decode" , "comitu",  "parafa" , "fanada",  "tisaca" , "coceca",  "pateda",
+                                                              "titale","tisiba","tetala","perana"  ,"davavel" ,"pileto"  ,"farefo",  "dipinar" ,"poleto",  "copite" ,
+                                                              "parane","fecital","cabate","pefala",  "tabala"  ,"cabara",  "secuno",  "patala"  ,"comote",  "tisoca" ,
+                                                              "patana","canida","zutavel","babela" , "canaga"  ,"comife" , "cabure" ))
+
+mf_75 = mblogit(tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
+          grupo+segmento_modificado+bloco_apresentacao+
+          aleatorizacao, random = ~1|informante,data=base_nval_filtrado,
+          epsilon = 1e-08, maxit = 30, method = "PQL")
+
+summary(mf_75)
 
 # Validação é importante, como lidar?
 # - não validados: n pequeno (63 pseudopalavras)
