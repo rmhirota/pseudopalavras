@@ -28,6 +28,8 @@ base = pseudopalavras::dados%>%mutate(
                                       linguas = as.factor(linguas))%>%select(
                                         -c(vizinhanca_tonicidade, vizinhanca_fonologica))
 
+readr::write_rds(base, "data-raw/base_modelo.rds")
+
 
 base$tonicidade_producao = relevel(base$tonicidade_producao, ref = "paroxítona")
 base$escolaridade = relevel(base$escolaridade, ref = "Superior Incompleto")
@@ -35,7 +37,7 @@ base$aleatorizacao = relevel(base$aleatorizacao, ref = "s")
 
 #Modelo Nulo
 m0 = mblogit(tonicidade_producao ~ 1,
-             random = ~1|informante,data=base, epsilon = 1e-08,maxit = 30)
+             random = ~1|informante,data=base, epsilon = 1e-08,maxit = 30, method = "PQL")
 
 summary(m0)
 
@@ -44,7 +46,7 @@ summary(m0)
 mt = mblogit(tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
               grupo+segmento_modificado+bloco_apresentacao+
               aleatorizacao+musica+linguas+idade+genero+escolaridade+area_formacao,
-            random = ~1|informante,data=base, epsilon = 1e-08,maxit = 30)
+            random = ~1|informante,data=base, epsilon = 1e-08,maxit = 30, method = "PQL")
 
 summary(mt)
 
@@ -52,7 +54,7 @@ summary(mt)
 m1 = mblogit(tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
                grupo+segmento_modificado+bloco_apresentacao+
                aleatorizacao+musica+idade+genero+escolaridade+area_formacao,
-             random = ~1|informante,data=base, epsilon = 1e-08,maxit = 30 )
+             random = ~1|informante,data=base, epsilon = 1e-08,maxit = 30, method = "PQL" )
 summary(m1)
 
 
@@ -60,28 +62,28 @@ summary(m1)
 m2 = mblogit(tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
                grupo+segmento_modificado+bloco_apresentacao+
                aleatorizacao+musica+idade+escolaridade+area_formacao,
-             random = ~1|informante,data=base, epsilon = 1e-08,maxit = 30 )
+             random = ~1|informante,data=base, epsilon = 1e-08,maxit = 30, method = "PQL")
 summary(m2)
 
 #Modelo retirando Musica - maior p valor nos dois modelos
 m3 = mblogit(tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
                grupo+segmento_modificado+bloco_apresentacao+
                aleatorizacao+idade+escolaridade+area_formacao,
-             random = ~1|informante,data=base, epsilon = 1e-08,maxit = 30 )
+             random = ~1|informante,data=base, epsilon = 1e-08,maxit = 30, method = "PQL")
 summary(m3)
 
 #Modelo retirando Area de formação - maior p valor nos dois modelos
 m4 = mblogit(tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
                grupo+segmento_modificado+bloco_apresentacao+
                aleatorizacao+idade+escolaridade,
-             random = ~1|informante,data=base, epsilon = 1e-08,maxit = 30 )
+             random = ~1|informante,data=base, epsilon = 1e-08,maxit = 30, method = "PQL")
 summary(m4)
 
 #Modelo retirando Idade - maior p valor nos dois modelos
 m5 = mblogit(tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
                grupo+segmento_modificado+bloco_apresentacao+
                aleatorizacao+escolaridade,
-             random = ~1|informante,data=base, epsilon = 1e-08,maxit = 30 )
+             random = ~1|informante,data=base, epsilon = 1e-08,maxit = 30, method = "PQL")
 summary(m5)
 
 
@@ -96,7 +98,7 @@ mclogit:::AIC.mclogit(m5)
 m6 = mblogit(tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
                grupo+segmento_modificado+bloco_apresentacao+
                aleatorizacao,
-             random = ~1|informante,data=base, epsilon = 1e-08,maxit = 30 )
+             random = ~1|informante,data=base, epsilon = 1e-08,maxit = 30, method = "PQL")
 summary(m6)
 
 mclogit:::AIC.mclogit(m5)
@@ -105,7 +107,7 @@ mclogit:::AIC.mclogit(m6)
 #Vendo o quanto o AIC é afetado ao tirar uma variável com apenas um nível significante (Aleatorização)
 m7 = mblogit(tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
                grupo+segmento_modificado+bloco_apresentacao,
-             random = ~1|informante,data=base, epsilon = 1e-08,maxit = 30 )
+             random = ~1|informante,data=base, epsilon = 1e-08,maxit = 30, method = "PQL")
 summary(m7)
 
 mclogit:::AIC.mclogit(m6)
@@ -114,7 +116,7 @@ mclogit:::AIC.mclogit(m7)
 #O AIC piorou tirando as variáveis com níveis não significantes, então mantemos e testamos a variável de indivíduo Linguas
 m8 = mblogit(tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
                grupo+segmento_modificado+bloco_apresentacao+linguas,
-             random = ~1|informante,data=base, epsilon = 1e-08,maxit = 30 )
+             random = ~1|informante,data=base, epsilon = 1e-08,maxit = 30, method = "PQL")
 summary(m8)
 
 mclogit:::AIC.mclogit(m6)
@@ -122,29 +124,37 @@ mclogit:::AIC.mclogit(m8)
 
 #Piorou, então definimos o modelo final:
 
-mf = mblogit(tonicidade_producao ~ tonicidade_alvo+estrutura_palavra+
-               grupo+segmento_modificado+bloco_apresentacao+
+# mf = m6
+mf = mblogit(
+  tonicidade_producao ~ tonicidade_alvo + estrutura_palavra+
+    grupo + segmento_modificado+bloco_apresentacao+
                aleatorizacao,
-             random = ~1|informante,data=base, epsilon = 1e-08,maxit = 30 )
+  random = ~1|informante,
+  data=base,
+  epsilon = 1e-08, maxit = 30,
+  method = "PQL"
+)
 summary(mf)
 
-
+# qqplot efeitos aleatórios
 qqnorm(mf$random.effects[[1]])
-qqline(mf$random.effects[[1]], color ="red")
+qqline(mf$random.effects[[1]], col ="red")
 
+# qqplot resíduos
 residuals.mclogit() #nao deu certo
 DHARMa::simulateResiduals(mf) #não deu certo
-mclogit:::residuals.mclogit(mf)
+qqnorm(mclogit:::residuals.mclogit(mf))
+qqline(mclogit:::residuals.mclogit(mf), col ="red")
 
 
 #Nos dá as probabilidades (p1,p2,p3) por linha da base
-p = predict(mf, type="response")
+p = predict(mf, type="response", conditional = TRUE)
 p = as.data.frame(p)
 
 #Queremos ver se a maior probabilidade coincide com a tonicidade alvo
 
 comp = p%>%mutate(ind = row_number())%>%
-  pivot_longer(cols = paroxítona:proparoxítona)%>%
+  tidyr::pivot_longer(cols = paroxítona:proparoxítona)%>%
   group_by(ind)%>%
   slice(which.max(value))%>%
   pull(name)%>%
@@ -161,20 +171,18 @@ as.data.frame(comp$max)%>%group_by(`comp$max`)%>%count()
 as.data.frame(pseudopalavras::dados$tonicidade_producao)%>%group_by(`pseudopalavras::dados$tonicidade_producao`)%>%count()
 
 
-pr = predict(mf, type="response")
-
 
 #fiz mas nao entendi KKK
 
-roc = multiclass.roc(pseudopalavras::dados$tonicidade_producao, pr, levels =
+roc = pROC::multiclass.roc(pseudopalavras::dados$tonicidade_producao, p, levels =
                        c("oxítona","paroxítona","proparoxítona"))
 rs = roc[['rocs']]
-plot.roc(rs$`paroxítona/oxítona`[[1]])
-plot.roc(rs$`paroxítona/oxítona`[[2]])
-plot.roc(rs$`paroxítona/proparoxítona`[[1]])
-plot.roc(rs$`paroxítona/proparoxítona`[[2]])
-plot.roc(rs$`oxítona/proparoxítona`[[1]])
-plot.roc(rs$`oxítona/proparoxítona`[[2]])
+pROC::plot.roc(rs$`paroxítona/oxítona`[[1]])
+pROC::plot.roc(rs$`paroxítona/oxítona`[[2]])
+pROC::plot.roc(rs$`paroxítona/proparoxítona`[[1]])
+pROC::plot.roc(rs$`paroxítona/proparoxítona`[[2]])
+pROC::plot.roc(rs$`oxítona/proparoxítona`[[1]])
+pROC::plot.roc(rs$`oxítona/proparoxítona`[[2]])
 
 
 
