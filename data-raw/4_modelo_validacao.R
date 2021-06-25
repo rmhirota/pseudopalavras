@@ -1,5 +1,33 @@
 library(mclogit)
 
+# modelos salvos ----------------------------------------------------------
+
+# modelo com base apenas de validados e quase validados
+validados_mf <- readr::read_rds("data-raw/m_validados_mf.rds")
+summary(validados_mf)
+
+# modelo com base apenas de não validados
+nao_validados_mf <- readr::read_rds("data-raw/nao_validados_mf.rds")
+summary(nao_validados_mf)
+
+# modelo com a base completa, considerando validacao como covariável
+mf_validacao <- readr::read_rds("data-raw/m_mf_validacao.rds")
+summary(mf_validacao)
+
+# modelo considerando covariáveis similaridade e frequência (em vez de grupo)
+mf_similar <- readr::read_rds("data-raw/m_mf_similar.rds")
+summary(mf_similar)
+
+# modelo considerando covariáveis similaridade e frequência (em vez de grupo)
+# base apenas com validados
+validados_mf_similar <- readr::read_rds("data-raw/m_validados_mf_similar.rds")
+summary(validados_mf_similar)
+
+
+
+
+# base --------------------------------------------------------------------
+
 base <- readr::read_rds("data-raw/base_modelo.rds")
 
 base <- base %>%
@@ -23,7 +51,6 @@ b_validados <- base %>%
   dplyr::filter(validacao %in% c("s", "q"))
 b_nao_validados <- base %>%
   dplyr::filter(!validacao %in% c("s", "q"))
-
 
 # modelo para validados ---------------------------------------------------
 
@@ -81,6 +108,8 @@ mf_validacao <- mblogit(
   epsilon = 1e-08, maxit = 30,
   method = "PQL"
 )
+readr::write_rds(mf_validacao, "data-raw/m_mf_validacao.rds")
+
 summary(mf_validacao)
 mclogit:::AIC.mclogit(mf_validacao)
 mclogit:::AIC.mclogit(mf)
