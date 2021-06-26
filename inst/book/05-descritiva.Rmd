@@ -384,6 +384,12 @@ A análise de concordância parece indicar que as variáveis Grupo de classifica
 A partir desses resultados, serão desenvolvidos __Modelos de Regressão Mistos Multinomiais__ com o falante como efeito aleatório, pois há interesse em analisar variáveis relacionadas aos indivíduos. 
 
 
+## Análise dos efeitos aleatórios preditos
+
+Os efeitos aleatórios seguem o pressuposto de distribuição N(0,$\Sigma_k$),logo, foram construídos gráficos de quantis-quantis para verificar a normalidade dos efeitos aleatórios preditos.
+No entanto, a literatura aponta que modelos mistos são robustos 
+
+Efeitos aleatórios preditos: gráfico de quantis-quantis para verificar a normalidade (no entanto, o modelo é robusto  para esse pressuposto)
 
 
 

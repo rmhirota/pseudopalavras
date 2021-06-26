@@ -30,14 +30,21 @@ $\beta_{(Pro-Pa)}$ = Vetor de parâmetros
 $b_{i(Pro-Pa)}$ = Efeito aleatório relacionado ao $i$-ésimo falante
 
 
-Além disso, devido ao experimento relacionado à validação da similaridade/dissimilaridade entre palavra-alvo e pseudopalavra  no qual alguma dessas relações não foi de fato válidada (Seção 4), também decidiu-se por ajustar um modelo apenas com as pseudopalavras validadas e quase-validadas (excluindo as não validadas). Como explicado anteriormente, essa classificação foi utilizada para definir outra variável da pesquisa (Grupo de classificação).
+Além disso, devido ao experimento relacionado à validação da similaridade/dissimilaridade entre palavra-alvo e pseudopalavra  no qual alguma dessas relações não foi de fato válidada (Seção 4), também decidiu-se por ajustar um modelo apenas com as pseudopalavras validadas e quase-validadas (excluindo as não validadas).
+
+Como explicado anteriormente, essa classificação foi utilizada para definir outra variável da pesquisa (Grupo de classificação), então se a validação não ocorreu talvez essa divisão não esteja correta.
 
 Assim, comparando-o com o modelo completo (sem o recorte na base) é possível entender se essa classificação afeta os valores inferenciais ou se podemos excluir as observações cuja similaridade/dissimilaridade entre palavra-alvo e pseudopalavra não foi validada.
 
 ## Modelos Ajustados
 
+Adotando 5% como nível de significância, verificou-se que a maior parte das variáveis relacionadas aos falantes  não apresentaram significância nos modelos ajustados através de um processo manual de adição de variáveis. Testamos retirar a variável extralinguística que apresentou apenas um nível significante (Escolaridade) e comparamos via o critério de informação de Akaike (AIC) dessa versão com a versão incluindo Escolaridade. O modelo mais adequado é aquele que possui menor AIC, logo, observamos que a exclusão apresentou melhora no valor.
+A Tabela A.9 contém as estimativas, erros padrões e valores-p dos efeitos fixos obtidos pelo primeiro modelo geral ajustado.
+
 Quando excluímos as pseudopalavras cuja similaridade/dissimilaridade não foi validada o modelo apresentou diferenças inferenciais em relação ao modelo multinomial misto anterior. 
-Em outras palavras, excluir essas observações parece ter efeito na significância das variáveis e, por isso, não devemos excluir 100% desses valores. Portanto, optamos por 
+Em outras palavras, excluir essas observações parece ter efeito na significância das variáveis e, por isso, não devemos excluir 100% desses valores. Portanto, optamos por manter a base cheia e salientamos que há um viés (?) na validação que pode influenciar a modleagem.
+
+Outro ponto de destaque é a variável Aleatorização que apresentou significância estatística na comparação Oxítona/Paroxítona. Ou seja, há evidências de que o problema de conexão durante o experimento impactou na acentuação tônica das pseudopalavras.
 
 
 
