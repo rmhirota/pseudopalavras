@@ -1,7 +1,43 @@
-# Análise univariada {#univariada}
+# Análise Inferencial {#univariada}
+
+## Definição Metodológica
+
+Nessa seção é feita a análise das variáveis linguísticas, extralinguísticas e experimentais com o intuito de caracterizar o processo de acentuação tônica. Para entender quais variáveis de fato têm influência construímos modelos multinomiais mistos com os falantes definidos como efeito aleatório. Assim, além de consider a correlação das respostas do mesmo falante e o desbalanceamento na quantidade de respostas de cada um, essa estrutura possibilita a inclusão de variáveis relacionadas às características dos falantes.
+
+As seguintes variáveis foram consideradas no modelo completo:
+- __Variável resposta__: Tonicidade de produção
+- __Efeito aleatório__: Efeito de cada falante
+_ __Variáveis com efeitos fixos__: Tonicidade alvo, Estrutura da palavra, Grupo de classificação, Segmento modificado, Bloco de apresentação, Aleatorizacao, Música, Línguas, Idade, Gênero, Escolaridade, Área de formação
+
+Com isso, foram construídos modelos considerando o nível Paroxítona como categoria de referência da regressão mutinomial. Ou seja, estaremos comparando através de uma função de ligação logito os níveis Oxítona/Paroxítona e Proparoxítona/Paroxítona. A escolha da categoria Paraxítona como referência aconteceu por ela ser considerada a acentuação tônica mais comum na língua portuguesa. A seguir, apresentamos as formulações matemáticas do modelo no contexto do trabalho
+
+$$ ln[\frac{\pi_{ijOxítona}}{\pi_{ijParoxítona}}] = X'\beta_{(O-Pa)} + b_{i(O-Pa)} $$
+com 
+
+$i$ = 1,..,34 = Falantes  
+$j$ = 1,...,$n_i$ = $j$-ésima pseudopalavra acentuada pelo $i$-ésimo falante  
+$X'$ = Matris de variáveis independentes  
+$\beta_{(O-Pa)}$ = Vetor de parâmetros  
+$b_{i(O-Pa)}$ = Efeito aleatório relacionado ao $i$-ésimo falante
+
+$$ ln[\frac{\pi_{ijProparoxítona}}{\pi_{ijParoxítona}}] = X'\beta_{(Pro-Pa)} + b_{i(Pro-Pa)} $$
+com 
+
+$i$ = 1,..,34 = Falantes  
+$j$ = 1,...,$n_i$ = $j$-ésima pseudopalavra acentuada pelo $i$-ésimo falante  
+$X'$ = Matris de variáveis independentes  
+$\beta_{(Pro-Pa)}$ = Vetor de parâmetros  
+$b_{i(Pro-Pa)}$ = Efeito aleatório relacionado ao $i$-ésimo falante
 
 
+Além disso, devido ao experimento relacionado à validação da similaridade/dissimilaridade entre palavra-alvo e pseudopalavra  no qual alguma dessas relações não foi de fato válidada (Seção 4), também decidiu-se por ajustar um modelo apenas com as pseudopalavras validadas e quase-validadas (excluindo as não validadas). Como explicado anteriormente, essa classificação foi utilizada para definir outra variável da pesquisa (Grupo de classificação).
 
+Assim, comparando-o com o modelo completo (sem o recorte na base) é possível entender se essa classificação afeta os valores inferenciais ou se podemos excluir as observações cuja similaridade/dissimilaridade entre palavra-alvo e pseudopalavra não foi validada.
+
+## Modelos Ajustados
+
+Quando excluímos as pseudopalavras cuja similaridade/dissimilaridade não foi validada o modelo apresentou diferenças inferenciais em relação ao modelo multinomial misto anterior. 
+Em outras palavras, excluir essas observações parece ter efeito na significância das variáveis e, por isso, não devemos excluir 100% desses valores. Portanto, optamos por 
 
 
 

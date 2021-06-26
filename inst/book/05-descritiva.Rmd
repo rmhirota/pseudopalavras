@@ -251,26 +251,24 @@ pseudopalavras::dados %>%
 
 ## Análise de Concordância 
 
-Como nossa base de dados está no formato de medidas repetidas (falantes acentuando diversas pseudopalavras) e uma mesma palavra-alvo gerou diversas pseupalavras, o pressuposto de independência entre as observações não é verdadeiro. Logo, optamos  por medir a concordância entre a acentuação dos falantes  através de uma Estatística do tipo Kappa, separando as análises em cada nível das seguintes variáveis: Grupo de Classificação, Estrutura da palavra e Segmento Modificado. 
+Como nossa base de dados está no formato de medidas repetidas (falantes acentuando diversas pseudopalavras) e uma mesma palavra-alvo gerou diversas pseupalavras, o pressuposto de independência entre as observações não é verdadeiro. Logo, optamos  por medir a concordância entre a acentuação dos falantes  através de uma Estatística do tipo Kappa, separando as análises em cada nível das seguintes variáveis: Grupo de Classificação, Estrutura da palavra e Segmento Modificado.
 
 Busca-se investigar o grau de concordância entre os falantes quanto a classificação das 372 
-pseudopalavras em oxítona, paroxítona e proparoxítona. Como os níveis da variável resposta (tonicidade
-da produção) têm uma distribuição desbalanceada, houve a necessidade de utilizar um fator corretor
-no cálculo da estatística Kappa. Assim, para esse conjunto de dados, foi adotado a estatística de Gwet,
-medida que, de acordo com a literatura, pode ser utilizada em amostras desbalanceadas. 
+pseudopalavras em oxítona, paroxítona e proparoxítona. Como os níveis da variável resposta (tonicidade da produção) têm uma distribuição desbalanceada, houve a necessidade de utilizar um fator corretor no cálculo da estatística Kappa. Assim, para esse conjunto de dados, foi adotado a estatística de Gwet, medida que, de acordo com a literatura, pode ser utilizada em amostras desbalanceadas (Gwet 2002,2008). 
 
 __AC1 de Gwet:__ Coeficiente para n experimentos com r avaliadores que utilizam um sistema de classificação em Q categorias
 
-$$  AC1 = \frac{p_a - p_{e\gamma}}{1-p_{e\gamma}}  $$ com
-$$ p_a = \frac{1}{n}\sum^n_{i=1}(\sum^Q_{q=1}\frac{r_{iq}(r_{iq}-1)}{r-1}) $$ 
-$$p_{e\gamma} = \frac{1}{Q-1}\sum^Q_{q=1}\pi_q(1-\pi_q)  $$ 
-$$ \pi_q = \frac{1}{n}\sum^n_{i=1}\frac{r_{iq}}{r}  $$
+$$AC1 = \frac{p_a - p_{e\gamma}}{1-p_{e\gamma}}$$ com
+$$p_a = \frac{1}{n}\sum^n_{i=1}(\sum^Q_{q=1}\frac{r_{iq}(r_{iq}-1)}{r-1})$$ 
+$$p_{e\gamma} = \frac{1}{Q-1}\sum^Q_{q=1}\pi_q(1-\pi_q)$$ 
+$$ \pi_q = \frac{1}{n}\sum^n_{i=1}\frac{r_{iq}}{r}$$
 Temos que  
 $p_{e\gamma}$ = probabilidade de concordância ao acaso
 $p_a$ = probabilidade de concordância geral
-$\pi_q$ = probabilidade de classificação na categoria q
+$\pi_k$ = probabilidade de classificação na categoria k
+$r_{ik}$ = probabilidade de classificação na categoria k
 
-Quanto mais próximo de 1 menor a probabilidade de a concordância acontecer devido ao acaso, ou seja, melhor a concordância entre os falantes na classificação das pseudopalavras. Altman, DG (1991) define os seguintes pontos de corte para a interpretação da estatística Kappa (e, consequentemente, do AC1)
+Quanto mais próximo de 1 menor a probabilidade de a concordância acontecer devido ao acaso, ou seja, melhor a concordância entre os falantes na classificação das pseudopalavras. (Altman,1991) define os seguintes pontos de corte para a interpretação da estatística Kappa (e, consequentemente, do AC1)
 
 ```{r ponto-corte}
 tabela = data.frame(x=c("AC1 < 0,20","0,2 <= AC1 < 0,4","0,4 <= AC1 < 0,6",
