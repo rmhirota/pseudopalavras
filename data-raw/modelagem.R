@@ -25,8 +25,10 @@ base = pseudopalavras::dados%>%mutate(
                                       genero = as.factor(genero),
                                       escolaridade = as.factor(escolaridade),
                                       area_formacao = as.factor(area_formacao),
-                                      linguas = as.factor(linguas))%>%select(
-                                        -c(vizinhanca_tonicidade, vizinhanca_fonologica))
+                                      linguas = as.factor(linguas)
+                                      )%>%select(-c(vizinhanca_tonicidade, vizinhanca_fonologica))
+
+base = base[,-c(8,9)]
 
 readr::write_rds(base, "data-raw/base_modelo.rds")
 
@@ -145,7 +147,7 @@ qqline(mf$random.effects[[1]], col ="red")
 
 
 # qqplot resíduos
-residuals.mclogit() #nao deu certo
+plot(mclogit:::residuals.mclogit(mf)) #nao deu certo
 DHARMa::simulateResiduals(mf) #não deu certo
 qqnorm(mclogit:::residuals.mclogit(mf))
 qqline(mclogit:::residuals.mclogit(mf), col ="red")
@@ -154,7 +156,7 @@ qqline(mclogit:::residuals.mclogit(mf), col ="red")
 #Nos dá as probabilidades (p1,p2,p3) por linha da base
 p = predict(mf, type="response", conditional = TRUE)
 p = as.data.frame(p)
-
+p
 #Queremos ver se a maior probabilidade coincide com a tonicidade alvo
 
 comp = p%>%mutate(ind = row_number())%>%
@@ -165,14 +167,23 @@ comp = p%>%mutate(ind = row_number())%>%
   mutate(p, max = .)
 
 
-data.frame(rm = comp$max, re = pseudopalavras::dados$tonicidade_producao)%>%filter(rm== "proparoxítona")
+data.frame(rm = comp$max, re = pseudopalavras::dados$tonicidade_producao)
 
 #Nos dá o comparativo entre a variável resposta e a resposta que o modelo daria
 t = table(comp$max,pseudopalavras::dados$tonicidade_producao)
+
+t
+
 epi.tests(t, conf.level = 0.95)
 as.data.frame(comp$max)%>%group_by(`comp$max`)%>%count()
 
 as.data.frame(pseudopalavras::dados$tonicidade_producao)%>%group_by(`pseudopalavras::dados$tonicidade_producao`)%>%count()
+
+
+#Fazendo sensibilidade e blablabla para oxitona
+to = data.frame(oxitona = c(4136,748,4784), resto = c(768,6859,7627))
+rownames(to) = c("Sim", "Não", "Total")
+epi.tests(t(to), conf.level = 0.95)
 
 
 
