@@ -2,7 +2,6 @@ library(mclogit) #unico que funcionou
 library(dplyr)
 library(MASS)
 library(ggplot2)
-library(DHARMa)
 library(tidyr)
 library(epiR)
 library(pROC)
@@ -128,15 +127,17 @@ mclogit:::AIC.mclogit(m8)
 
 # mf = m6
 mf = mblogit(
-  tonicidade_producao ~ tonicidade_alvo + estrutura_palavra+
-    grupo + segmento_modificado+bloco_apresentacao+
+  tonicidade_producao ~ tonicidade_alvo + estrutura_palavra +
+    grupo + segmento_modificado + bloco_apresentacao +
                aleatorizacao,
   random = ~1|informante,
-  data=base,
+  data=base_sem_naovalidadas,
   epsilon = 1e-08, maxit = 30,
   method = "PQL"
 )
 summary(mf)
+readr::write_rds(mf, "data-raw/m_mf_grupo_val.rds")
+
 
 # qqplot efeitos aleatórios
 qqnorm(mf$random.effects[[1]])
@@ -153,43 +154,7 @@ qqnorm(mclogit:::residuals.mclogit(mf))
 qqline(mclogit:::residuals.mclogit(mf), col ="red")
 
 
-#Nos dá as probabilidades (p1,p2,p3) por linha da base
-p = predict(mf, type="response", conditional = TRUE)
-p = as.data.frame(p)
-p
-#Queremos ver se a maior probabilidade coincide com a tonicidade alvo
 
-comp = p%>%mutate(ind = row_number())%>%
-  tidyr::pivot_longer(cols = paroxítona:proparoxítona)%>%
-  group_by(ind)%>%
-  slice(which.max(value))%>%
-  pull(name)%>%
-  mutate(p, max = .)
-
-
-data.frame(rm = comp$max, re = pseudopalavras::dados$tonicidade_producao)
-
-#Nos dá o comparativo entre a variável resposta e a resposta que o modelo daria
-t = table(comp$max,pseudopalavras::dados$tonicidade_producao)
-
-t
-
-epi.tests(t, conf.level = 0.95)
-as.data.frame(comp$max)%>%group_by(`comp$max`)%>%count()
-
-as.data.frame(pseudopalavras::dados$tonicidade_producao)%>%group_by(`pseudopalavras::dados$tonicidade_producao`)%>%count()
-
-
-#Fazendo sensibilidade e blablabla para oxitona
-to = data.frame(oxitona = c(4136,748,4784), resto = c(768,6859,7627))
-rownames(to) = c("Sim", "Não", "Total")
-epi.tests(t(to), conf.level = 0.95)
-
-
-#Fazendo sensibilidade e blablabla para paroxitona
-tp = data.frame(paroxitona = c(4136,748,4784), resto = c(768,6859,7627))
-rownames(tp) = c("Sim", "Não", "Total")
-epi.tests(t(tp), conf.level = 0.95)
 
 #fiz mas nao entendi KKK
 

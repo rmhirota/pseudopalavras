@@ -127,6 +127,9 @@ mf2 <- mblogit(
 summary(mf2)
 readr::write_rds(mf2,"data-raw/m_val_sim_mf2.rds")
 
+
+?mblogit
+
 # Modelos considerando validação ------------------------------------------
 
 base <- base %>%
@@ -183,8 +186,14 @@ coef_proparoxitonas = exp(mf2$coefficients)[c(2,4,6,8,10,12,14,16,18,20,22)]
 
 #Oxítonas versus Paroxítonas -----------------------------------------------------------
 
+No geral, temos que a probabilidade de uma pseudopalavra ser acentuada como oxítona
+(e não como paroxítona) é cerca de 1/5 da probabilidade dela ser acentuada como oxítona
+(e não paroxítona), quando todas as variáveis estão no nível de referência (Tonicidade Alvo é oxítona,
+Estrutura é CV-CV-CV, classificadas como dissimilar e de baixa frequência, com a modificação em uma
+consoante, apresentada no bloco 1 e tendo sido aleatorizada).
+
 A probabilidade de uma pseudopalavra ser acentuada como oxítona (e não como paroxítona)
-quando sua palavra alvo é paroxítona é aproximadamente 1/5 (0.247) da probabilidade dela ser acentuada como
+quando sua palavra alvo é paroxítona é aproximadamente 1/4 (0.247) da probabilidade dela ser acentuada como
 como oxítona (e não como paroxítona) quando sua palavra alvo é oxítona.
 
 A probabilidade de uma pseudopalavra ser acentuada como oxítona (e não como paroxítona)
