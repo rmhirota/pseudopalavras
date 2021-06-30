@@ -14,7 +14,7 @@ base$aleatorizacao = relevel(base$aleatorizacao, ref = "s")
 
 readr::write_rds(base, "data-raw/base_modelo.rds")
 base_sem_naovalidadas <- base %>%
-  dplyr::filter(validacao == "s")
+  dplyr::filter(validacao == "s"|validacao == "q")
 
 
 # Modelo Completo (com interação)

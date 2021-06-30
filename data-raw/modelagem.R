@@ -186,6 +186,10 @@ rownames(to) = c("Sim", "Não", "Total")
 epi.tests(t(to), conf.level = 0.95)
 
 
+#Fazendo sensibilidade e blablabla para paroxitona
+tp = data.frame(paroxitona = c(4136,748,4784), resto = c(768,6859,7627))
+rownames(tp) = c("Sim", "Não", "Total")
+epi.tests(t(tp), conf.level = 0.95)
 
 #fiz mas nao entendi KKK
 

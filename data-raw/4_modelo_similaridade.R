@@ -125,7 +125,7 @@ mf2 <- mblogit(
   random = ~1|informante, data = base_sem_naovalidadas,
   epsilon = 1e-08, maxit = 30, method = "PQL")
 summary(mf2)
-
+readr::write_rds(mf2,"data-raw/m_val_sim_mf2.rds")
 
 # Modelos considerando validação ------------------------------------------
 
