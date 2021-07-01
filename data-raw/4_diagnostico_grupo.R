@@ -31,7 +31,9 @@ as.data.frame(base_sem_naovalidadas$tonicidade_producao)%>%group_by(`base_sem_na
 #Fazendo sensibilidade e blablabla para oxitona --------------------------
 to = data.frame(m.oxitona = c(3958,692,4650), m.resto = c(611,5132,5743))
 rownames(to) = c("Sim", "Não", "Total")
-epi.tests(t(to), conf.level = 0.95)
+ss_mf_oxitona = epi.tests(t(to), conf.level = 0.95)
+readr::write_rds(ss_mf_oxitona, "data-raw/sensibilidade_mf_oxitona.rds")
+
 '''Point estimates and 95 % CIs:
 ---------------------------------------------------------
 Apparent prevalence                    0.45 (0.44, 0.46)
@@ -48,7 +50,7 @@ Negative likelihood ratio              0.15 (0.14, 0.16)
 #Fazendo sensibilidade e blablabla para paroxitona --------------------------
 tp = data.frame(m.paroxitona = c(4836,843,5679), m.resto = c(600,4114,4714))
 rownames(tp) = c("Sim", "Não", "Total")
-epi.tests(t(tp), conf.level = 0.95)
+ss_mf_paroxitona = epi.tests(t(tp), conf.level = 0.95)
 
 '''Point estimates and 95 % CIs:
 ---------------------------------------------------------
@@ -67,7 +69,7 @@ Negative likelihood ratio              0.13 (0.12, 0.14)
 #Fazendo sensibilidade e blablabla para proparoxitona --------------------------
 tpr = data.frame(m.proparoxitona = c(42,22,64), m.resto = c(346,9983,10329))
 rownames(tpr) = c("Sim", "Não", "Total")
-epi.tests(t(tpr), conf.level = 0.95)
+ss_mf_proparoxitona = epi.tests(t(tpr), conf.level = 0.95)
 
 '''Point estimates and 95 % CIs:
 ---------------------------------------------------------
@@ -113,6 +115,6 @@ qqnorm(mf$working.residuals, col ="red", xlab = "Quantiles Teóricos", ylab = "R
 qqline(mf$working.residuals)
 
 #Plotando efeitos Aleátorios
-qqnorm(mf$random.effects[[1]], xlab = "Quantiles Teóricos", ylab = "Efeitos Aleatórios Preditos")
+qqnorm(mf$random.effects[[1]], xlab = "Quantiles Teóricos", ylab = "Efeitos Aleatórios Preditos", main = "")
 qqline(mf$random.effects[[1]], col ="red")
 

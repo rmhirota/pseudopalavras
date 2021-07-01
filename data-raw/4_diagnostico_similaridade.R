@@ -17,6 +17,7 @@ comp = p%>%mutate(ind = row_number())%>%
   mutate(p, max = .)
 
 
+
 data.frame(rm = comp$max, re = base_sem_naovalidadas$tonicidade_producao)
 
 #Nos dá o comparativo entre a variável resposta e a resposta que o modelo daria -------------------
@@ -54,16 +55,17 @@ epi.tests(t(tpr), conf.level = 0.95)
 #plot(mf2)
 #deviance(mf2)
 
-mres = matrix(mf2$deviance.residuals, 3,10393)
-mresp = matrix(mf2$response.residuals, 3,10393)
-mwor = matrix(mf2$working.residuals, 3,10393)
+mres = matrix(mf2$deviance.residuals, 3,10393) #residuos deviance soltados pelo modelo
+mres1 = matrix(residuals(mf2, type = "deviance"),3,10393) #funcao do R com tipo deviance
 
 #probabilidade predita - Oxitona
-pred_oxitona = p[,1]
-res_oxitona = log(t(mres)[,1])
-resp_oxitona = t(mresp)[,1]
-mwor_oxitona = t(mwor)[,1]
-plot(res_oxitona~pred_oxitona, xlab = "Probabilidade Predita - Oxítona", ylab = "Resíduos Deviance - Oxítona")
+pred_oxitona = p[,2]
+res_oxitona = t(mres)[,2]
+res1_oxitona = t(mres1)[,2]
+
+
+plot(res_oxitona~pred_oxitona, xlab = "Probabilidade Predita - Oxítona", ylab = "Resíduos Deviance - Oxítona", main = "Deviance x Prob Pred - residuo solto pelo modelo")
+plot(res1_oxitona~pred_oxitona, xlab = "Probabilidade Predita - Oxítona", ylab = "Resíduos Deviance - Oxítona", main = "Deviance x Prob Pred - residuo calculado com funcao residuals")
 
 plot(resp_oxitona~pred_oxitona, xlab = "Probabilidade Predita - Oxítona", ylab = "Resíduos Deviance - Oxítona")
 
@@ -71,24 +73,14 @@ plot(mwor_oxitona~pred_oxitona, xlab = "Probabilidade Predita - Oxítona", ylab 
 plot(p,t(mres))
 
 
-mft=mblogit(
-  tonicidade_producao ~ tonicidade_alvo + estrutura_palavra + similaridade +
-    frequencia + segmento_modificado + bloco_apresentacao + aleatorizacao,
-  random = ~1|informante, data = base_sem_naovalidadas,
-  epsilon = 1e-08, maxit = 30)
-pred = predict(mft, type = "response")
-mres = matrix(mft$deviance.residuals, 3,10393)
-plot(pred,t(mres))
-
-
 #probabilidade predita - Paroxitona
-pred_paroxitona = p[,2]
-res_paroxitona = t(mres)[,2]
+pred_paroxitona = p[,1]
+res_paroxitona = t(mres1)[,1]
 plot(res_paroxitona~pred_paroxitona, xlab = "Probabilidade Predita - Paroxítona", ylab = "Resíduos Deviance - Paroxítona")
 
 #probabilidade predita - Proparoxitona
 pred_proparoxitona = p[,3]
-res_proparoxitona = t(mres)[,3]
+res_proparoxitona = t(mres1)[,3]
 plot(res_proparoxitona~pred_proparoxitona, xlab = "Probabilidade Predita - Proparoxítona", ylab = "Resíduos Deviance - Proparoxítona")
 
 

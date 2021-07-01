@@ -60,7 +60,7 @@ broom::tidy(mf) %>% dplyr::filter(stringr::str_detect(term, "^ox"))
 ```
 
 
-## Interpretações dos parâmetros
+#### Interpretações dos parâmetros
 
 A partir da saída percebe-se que, mantidas as demais variáveis em seus respectivos níveis de referência:
 
@@ -110,19 +110,42 @@ pseudopalavra é do grupo 1. Já a probabilidade de produção proparoxítona (a
 paroxítona) quando a pseudopalavra é do grupo 4 é 0,32 vezes a probabilidade de produção
 proparoxítona (ao invés de produção paroxítona) quando a pseudopalavra é do grupo 1. 
 
-6) A probabilidade de produção oxítona (ao invés de produção paroxítona) quando é, aproximadamente,
-0,14 vezes a probabilidade de produção oxítona (ao invés de produção paroxítona). Já a probabilidade
-de produção proparoxítona (ao invés de produção paroxítona)  é, aproximadamente, 0,02 vezes a
-probabilidade de produção proparoxítona (ao invés de produção paroxítona). 
+Podemos resumir que, na regressão oxítona/paroxítona, a estrutura da palavra é o que mais influencia na produção oxítona, além da tonicidade da palavra alvo (quando a mesma difere de oxítona, a probabilidade de produção oxítona diminui entre 75% e 90%, se comparada à da tonicidade alvo oxítona) e o segmento modificado (se a mudança ocorre em uma vogal, a probabilidade de produção oxítona aumenta em 20% se comparada à probabilidade de produção oxítona com mudança em consoante). Outro ponto de destaque vai para a influência dos grupos de classificação: para os grupos 3 (similar de baixa frequência) e 4 (dissimilar de baixa frequência), a probabilidade de produção oxítona aumenta em 70% e 52%, respectivamente, quando comparada ao grupo 1 (similar de alta frequência). 
 
+
+#### Avaliação do Modelo
+
+A partir de modelos multinomiais, conseguimos predizer, para cada observação, a probabilidade de resposta em cada nível da variável dependente. Assim, é possível avaliar a qualidade do modelo através do cruzamento da variável dependente com a maior probabilidade predita de cada observação. Com base nisso, calculamos a sensibilidade (probabilidade de classificação no nível _i_ dado que a tonicidade de produção foi avaliada no nível _i_) e especificidade (probabilidade de não ser classificada no nível _i_ dado que a tonicidade de produção não foi avaliada no nível _i_) de cada nível da variável resposta. As medidas são feitas agrupando dois níveis da variável dependente e os comparando com o terceiro. Os valores podem ser analisados nas Tabelas A.10, A.11 e A.12, para os níveis Oxítona, Paroxítona e Proparoxítona, respectivamente. 
+
+```{r}
+ss_mf_oxitona 
+#readr::read_rds("data-raw/sensibilidade_mf_oxitona.rds")
+ss_mf_paroxitona 
+ss_mf_proparoxitona 
+```
+
+Vemos que para Oxítona e Paroxítona, os valores de Sensibilidade e Especificidade são altos, o que indica um bom ajuste do modelo aos dados. Olhando para Proparoxítona, vemos que a o valor da Sensibilidade é baixo, o que pode ser explicado pela baixa frequência dessa classificação na base. Concluímos então que o ajuste do modelo está satisfatório. 
+
+
+#### Análise dos Componentes Aleatórios
+
+Em modelos mistos, os efeitos aleatórios seguem o pressuposto de distribuição N(0,$\Sigma$). 
+Embora a figura aponte uma distribuição com caldas pesadas, a literatura indica que essa é uma premissa robusta, logo, podemos considerar que houve uma boa aproximação para a distribuição normal. 
+
+```{r}
+qqnorm(mf$random.effects[[1]], xlab = "Quantiles Teóricos", ylab = "Efeitos Aleatórios Preditos", main = "")
+qqline(mf$random.effects[[1]], col ="red")
+```
 
 
 ### Modelo com Similaridade e Frequência
 
 
-### Variáveis de interesse
 
-Outro ponto de destaque é a variável Aleatorização que apresentou significância estatística na comparação Oxítona/Paroxítona. Ou seja, há evidências de que o problema de conexão durante o experimento impactou na acentuação tônica das pseudopalavras.
+### Problema de Aleatorização 
+
+Um ponto de atenção é a variável Aleatorização que apresentou significância estatística na comparação Oxítona/Paroxítona, em ambos os modelos. Ou seja, há evidências de que o problema de conexão durante o experimento impactou na acentuação tônica das pseudopalavras. Esse foi um problema que não foi possível contornar durante a modelagem, e talvez indique a necessidade de replicar o experimento garantindo a aleatoridade de todos os blocos para todos os falantes. 
+
 
 
 \newpage

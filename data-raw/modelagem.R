@@ -137,7 +137,7 @@ mf = mblogit(
 )
 summary(mf)
 readr::write_rds(mf, "data-raw/m_mf_grupo_val.rds")
-
+mf = readr::read_rds("data-raw/m_mf_grupo_val.rds")
 
 # qqplot efeitos aleatórios
 qqnorm(mf$random.effects[[1]])
