@@ -1,20 +1,52 @@
+library(magrittr)
+
 #Lendo o resultado do modelo final, retiradas as não validadas e usando grupo ------------
-mf = readr::read_rds("data-raw/m_mf_grupo_val.rds")
+mf <- readr::read_rds("data-raw/m_mf_grupo_val.rds")
+summary(mf)
+
+# Nos dá as probabilidades (p1,p2,p3) por linha da base --------------------------
+p <- predict(mf, type = "response", conditional = TRUE) %>%
+  tibble::as_tibble()
+p %>% dplyr::slice(100:110)
 
 
-#Nos dá as probabilidades (p1,p2,p3) por linha da base --------------------------
-p = predict(mf, type="response", conditional = TRUE)
-p = as.data.frame(p)
-p
+# Resíduos ----------------------------------------------------------------
+
+# r <- mclogit:::residuals.mclogit(mf, type = "deviance")
+# mf$deviance.residuals[1:10]
+r <- matrix(mf$deviance.residuals, 3,10393) %>%
+  t() %>%
+  tibble::as_tibble() %>%
+  purrr::set_names("paroxitona", "oxitona", "proparoxitona")
+r %>% dplyr::slice(100:110)
+
+plot_residuo <- function(tonicidade, tonicidade_pred) {
+  p %>%
+    purrr::set_names("p_par", "p_oxi", "p_pro") %>%
+    dplyr::bind_cols(r) %>%
+    dplyr::filter({{tonicidade}} != 0) %>%
+    ggplot2::ggplot(ggplot2::aes(y = {{tonicidade}}, x = {{tonicidade_pred}})) +
+    ggplot2::geom_point() +
+    ggplot2::labs(
+      x = "Predito", y = "Resíduo",
+      title = rlang::expr({{tonicidade}}),
+      subtitle = "Valores preditos para pi e resíduos"
+    )
+}
+plot_residuo(paroxitona, p_par)
+plot_residuo(oxitona, p_oxi)
+plot_residuo(proparoxitona, p_pro)
+
 
 
 #Queremos ver se a maior probabilidade coincide com a tonicidade alvo --------------------------
-comp1 = p%>%mutate(ind = row_number())%>%
+comp1 <- p %>%
+  dplyr::mutate(ind = dplyr::row_number())%>%
   tidyr::pivot_longer(cols = paroxítona:proparoxítona)%>%
-  group_by(ind)%>%
-  slice(which.max(value))%>%
-  pull(name)%>%
-  mutate(p, max = .)
+  dplyr::group_by(ind)%>%
+  dplyr::slice(which.max(value))%>%
+  dplyr::pull(name)%>%
+  dplyr::mutate(p, max = .)
 
 
 data.frame(rm = comp1$max, re = base_sem_naovalidadas$tonicidade_producao)

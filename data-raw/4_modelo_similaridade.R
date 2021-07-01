@@ -1,3 +1,4 @@
+library(magrittr)
 library(mclogit)
 
 base <- readr::read_rds("data-raw/base_modelo.rds")
