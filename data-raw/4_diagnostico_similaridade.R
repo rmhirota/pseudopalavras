@@ -3,14 +3,14 @@ mf2 = readr::read_rds("data-raw/m_val_sim_mf2.rds")
 
 
 #Nos dá as probabilidades (p1,p2,p3) por linha da base --------------------------
-p = predict(mf2, type="response", conditional = TRUE)
-p = as.data.frame(p)
-p
+p <- predict(mf2, type = "response", conditional = TRUE) %>%
+  tibble::as_tibble()
+p %>% dplyr::slice(100:110)
 
 #Queremos ver se a maior probabilidade coincide com a tonicidade alvo --------------------------
 
 comp = p%>%mutate(ind = row_number())%>%
-  tidyr::pivot_longer(cols = oxítona:proparoxítona)%>%
+  tidyr::pivot_longer(cols = paroxítona:proparoxítona)%>%
   group_by(ind)%>%
   slice(which.max(value))%>%
   pull(name)%>%
@@ -58,31 +58,29 @@ epi.tests(t(tpr), conf.level = 0.95)
 mres = matrix(mf2$deviance.residuals, 3,10393) #residuos deviance soltados pelo modelo
 mres1 = matrix(residuals(mf2, type = "deviance"),3,10393) #funcao do R com tipo deviance
 
-'#probabilidade predita - Oxitona
-pred_oxitona = p[,2]
-res_oxitona = t(mres)[,2]
-res1_oxitona = t(mres1)[,2]
 
+rs <- matrix(mf2$deviance.residuals, 3,10393) %>%
+  t() %>%
+  tibble::as_tibble() %>%
+  purrr::set_names("paroxitona", "oxitona", "proparoxitona")
+rs %>% dplyr::slice(100:110)
 
-plot(res_oxitona~pred_oxitona, xlab = "Probabilidade Predita - Oxítona", ylab = "Resíduos Deviance - Oxítona", main = "Deviance x Prob Pred - residuo solto pelo modelo")
-plot(res1_oxitona~pred_oxitona, xlab = "Probabilidade Predita - Oxítona", ylab = "Resíduos Deviance - Oxítona", main = "Deviance x Prob Pred - residuo calculado com funcao residuals")
-
-plot(resp_oxitona~pred_oxitona, xlab = "Probabilidade Predita - Oxítona", ylab = "Resíduos Deviance - Oxítona")
-
-plot(mwor_oxitona~pred_oxitona, xlab = "Probabilidade Predita - Oxítona", ylab = "Resíduos Deviance - Oxítona")
-plot(p,t(mres))
-'
-
-#probabilidade predita - Paroxitona
-pred_paroxitona = p[,1]
-res_paroxitona = t(mres1)[,1]
-plot(res_paroxitona~pred_paroxitona, xlab = "Probabilidade Predita - Paroxítona", ylab = "Resíduos Deviance - Paroxítona")
-
-#probabilidade predita - Proparoxitona
-pred_proparoxitona = p[,3]
-res_proparoxitona = t(mres1)[,3]
-plot(res_proparoxitona~pred_proparoxitona, xlab = "Probabilidade Predita - Proparoxítona", ylab = "Resíduos Deviance - Proparoxítona")
-
+plot_residuos <- function(tonicidade, tonicidade_pred) {
+  p %>%
+    purrr::set_names("p_par", "p_oxi", "p_pro") %>%
+    dplyr::bind_cols(rs) %>%
+    dplyr::filter({{tonicidade}} != 0) %>%
+    ggplot2::ggplot(ggplot2::aes(y = {{tonicidade}}, x = {{tonicidade_pred}})) +
+    ggplot2::geom_point() +
+    ggplot2::labs(
+      x = "Predito", y = "Resíduo",
+      title = rlang::expr({{tonicidade}}),
+      subtitle = "Valores preditos para pi e resíduos"
+    )
+}
+plot_residuos(paroxitona, p_par)
+plot_residuos(oxitona, p_oxi)
+plot_residuos(proparoxitona, p_pro)
 
 
 
@@ -106,22 +104,10 @@ prob = p%>%mutate(ind = row_number())%>%
 
 graf = data.frame(p.modelo = prob$max,r.data = base_sem_naovalidadas$tonicidade_producao,
                   informante = base_sem_naovalidadas$informante, r.modelo = comp$max )
-graf1 = graf%>%filter(informante %in% inf)
 
-g = ggplot(graf1, aes(x=r.data, y=p.modelo, fill=informante)) +
-  geom_dotplot(dotsize = 0.5, binaxis='y', stackdir='center',
+ggplot(graf, aes(x=r.data, y=p.modelo)) +
+  geom_point(aes(color = informante, shape = r.modelo),dotsize = 0.5, binaxis='y',
                position=position_dodge(0.8))
-g
-
-#-----
-ggplot(graf1, aes(x=r.data, y=p.modelo)) +
-  geom_point(aes(color = informante, shape = r.modelo))
 
 
-#-----
-graf2 = data.frame(p.modelo = comp$max,r.data = base_sem_naovalidadas$tonicidade_producao,informante = base_sem_naovalidadas$informante )
-graf22 = graf2%>%filter(informante %in% inf)
-g2<-ggplot(graf22, aes(x=r.data, y=p.modelo, fill=informante)) +
-  geom_dotplot(binaxis='y', stackdir='center',
-               position=position_dodge(0.8))
-g2
+
