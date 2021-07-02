@@ -117,34 +117,9 @@ Negative likelihood ratio              0.89 (0.86, 0.93)
 '''
 
 
-#Resíduos ---------------------------------------------------------------------
 
-#plot(mf2$deviance.residuals)
-#plot(residuals(mf2))
-#plot(mf2)
-#deviance(mf2)
+mres1 = matrix(mf$deviance.residuals, 3,10393) #?
 
-mres1 = matrix(mf$deviance.residuals, 3,10393)
-
-#probabilidade predita - Oxitona
-pred_oxitona = p[,1]
-res_oxitona = t(mres1)[,1]
-plot(res_oxitona~pred_oxitona, xlab = "Probabilidade Predita - Oxítona", ylab = "Resíduos Deviance - Oxítona")
-
-#probabilidade predita - Paroxitona
-pred_paroxitona = p[,2]
-res_paroxitona = t(mres1)[,2]
-plot(res_paroxitona~pred_paroxitona, xlab = "Probabilidade Predita - Paroxítona", ylab = "Resíduos Deviance - Paroxítona")
-
-#probabilidade predita - Proparoxitona
-pred_proparoxitona = p[,3]
-res_proparoxitona = t(mres1)[,3]
-plot(res_proparoxitona~pred_proparoxitona, xlab = "Probabilidade Predita - Proparoxítona", ylab = "Resíduos Deviance - Proparoxítona")
-
-
-# qqplot resíduos
-qqnorm(mf$working.residuals, col ="red", xlab = "Quantiles Teóricos", ylab = "Resíduos do Modelo")
-qqline(mf$working.residuals)
 
 #Plotando efeitos Aleátorios
 qqnorm(mf$random.effects[[1]], xlab = "Quantiles Teóricos", ylab = "Efeitos Aleatórios Preditos", main = "")

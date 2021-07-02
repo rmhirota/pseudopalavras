@@ -58,7 +58,7 @@ epi.tests(t(tpr), conf.level = 0.95)
 mres = matrix(mf2$deviance.residuals, 3,10393) #residuos deviance soltados pelo modelo
 mres1 = matrix(residuals(mf2, type = "deviance"),3,10393) #funcao do R com tipo deviance
 
-#probabilidade predita - Oxitona
+'#probabilidade predita - Oxitona
 pred_oxitona = p[,2]
 res_oxitona = t(mres)[,2]
 res1_oxitona = t(mres1)[,2]
@@ -71,7 +71,7 @@ plot(resp_oxitona~pred_oxitona, xlab = "Probabilidade Predita - Oxítona", ylab 
 
 plot(mwor_oxitona~pred_oxitona, xlab = "Probabilidade Predita - Oxítona", ylab = "Resíduos Deviance - Oxítona")
 plot(p,t(mres))
-
+'
 
 #probabilidade predita - Paroxitona
 pred_paroxitona = p[,1]

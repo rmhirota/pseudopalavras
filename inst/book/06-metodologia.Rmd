@@ -126,6 +126,37 @@ ss_mf_proparoxitona
 
 Vemos que para Oxítona e Paroxítona, os valores de Sensibilidade e Especificidade são altos, o que indica um bom ajuste do modelo aos dados. Olhando para Proparoxítona, vemos que a o valor da Sensibilidade é baixo, o que pode ser explicado pela baixa frequência dessa classificação na base. Concluímos então que o ajuste do modelo está satisfatório. 
 
+#### Análise de Resíduos
+
+A forma mais adequada de analisar os resíduos do modelo é compará-los com as probabilidades preditas, para cada nível da variável resposta. Existem observações onde a classificação do modelo não foi satisfatória, ou seja, a probabilidade predita de a resposta ser daquele nível foi baixa, e portanto o resíduo é alto. Entretanto, a frequência dessas observações é baixa, o que indica um ajuste razoável do modelo. A visão gráfica desses resíduos pode ser analisada nos gráficos B. , B. e B. , para oxítonas, paroxítonas e proparoxítonas, respectivamente. 
+
+```{r}
+r <- matrix(mf$deviance.residuals, 3,10393) %>%
+  t() %>%
+  tibble::as_tibble() %>%
+  purrr::set_names("paroxitona", "oxitona", "proparoxitona")
+
+
+plot_residuo <- function(tonicidade, tonicidade_pred) {
+  p %>%
+    purrr::set_names("p_par", "p_oxi", "p_pro") %>%
+    dplyr::bind_cols(r) %>%
+    dplyr::filter({{tonicidade}} != 0) %>%
+    ggplot2::ggplot(ggplot2::aes(y = {{tonicidade}}, x = {{tonicidade_pred}})) +
+    ggplot2::geom_point() +
+    ggplot2::labs(
+      x = "Predito", y = "Resíduo",
+      title = rlang::expr({{tonicidade}}),
+      subtitle = "Valores preditos para pi e resíduos"
+    )
+}
+
+plot_residuo(oxitona, p_oxi)
+plot_residuo(paroxitona, p_par)
+plot_residuo(proparoxitona, p_pro)
+```
+
+
 
 #### Análise dos Componentes Aleatórios
 
