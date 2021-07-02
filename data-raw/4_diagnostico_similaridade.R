@@ -32,21 +32,21 @@ as.data.frame(base_sem_naovalidadas$tonicidade_producao)%>%group_by(`base_sem_na
 #Fazendo sensibilidade e blablabla para oxitona --------------------------
 to = data.frame(m.oxitona = c(3955,697,4652), m.resto = c(614,5127,5741))
 rownames(to) = c("Sim", "Não", "Total")
-epi.tests(t(to), conf.level = 0.95)
-
+ss_mf2_oxitona = epi.tests(t(to), conf.level = 0.95)
+ss_mf2_oxitona
 
 #Fazendo sensibilidade e blablabla para paroxitona --------------------------
 tp = data.frame(m.paroxitona = c(4832,847,5679), m.resto = c(604,4110,4714))
 rownames(tp) = c("Sim", "Não", "Total")
-epi.tests(t(tp), conf.level = 0.95)
-
+ss_mf2_paroxitona = epi.tests(t(tp), conf.level = 0.95)
+ss_mf2_paroxitona
 
 
 #Fazendo sensibilidade e blablabla para proparoxitona --------------------------
 tpr = data.frame(m.proparoxitona = c(42,20,62), m.resto = c(346,9985,10331))
 rownames(tpr) = c("Sim", "Não", "Total")
-epi.tests(t(tpr), conf.level = 0.95)
-
+ss_mf2_proparoxitona = epi.tests(t(tpr), conf.level = 0.95)
+ss_mf2_proparoxitona
 
 #Resíduos ---------------------------------------------------------------------
 
