@@ -28,9 +28,9 @@ $\beta_{(Pro-Pa)}$ = Vetor de parâmetros
 $b_{i(Pro-Pa)}$ = Efeito aleatório relacionado ao $i$-ésimo falante
 
 
-Além disso, devido ao experimento relacionado à validação da similaridade/dissimilaridade entre palavra-alvo e pseudopalavra no qual alguma dessas relações não foi de fato validada (Seção 4), testamos se a exclusão de pseudopalavras não validadas afetaria muito o resultado do modelo ajustado à base total. Dessa forma, foi possível entender se essa classificação afetava os valores inferenciais ou se poderímos excluir as observações cuja similaridade/dissimilaridade entre palavra-alvo e pseudopalavra não foi validada.
+Além disso, devido ao experimento relacionado à validação da similaridade/dissimilaridade entre palavra-alvo e pseudopalavra no qual algumas dessas relações não foram de fato validadas (Seção 4), testamos se a exclusão de pseudopalavras não validadas afetaria o resultado do modelo ajustado à base total. Dessa forma, foi possível entender se essa classificação afetava os valores inferenciais ou se poderímos excluir as observações cuja similaridade/dissimilaridade entre palavra-alvo e pseudopalavra não foi validada.
 
-Retirando amostras aleatórias de apenas 25% de palavras não validadas, observou-se que o resultado do modelo é alterado de formas diferentes, a depender da amostra. 
+Retirando amostras aleatórias contendo 25% de pseudopalavras não validadas, observou-se que o resultado do modelo é alterado de formas diferentes, a depender da amostra. Logo, entendemos que não seria possível remover apenas uma porcentagem aleatória das pseudopalavras cuja similaridade/dissimilaridade não for validada.
 
 Como explicado anteriormente, essa variável foi utilizada para validar outra variável da pesquisa (Grupo de classificação). Então, para reduzir a incerteza em relação à definição do Grupo de classificação, decidiu-se por ajustar um modelo apenas com as pseudopalavras validadas e quase validadas, excluindo as não validadas.
 
@@ -54,7 +54,8 @@ Portanto, as variáveis que apresentaram significância em pelo menos um nível 
 As Tabelas A.8 e A.9 contêm as estimativas, erros padrões e valores-p dos efeitos fixos obtidos pelo modelo final ajustado. A Tabela A.8 apresenta os valores para o modelo dos níveis Oxítona/Paroxítona e a Tabela A.9 apresenta os valores para o modelo dos níveis Proparoxítona/Paroxítona. É importante observar que, como as variáveis foram selecionadas de forma simultânea para os dois modelos, nem sempre os coeficientes das variáveis serão representadas em ambos as equações, pois podem ter níveis de significância diferentes entre os modelos Oxítona/Paroxítona e Proparoxítona/Paroxítona.
 
 
-```{r}
+```{r echo=FALSE}
+mf <- readr::read_rds("data-raw/m_mf_grupo_val.rds")
 broom::tidy(mf) %>% dplyr::filter(stringr::str_detect(term, "^prop"))
 broom::tidy(mf) %>% dplyr::filter(stringr::str_detect(term, "^ox"))
 ```
@@ -115,55 +116,20 @@ Podemos resumir que, na regressão oxítona/paroxítona, a estrutura da pseudopa
 
 #### Avaliação do Modelo (Modelo 1)
 
-A partir de modelos multinomiais, conseguimos predizer, para cada observação, a probabilidade de resposta em cada nível da variável dependente. Assim, é possível avaliar a qualidade do modelo através do cruzamento da variável dependente com a maior probabilidade predita de cada observação. Com base nisso, calculamos a sensibilidade (probabilidade de classificação no nível _i_ dado que a tonicidade de produção foi avaliada no nível _i_) e especificidade (probabilidade de não ser classificada no nível _i_ dado que a tonicidade de produção não foi avaliada no nível _i_) de cada nível da variável resposta. As medidas são feitas agrupando dois níveis da variável dependente e os comparando com o terceiro. Os valores podem ser analisados nas Tabelas A.10, A.11 e A.12, para os níveis Oxítona, Paroxítona e Proparoxítona, respectivamente. 
+Não há, na literatura, explanações de métodos para analisar resíduos e encontrar pontos aberrantes em modelos multinomiais, apenas para modelos logísticos (conforme  - citar artigo da prof viviana). 
+Como alternativa, conseguimos predizer, para cada observação, a probabilidade a probabilidade da mesma ser classificada em cada nível da variável dependente. Assim, é possível avaliar a qualidade do modelo através do cruzamento da variável dependente com a maior probabilidade predita de cada observação. 
 
-```{r}
-ss_mf_oxitona 
-#readr::read_rds("data-raw/sensibilidade_mf_oxitona.rds")
-ss_mf_paroxitona 
-ss_mf_proparoxitona 
-```
+Calculamos a sensibilidade (probabilidade de classificação no nível _i_ dado que a tonicidade de produção foi avaliada no nível _i_) e especificidade (probabilidade de não ser classificada no nível _i_ dado que a tonicidade de produção não foi avaliada no nível _i_) de cada nível da variável resposta. As medidas são feitas agrupando dois níveis da variável dependente e os comparando com o terceiro. Os valores podem ser analisados nas Tabelas A.10, A.11 e A.12, para os níveis Oxítona, Paroxítona e Proparoxítona, respectivamente. 
 
 Vemos que para Oxítona e Paroxítona, os valores de Sensibilidade e Especificidade são altos, o que indica um bom ajuste do modelo aos dados. Olhando para Proparoxítona, vemos que a o valor da Sensibilidade é baixo, o que pode ser explicado pela baixa frequência dessa classificação na base. Concluímos então que o ajuste do modelo está satisfatório. 
-
-#### Análise de Resíduos
-
-A forma mais adequada de analisar os resíduos do modelo é compará-los com as probabilidades preditas, para cada nível da variável resposta. Existem observações onde a classificação do modelo não foi satisfatória, ou seja, a probabilidade predita de a resposta ser daquele nível foi baixa, e portanto o resíduo é alto. Entretanto, a frequência dessas observações é baixa, o que indica um ajuste razoável do modelo. A visão gráfica desses resíduos pode ser analisada nos gráficos B. , B. e B. , para oxítonas, paroxítonas e proparoxítonas, respectivamente. 
-
-```{r}
-r <- matrix(mf$deviance.residuals, 3,10393) %>%
-  t() %>%
-  tibble::as_tibble() %>%
-  purrr::set_names("paroxitona", "oxitona", "proparoxitona")
-
-
-plot_residuo <- function(tonicidade, tonicidade_pred) {
-  p %>%
-    purrr::set_names("p_par", "p_oxi", "p_pro") %>%
-    dplyr::bind_cols(r) %>%
-    dplyr::filter({{tonicidade}} != 0) %>%
-    ggplot2::ggplot(ggplot2::aes(y = {{tonicidade}}, x = {{tonicidade_pred}})) +
-    ggplot2::geom_point() +
-    ggplot2::labs(
-      x = "Predito", y = "Resíduo",
-      title = rlang::expr({{tonicidade}}),
-      subtitle = "Valores preditos para pi e resíduos"
-    )
-}
-
-plot_residuo(oxitona, p_oxi)
-plot_residuo(paroxitona, p_par)
-plot_residuo(proparoxitona, p_pro)
-```
-
-
 
 #### Análise dos Componentes Aleatórios
 
 Em modelos mistos, os efeitos aleatórios seguem o pressuposto de distribuição N(0,$\Sigma$). 
 Embora a figura aponte uma distribuição com caldas pesadas, a literatura indica que essa é uma premissa robusta, logo, podemos considerar que houve uma boa aproximação para a distribuição normal. 
 
-```{r}
+```{r echo=FALSE}
+mf <- readr::read_rds("data-raw/m_mf_grupo_val.rds")
 qqnorm(mf$random.effects[[1]], xlab = "Quantiles Teóricos", ylab = "Efeitos Aleatórios Preditos", main = "")
 qqline(mf$random.effects[[1]], col ="red")
 ```
@@ -173,7 +139,13 @@ qqline(mf$random.effects[[1]], col ="red")
 
 O passo a passo do ajuste do modelo ocorreu de forma semelhante as etapas citadas anteriormente. Novamente, adotando 5% como nível de significância, verificou-se que a maior parte das variáveis relacionadas aos falantes  não apresentaram significância para o modelo e as mesmas variáveis do modelo utilizando a variável grupo foram selecionadas.
 
-Inserir a saída
+
+```{r echo=FALSE}
+mf2 = readr::read_rds("data-raw/m_val_sim_mf2.rds")
+broom::tidy(mf2) %>% dplyr::filter(stringr::str_detect(term, "^prop"))
+broom::tidy(mf2) %>% dplyr::filter(stringr::str_detect(term, "^ox"))
+```
+
 
 #### Interpretações dos parâmetros (Modelo 2)
 
@@ -204,50 +176,16 @@ ser acentuada como proparoxítona (e não como paroxítona) quando a mudança oc
 Não há, na literatura, explanações de métodos para analisar resíduos e encontrar pontos aberrantes em modelos multinomiais, apenas para modelos logísticos (conforme  - citar artigo da prof viviana). 
 Como alternativa, conseguimos predizer, para cada observação, a probabilidade de resposta em cada nível da variável dependente. Assim, é possível avaliar a qualidade do modelo através do cruzamento da variável dependente com a maior probabilidade predita de cada observação. Com base nisso, calculamos a sensibilidade (probabilidade de classificação no nível _i_ dado que a tonicidade de produção foi avaliada no nível _i_) e especificidade (probabilidade de não ser classificada no nível _i_ dado que a tonicidade de produção não foi avaliada no nível _i_) de cada nível da variável resposta. As medidas são feitas agrupando dois níveis da variável dependente e os comparando com o terceiro. Os valores podem ser analisados nas Tabelas A.10, A.11 e A.12, para os níveis Oxítona, Paroxítona e Proparoxítona, respectivamente. 
 
-```{r}
-ss_mf2_oxitona 
-#readr::read_rds("data-raw/sensibilidade_mf_oxitona.rds")
-ss_mf2_paroxitona 
-ss_mf2_proparoxitona 
-```
-
 Vemos que para Oxítona e Paroxítona, os valores de Sensibilidade e Especificidade são altos, o que indica um bom ajuste do modelo aos dados. Olhando para Proparoxítona, vemos que a o valor da Sensibilidade é baixo, o que pode ser explicado pela baixa frequência dessa classificação na base. Concluímos então que o ajuste do modelo está satisfatório. 
 
-
-#### Análise de Resíduos
-
-```{r}
-r2 <- matrix(mf2$deviance.residuals, 3,10393) %>%
-  t() %>%
-  tibble::as_tibble() %>%
-  purrr::set_names("paroxitona", "oxitona", "proparoxitona")
-
-
-plot_residuo <- function(tonicidade, tonicidade_pred) {
-  p %>%
-    purrr::set_names("p_par", "p_oxi", "p_pro") %>%
-    dplyr::bind_cols(r) %>%
-    dplyr::filter({{tonicidade}} != 0) %>%
-    ggplot2::ggplot(ggplot2::aes(y = {{tonicidade}}, x = {{tonicidade_pred}})) +
-    ggplot2::geom_point() +
-    ggplot2::labs(
-      x = "Predito", y = "Resíduo",
-      title = rlang::expr({{tonicidade}}),
-      subtitle = "Valores preditos para pi e resíduos"
-    )
-}
-
-plot_residuo(oxitona, p_oxi)
-plot_residuo(paroxitona, p_par)
-plot_residuo(proparoxitona, p_pro)
-```
 
 #### Análise dos Componentes Aleatórios
 
 Em modelos mistos, os efeitos aleatórios seguem o pressuposto de distribuição N(0,$\Sigma$). 
 Embora a figura aponte uma distribuição com caldas pesadas, a literatura indica que essa é uma premissa robusta, logo, podemos considerar que houve uma boa aproximação para a distribuição normal. 
 
-```{r}
+```{r echo=FALSE}
+mf2 = readr::read_rds("data-raw/m_val_sim_mf2.rds")
 qqnorm(mf2$random.effects[[1]], xlab = "Quantiles Teóricos", ylab = "Efeitos Aleatórios Preditos", main = "")
 qqline(mf2$random.effects[[1]], col ="red")
 ```
@@ -256,7 +194,6 @@ qqline(mf2$random.effects[[1]], col ="red")
 ### Problema de Aleatorização 
 
 Um ponto de atenção é a variável Aleatorização que apresentou significância estatística na comparação Oxítona/Paroxítona, em ambos os modelos. Ou seja, há evidências de que o problema de conexão durante o experimento impactou na acentuação tônica das pseudopalavras. Esse foi um problema que não foi possível contornar durante a modelagem, e talvez indique a necessidade de replicar o experimento garantindo a aleatoridade de todos os blocos para todos os falantes. 
-
 
 
 \newpage

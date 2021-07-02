@@ -26,20 +26,13 @@ entre a palavra alvo e a pseudopalavra resultou na criação de uma variável co
 categorias chamada grupo de classificação. 
 
 - __Validação__: s = sim, n = não validada e q = quase validada
-- __Vizinhança tonicidade__: indica qual foi o padrão acentual das palavras que os participantes julgaram similares a pseudopalavras criada; apenas para pseudopalavras não validadas
-- __Taxa de validação__: indica quantas pessoas do estudo preliminar informaram que
-a palavra era similar ou dissimilar
 - __Palavra alvo__: palavra real que deu origem à pseudopalavra  
-- __Tonicidade da palavra alvo__: oxítona, paroxítona e proparoxítona
-- __Estrutura da palavra__: indica qual é a estrutura da pseudopalavra (CV-CV-CV ou 
-CV-CV-CVC), sendo que C indica Consoante e V indica Vogal
+- __Tonicidade da palavra-alvo__: oxítona, paroxítona e proparoxítona
+- __Estrutura da palavra__: indica qual é a estrutura da pseudopalavra (CV-CV-CV ou CV-CV-CVC), sendo que C indica Consoante e V indica Vogal
 - __Pseudopalavra__: refere-se a cada uma das palavras criadas
 - __Segmento modificado__: indica qual letra foi modificada na criação da pseudopalavra
 a partir da palavra real (consoante ou vogal)  
-- __Sílaba modificada__: 1,2,3 ( 1º,2º,3º) ou 0 quando mais de uma sílaba
- foi modificada (caso das palavras dissimilares)
-- __Grupo de classificação__:  indica o efeito da similaridade (entre a pseudopalavra 
-e a palavra real) e da frequência (alta e baixa) na produção acentual
+- __Grupo de classificação__:  indica o efeito da similaridade (entre a pseudopalavra e a palavra real) e da frequência (alta e baixa) na produção acentual
      
   - 1 = pseudopalavras similares de alta frequência    
   - 2 = pseudopalavras dissimilares de alta frequência   
@@ -47,11 +40,7 @@ e a palavra real) e da frequência (alta e baixa) na produção acentual
   - 4 = pseudopalavras dissimilares de baixa frequência   
   
 Ressaltamos que essa variável não foi controlada durante a coleta
-de dados, ou seja, não foi pré-definido uma quantidade de palavras de cada categoria
-em cada conjunto apresentado aos participantes. 
-    
-- __Taxa de similaridade__: Para mudanças de consoante:1, 2, 3 (grupos similares), 5, 6, 7, 8, 9, 10 (grupos dissimilares); para mudanças de vogal :1 (grupos similares), 5, 6, 7, 8 (grupos dissimilares)
-
+de dados, ou seja, não foi pré-definido uma quantidade de palavras de cada categoria em cada conjunto apresentado aos participantes. 
 
 ## Variáveis Extralinguísticas
   
@@ -72,9 +61,6 @@ não pôde ser aleatorizada, apenas a ordem das palavras dentro de cada conjunto
 
 - __Bloco de apresentação__: indica em qual bloco (ou conjunto) a pseudopalavra foi
 inserida (1, 2, 3 ou 4)
-- __Ordem de apresentação__: indica em qual ordem a pseudopalavra foi apresentada
-dentro do bloco de apresentação (1 a 93). Para os indivíduos que fizeram toda a 
-dinâmica no software, a ordem das pseudopalavras era diferente dentro de cada bloco.
 
 __Problemas de aleatorização__
 
