@@ -30,8 +30,8 @@
   
   
 <link rel="prev" href="descricao-variaveis.html"/>
-<link rel="next" href="univariada.html"/>
-<script src="libs/header-attrs-2.8/header-attrs.js"></script>
+<link rel="next" href="metodologia.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -121,13 +121,23 @@ div.csl-indent {
 <li class="chapter" data-level="6.2" data-path="descritiva.html"><a href="descritiva.html#variáveis-linguísticas-1"><i class="fa fa-check"></i><b>6.2</b> Variáveis linguísticas</a></li>
 <li class="chapter" data-level="6.3" data-path="descritiva.html"><a href="descritiva.html#análise-de-concordância"><i class="fa fa-check"></i><b>6.3</b> Análise de Concordância</a></li>
 <li class="chapter" data-level="6.4" data-path="descritiva.html"><a href="descritiva.html#resumo-da-análise-descritiva"><i class="fa fa-check"></i><b>6.4</b> Resumo da Análise Descritiva</a></li>
+<li class="chapter" data-level="6.5" data-path="descritiva.html"><a href="descritiva.html#análise-dos-efeitos-aleatórios-preditos"><i class="fa fa-check"></i><b>6.5</b> Análise dos efeitos aleatórios preditos</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="univariada.html"><a href="univariada.html"><i class="fa fa-check"></i><b>7</b> Análise univariada</a></li>
+<li class="chapter" data-level="7" data-path="metodologia.html"><a href="metodologia.html"><i class="fa fa-check"></i><b>7</b> Metodologia</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="metodologia.html"><a href="metodologia.html#modelos-ajustados"><i class="fa fa-check"></i><b>7.1</b> Modelos Ajustados</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="metodologia.html"><a href="metodologia.html#modelo-com-grupo-de-classificação-modelo-1"><i class="fa fa-check"></i><b>7.1.1</b> Modelo com Grupo de classificação (Modelo 1)</a></li>
+<li class="chapter" data-level="7.1.2" data-path="metodologia.html"><a href="metodologia.html#modelo-com-similaridade-e-frequência-modelo-2"><i class="fa fa-check"></i><b>7.1.2</b> Modelo com Similaridade e Frequência (Modelo 2)</a></li>
+<li class="chapter" data-level="7.1.3" data-path="metodologia.html"><a href="metodologia.html#problema-de-aleatorização"><i class="fa fa-check"></i><b>7.1.3</b> Problema de Aleatorização</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="conclusão.html"><a href="conclusão.html"><i class="fa fa-check"></i><b>8</b> Conclusão</a></li>
 <li class="chapter" data-level="" data-path="ficha-técnica.html"><a href="ficha-técnica.html"><i class="fa fa-check"></i>FICHA TÉCNICA</a>
 <ul>
 <li class="chapter" data-level="" data-path="ficha-técnica.html"><a href="ficha-técnica.html#referências-bibliográficas"><i class="fa fa-check"></i>REFERÊNCIAS BIBLIOGRÁFICAS</a></li>
 <li class="chapter" data-level="" data-path="ficha-técnica.html"><a href="ficha-técnica.html#programas-computacionais-utilizados"><i class="fa fa-check"></i>PROGRAMAS COMPUTACIONAIS UTILIZADOS</a></li>
-<li class="chapter" data-level="7.1" data-path="ficha-técnica.html"><a href="ficha-técnica.html#técnicas-estatísticas-utilizadas"><i class="fa fa-check"></i><b>7.1</b> TÉCNICAS ESTATÍSTICAS UTILIZADAS</a></li>
+<li class="chapter" data-level="8.1" data-path="ficha-técnica.html"><a href="ficha-técnica.html#técnicas-estatísticas-utilizadas"><i class="fa fa-check"></i><b>8.1</b> TÉCNICAS ESTATÍSTICAS UTILIZADAS</a></li>
 <li class="chapter" data-level="" data-path="ficha-técnica.html"><a href="ficha-técnica.html#área-de-aplicação"><i class="fa fa-check"></i>ÁREA DE APLICAÇÃO</a></li>
 </ul></li>
 <li class="appendix"><span><b>Apêndices</b></span></li>
@@ -555,20 +565,18 @@ como similares a palavra-alvo podem ser associadas a mais de uma palavra real pe
 <h2><span class="header-section-number">6.3</span> Análise de Concordância</h2>
 <p>Como nossa base de dados está no formato de medidas repetidas (falantes acentuando diversas pseudopalavras) e uma mesma palavra-alvo gerou diversas pseupalavras, o pressuposto de independência entre as observações não é verdadeiro. Logo, optamos por medir a concordância entre a acentuação dos falantes através de uma Estatística do tipo Kappa, separando as análises em cada nível das seguintes variáveis: Grupo de Classificação, Estrutura da palavra e Segmento Modificado.</p>
 <p>Busca-se investigar o grau de concordância entre os falantes quanto a classificação das 372
-pseudopalavras em oxítona, paroxítona e proparoxítona. Como os níveis da variável resposta (tonicidade
-da produção) têm uma distribuição desbalanceada, houve a necessidade de utilizar um fator corretor
-no cálculo da estatística Kappa. Assim, para esse conjunto de dados, foi adotado a estatística de Gwet,
-medida que, de acordo com a literatura, pode ser utilizada em amostras desbalanceadas.</p>
+pseudopalavras em oxítona, paroxítona e proparoxítona. Como os níveis da variável resposta (tonicidade da produção) têm uma distribuição desbalanceada, houve a necessidade de utilizar um fator corretor no cálculo da estatística Kappa. Assim, para esse conjunto de dados, foi adotado a estatística de Gwet, medida que, de acordo com a literatura, pode ser utilizada em amostras desbalanceadas (Gwet 2002,2008).</p>
 <p><strong>AC1 de Gwet:</strong> Coeficiente para n experimentos com r avaliadores que utilizam um sistema de classificação em Q categorias</p>
-<p><span class="math display">\[  AC1 = \frac{p_a - p_{e\gamma}}{1-p_{e\gamma}}  \]</span> com
-<span class="math display">\[ p_a = \frac{1}{n}\sum^n_{i=1}(\sum^Q_{q=1}\frac{r_{iq}(r_{iq}-1)}{r-1}) \]</span>
-<span class="math display">\[p_{e\gamma} = \frac{1}{Q-1}\sum^Q_{q=1}\pi_q(1-\pi_q)  \]</span>
-<span class="math display">\[ \pi_q = \frac{1}{n}\sum^n_{i=1}\frac{r_{iq}}{r}  \]</span>
+<p><span class="math display">\[AC1 = \frac{p_a - p_{e\gamma}}{1-p_{e\gamma}}\]</span> com
+<span class="math display">\[p_a = \frac{1}{n}\sum^n_{i=1}(\sum^Q_{q=1}\frac{r_{iq}(r_{iq}-1)}{r-1})\]</span>
+<span class="math display">\[p_{e\gamma} = \frac{1}{Q-1}\sum^Q_{q=1}\pi_q(1-\pi_q)\]</span>
+<span class="math display">\[ \pi_q = \frac{1}{n}\sum^n_{i=1}\frac{r_{iq}}{r}\]</span>
 Temos que<br />
 <span class="math inline">\(p_{e\gamma}\)</span> = probabilidade de concordância ao acaso
 <span class="math inline">\(p_a\)</span> = probabilidade de concordância geral
-<span class="math inline">\(\pi_q\)</span> = probabilidade de classificação na categoria q</p>
-<p>Quanto mais próximo de 1 menor a probabilidade de a concordância acontecer devido ao acaso, ou seja, melhor a concordância entre os falantes na classificação das pseudopalavras. Altman, DG (1991) define os seguintes pontos de corte para a interpretação da estatística Kappa (e, consequentemente, do AC1)</p>
+<span class="math inline">\(\pi_k\)</span> = probabilidade de classificação na categoria k
+<span class="math inline">\(r_{ik}\)</span> = probabilidade de classificação na categoria k</p>
+<p>Quanto mais próximo de 1 menor a probabilidade de a concordância acontecer devido ao acaso, ou seja, melhor a concordância entre os falantes na classificação das pseudopalavras. (Altman,1991) define os seguintes pontos de corte para a interpretação da estatística Kappa (e, consequentemente, do AC1)</p>
 <table style="width:100%;">
 <caption>
 <span id="tab:ponto-corte">Tabela 6.5: </span>Pontos de corte para medidas do tipo Kappa
@@ -733,6 +741,12 @@ CV-CV-CV
 <p>Além disso, dificilmente um falante acentua uma palavra desconhecida de forma proparoxítona e as volumetrias parecem ir ao encontro das teorias fonológicas de que se a palavra terminar em consoante o acento será oxítono e se terminar em vogal, o acento é paroxítono.</p>
 <p>A análise de concordância parece indicar que as variáveis Grupo de classificação e Estrutura da palavra são importantes para a atribuição do acento tônico, visto que seus níveis apresentaram estatísticas de Gwet levemente diferentes entre si.</p>
 <p>A partir desses resultados, serão desenvolvidos <strong>Modelos de Regressão Mistos Multinomiais</strong> com o falante como efeito aleatório, pois há interesse em analisar variáveis relacionadas aos indivíduos.</p>
+</div>
+<div id="análise-dos-efeitos-aleatórios-preditos" class="section level2" number="6.5">
+<h2><span class="header-section-number">6.5</span> Análise dos efeitos aleatórios preditos</h2>
+<p>Os efeitos aleatórios seguem o pressuposto de distribuição N(0,<span class="math inline">\(\Sigma_k\)</span>),logo, foram construídos gráficos de quantis-quantis para verificar a normalidade dos efeitos aleatórios preditos.
+No entanto, a literatura aponta que modelos mistos são robustos</p>
+<p>Efeitos aleatórios preditos: gráfico de quantis-quantis para verificar a normalidade (no entanto, o modelo é robusto para esse pressuposto)</p>
 
 </div>
 </div>
@@ -748,7 +762,7 @@ COLLISCHONN, G. 1999. <em>Acento Em Português. In BISOL, l. (ed.) Introdução 
         </div>
       </div>
 <a href="descricao-variaveis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="univariada.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="metodologia.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

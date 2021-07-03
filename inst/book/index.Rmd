@@ -28,12 +28,15 @@ preface: "<br>"
 ---
 
 ```{r setup, include = FALSE}
-knitr::opts_chunk$set(echo = FALSE, 
-                      message = FALSE, 
-                      comment = FALSE, 
-                      warning = FALSE, 
-                      fig.height = 6, 
-                      fig.width = 9)
+knitr::opts_chunk$set(
+  echo = FALSE, 
+  message = FALSE, 
+  comment = FALSE, 
+  warning = FALSE, 
+  fig.height = 6, 
+  fig.width = 9
+)
+
 library(patchwork)
 library(magrittr)
 participantes <- pseudopalavras::dados %>% 

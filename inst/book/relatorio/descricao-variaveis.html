@@ -31,7 +31,7 @@
   
 <link rel="prev" href="descricao-estudo.html"/>
 <link rel="next" href="descritiva.html"/>
-<script src="libs/header-attrs-2.8/header-attrs.js"></script>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -121,13 +121,23 @@ div.csl-indent {
 <li class="chapter" data-level="6.2" data-path="descritiva.html"><a href="descritiva.html#variáveis-linguísticas-1"><i class="fa fa-check"></i><b>6.2</b> Variáveis linguísticas</a></li>
 <li class="chapter" data-level="6.3" data-path="descritiva.html"><a href="descritiva.html#análise-de-concordância"><i class="fa fa-check"></i><b>6.3</b> Análise de Concordância</a></li>
 <li class="chapter" data-level="6.4" data-path="descritiva.html"><a href="descritiva.html#resumo-da-análise-descritiva"><i class="fa fa-check"></i><b>6.4</b> Resumo da Análise Descritiva</a></li>
+<li class="chapter" data-level="6.5" data-path="descritiva.html"><a href="descritiva.html#análise-dos-efeitos-aleatórios-preditos"><i class="fa fa-check"></i><b>6.5</b> Análise dos efeitos aleatórios preditos</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="univariada.html"><a href="univariada.html"><i class="fa fa-check"></i><b>7</b> Análise univariada</a></li>
+<li class="chapter" data-level="7" data-path="metodologia.html"><a href="metodologia.html"><i class="fa fa-check"></i><b>7</b> Metodologia</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="metodologia.html"><a href="metodologia.html#modelos-ajustados"><i class="fa fa-check"></i><b>7.1</b> Modelos Ajustados</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="metodologia.html"><a href="metodologia.html#modelo-com-grupo-de-classificação-modelo-1"><i class="fa fa-check"></i><b>7.1.1</b> Modelo com Grupo de classificação (Modelo 1)</a></li>
+<li class="chapter" data-level="7.1.2" data-path="metodologia.html"><a href="metodologia.html#modelo-com-similaridade-e-frequência-modelo-2"><i class="fa fa-check"></i><b>7.1.2</b> Modelo com Similaridade e Frequência (Modelo 2)</a></li>
+<li class="chapter" data-level="7.1.3" data-path="metodologia.html"><a href="metodologia.html#problema-de-aleatorização"><i class="fa fa-check"></i><b>7.1.3</b> Problema de Aleatorização</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="conclusão.html"><a href="conclusão.html"><i class="fa fa-check"></i><b>8</b> Conclusão</a></li>
 <li class="chapter" data-level="" data-path="ficha-técnica.html"><a href="ficha-técnica.html"><i class="fa fa-check"></i>FICHA TÉCNICA</a>
 <ul>
 <li class="chapter" data-level="" data-path="ficha-técnica.html"><a href="ficha-técnica.html#referências-bibliográficas"><i class="fa fa-check"></i>REFERÊNCIAS BIBLIOGRÁFICAS</a></li>
 <li class="chapter" data-level="" data-path="ficha-técnica.html"><a href="ficha-técnica.html#programas-computacionais-utilizados"><i class="fa fa-check"></i>PROGRAMAS COMPUTACIONAIS UTILIZADOS</a></li>
-<li class="chapter" data-level="7.1" data-path="ficha-técnica.html"><a href="ficha-técnica.html#técnicas-estatísticas-utilizadas"><i class="fa fa-check"></i><b>7.1</b> TÉCNICAS ESTATÍSTICAS UTILIZADAS</a></li>
+<li class="chapter" data-level="8.1" data-path="ficha-técnica.html"><a href="ficha-técnica.html#técnicas-estatísticas-utilizadas"><i class="fa fa-check"></i><b>8.1</b> TÉCNICAS ESTATÍSTICAS UTILIZADAS</a></li>
 <li class="chapter" data-level="" data-path="ficha-técnica.html"><a href="ficha-técnica.html#área-de-aplicação"><i class="fa fa-check"></i>ÁREA DE APLICAÇÃO</a></li>
 </ul></li>
 <li class="appendix"><span><b>Apêndices</b></span></li>
@@ -179,22 +189,15 @@ entre a palavra alvo e a pseudopalavra resultou na criação de uma variável co
 categorias chamada grupo de classificação.</p>
 <ul>
 <li><p><strong>Validação</strong>: s = sim, n = não validada e q = quase validada</p></li>
-<li><p><strong>Vizinhança tonicidade</strong>: indica qual foi o padrão acentual das palavras que os participantes julgaram similares a pseudopalavras criada; apenas para pseudopalavras não validadas</p></li>
-<li><p><strong>Taxa de validação</strong>: indica quantas pessoas do estudo preliminar informaram que
-a palavra era similar ou dissimilar</p></li>
 <li><p><strong>Palavra alvo</strong>: palavra real que deu origem à pseudopalavra<br />
 </p></li>
-<li><p><strong>Tonicidade da palavra alvo</strong>: oxítona, paroxítona e proparoxítona</p></li>
-<li><p><strong>Estrutura da palavra</strong>: indica qual é a estrutura da pseudopalavra (CV-CV-CV ou
-CV-CV-CVC), sendo que C indica Consoante e V indica Vogal</p></li>
+<li><p><strong>Tonicidade da palavra-alvo</strong>: oxítona, paroxítona e proparoxítona</p></li>
+<li><p><strong>Estrutura da palavra</strong>: indica qual é a estrutura da pseudopalavra (CV-CV-CV ou CV-CV-CVC), sendo que C indica Consoante e V indica Vogal</p></li>
 <li><p><strong>Pseudopalavra</strong>: refere-se a cada uma das palavras criadas</p></li>
 <li><p><strong>Segmento modificado</strong>: indica qual letra foi modificada na criação da pseudopalavra
 a partir da palavra real (consoante ou vogal)<br />
 </p></li>
-<li><p><strong>Sílaba modificada</strong>: 1,2,3 ( 1º,2º,3º) ou 0 quando mais de uma sílaba
-foi modificada (caso das palavras dissimilares)</p></li>
-<li><p><strong>Grupo de classificação</strong>: indica o efeito da similaridade (entre a pseudopalavra
-e a palavra real) e da frequência (alta e baixa) na produção acentual</p>
+<li><p><strong>Grupo de classificação</strong>: indica o efeito da similaridade (entre a pseudopalavra e a palavra real) e da frequência (alta e baixa) na produção acentual</p>
 <ul>
 <li>1 = pseudopalavras similares de alta frequência<br />
 </li>
@@ -206,11 +209,7 @@ e a palavra real) e da frequência (alta e baixa) na produção acentual</p>
 </ul></li>
 </ul>
 <p>Ressaltamos que essa variável não foi controlada durante a coleta
-de dados, ou seja, não foi pré-definido uma quantidade de palavras de cada categoria
-em cada conjunto apresentado aos participantes.</p>
-<ul>
-<li><strong>Taxa de similaridade</strong>: Para mudanças de consoante:1, 2, 3 (grupos similares), 5, 6, 7, 8, 9, 10 (grupos dissimilares); para mudanças de vogal :1 (grupos similares), 5, 6, 7, 8 (grupos dissimilares)</li>
-</ul>
+de dados, ou seja, não foi pré-definido uma quantidade de palavras de cada categoria em cada conjunto apresentado aos participantes.</p>
 </div>
 <div id="variáveis-extralinguísticas" class="section level2" number="5.3">
 <h2><span class="header-section-number">5.3</span> Variáveis Extralinguísticas</h2>
@@ -233,9 +232,6 @@ não pôde ser aleatorizada, apenas a ordem das palavras dentro de cada conjunto
 <ul>
 <li><strong>Bloco de apresentação</strong>: indica em qual bloco (ou conjunto) a pseudopalavra foi
 inserida (1, 2, 3 ou 4)</li>
-<li><strong>Ordem de apresentação</strong>: indica em qual ordem a pseudopalavra foi apresentada
-dentro do bloco de apresentação (1 a 93). Para os indivíduos que fizeram toda a
-dinâmica no software, a ordem das pseudopalavras era diferente dentro de cada bloco.</li>
 </ul>
 <p><strong>Problemas de aleatorização</strong></p>
 <p>Para alguns participantes o software Psychopy apresentou problemas e

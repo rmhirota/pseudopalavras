@@ -4,3 +4,4 @@
 A partir da análise inferencial concluímos que há indicíos de que existem outros fatores, além da estrutura da palavra, que interferem na acentuação tõnica. Por meio dos modelos foi evidenciado o papel da similaridade e da tonicidade da palavra-alvo na determinação da tonicidade de produção.
 No entanto, como a interferência na aleatorização durante o processo de coleta dos dados mostrou-se significante para o modelo final, acreditamos que seria importante uma uma replicação do estudo, no qual se garantisse a aleatorização de todos os blocos para todos os falantes.  
 
+\newpage

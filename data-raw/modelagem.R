@@ -7,34 +7,7 @@ library(epiR)
 library(pROC)
 devtools::install()
 
-
-
-base = pseudopalavras::dados%>%mutate(
-                                      informante=as.factor(informante),
-                                      tonicidade_producao = as.factor(tonicidade_producao),
-                                      tonicidade_alvo = as.factor(tonicidade_alvo),
-                                      estrutura_palavra = as.factor(estrutura_palavra),
-                                      grupo = as.factor(grupo),
-                                      musica = as.factor(musica),
-                                      aleatorizacao = as.factor(aleatorizacao),
-                                      bloco_apresentacao = as.factor(bloco_apresentacao),
-                                      vizinhanca_tonicidade = as.factor(vizinhanca_tonicidade),
-                                      segmento_modificado = as.factor(segmento_modificado),
-                                      silaba_modificada = as.factor(silaba_modificada),
-                                      genero = as.factor(genero),
-                                      escolaridade = as.factor(escolaridade),
-                                      area_formacao = as.factor(area_formacao),
-                                      linguas = as.factor(linguas)
-                                      )%>%select(-c(vizinhanca_tonicidade, vizinhanca_fonologica))
-
-base = base[,-c(8,9)]
-
-readr::write_rds(base, "data-raw/base_modelo.rds")
-
-
-base$tonicidade_producao = relevel(base$tonicidade_producao, ref = "paroxítona")
-base$escolaridade = relevel(base$escolaridade, ref = "Superior Incompleto")
-base$aleatorizacao = relevel(base$aleatorizacao, ref = "s")
+base <- pseudopalavras::da_modelo_validadas
 
 #Modelo Nulo
 m0 = mblogit(tonicidade_producao ~ 1,

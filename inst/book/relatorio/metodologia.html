@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 7 Metodologia | Relatório de Análise Estatística sobre o Projeto:</title>
+  <meta name="description" content="Relatório de pesquisa da disciplina MAE0413." />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 7 Metodologia | Relatório de Análise Estatística sobre o Projeto:" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Relatório de pesquisa da disciplina MAE0413." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 7 Metodologia | Relatório de Análise Estatística sobre o Projeto:" />
+  
+  <meta name="twitter:description" content="Relatório de pesquisa da disciplina MAE0413." />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="descritiva.html"/>
+<link rel="next" href="conclusão.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="assets/css/bookdown.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Pseudopalavras</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="resumo.html"><a href="resumo.html"><i class="fa fa-check"></i><b>1</b> Resumo</a></li>
+<li class="chapter" data-level="2" data-path="introducao.html"><a href="introducao.html"><i class="fa fa-check"></i><b>2</b> Introdução</a></li>
+<li class="chapter" data-level="3" data-path="objetivos.html"><a href="objetivos.html"><i class="fa fa-check"></i><b>3</b> Objetivo(s)</a></li>
+<li class="chapter" data-level="4" data-path="descricao-estudo.html"><a href="descricao-estudo.html"><i class="fa fa-check"></i><b>4</b> Descrição do estudo</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="descricao-estudo.html"><a href="descricao-estudo.html#limitações-do-estudo"><i class="fa fa-check"></i><b>4.1</b> Limitações do estudo</a></li>
+<li class="chapter" data-level="4.2" data-path="descricao-estudo.html"><a href="descricao-estudo.html#conceitos-de-similaridade-e-validação"><i class="fa fa-check"></i><b>4.2</b> Conceitos de Similaridade e Validação</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="descricao-variaveis.html"><a href="descricao-variaveis.html"><i class="fa fa-check"></i><b>5</b> Descrição das variáveis</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="descricao-variaveis.html"><a href="descricao-variaveis.html#variável-dependente"><i class="fa fa-check"></i><b>5.1</b> Variável Dependente</a></li>
+<li class="chapter" data-level="5.2" data-path="descricao-variaveis.html"><a href="descricao-variaveis.html#variáveis-linguísticas"><i class="fa fa-check"></i><b>5.2</b> Variáveis Linguísticas</a></li>
+<li class="chapter" data-level="5.3" data-path="descricao-variaveis.html"><a href="descricao-variaveis.html#variáveis-extralinguísticas"><i class="fa fa-check"></i><b>5.3</b> Variáveis Extralinguísticas</a></li>
+<li class="chapter" data-level="5.4" data-path="descricao-variaveis.html"><a href="descricao-variaveis.html#var-experimentais"><i class="fa fa-check"></i><b>5.4</b> Variáveis Experimentais</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="descritiva.html"><a href="descritiva.html"><i class="fa fa-check"></i><b>6</b> Análise descritiva</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="descritiva.html"><a href="descritiva.html#perfil-dos-participantes"><i class="fa fa-check"></i><b>6.1</b> Perfil dos participantes</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="descritiva.html"><a href="descritiva.html#sexo-e-idade"><i class="fa fa-check"></i><b>6.1.1</b> Sexo e idade</a></li>
+<li class="chapter" data-level="6.1.2" data-path="descritiva.html"><a href="descritiva.html#naturalidade"><i class="fa fa-check"></i><b>6.1.2</b> Naturalidade</a></li>
+<li class="chapter" data-level="6.1.3" data-path="descritiva.html"><a href="descritiva.html#área-de-formação"><i class="fa fa-check"></i><b>6.1.3</b> Área de formação</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="descritiva.html"><a href="descritiva.html#variáveis-linguísticas-1"><i class="fa fa-check"></i><b>6.2</b> Variáveis linguísticas</a></li>
+<li class="chapter" data-level="6.3" data-path="descritiva.html"><a href="descritiva.html#análise-de-concordância"><i class="fa fa-check"></i><b>6.3</b> Análise de Concordância</a></li>
+<li class="chapter" data-level="6.4" data-path="descritiva.html"><a href="descritiva.html#resumo-da-análise-descritiva"><i class="fa fa-check"></i><b>6.4</b> Resumo da Análise Descritiva</a></li>
+<li class="chapter" data-level="6.5" data-path="descritiva.html"><a href="descritiva.html#análise-dos-efeitos-aleatórios-preditos"><i class="fa fa-check"></i><b>6.5</b> Análise dos efeitos aleatórios preditos</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="metodologia.html"><a href="metodologia.html"><i class="fa fa-check"></i><b>7</b> Metodologia</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="metodologia.html"><a href="metodologia.html#modelos-ajustados"><i class="fa fa-check"></i><b>7.1</b> Modelos Ajustados</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="metodologia.html"><a href="metodologia.html#modelo-com-grupo-de-classificação-modelo-1"><i class="fa fa-check"></i><b>7.1.1</b> Modelo com Grupo de classificação (Modelo 1)</a></li>
+<li class="chapter" data-level="7.1.2" data-path="metodologia.html"><a href="metodologia.html#modelo-com-similaridade-e-frequência-modelo-2"><i class="fa fa-check"></i><b>7.1.2</b> Modelo com Similaridade e Frequência (Modelo 2)</a></li>
+<li class="chapter" data-level="7.1.3" data-path="metodologia.html"><a href="metodologia.html#problema-de-aleatorização"><i class="fa fa-check"></i><b>7.1.3</b> Problema de Aleatorização</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="conclusão.html"><a href="conclusão.html"><i class="fa fa-check"></i><b>8</b> Conclusão</a></li>
+<li class="chapter" data-level="" data-path="ficha-técnica.html"><a href="ficha-técnica.html"><i class="fa fa-check"></i>FICHA TÉCNICA</a>
+<ul>
+<li class="chapter" data-level="" data-path="ficha-técnica.html"><a href="ficha-técnica.html#referências-bibliográficas"><i class="fa fa-check"></i>REFERÊNCIAS BIBLIOGRÁFICAS</a></li>
+<li class="chapter" data-level="" data-path="ficha-técnica.html"><a href="ficha-técnica.html#programas-computacionais-utilizados"><i class="fa fa-check"></i>PROGRAMAS COMPUTACIONAIS UTILIZADOS</a></li>
+<li class="chapter" data-level="8.1" data-path="ficha-técnica.html"><a href="ficha-técnica.html#técnicas-estatísticas-utilizadas"><i class="fa fa-check"></i><b>8.1</b> TÉCNICAS ESTATÍSTICAS UTILIZADAS</a></li>
+<li class="chapter" data-level="" data-path="ficha-técnica.html"><a href="ficha-técnica.html#área-de-aplicação"><i class="fa fa-check"></i>ÁREA DE APLICAÇÃO</a></li>
+</ul></li>
+<li class="appendix"><span><b>Apêndices</b></span></li>
+<li class="chapter" data-level="A" data-path="tabelas.html"><a href="tabelas.html"><i class="fa fa-check"></i><b>A</b> Tabelas</a></li>
+<li class="chapter" data-level="B" data-path="graficos.html"><a href="graficos.html"><i class="fa fa-check"></i><b>B</b> Gráficos</a></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Relatório de Análise Estatística sobre o Projeto:</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+RAE-CEA–21P02
+<div id="metodologia" class="section level1" number="7">
+<h1><span class="header-section-number">Capítulo 7</span> Metodologia</h1>
+<p>Nessa seção é feita a análise das variáveis linguísticas, extralinguísticas e experimentais com o intuito de caracterizar o processo de acentuação tônica. Para entender quais variáveis de fato têm influência construímos modelos multinomiais mistos com os falantes definidos como efeito aleatório. Assim, além de consider a correlação das respostas do mesmo falante e o desbalanceamento na quantidade de respostas de cada um, essa estrutura possibilita a inclusão de variáveis relacionadas às características dos falantes.</p>
+<p>As seguintes variáveis foram consideradas no modelo completo:
+- <strong>Variável resposta</strong>: Tonicidade de produção
+- <strong>Efeito aleatório</strong>: Efeito de cada falante
+_ <strong>Variáveis com efeitos fixos</strong>: Tonicidade alvo, Estrutura da palavra, Grupo de classificação, Segmento modificado, Bloco de apresentação, Aleatorizacao, Música, Línguas, Idade, Gênero, Escolaridade, Área de formação</p>
+<p>Com isso, foram construídos modelos considerando o nível Paroxítona como categoria de referência da regressão mutinomial. Ou seja, estaremos comparando através de uma função de ligação logito os níveis Oxítona/Paroxítona e Proparoxítona/Paroxítona. A escolha da categoria Paraxítona como referência aconteceu por ela ser considerada a acentuação tônica mais comum na língua portuguesa. A seguir, apresentamos as formulações matemáticas do modelo no contexto do trabalho</p>
+<p><span class="math display">\[ ln[\frac{\pi_{ijOxítona}}{\pi_{ijParoxítona}}] = X&#39;\beta_{(O-Pa)} + b_{i(O-Pa)} \]</span>
+com</p>
+<p><span class="math inline">\(i\)</span> = 1,..,34 = Falantes<br />
+<span class="math inline">\(j\)</span> = 1,…,<span class="math inline">\(n_i\)</span> = <span class="math inline">\(j\)</span>-ésima pseudopalavra acentuada pelo <span class="math inline">\(i\)</span>-ésimo falante<br />
+<span class="math inline">\(X&#39;\)</span> = Matris de variáveis independentes<br />
+<span class="math inline">\(\beta_{(O-Pa)}\)</span> = Vetor de parâmetros<br />
+<span class="math inline">\(b_{i(O-Pa)}\)</span> = Efeito aleatório relacionado ao <span class="math inline">\(i\)</span>-ésimo falante</p>
+<p><span class="math display">\[ ln[\frac{\pi_{ijProparoxítona}}{\pi_{ijParoxítona}}] = X&#39;\beta_{(Pro-Pa)} + b_{i(Pro-Pa)} \]</span>
+com</p>
+<p><span class="math inline">\(i\)</span> = 1,..,34 = Falantes<br />
+<span class="math inline">\(j\)</span> = 1,…,<span class="math inline">\(n_i\)</span> = <span class="math inline">\(j\)</span>-ésima pseudopalavra acentuada pelo <span class="math inline">\(i\)</span>-ésimo falante<br />
+<span class="math inline">\(X&#39;\)</span> = Matris de variáveis independentes<br />
+<span class="math inline">\(\beta_{(Pro-Pa)}\)</span> = Vetor de parâmetros<br />
+<span class="math inline">\(b_{i(Pro-Pa)}\)</span> = Efeito aleatório relacionado ao <span class="math inline">\(i\)</span>-ésimo falante</p>
+<p>Além disso, devido ao experimento relacionado à validação da similaridade/dissimilaridade entre palavra-alvo e pseudopalavra no qual algumas dessas relações não foram de fato validadas (Seção 4), testamos se a exclusão de pseudopalavras não validadas afetaria o resultado do modelo ajustado à base total. Dessa forma, foi possível entender se essa classificação afetava os valores inferenciais ou se poderímos excluir as observações cuja similaridade/dissimilaridade entre palavra-alvo e pseudopalavra não foi validada.</p>
+<p>Retirando amostras aleatórias contendo 25% de pseudopalavras não validadas, observou-se que o resultado do modelo é alterado de formas diferentes, a depender da amostra. Logo, entendemos que não seria possível remover apenas uma porcentagem aleatória das pseudopalavras cuja similaridade/dissimilaridade não for validada.</p>
+<p>Como explicado anteriormente, essa variável foi utilizada para validar outra variável da pesquisa (Grupo de classificação). Então, para reduzir a incerteza em relação à definição do Grupo de classificação, decidiu-se por ajustar um modelo apenas com as pseudopalavras validadas e quase validadas, excluindo as não validadas.</p>
+<div id="modelos-ajustados" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Modelos Ajustados</h2>
+<p>Consideramos dois modelos possíveis: um com a variável Grupo de classificação, que foi a variável construída pela pesquisadora, e outro em que essa variável é separada em duas: Similaridade e Frequência.</p>
+<p>Com esse segundo modelo, podemos identificar o efeito marginal da similaridade ou da frequência de forma separada, o que não é possível fazer com a variável Grupo de classificação, que já considera a interação entre essas duas variáveis. Portanto, o processo de ajuste do modelo e seleção de variáveis foi feito para esses dois modelos, descritos a seguir.</p>
+<div id="modelo-com-grupo-de-classificação-modelo-1" class="section level3" number="7.1.1">
+<h3><span class="header-section-number">7.1.1</span> Modelo com Grupo de classificação (Modelo 1)</h3>
+<p>Como o modelo multinomial é constituído de duas regressões neste caso, em que a variável resposta contém três níveis, foi feito um processo de seleção de variáveis <em>backwards</em> manual, considerando o valor-p das estimativas nos dois modelos de forma simultânea.</p>
+<p>Adotando 5% como nível de significância, verificou-se que a maior parte das variáveis relacionadas aos falantes não apresentaram significância nos modelos ajustados. Depois de retirar uma a uma as variáveis não significantes nos dois modelos, testamos retirar a variável extralinguística que apresentou apenas um nível significante (Escolaridade), já que essa variável possuía apenas uma observação em um dos níveis.</p>
+<p>Comparamos o critério de informação de Akaike (AIC) dos modelos com e sem Escolaridade, o modelo sem Escolaridade apresentou menor AIC, logo, concluímos que a exclusão apresentou melhora no modelo.</p>
+<p>Portanto, as variáveis que apresentaram significância em pelo menos um nível foram: <em>tonicidade_alvo</em>, <em>estrutura_palavra</em>, <em>grupo</em>, <em>segmento_modificado</em>, <em>bloco_apresentação</em> e <em>aleatorização</em>.</p>
+<p>As Tabelas A.8 e A.9 contêm as estimativas, erros padrões e valores-p dos efeitos fixos obtidos pelo modelo final ajustado. A Tabela A.8 apresenta os valores para o modelo dos níveis Oxítona/Paroxítona e a Tabela A.9 apresenta os valores para o modelo dos níveis Proparoxítona/Paroxítona. É importante observar que, como as variáveis foram selecionadas de forma simultânea para os dois modelos, nem sempre os coeficientes das variáveis serão representadas em ambos as equações, pois podem ter níveis de significância diferentes entre os modelos Oxítona/Paroxítona e Proparoxítona/Paroxítona.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+term
+</th>
+<th style="text-align:right;">
+estimate
+</th>
+<th style="text-align:right;">
+std.error
+</th>
+<th style="text-align:right;">
+statistic
+</th>
+<th style="text-align:right;">
+p.value
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+oxítona~(Intercept)
+</td>
+<td style="text-align:right;">
+-1.9497069
+</td>
+<td style="text-align:right;">
+0.2708188
+</td>
+<td style="text-align:right;">
+-7.199305
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+oxítona~tonicidade_alvoparoxítona
+</td>
+<td style="text-align:right;">
+-1.3922195
+</td>
+<td style="text-align:right;">
+0.0754364
+</td>
+<td style="text-align:right;">
+-18.455547
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+oxítona~tonicidade_alvoproparoxítona
+</td>
+<td style="text-align:right;">
+-2.0137152
+</td>
+<td style="text-align:right;">
+0.1056674
+</td>
+<td style="text-align:right;">
+-19.057103
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+oxítona~estrutura_palavraCV-CV-CVC
+</td>
+<td style="text-align:right;">
+4.2931359
+</td>
+<td style="text-align:right;">
+0.0797580
+</td>
+<td style="text-align:right;">
+53.827055
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+oxítona~grupo2
+</td>
+<td style="text-align:right;">
+0.1052218
+</td>
+<td style="text-align:right;">
+0.0996410
+</td>
+<td style="text-align:right;">
+1.056009
+</td>
+<td style="text-align:right;">
+0.2909640
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+oxítona~grupo3
+</td>
+<td style="text-align:right;">
+0.5556489
+</td>
+<td style="text-align:right;">
+0.1031689
+</td>
+<td style="text-align:right;">
+5.385818
+</td>
+<td style="text-align:right;">
+0.0000001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+oxítona~grupo4
+</td>
+<td style="text-align:right;">
+0.4185702
+</td>
+<td style="text-align:right;">
+0.0983536
+</td>
+<td style="text-align:right;">
+4.255768
+</td>
+<td style="text-align:right;">
+0.0000208
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+oxítona~segmento_modificadovogal
+</td>
+<td style="text-align:right;">
+0.1874888
+</td>
+<td style="text-align:right;">
+0.0644308
+</td>
+<td style="text-align:right;">
+2.909926
+</td>
+<td style="text-align:right;">
+0.0036151
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+oxítona~bloco_apresentacao2
+</td>
+<td style="text-align:right;">
+0.4266194
+</td>
+<td style="text-align:right;">
+0.0923129
+</td>
+<td style="text-align:right;">
+4.621449
+</td>
+<td style="text-align:right;">
+0.0000038
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+oxítona~bloco_apresentacao3
+</td>
+<td style="text-align:right;">
+0.1412840
+</td>
+<td style="text-align:right;">
+0.0938383
+</td>
+<td style="text-align:right;">
+1.505611
+</td>
+<td style="text-align:right;">
+0.1321670
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+oxítona~bloco_apresentacao4
+</td>
+<td style="text-align:right;">
+0.3999452
+</td>
+<td style="text-align:right;">
+0.0964728
+</td>
+<td style="text-align:right;">
+4.145680
+</td>
+<td style="text-align:right;">
+0.0000339
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+oxítona~aleatorizacaon
+</td>
+<td style="text-align:right;">
+-0.6377245
+</td>
+<td style="text-align:right;">
+0.1662861
+</td>
+<td style="text-align:right;">
+-3.835104
+</td>
+<td style="text-align:right;">
+0.0001255
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+term
+</th>
+<th style="text-align:right;">
+estimate
+</th>
+<th style="text-align:right;">
+std.error
+</th>
+<th style="text-align:right;">
+statistic
+</th>
+<th style="text-align:right;">
+p.value
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+proparoxítona~(Intercept)
+</td>
+<td style="text-align:right;">
+-3.6852650
+</td>
+<td style="text-align:right;">
+0.3509559
+</td>
+<td style="text-align:right;">
+-10.5006500
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+proparoxítona~tonicidade_alvoparoxítona
+</td>
+<td style="text-align:right;">
+-0.6209199
+</td>
+<td style="text-align:right;">
+0.2111748
+</td>
+<td style="text-align:right;">
+-2.9403118
+</td>
+<td style="text-align:right;">
+0.0032788
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+proparoxítona~tonicidade_alvoproparoxítona
+</td>
+<td style="text-align:right;">
+1.6686983
+</td>
+<td style="text-align:right;">
+0.1865004
+</td>
+<td style="text-align:right;">
+8.9474227
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+proparoxítona~estrutura_palavraCV-CV-CVC
+</td>
+<td style="text-align:right;">
+1.8140990
+</td>
+<td style="text-align:right;">
+0.1478927
+</td>
+<td style="text-align:right;">
+12.2663211
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+proparoxítona~grupo2
+</td>
+<td style="text-align:right;">
+-1.3384948
+</td>
+<td style="text-align:right;">
+0.1845553
+</td>
+<td style="text-align:right;">
+-7.2525410
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+proparoxítona~grupo3
+</td>
+<td style="text-align:right;">
+0.1631648
+</td>
+<td style="text-align:right;">
+0.1518148
+</td>
+<td style="text-align:right;">
+1.0747622
+</td>
+<td style="text-align:right;">
+0.2824812
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+proparoxítona~grupo4
+</td>
+<td style="text-align:right;">
+-1.1391548
+</td>
+<td style="text-align:right;">
+0.1618900
+</td>
+<td style="text-align:right;">
+-7.0365964
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+proparoxítona~segmento_modificadovogal
+</td>
+<td style="text-align:right;">
+0.2943657
+</td>
+<td style="text-align:right;">
+0.1178233
+</td>
+<td style="text-align:right;">
+2.4983655
+</td>
+<td style="text-align:right;">
+0.0124767
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+proparoxítona~bloco_apresentacao2
+</td>
+<td style="text-align:right;">
+-0.7940043
+</td>
+<td style="text-align:right;">
+0.1957112
+</td>
+<td style="text-align:right;">
+-4.0570191
+</td>
+<td style="text-align:right;">
+0.0000497
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+proparoxítona~bloco_apresentacao3
+</td>
+<td style="text-align:right;">
+-0.2160771
+</td>
+<td style="text-align:right;">
+0.1583277
+</td>
+<td style="text-align:right;">
+-1.3647457
+</td>
+<td style="text-align:right;">
+0.1723330
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+proparoxítona~bloco_apresentacao4
+</td>
+<td style="text-align:right;">
+-0.1794640
+</td>
+<td style="text-align:right;">
+0.1594542
+</td>
+<td style="text-align:right;">
+-1.1254896
+</td>
+<td style="text-align:right;">
+0.2603816
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+proparoxítona~aleatorizacaon
+</td>
+<td style="text-align:right;">
+0.2171223
+</td>
+<td style="text-align:right;">
+0.2734835
+</td>
+<td style="text-align:right;">
+0.7939138
+</td>
+<td style="text-align:right;">
+0.4272456
+</td>
+</tr>
+</tbody>
+</table>
+<div id="interpretações-dos-parâmetros-modelo-1" class="section level4" number="7.1.1.1">
+<h4><span class="header-section-number">7.1.1.1</span> Interpretações dos parâmetros (Modelo 1)</h4>
+<p>A partir da saída percebe-se que, mantidas as demais variáveis em seus respectivos níveis de referência:</p>
+<ol style="list-style-type: decimal">
+<li><p>A probabilidade de produção oxítona (ao invés de produção paroxítona)
+quando a estrutura da palavra é CV-CV-CVC é, aproximadamente, 73 vezes a probabilidade de produção
+oxítona (ao invés de produção paroxítona) quando a estrutura da palavra é CV-CV-CV. Já a
+probabilidade de produção proparoxítona (ao invés de produção paroxítona) quando a estrutura da
+palavra é CV-CV-CVC é, aproximadamente, 6 vezes a probabilidade de produção proparoxítona
+(ao invés de produção paroxítona) quando a estrutura da palavra é CV-CV-CV.</p></li>
+<li><p>A probabilidade de produção oxítona (ao invés de produção paroxítona) quando a palavra-alvo é
+paroxítona é, aproximadamente, 0,25 vezes a probabilidade de produção oxítona (ao invés de produção
+paroxítona) quando a palavra-alvo é oxítona. Já a probabilidade de produção proparoxítona (ao invés
+de produção paroxítona) quando a palavra-alvo é paroxítona é, aproximadamente, 0,54 vezes a
+probabilidade de produção proparoxítona (ao invés de produção paroxítona) quando a palavra-alvo é
+oxítona.</p></li>
+<li><p>A probabilidade de produção oxítona (ao invés de produção paroxítona) quando a palavra-alvo é
+proparoxítona é, aproximadamente, 0,13 vezes a probabilidade de produção oxítona (ao invés de
+produção paroxítona) quando a palavra-alvo é proparoxítona. Já a probabilidade de produção
+proparoxítona (ao invés de produção paroxítona) quando a palavra-alvo é proparoxítona é,
+aproximadamente, 5 vezes a probabilidade de produção proparoxítona (ao invés de produção paroxítona)
+quando a palavra-alvo é proparoxítona.</p></li>
+<li><p>A probabilidade de produção oxítona (ao invés de produção paroxítona) quando o segmento modificado
+foi uma vogal é, aproximadamente, 1,2 vezes a probabilidade de produção oxítona (ao invés de produção
+paroxítona) quando o segmento modificado foi uma consoante. Já a probabilidade de produção
+proparoxítona (ao invés de produção paroxítona) quando o segmento modificado foi uma vogal é,
+aproximadamente, 1,3 vezes a probabilidade de produção proparoxítona (ao invés de produção
+paroxítona) quando o segmento modificado foi uma consoante.</p></li>
+<li><p>A probabilidade de produção oxítona (ao invés de produção paroxítona) quando a pseudopalavra é do
+grupo 2 é 0 vezes a probabilidade de produção oxítona(ao invés de produção paroxítona) quando a
+pseudopalavra é do grupo 1. Já a probabilidade de produção proparoxítona (ao invés de produção
+paroxítona) quando a pseudopalavra é do grupo 2 é 0,26 vezes a probabilidade de produção
+proparoxítona(ao invés de produção paroxítona) quando a pseudopalavra é do grupo 1.</p></li>
+</ol>
+<p>A probabilidade de produção oxítona (ao invés de produção paroxítona) quando a pseudopalavra é do
+grupo 3 é 1,74 vezes a probabilidade de produção oxítona(ao invés de produção paroxítona) quando a
+pseudopalavra é do grupo 1. Já a probabilidade de produção proparoxítona (ao invés de produção
+paroxítona) quando a pseudopalavra é do grupo 3 é 0 vezes a probabilidade de produção proparoxítona
+(ao invés de produção paroxítona) quando a pseudopalavra é do grupo 1.</p>
+<p>A probabilidade de produção oxítona (ao invés de produção paroxítona) quando a pseudopalavra é do
+grupo 4 é 1,52 vezes a probabilidade de produção oxítona (ao invés de produção paroxítona) quando a
+pseudopalavra é do grupo 1. Já a probabilidade de produção proparoxítona (ao invés de produção
+paroxítona) quando a pseudopalavra é do grupo 4 é 0,32 vezes a probabilidade de produção
+proparoxítona (ao invés de produção paroxítona) quando a pseudopalavra é do grupo 1.</p>
+<p>Podemos resumir que, na regressão oxítona/paroxítona, a estrutura da pseudopalavra é o que mais influencia na produção oxítona, além da tonicidade da palavra-alvo (quando a mesma difere de oxítona, a probabilidade de produção oxítona diminui entre 75% e 90%, se comparada à da tonicidade alvo oxítona) e o segmento modificado (se a mudança ocorre em uma vogal, a probabilidade de produção oxítona aumenta em 20% se comparada à probabilidade de produção oxítona com mudança em consoante). Outro ponto de destaque vai para a influência dos grupos de classificação: para os grupos 3 (similar de baixa frequência) e 4 (dissimilar de baixa frequência), a probabilidade de produção oxítona aumenta em 70% e 52%, respectivamente, quando comparada ao grupo 1 (similar de alta frequência).</p>
+</div>
+<div id="avaliação-do-modelo-modelo-1" class="section level4" number="7.1.1.2">
+<h4><span class="header-section-number">7.1.1.2</span> Avaliação do Modelo (Modelo 1)</h4>
+<p>Não há, na literatura, explanações de métodos para analisar resíduos e encontrar pontos aberrantes em modelos multinomiais, apenas para modelos logísticos (conforme - citar artigo da prof viviana).
+Como alternativa, conseguimos predizer, para cada observação, a probabilidade a probabilidade da mesma ser classificada em cada nível da variável dependente. Assim, é possível avaliar a qualidade do modelo através do cruzamento da variável dependente com a maior probabilidade predita de cada observação.</p>
+<p>Calculamos a sensibilidade (probabilidade de classificação no nível <em>i</em> dado que a tonicidade de produção foi avaliada no nível <em>i</em>) e especificidade (probabilidade de não ser classificada no nível <em>i</em> dado que a tonicidade de produção não foi avaliada no nível <em>i</em>) de cada nível da variável resposta. As medidas são feitas agrupando dois níveis da variável dependente e os comparando com o terceiro. Os valores podem ser analisados nas Tabelas A.10, A.11 e A.12, para os níveis Oxítona, Paroxítona e Proparoxítona, respectivamente.</p>
+<p>Vemos que para Oxítona e Paroxítona, os valores de Sensibilidade e Especificidade são altos, o que indica um bom ajuste do modelo aos dados. Olhando para Proparoxítona, vemos que a o valor da Sensibilidade é baixo, o que pode ser explicado pela baixa frequência dessa classificação na base. Concluímos então que o ajuste do modelo está satisfatório.</p>
+</div>
+<div id="análise-dos-componentes-aleatórios" class="section level4" number="7.1.1.3">
+<h4><span class="header-section-number">7.1.1.3</span> Análise dos Componentes Aleatórios</h4>
+<p>Em modelos mistos, os efeitos aleatórios seguem o pressuposto de distribuição N(0,<span class="math inline">\(\Sigma\)</span>).
+Embora a figura aponte uma distribuição com caldas pesadas, a literatura indica que essa é uma premissa robusta, logo, podemos considerar que houve uma boa aproximação para a distribuição normal.</p>
+<p><img src="pseudopalavras_files/figure-html/quantiles-grupo-1.svg" width="864" /></p>
+</div>
+</div>
+<div id="modelo-com-similaridade-e-frequência-modelo-2" class="section level3" number="7.1.2">
+<h3><span class="header-section-number">7.1.2</span> Modelo com Similaridade e Frequência (Modelo 2)</h3>
+<p>O passo a passo do ajuste do modelo ocorreu de forma semelhante as etapas citadas anteriormente. Novamente, adotando 5% como nível de significância, verificou-se que a maior parte das variáveis relacionadas aos falantes não apresentaram significância para o modelo e as mesmas variáveis do modelo utilizando a variável grupo foram selecionadas.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+term
+</th>
+<th style="text-align:right;">
+estimate
+</th>
+<th style="text-align:right;">
+std.error
+</th>
+<th style="text-align:right;">
+statistic
+</th>
+<th style="text-align:right;">
+p.value
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+oxítona~(Intercept)
+</td>
+<td style="text-align:right;">
+-1.4738815
+</td>
+<td style="text-align:right;">
+0.2589150
+</td>
+<td style="text-align:right;">
+-5.6925302
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+oxítona~tonicidade_alvoparoxítona
+</td>
+<td style="text-align:right;">
+-1.3974574
+</td>
+<td style="text-align:right;">
+0.0754794
+</td>
+<td style="text-align:right;">
+-18.5144243
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+oxítona~tonicidade_alvoproparoxítona
+</td>
+<td style="text-align:right;">
+-2.0159961
+</td>
+<td style="text-align:right;">
+0.1054633
+</td>
+<td style="text-align:right;">
+-19.1156129
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+oxítona~estrutura_palavraCV-CV-CVC
+</td>
+<td style="text-align:right;">
+4.2845534
+</td>
+<td style="text-align:right;">
+0.0795045
+</td>
+<td style="text-align:right;">
+53.8907137
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+oxítona~similaridade1
+</td>
+<td style="text-align:right;">
+0.0288691
+</td>
+<td style="text-align:right;">
+0.0680648
+</td>
+<td style="text-align:right;">
+0.4241417
+</td>
+<td style="text-align:right;">
+0.6714625
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+oxítona~frequencia1
+</td>
+<td style="text-align:right;">
+-0.4121105
+</td>
+<td style="text-align:right;">
+0.0663835
+</td>
+<td style="text-align:right;">
+-6.2080245
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+oxítona~segmento_modificadovogal
+</td>
+<td style="text-align:right;">
+0.1898682
+</td>
+<td style="text-align:right;">
+0.0644222
+</td>
+<td style="text-align:right;">
+2.9472490
+</td>
+<td style="text-align:right;">
+0.0032061
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+oxítona~bloco_apresentacao2
+</td>
+<td style="text-align:right;">
+0.4180387
+</td>
+<td style="text-align:right;">
+0.0922466
+</td>
+<td style="text-align:right;">
+4.5317501
+</td>
+<td style="text-align:right;">
+0.0000058
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+oxítona~bloco_apresentacao3
+</td>
+<td style="text-align:right;">
+0.1377549
+</td>
+<td style="text-align:right;">
+0.0937723
+</td>
+<td style="text-align:right;">
+1.4690355
+</td>
+<td style="text-align:right;">
+0.1418231
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+oxítona~bloco_apresentacao4
+</td>
+<td style="text-align:right;">
+0.3848272
+</td>
+<td style="text-align:right;">
+0.0960415
+</td>
+<td style="text-align:right;">
+4.0068854
+</td>
+<td style="text-align:right;">
+0.0000615
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+oxítona~aleatorizacaon
+</td>
+<td style="text-align:right;">
+-0.6357210
+</td>
+<td style="text-align:right;">
+0.1662005
+</td>
+<td style="text-align:right;">
+-3.8250242
+</td>
+<td style="text-align:right;">
+0.0001308
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+term
+</th>
+<th style="text-align:right;">
+estimate
+</th>
+<th style="text-align:right;">
+std.error
+</th>
+<th style="text-align:right;">
+statistic
+</th>
+<th style="text-align:right;">
+p.value
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+proparoxítona~(Intercept)
+</td>
+<td style="text-align:right;">
+-4.8315109
+</td>
+<td style="text-align:right;">
+0.3531843
+</td>
+<td style="text-align:right;">
+-13.6798577
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+proparoxítona~tonicidade_alvoparoxítona
+</td>
+<td style="text-align:right;">
+-0.6212719
+</td>
+<td style="text-align:right;">
+0.2109469
+</td>
+<td style="text-align:right;">
+-2.9451579
+</td>
+<td style="text-align:right;">
+0.0032279
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+proparoxítona~tonicidade_alvoproparoxítona
+</td>
+<td style="text-align:right;">
+1.6623087
+</td>
+<td style="text-align:right;">
+0.1857496
+</td>
+<td style="text-align:right;">
+8.9491894
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+proparoxítona~estrutura_palavraCV-CV-CVC
+</td>
+<td style="text-align:right;">
+1.8092469
+</td>
+<td style="text-align:right;">
+0.1480389
+</td>
+<td style="text-align:right;">
+12.2214326
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+proparoxítona~similaridade1
+</td>
+<td style="text-align:right;">
+1.3074342
+</td>
+<td style="text-align:right;">
+0.1232610
+</td>
+<td style="text-align:right;">
+10.6070387
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+proparoxítona~frequencia1
+</td>
+<td style="text-align:right;">
+-0.1553983
+</td>
+<td style="text-align:right;">
+0.1215618
+</td>
+<td style="text-align:right;">
+-1.2783473
+</td>
+<td style="text-align:right;">
+0.2011270
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+proparoxítona~segmento_modificadovogal
+</td>
+<td style="text-align:right;">
+0.2956344
+</td>
+<td style="text-align:right;">
+0.1177929
+</td>
+<td style="text-align:right;">
+2.5097808
+</td>
+<td style="text-align:right;">
+0.0120806
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+proparoxítona~bloco_apresentacao2
+</td>
+<td style="text-align:right;">
+-0.7940670
+</td>
+<td style="text-align:right;">
+0.1942528
+</td>
+<td style="text-align:right;">
+-4.0878016
+</td>
+<td style="text-align:right;">
+0.0000435
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+proparoxítona~bloco_apresentacao3
+</td>
+<td style="text-align:right;">
+-0.2176893
+</td>
+<td style="text-align:right;">
+0.1583112
+</td>
+<td style="text-align:right;">
+-1.3750718
+</td>
+<td style="text-align:right;">
+0.1691092
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+proparoxítona~bloco_apresentacao4
+</td>
+<td style="text-align:right;">
+-0.1810994
+</td>
+<td style="text-align:right;">
+0.1589141
+</td>
+<td style="text-align:right;">
+-1.1396055
+</td>
+<td style="text-align:right;">
+0.2544507
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+proparoxítona~aleatorizacaon
+</td>
+<td style="text-align:right;">
+0.2172405
+</td>
+<td style="text-align:right;">
+0.2732678
+</td>
+<td style="text-align:right;">
+0.7949728
+</td>
+<td style="text-align:right;">
+0.4266293
+</td>
+</tr>
+</tbody>
+</table>
+<div id="interpretações-dos-parâmetros-modelo-2" class="section level4" number="7.1.2.1">
+<h4><span class="header-section-number">7.1.2.1</span> Interpretações dos parâmetros (Modelo 2)</h4>
+<p>A partir da saída percebe-se que, mantidas as demais variáveis em seus respectivos níveis de referência:</p>
+<ol style="list-style-type: decimal">
+<li><p>A probabilidade de uma pseudopalavra ser acentuada como oxítona (e não como paroxítona) quando sua palavra-alvo é paroxítona é aproximadamente 1/4 (0.247) da probabilidade dela ser acentuada como como oxítona (e não como paroxítona) quando sua palavra-alvo é oxítona. Já a probabilidade de uma pseudopalavra ser acentuada como proparoxítona (e não como paroxítona) quando sua palavra alvo é paroxítona é aproximadamente 0.54 da probabilidade dela ser acentuada como
+como proparoxítona (e não como paroxítona) quando sua palavra alvo é oxítona.</p></li>
+<li><p>A probabilidade de uma pseudopalavra ser acentuada como oxítona (e não como paroxítona)
+quando sua palavra alvo é proparoxítona é 0.13 vezes a probabilidade dela ser acentuada como
+como oxítona (e não como paroxítona) quando sua palavra alvo é oxítona. Já a probabilidade de uma pseudopalavra ser acentuada como proparoxítona (e não como paroxítona) quando sua palavra alvo é proparoxítona é 5.27 vezes a probabilidade dela ser acentuada como proparoxítona (e não como paroxítona) quando sua palavra alvo é oxítona.</p></li>
+<li><p>A probabilidade de uma pseudopalavra ser acentuada como oxítona (e não como paroxítona)
+quando sua estrutura é no formato CV-CV-CVC é aproximadament 73 vezes a probabilidade de uma pseudopalavra ser acentuada como oxítona (e não como paroxítona) quando sua estrutura é no formato CV-CV-CV. Já a probabilidade de uma pseudopalavra ser acentuada como proparoxítona (e não como paroxítona) quando sua estrutura é no formato CV-CV-CVC é 6.10 vezes a probabilidade de uma pseudopalavra ser acentuada como proparoxítona (e não como paroxítona) quando sua estrutura é no formato CV-CV-CV.</p></li>
+<li><p>A probabilidade de uma pseudopalavra ser acentuada como oxítona (e não como paroxítona)
+quando sua palavra alvo é de alta frequência é 0.66 vezes a probabilidade de uma pseudopalavra
+ser acentuada como oxítona (e não como paroxítona) quando sua sua palavra alvo é de baixa frequência. Já a probabilidade de uma pseudopalavra ser acentuada como proparoxítona (e não como paroxítona) quando ela foi classificada como similar à sua palavra alvo é 3.7 vezes a probabilidade de uma pseudopalavra ser acentuada como proparoxítona (e não como paroxítona) quando ela foi classificada como dissimilar à sua palavra alvo.</p></li>
+<li><p>A probabilidade de uma pseudopalavra ser acentuada como oxítona (e não como paroxítona)
+quando a mudança ocorreu em uma vogal é 1.21 vezes a probabilidade de uma pseudopalavra
+ser acentuada como oxítona (e não como paroxítona) quando a mudança ocorreu em uma consoante. Já a probabilidade de uma pseudopalavra ser acentuada como proparoxítona (e não como paroxítona)
+quando a mudança ocorreu em uma vogal é 1.34 vezes a probabilidade de uma pseudopalavra
+ser acentuada como proparoxítona (e não como paroxítona) quando a mudança ocorreu em uma consoante.</p></li>
+</ol>
+</div>
+<div id="avaliação-do-modelo-modelo-2" class="section level4" number="7.1.2.2">
+<h4><span class="header-section-number">7.1.2.2</span> Avaliação do Modelo (Modelo 2)</h4>
+<p>Não há, na literatura, explanações de métodos para analisar resíduos e encontrar pontos aberrantes em modelos multinomiais, apenas para modelos logísticos (conforme - citar artigo da prof viviana).
+Como alternativa, conseguimos predizer, para cada observação, a probabilidade de resposta em cada nível da variável dependente. Assim, é possível avaliar a qualidade do modelo através do cruzamento da variável dependente com a maior probabilidade predita de cada observação. Com base nisso, calculamos a sensibilidade (probabilidade de classificação no nível <em>i</em> dado que a tonicidade de produção foi avaliada no nível <em>i</em>) e especificidade (probabilidade de não ser classificada no nível <em>i</em> dado que a tonicidade de produção não foi avaliada no nível <em>i</em>) de cada nível da variável resposta. As medidas são feitas agrupando dois níveis da variável dependente e os comparando com o terceiro. Os valores podem ser analisados nas Tabelas A.10, A.11 e A.12, para os níveis Oxítona, Paroxítona e Proparoxítona, respectivamente.</p>
+<p>Vemos que para Oxítona e Paroxítona, os valores de Sensibilidade e Especificidade são altos, o que indica um bom ajuste do modelo aos dados. Olhando para Proparoxítona, vemos que a o valor da Sensibilidade é baixo, o que pode ser explicado pela baixa frequência dessa classificação na base. Concluímos então que o ajuste do modelo está satisfatório.</p>
+</div>
+<div id="análise-dos-componentes-aleatórios-1" class="section level4" number="7.1.2.3">
+<h4><span class="header-section-number">7.1.2.3</span> Análise dos Componentes Aleatórios</h4>
+<p>Em modelos mistos, os efeitos aleatórios seguem o pressuposto de distribuição N(0,<span class="math inline">\(\Sigma\)</span>).
+Embora a figura aponte uma distribuição com caldas pesadas, a literatura indica que essa é uma premissa robusta, logo, podemos considerar que houve uma boa aproximação para a distribuição normal.</p>
+<p><img src="pseudopalavras_files/figure-html/grafico-sim-freq-1.svg" width="864" /></p>
+</div>
+</div>
+<div id="problema-de-aleatorização" class="section level3" number="7.1.3">
+<h3><span class="header-section-number">7.1.3</span> Problema de Aleatorização</h3>
+<p>Um ponto de atenção é a variável Aleatorização que apresentou significância estatística na comparação Oxítona/Paroxítona, em ambos os modelos. Ou seja, há evidências de que o problema de conexão durante o experimento impactou na acentuação tônica das pseudopalavras. Esse foi um problema que não foi possível contornar durante a modelagem, e talvez indique a necessidade de replicar o experimento garantindo a aleatoridade de todos os blocos para todos os falantes.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="descritiva.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="conclusão.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["pseudopalavras.pdf"],
+"toc": {
+"collapse": "none"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

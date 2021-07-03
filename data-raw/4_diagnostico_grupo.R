@@ -66,36 +66,36 @@ rownames(to) = c("Sim", "Não", "Total")
 ss_mf_oxitona = epi.tests(t(to), conf.level = 0.95)
 readr::write_rds(ss_mf_oxitona, "data-raw/sensibilidade_mf_oxitona.rds")
 
-'''Point estimates and 95 % CIs:
----------------------------------------------------------
-Apparent prevalence                    0.45 (0.44, 0.46)
-True prevalence                        0.44 (0.43, 0.45)
-Sensitivity                            0.87 (0.86, 0.88)
-Specificity                            0.88 (0.87, 0.89)
-Positive predictive value              0.85 (0.84, 0.86)
-Negative predictive value              0.89 (0.89, 0.90)
-Positive likelihood ratio              7.29 (6.79, 7.83)
-Negative likelihood ratio              0.15 (0.14, 0.16)
----------------------------------------------------------
-'''
+# '''Point estimates and 95 % CIs:
+# ---------------------------------------------------------
+# Apparent prevalence                    0.45 (0.44, 0.46)
+# True prevalence                        0.44 (0.43, 0.45)
+# Sensitivity                            0.87 (0.86, 0.88)
+# Specificity                            0.88 (0.87, 0.89)
+# Positive predictive value              0.85 (0.84, 0.86)
+# Negative predictive value              0.89 (0.89, 0.90)
+# Positive likelihood ratio              7.29 (6.79, 7.83)
+# Negative likelihood ratio              0.15 (0.14, 0.16)
+# ---------------------------------------------------------
+# '''
 
 #Fazendo sensibilidade e blablabla para paroxitona --------------------------
 tp = data.frame(m.paroxitona = c(4836,843,5679), m.resto = c(600,4114,4714))
 rownames(tp) = c("Sim", "Não", "Total")
 ss_mf_paroxitona = epi.tests(t(tp), conf.level = 0.95)
 
-'''Point estimates and 95 % CIs:
----------------------------------------------------------
-Apparent prevalence                    0.55 (0.54, 0.56)
-True prevalence                        0.52 (0.51, 0.53)
-Sensitivity                            0.89 (0.88, 0.90)
-Specificity                            0.83 (0.82, 0.84)
-Positive predictive value              0.85 (0.84, 0.86)
-Negative predictive value              0.87 (0.86, 0.88)
-Positive likelihood ratio              5.23 (4.92, 5.57)
-Negative likelihood ratio              0.13 (0.12, 0.14)
----------------------------------------------------------
-'''
+# '''Point estimates and 95 % CIs:
+# ---------------------------------------------------------
+# Apparent prevalence                    0.55 (0.54, 0.56)
+# True prevalence                        0.52 (0.51, 0.53)
+# Sensitivity                            0.89 (0.88, 0.90)
+# Specificity                            0.83 (0.82, 0.84)
+# Positive predictive value              0.85 (0.84, 0.86)
+# Negative predictive value              0.87 (0.86, 0.88)
+# Positive likelihood ratio              5.23 (4.92, 5.57)
+# Negative likelihood ratio              0.13 (0.12, 0.14)
+# ---------------------------------------------------------
+# '''
 
 
 #Fazendo sensibilidade e blablabla para proparoxitona --------------------------
@@ -103,18 +103,18 @@ tpr = data.frame(m.proparoxitona = c(42,22,64), m.resto = c(346,9983,10329))
 rownames(tpr) = c("Sim", "Não", "Total")
 ss_mf_proparoxitona = epi.tests(t(tpr), conf.level = 0.95)
 
-'''Point estimates and 95 % CIs:
----------------------------------------------------------
-Apparent prevalence                    0.01 (0.00, 0.01)
-True prevalence                        0.04 (0.03, 0.04)
-Sensitivity                            0.11 (0.08, 0.14)
-Specificity                            1.00 (1.00, 1.00)
-Positive predictive value              0.66 (0.53, 0.77)
-Negative predictive value              0.97 (0.96, 0.97)
-Positive likelihood ratio              49.23 (29.69, 81.63)
-Negative likelihood ratio              0.89 (0.86, 0.93)
----------------------------------------------------------
-'''
+# '''Point estimates and 95 % CIs:
+# ---------------------------------------------------------
+# Apparent prevalence                    0.01 (0.00, 0.01)
+# True prevalence                        0.04 (0.03, 0.04)
+# Sensitivity                            0.11 (0.08, 0.14)
+# Specificity                            1.00 (1.00, 1.00)
+# Positive predictive value              0.66 (0.53, 0.77)
+# Negative predictive value              0.97 (0.96, 0.97)
+# Positive likelihood ratio              49.23 (29.69, 81.63)
+# Negative likelihood ratio              0.89 (0.86, 0.93)
+# ---------------------------------------------------------
+# '''
 
 
 
