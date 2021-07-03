@@ -53,11 +53,16 @@ Portanto, as variáveis que apresentaram significância em pelo menos um nível 
 
 As Tabelas A.8 e A.9 contêm as estimativas, erros padrões e valores-p dos efeitos fixos obtidos pelo modelo final ajustado. A Tabela A.8 apresenta os valores para o modelo dos níveis Oxítona/Paroxítona e a Tabela A.9 apresenta os valores para o modelo dos níveis Proparoxítona/Paroxítona. É importante observar que, como as variáveis foram selecionadas de forma simultânea para os dois modelos, nem sempre os coeficientes das variáveis serão representadas em ambos as equações, pois podem ter níveis de significância diferentes entre os modelos Oxítona/Paroxítona e Proparoxítona/Paroxítona.
 
+```{r parametros-grupo-ox}
+mf <- readr::read_rds("../../data-raw/m_mf_grupo_val.rds")
+broom::tidy(mf) %>% dplyr::filter(stringr::str_detect(term, "^ox"))%>% 
+  knitr::kable()
+```
 
-```{r parametros-grupo}
-mf <- readr::read_rds("~/CEA - 2021/TCC/pseudopalavras/data-raw/m_mf_grupo_val.rds")
-broom::tidy(mf) %>% dplyr::filter(stringr::str_detect(term, "^prop"))
-broom::tidy(mf) %>% dplyr::filter(stringr::str_detect(term, "^ox"))
+```{r parametros-grupo-pro}
+mf <- readr::read_rds("../../data-raw/m_mf_grupo_val.rds")
+broom::tidy(mf) %>% dplyr::filter(stringr::str_detect(term, "^prop"))%>% 
+  knitr::kable()
 ```
 
 
@@ -128,8 +133,9 @@ Vemos que para Oxítona e Paroxítona, os valores de Sensibilidade e Especificid
 Em modelos mistos, os efeitos aleatórios seguem o pressuposto de distribuição N(0,$\Sigma$). 
 Embora a figura aponte uma distribuição com caldas pesadas, a literatura indica que essa é uma premissa robusta, logo, podemos considerar que houve uma boa aproximação para a distribuição normal. 
 
+
 ```{r quantiles-grupo}
-mf <- readr::read_rds("~/CEA - 2021/TCC/pseudopalavras/data-raw/m_mf_grupo_val.rds")
+mf <- readr::read_rds("../../data-raw/m_mf_grupo_val.rds")
 qqnorm(mf$random.effects[[1]], xlab = "Quantiles Teóricos", ylab = "Efeitos Aleatórios Preditos", main = "")
 qqline(mf$random.effects[[1]], col ="red")
 ```
@@ -139,11 +145,16 @@ qqline(mf$random.effects[[1]], col ="red")
 
 O passo a passo do ajuste do modelo ocorreu de forma semelhante as etapas citadas anteriormente. Novamente, adotando 5% como nível de significância, verificou-se que a maior parte das variáveis relacionadas aos falantes  não apresentaram significância para o modelo e as mesmas variáveis do modelo utilizando a variável grupo foram selecionadas.
 
+```{r parametros-sim-freq-ox}
+mf2 = readr::read_rds("../../data-raw/m_val_sim_mf2.rds")
+broom::tidy(mf2) %>% dplyr::filter(stringr::str_detect(term, "^ox"))%>% 
+  knitr::kable()
+```
 
-```{r parametros-sim-freq}
-mf2 = readr::read_rds("~/CEA - 2021/TCC/pseudopalavras/data-raw/m_val_sim_mf2.rds")
-broom::tidy(mf2) %>% dplyr::filter(stringr::str_detect(term, "^prop"))
-broom::tidy(mf2) %>% dplyr::filter(stringr::str_detect(term, "^ox"))
+```{r parametros-sim-freq-prop}
+mf2 = readr::read_rds("../../data-raw/m_val_sim_mf2.rds")
+broom::tidy(mf2) %>% dplyr::filter(stringr::str_detect(term, "^prop"))%>% 
+  knitr::kable()
 ```
 
 
@@ -185,7 +196,7 @@ Em modelos mistos, os efeitos aleatórios seguem o pressuposto de distribuição
 Embora a figura aponte uma distribuição com caldas pesadas, a literatura indica que essa é uma premissa robusta, logo, podemos considerar que houve uma boa aproximação para a distribuição normal. 
 
 ```{r grafico-sim-freq}
-mf2 = readr::read_rds("~/CEA - 2021/TCC/pseudopalavras/data-raw/m_val_sim_mf2.rds")
+mf2 = readr::read_rds("../../data-raw/m_val_sim_mf2.rds")
 qqnorm(mf2$random.effects[[1]], xlab = "Quantiles Teóricos", ylab = "Efeitos Aleatórios Preditos", main = "")
 qqline(mf2$random.effects[[1]], col ="red")
 ```
