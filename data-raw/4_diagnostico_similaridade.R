@@ -1,113 +1,137 @@
-#Lendo o resultado do modelo final, retiradas as não validadas e usando similaridade e frequência ------------
-mf2 = readr::read_rds("data-raw/m_val_sim_mf2.rds")
+library(magrittr)
+library(mclogit)
+devtools::install()
 
+# Modelo final usando grupo -----------------------------------------------
 
-#Nos dá as probabilidades (p1,p2,p3) por linha da base --------------------------
-p <- predict(mf2, type = "response", conditional = TRUE) %>%
-  tibble::as_tibble()
+mf <- pseudopalavras::modelo_simfreq
+
+# Probabilidades preditas (p1,p2,p3) por linha da base
+p <- pseudopalavras::modelo_simfreq_pred
 p %>% dplyr::slice(100:110)
 
-#Queremos ver se a maior probabilidade coincide com a tonicidade alvo --------------------------
+# Efeitos aleatórios ------------------------------------------------------
 
-comp = p%>%mutate(ind = row_number())%>%
-  tidyr::pivot_longer(cols = paroxítona:proparoxítona)%>%
-  group_by(ind)%>%
-  slice(which.max(value))%>%
-  pull(name)%>%
-  mutate(p, max = .)
+qqnorm(
+  mf$random.effects[[1]],
+  xlab = "Quantis Teóricos",
+  ylab = "Efeitos Aleatórios Preditos",
+  main = ""
+)
+qqline(mf$random.effects[[1]], col = "red")
 
+# Compara maior probabilidade predita com tonicidade alvo -----------------
 
+compara_predito_observado <- p %>%
+  dplyr::mutate(ind = dplyr::row_number()) %>%
+  tidyr::pivot_longer(cols = paroxítona:proparoxítona) %>%
+  dplyr::group_by(ind) %>%
+  dplyr::slice(which.max(value)) %>%
+  dplyr::pull(name) %>%
+  dplyr::mutate(p, predito = .) %>%
+  dplyr::bind_cols(observado = pseudopalavras::da_modelo_validadas$tonicidade_producao)
 
-data.frame(rm = comp$max, re = base_sem_naovalidadas$tonicidade_producao)
+table(compara_predito_observado$predito, compara_predito_observado$observado)
 
-#Nos dá o comparativo entre a variável resposta e a resposta que o modelo daria -------------------
-t = table(comp$max,base_sem_naovalidadas$tonicidade_producao)
-t
+compara_predito_observado %>%
+  dplyr::count(predito)
 
-as.data.frame(comp$max)%>%group_by(`comp$max`)%>%count()
+compara_predito_observado %>%
+  dplyr::count(observado)
 
-as.data.frame(base_sem_naovalidadas$tonicidade_producao)%>%group_by(`base_sem_naovalidadas$tonicidade_producao`)%>%count()
+# Medidas de acerto para oxitona ----------------------------------------
 
+tab_oxi <- compara_predito_observado %>%
+  dplyr::mutate(
+    observado = ifelse(observado == "oxítona", "oxítona", "resto"),
+    predito = ifelse(predito == "oxítona", "oxítona", "resto")
+  )
+tab_oxi <- table(tab_oxi$predito, tab_oxi$observado)
 
-#Fazendo sensibilidade e blablabla para oxitona --------------------------
-to = data.frame(m.oxitona = c(3955,697,4652), m.resto = c(614,5127,5741))
-rownames(to) = c("Sim", "Não", "Total")
-ss_mf2_oxitona = epi.tests(t(to), conf.level = 0.95)
-ss_mf2_oxitona
+ss_mf_oxitona <- epiR::epi.tests(tab_oxi, conf.level = 0.95)
+readr::write_rds(ss_mf_oxitona, "data-raw/acerto_simfreq_oxitona.rds")
 
-#Fazendo sensibilidade e blablabla para paroxitona --------------------------
-tp = data.frame(m.paroxitona = c(4832,847,5679), m.resto = c(604,4110,4714))
-rownames(tp) = c("Sim", "Não", "Total")
-ss_mf2_paroxitona = epi.tests(t(tp), conf.level = 0.95)
-ss_mf2_paroxitona
+# Point estimates and 95 % CIs:
+# ---------------------------------------------------------=
+# Apparent prevalence                    0.45 (0.44, 0.46)
+# True prevalence                        0.44 (0.43, 0.45)
+# Sensitivity                            0.87 (0.86, 0.88)
+# Specificity                            0.88 (0.87, 0.89)
+# Positive predictive value              0.85 (0.84, 0.86)
+# Negative predictive value              0.89 (0.88, 0.90)
+# Positive likelihood ratio              7.23 (6.74, 7.76)
+# Negative likelihood ratio              0.15 (0.14, 0.16)
+# ---------------------------------------------------------=
 
+# Medidas de acerto para paroxitona -------------------------------------
 
-#Fazendo sensibilidade e blablabla para proparoxitona --------------------------
-tpr = data.frame(m.proparoxitona = c(42,20,62), m.resto = c(346,9985,10331))
-rownames(tpr) = c("Sim", "Não", "Total")
-ss_mf2_proparoxitona = epi.tests(t(tpr), conf.level = 0.95)
-ss_mf2_proparoxitona
+tab_par <- compara_predito_observado %>%
+  dplyr::mutate(
+    observado = ifelse(observado == "paroxítona", "paroxítona", "resto"),
+    predito = ifelse(predito == "paroxítona", "paroxítona", "resto")
+  )
+tab_par <- table(tab_par$predito, tab_par$observado)
 
-#Resíduos ---------------------------------------------------------------------
+ss_mf_paroxitona <- epiR::epi.tests(tab_par, conf.level = 0.95)
+readr::write_rds(ss_mf_paroxitona, "data-raw/acerto_simfreq_paroxitona.rds")
 
-#plot(mf2$deviance.residuals)
-#plot(residuals(mf2))
-#plot(mf2)
-#deviance(mf2)
+# Point estimates and 95 % CIs:
+# ---------------------------------------------------------=
+# Apparent prevalence                    0.55 (0.54, 0.56)
+# True prevalence                        0.52 (0.51, 0.53)
+# Sensitivity                            0.89 (0.88, 0.90)
+# Specificity                            0.83 (0.82, 0.84)
+# Positive predictive value              0.85 (0.84, 0.86)
+# Negative predictive value              0.87 (0.86, 0.88)
+# Positive likelihood ratio              5.20 (4.89, 5.54)
+# Negative likelihood ratio              0.13 (0.12, 0.14)
+# ---------------------------------------------------------=
 
-mres = matrix(mf2$deviance.residuals, 3,10393) #residuos deviance soltados pelo modelo
-mres1 = matrix(residuals(mf2, type = "deviance"),3,10393) #funcao do R com tipo deviance
+# Medidas de acerto para proparoxitona ----------------------------------
 
+tab_pro <- compara_predito_observado %>%
+  dplyr::mutate(
+    observado = ifelse(observado == "proparoxítona", "proparoxítona", "resto"),
+    predito = ifelse(predito == "proparoxítona", "proparoxítona", "resto")
+  )
+tab_pro <- table(tab_pro$predito, tab_pro$observado)
 
-rs <- matrix(mf2$deviance.residuals, 3,10393) %>%
+ss_mf_proparoxitona <- epiR::epi.tests(tab_pro, conf.level = 0.95)
+readr::write_rds(ss_mf_proparoxitona, "data-raw/acerto_simfreq_proparoxitona.rds")
+
+# Point estimates and 95 % CIs:
+# ---------------------------------------------------------=
+# Apparent prevalence                    0.01 (0.00, 0.01)
+# True prevalence                        0.04 (0.03, 0.04)
+# Sensitivity                            0.11 (0.08, 0.14)
+# Specificity                            1.00 (1.00, 1.00)
+# Positive predictive value              0.68 (0.55, 0.79)
+# Negative predictive value              0.97 (0.96, 0.97)
+# Positive likelihood ratio              54.15 (32.11, 91.33)
+# Negative likelihood ratio              0.89 (0.86, 0.93)
+# ---------------------------------------------------------=
+
+# Resíduos (não aplicável para multinomial) -------------------------------
+
+r <- matrix(mf$deviance.residuals, 3, 10393) %>%
   t() %>%
-  tibble::as_tibble() %>%
+  tibble::as_tibble(.name_repair = "minimal") %>%
   purrr::set_names("paroxitona", "oxitona", "proparoxitona")
-rs %>% dplyr::slice(100:110)
+r %>% dplyr::slice(100:110)
 
-plot_residuos <- function(tonicidade, tonicidade_pred) {
+plot_residuo <- function(tonicidade, tonicidade_pred) {
   p %>%
     purrr::set_names("p_par", "p_oxi", "p_pro") %>%
-    dplyr::bind_cols(rs) %>%
-    dplyr::filter({{tonicidade}} != 0) %>%
-    ggplot2::ggplot(ggplot2::aes(y = {{tonicidade}}, x = {{tonicidade_pred}})) +
+    dplyr::bind_cols(r) %>%
+    dplyr::filter({{ tonicidade }} != 0) %>%
+    ggplot2::ggplot(ggplot2::aes(y = {{ tonicidade }}, x = {{ tonicidade_pred }})) +
     ggplot2::geom_point() +
     ggplot2::labs(
       x = "Predito", y = "Resíduo",
-      title = rlang::expr({{tonicidade}}),
+      title = rlang::expr({{ tonicidade }}),
       subtitle = "Valores preditos para pi e resíduos"
     )
 }
-plot_residuos(paroxitona, p_par)
-plot_residuos(oxitona, p_oxi)
-plot_residuos(proparoxitona, p_pro)
-
-
-
-# qqplot resíduos
-qqnorm(mf2$working.residuals, col ="red", xlab = "Quantiles Teóricos", ylab = "Resíduos do Modelo")
-qqline(mf2$working.residuals)
-
-#Plotando efeitos Aleátorios
-qqnorm(mf2$random.effects[[1]], xlab = "Quantiles Teóricos", ylab = "Efeitos Aleatórios Preditos")
-qqline(mf2$random.effects[[1]], col ="red")
-
-#plotar as respotas, colorir por individuo e colocar no y a p de cada linha
-
-prob = p%>%mutate(ind = row_number())%>%
-  tidyr::pivot_longer(cols = paroxítona:proparoxítona)%>%
-  group_by(ind)%>%
-  slice(which.max(value))%>%
-  pull(value)%>%
-  mutate(p, max = .)
-
-
-graf = data.frame(p.modelo = prob$max,r.data = base_sem_naovalidadas$tonicidade_producao,
-                  informante = base_sem_naovalidadas$informante, r.modelo = comp$max )
-
-ggplot(graf, aes(x=r.data, y=p.modelo)) +
-  geom_point(aes(color = informante, shape = r.modelo),dotsize = 0.5, binaxis='y',
-               position=position_dodge(0.8))
-
-
-
+plot_residuo(paroxitona, p_par)
+plot_residuo(oxitona, p_oxi)
+plot_residuo(proparoxitona, p_pro)

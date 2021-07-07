@@ -37,6 +37,6 @@ add_footer <- function(html, footer) {
     stringr::str_replace(
       "<body>",
       stringr::fixed(footer)
-  )
+    )
   return(html)
 }

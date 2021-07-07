@@ -34020,8 +34020,8 @@ paroxítona) quando o segmento modificado foi uma consoante. Já a probabilidade
 proparoxítona (ao invés de produção paroxítona) quando o segmento modificado foi uma vogal é,
 aproximadamente, 1,3 vezes a probabilidade de produção proparoxítona (ao invés de produção
 paroxítona) quando o segmento modificado foi uma consoante.</p></li>
-<li><p>A probabilidade de produção oxítona (ao invés de produção paroxítona) quando a pseudopalavra é do
-grupo 2 é 0 vezes a probabilidade de produção oxítona(ao invés de produção paroxítona) quando a
+<li><p>A probabilidade de produção oxítona (ao invés de produção paroxítona) quando a pseudopalavra é
+do grupo 2 é 0 vezes a probabilidade de produção oxítona(ao invés de produção paroxítona) quando a
 pseudopalavra é do grupo 1. Já a probabilidade de produção proparoxítona (ao invés de produção
 paroxítona) quando a pseudopalavra é do grupo 2 é 0,26 vezes a probabilidade de produção
 proparoxítona(ao invés de produção paroxítona) quando a pseudopalavra é do grupo 1.</p></li>
@@ -34040,8 +34040,8 @@ proparoxítona (ao invés de produção paroxítona) quando a pseudopalavra é d
 </div>
 <div id="avaliação-do-modelo-modelo-1" class="section level4" number="7.1.1.2">
 <h4><span class="header-section-number">7.1.1.2</span> Avaliação do Modelo (Modelo 1)</h4>
-<p>Não há, na literatura, explanações de métodos para analisar resíduos e encontrar pontos aberrantes em modelos multinomiais, apenas para modelos logísticos (conforme - citar artigo da prof viviana).
-Como alternativa, conseguimos predizer, para cada observação, a probabilidade a probabilidade da mesma ser classificada em cada nível da variável dependente. Assim, é possível avaliar a qualidade do modelo através do cruzamento da variável dependente com a maior probabilidade predita de cada observação.</p>
+<p>Não há, na literatura, explanações de métodos para analisar resíduos e encontrar pontos aberrantes em modelos multinomiais, apenas para modelos logísticos (conforme - citar artigo da prof viviana).</p>
+<p>Como alternativa, conseguimos predizer, para cada observação, a probabilidade a probabilidade da mesma ser classificada em cada nível da variável dependente. Assim, é possível avaliar a qualidade do modelo através do cruzamento da variável dependente com a maior probabilidade predita de cada observação.</p>
 <p>Calculamos a sensibilidade (probabilidade de classificação no nível <em>i</em> dado que a tonicidade de produção foi avaliada no nível <em>i</em>) e especificidade (probabilidade de não ser classificada no nível <em>i</em> dado que a tonicidade de produção não foi avaliada no nível <em>i</em>) de cada nível da variável resposta. As medidas são feitas agrupando dois níveis da variável dependente e os comparando com o terceiro. Os valores podem ser analisados nas Tabelas A.10, A.11 e A.12, para os níveis Oxítona, Paroxítona e Proparoxítona, respectivamente.</p>
 <p>Vemos que para Oxítona e Paroxítona, os valores de Sensibilidade e Especificidade são altos, o que indica um bom ajuste do modelo aos dados. Olhando para Proparoxítona, vemos que a o valor da Sensibilidade é baixo, o que pode ser explicado pela baixa frequência dessa classificação na base. Concluímos então que o ajuste do modelo está satisfatório.</p>
 </div>
@@ -34054,7 +34054,11 @@ Embora a figura aponte uma distribuição com caldas pesadas, a literatura indic
 </div>
 <div id="modelo-com-similaridade-e-frequência-modelo-2" class="section level3" number="7.1.2">
 <h3><span class="header-section-number">7.1.2</span> Modelo com Similaridade e Frequência (Modelo 2)</h3>
-<p>O passo a passo do ajuste do modelo ocorreu de forma semelhante as etapas citadas anteriormente. Novamente, adotando 5% como nível de significância, verificou-se que a maior parte das variáveis relacionadas aos falantes não apresentaram significância para o modelo e as mesmas variáveis do modelo utilizando a variável grupo foram selecionadas.</p>
+<p>Como o modelo multinomial é constituído de duas regressões neste caso, em que a variável resposta contém três níveis, foi feito um processo de seleção de variáveis <em>backwards</em> manual, considerando o valor-p das estimativas nos dois modelos de forma simultânea.</p>
+<p>Adotando 5% como nível de significância, verificou-se que a maior parte das variáveis relacionadas aos falantes não apresentaram significância nos modelos ajustados. Depois de retirar uma a uma as variáveis não significantes nos dois modelos, testamos retirar a variável extralinguística que apresentou apenas um nível significante (Escolaridade), já que essa variável possuía apenas uma observação em um dos níveis.</p>
+<p>Comparamos o critério de informação de Akaike (AIC) dos modelos com e sem Escolaridade, o modelo sem Escolaridade apresentou menor AIC, logo, concluímos que a exclusão apresentou melhora no modelo.</p>
+<p>Portanto, as variáveis que apresentaram significância em pelo menos um nível foram: <em>tonicidade_alvo</em>, <em>estrutura_palavra</em>, <em>similaridade</em>, <em>frequência</em>, <em>segmento_modificado</em>, <em>bloco_apresentação</em> e <em>aleatorização</em>.</p>
+<p>As Tabelas A.8 e A.9 contêm as estimativas, erros padrões e valores-p dos efeitos fixos obtidos pelo modelo final ajustado. A Tabela A.8 apresenta os valores para o modelo dos níveis Oxítona/Paroxítona e a Tabela A.9 apresenta os valores para o modelo dos níveis Proparoxítona/Paroxítona. É importante observar que, como as variáveis foram selecionadas de forma simultânea para os dois modelos, nem sempre os coeficientes das variáveis serão representadas em ambos as equações, pois podem ter níveis de significância diferentes entre os modelos Oxítona/Paroxítona e Proparoxítona/Paroxítona.</p>
 <table>
 <thead>
 <tr>
@@ -34479,8 +34483,7 @@ proparoxítona~aleatorizacaon
 <h4><span class="header-section-number">7.1.2.1</span> Interpretações dos parâmetros (Modelo 2)</h4>
 <p>A partir da saída percebe-se que, mantidas as demais variáveis em seus respectivos níveis de referência:</p>
 <ol style="list-style-type: decimal">
-<li><p>A probabilidade de uma pseudopalavra ser acentuada como oxítona (e não como paroxítona) quando sua palavra-alvo é paroxítona é aproximadamente 1/4 (0.247) da probabilidade dela ser acentuada como como oxítona (e não como paroxítona) quando sua palavra-alvo é oxítona. Já a probabilidade de uma pseudopalavra ser acentuada como proparoxítona (e não como paroxítona) quando sua palavra alvo é paroxítona é aproximadamente 0.54 da probabilidade dela ser acentuada como
-como proparoxítona (e não como paroxítona) quando sua palavra alvo é oxítona.</p></li>
+<li><p>A probabilidade de uma pseudopalavra ser acentuada como oxítona (e não como paroxítona) quando sua palavra-alvo é paroxítona é aproximadamente 0.25 da probabilidade dela ser acentuada como como oxítona (e não como paroxítona) quando sua palavra-alvo é oxítona. Já a probabilidade de uma pseudopalavra ser acentuada como proparoxítona (e não como paroxítona) quando sua palavra alvo é paroxítona é aproximadamente 0.54 da probabilidade dela ser acentuada como como proparoxítona (e não como paroxítona) quando sua palavra alvo é oxítona.</p></li>
 <li><p>A probabilidade de uma pseudopalavra ser acentuada como oxítona (e não como paroxítona)
 quando sua palavra alvo é proparoxítona é 0.13 vezes a probabilidade dela ser acentuada como
 como oxítona (e não como paroxítona) quando sua palavra alvo é oxítona. Já a probabilidade de uma pseudopalavra ser acentuada como proparoxítona (e não como paroxítona) quando sua palavra alvo é proparoxítona é 5.27 vezes a probabilidade dela ser acentuada como proparoxítona (e não como paroxítona) quando sua palavra alvo é oxítona.</p></li>
@@ -34488,13 +34491,20 @@ como oxítona (e não como paroxítona) quando sua palavra alvo é oxítona. Já
 quando sua estrutura é no formato CV-CV-CVC é aproximadament 73 vezes a probabilidade de uma pseudopalavra ser acentuada como oxítona (e não como paroxítona) quando sua estrutura é no formato CV-CV-CV. Já a probabilidade de uma pseudopalavra ser acentuada como proparoxítona (e não como paroxítona) quando sua estrutura é no formato CV-CV-CVC é 6.10 vezes a probabilidade de uma pseudopalavra ser acentuada como proparoxítona (e não como paroxítona) quando sua estrutura é no formato CV-CV-CV.</p></li>
 <li><p>A probabilidade de uma pseudopalavra ser acentuada como oxítona (e não como paroxítona)
 quando sua palavra alvo é de alta frequência é 0.66 vezes a probabilidade de uma pseudopalavra
-ser acentuada como oxítona (e não como paroxítona) quando sua sua palavra alvo é de baixa frequência. Já a probabilidade de uma pseudopalavra ser acentuada como proparoxítona (e não como paroxítona) quando ela foi classificada como similar à sua palavra alvo é 3.7 vezes a probabilidade de uma pseudopalavra ser acentuada como proparoxítona (e não como paroxítona) quando ela foi classificada como dissimilar à sua palavra alvo.</p></li>
-<li><p>A probabilidade de uma pseudopalavra ser acentuada como oxítona (e não como paroxítona)
+ser acentuada como oxítona (e não como paroxítona) quando sua sua palavra alvo é de baixa frequência. Já a probabilidade de uma pseudopalavra ser acentuada como proparoxítona (e não como paroxítona) quando sua palavra alvo é de alta frequência é 0.85 vezes a probabilidade de uma pseudopalavra ser acentuada como proparoxítona (e não como paroxítona) quando sua sua palavra alvo é de baixa frequência. (não significante)</p></li>
+</ol>
+<p>5)A probabilidade de uma pseudopalavra ser acentuada como oxítona (e não como paroxítona)
+quando sua palavra alvo é de dissimilar é 1.02 vezes a probabilidade de uma pseudopalavra
+ser acentuada como oxítona (e não como paroxítona) quando sua sua palavra alvo é dissimilar (não significante). Já a probabilidade de uma pseudopalavra ser acentuada como proparoxítona (e não como paroxítona) quando ela foi classificada como similar à sua palavra alvo é 3.7 vezes a probabilidade de uma pseudopalavra ser acentuada como proparoxítona (e não como paroxítona) quando ela foi classificada como dissimilar à sua palavra alvo.</p>
+<ol start="6" style="list-style-type: decimal">
+<li>A probabilidade de uma pseudopalavra ser acentuada como oxítona (e não como paroxítona)
 quando a mudança ocorreu em uma vogal é 1.21 vezes a probabilidade de uma pseudopalavra
 ser acentuada como oxítona (e não como paroxítona) quando a mudança ocorreu em uma consoante. Já a probabilidade de uma pseudopalavra ser acentuada como proparoxítona (e não como paroxítona)
 quando a mudança ocorreu em uma vogal é 1.34 vezes a probabilidade de uma pseudopalavra
-ser acentuada como proparoxítona (e não como paroxítona) quando a mudança ocorreu em uma consoante.</p></li>
+ser acentuada como proparoxítona (e não como paroxítona) quando a mudança ocorreu em uma consoante.</li>
 </ol>
+<p>Podemos resumir que, na regressão oxítona/paroxítona, a estrutura da pseudopalavra é o que mais influencia na produção oxítona, além da tonicidade da palavra-alvo (quando a mesma difere de oxítona, a probabilidade de produção oxítona diminui entre 75% e 90%, se comparada à da tonicidade alvo oxítona) e o segmento modificado (se a mudança ocorre em uma vogal, a probabilidade de produção oxítona aumenta em 21% se comparada à probabilidade de produção oxítona com mudança em consoante). Outro ponto de destaque vai para a variável frequência: pseudopalavras com palavras alvo classificadas como de alta frequência tem uma redução de <span class="math inline">\(\frac{1}{3}\)</span> na probabilidade de serem acentuadas como oxítonas (e não paroxítonas) - ou seja, pseudopalavras com palavras alvo de baixa frequência tem maior probabilidade de serem acentuadas como oxítonas-.</p>
+<p>Para a regressão proparoxítona/paroxítona, é possível notar que grande parte das variáveis se mostrou de grande impacto na tonicidade atribuída proparoxítona. Podemos destacar a tonicidade alvo proparoxítona, que aumenta a probabilidade de produção proparoxítona -e não paroxítona- em mais de 400% (em relação a probabilidade de produção proparoxítona com tonicidade alvo oxítona), a estrutura da palavra CV-CV-CVC, que aumenta a probabilidade de produção proparoxítona -e não paroxítona- em 500% (em relação à probabilidade de produção proparoxítona com estrutura CV-CV-CV) e a similaridade que, para pseudopalavras classificadas como similares à sua palavra alvo, sua probabilidade de produção proparoxítona -e não paroxítona- aumenta em aproximadamente 270% (quando comparada à probabilidade de produção proparoxítona de pseudopalavras dissimilares).</p>
 </div>
 <div id="avaliação-do-modelo-modelo-2" class="section level4" number="7.1.2.2">
 <h4><span class="header-section-number">7.1.2.2</span> Avaliação do Modelo (Modelo 2)</h4>
@@ -34511,7 +34521,7 @@ Embora a figura aponte uma distribuição com caldas pesadas, a literatura indic
 </div>
 <div id="problema-de-aleatorização" class="section level3" number="7.1.3">
 <h3><span class="header-section-number">7.1.3</span> Problema de Aleatorização</h3>
-<p>Um ponto de atenção é a variável Aleatorização que apresentou significância estatística na comparação Oxítona/Paroxítona, em ambos os modelos. Ou seja, há evidências de que o problema de conexão durante o experimento impactou na acentuação tônica das pseudopalavras. Esse foi um problema que não foi possível contornar durante a modelagem, e talvez indique a necessidade de replicar o experimento garantindo a aleatoridade de todos os blocos para todos os falantes.</p>
+<p>Um ponto de atenção é a variável Aleatorização que apresentou significância estatística na regressão Oxítona/Paroxítona, assim como alguns níveis da variável Bloco de Apresentação em ambas as regressões -Oxítona/Paroxítona e Proparoxítona/Paroxítona-. Ambas variáveis estão relacionadas ao experimento e a Aleatorização tem impacto direto no Bloco de Apresentação. Ou seja, há evidências de que os problemas ocorridos com os participantes que prejudicaram a apresentação inicial das pseudopalavras impactaram na acentuação atribuída pelos falantes. Não foi possível contornar esse problema durante a modelagem, o que talvez indique a necessidade de replicar o experimento garantindo a aleatoridade de todos os blocos para todos os falantes.</p>
 <!--chapter:end:06-metodologia.Rmd-->
 </div>
 </div>

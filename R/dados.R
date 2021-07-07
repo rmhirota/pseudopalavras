@@ -35,4 +35,3 @@
 #'
 #' @name dados
 "dados"
-

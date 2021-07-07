@@ -1,21 +1,10 @@
 library(magrittr)
 
+# base original
 dados <- readr::read_csv("data-raw/Resultados_Totais_Experimento_1_Final.csv")
-# dplyr::glimpse(dados)
 dados <- janitor::clean_names(dados)
 
-# Arruma tipos de variáveis -----------------------------------------------
-
-dados <- dados %>%
-  dplyr::mutate(
-    grupo = as.factor(grupo),
-    bloco_apresentacao = as.factor(bloco_apresentacao),
-    ordem_apresentacao = as.factor(ordem_apresentacao),
-    codigo_pseudo = as.factor(codigo_pseudo),
-    tempo_resposta = as.double(tempo_resposta)
-  )
-
-# Agrupa variáveis --------------------------------------------------------
+# Agrupa níveis de variáveis ----------------------------------------------
 
 dados <- dados %>%
   dplyr::mutate(
@@ -32,8 +21,6 @@ dados <- dados %>%
       TRUE ~ "Outro"
     )
   )
-
-usethis::use_data(dados, overwrite = TRUE)
 
 # Inconsistências ---------------------------------------------------------
 
@@ -58,6 +45,9 @@ usethis::use_data(dados, overwrite = TRUE)
 # base completa
 da_modelo <- dados %>%
   dplyr::mutate(
+    # arruma tipos de variáveis
+    codigo_pseudo = as.factor(codigo_pseudo),
+    tempo_resposta = as.double(tempo_resposta),
     informante = as.factor(informante),
     tonicidade_producao = as.factor(tonicidade_producao),
     tonicidade_alvo = as.factor(tonicidade_alvo),
@@ -73,21 +63,26 @@ da_modelo <- dados %>%
     escolaridade = as.factor(escolaridade),
     area_formacao = as.factor(area_formacao),
     linguas = as.factor(linguas),
+    # cria variáveis similaridade e frequência a partir de grupo
     similaridade = as.factor(ifelse(grupo %in% c(1, 3), 1, 0)),
     frequencia = as.factor(ifelse(grupo %in% c(1, 2), 1, 0))
   ) %>%
+  # retira variáveis com NAs que não vão ser utilizadas
   dplyr::select(-c(
     vizinhanca_tonicidade, vizinhanca_fonologica
   ))
 
-da_modelo$tonicidade_producao = relevel(da_modelo$tonicidade_producao, ref = "paroxítona")
-da_modelo$escolaridade = relevel(da_modelo$escolaridade, ref = "Superior Incompleto")
-da_modelo$aleatorizacao = relevel(da_modelo$aleatorizacao, ref = "s")
+# redefine níveis base de comparação
+da_modelo$tonicidade_producao <- relevel(da_modelo$tonicidade_producao, ref = "paroxítona")
+da_modelo$escolaridade <- relevel(da_modelo$escolaridade, ref = "Superior Incompleto")
+da_modelo$aleatorizacao <- relevel(da_modelo$aleatorizacao, ref = "s")
 
+# salva base arrumada (completa) no pacote
 usethis::use_data(da_modelo, overwrite = TRUE)
 
 # base apenas com validados e quase validados
 da_modelo_validadas <- da_modelo %>%
-  dplyr::filter(validacao == "s"|validacao == "q")
+  dplyr::filter(validacao == "s" | validacao == "q")
 
+# salva base arrumada (apenas validados e quase validados) no pacote
 usethis::use_data(da_modelo_validadas, overwrite = TRUE)
