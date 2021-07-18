@@ -30,7 +30,6 @@ g_area <- pessoas %>%
   ggplot2::geom_col() +
   ggplot2::geom_text(position = ggplot2::position_stack(vjust = .5)) +
   ggplot2::scale_fill_manual(values = c("lemonchiffon2", "plum3")) +
-  # ggplot2::scale_fill_viridis_d(option = "cividis", begin = 0.4) +
   ggplot2::theme_minimal(12) +
   ggplot2::labs(
     x = "Conhecimento de outra(s) língua(s)",
@@ -73,7 +72,6 @@ g_idade_genero <- pessoas %>%
   ggplot2::geom_col() +
   ggplot2::geom_text(position = ggplot2::position_stack(vjust = .5)) +
   ggplot2::scale_fill_grey(start = 0.4) +
-  # ggplot2::scale_fill_viridis_d(option = "cividis", begin = 0.4) +
   ggplot2::theme_minimal(14) +
   ggplot2::labs(
     x = "Idade",
@@ -94,11 +92,6 @@ rlang::exprs(
 ) %>%
   purrr::map(f_count)
 
-# alto número de não aleatorizados
-# grupos desbalanceados
-# blocos desbalanceados
-# 93 tipos de ordem
-# validacao: n = 2118, q = 1348 e s = 9045
 
 # Análise geral -----------------------------------------------------------
 
@@ -146,20 +139,6 @@ dados %>%
 # Tonicidade observada na pseudopalavra e tonicidade da palavra-alvo
 pseudopalavras::dados %>%
   dplyr::count(estrutura_palavra, tonicidade_alvo)
-# knitr::kable()
-
-# Vizinhança Fonológica e Vizinhança Tonicidade (Validação)
-dados %>%
-  dplyr::filter(validacao == "n") %>%
-  dplyr::group_by(vizinhanca_fonologica) %>%
-  dplyr::count() %>%
-  View() # 1 NA e 60 categorias
-
-dados %>%
-  dplyr::filter(validacao == "n") %>%
-  dplyr::group_by(vizinhanca_tonicidade) %>%
-  dplyr::count() %>%
-  View() # 1 NA e 17 categorias
 
 # Grupo vs tonicidade_producao
 prop.table(table(dados$tonicidade_producao, dados$grupo), 2) * 100
@@ -187,7 +166,6 @@ g_validacao <- pseudopalavras::dados %>%
   ggplot2::ggplot(ggplot2::aes(
     x = grupo, y = n, fill = validacao
   )) +
-  # scale_fill_manual(name="Status",values=c("orchid3","lemonchiffon2","plum3"))+
   labs(x = "Grupo de Classificação", y = "N") +
   ggplot2::geom_col() +
   ggplot2::scale_fill_viridis_d() +
@@ -200,7 +178,6 @@ ggplot2::ggsave("inst/book/assets/graficos/g1_validacao_grupo.jpeg", g_validacao
 g_fluxo <- pseudopalavras::dados %>%
   dplyr::mutate(Coincidente = tonicidade_producao == tonicidade_alvo) %>%
   dplyr::count(grupo, tonicidade_producao, tonicidade_alvo, Coincidente) %>%
-  # dplyr::filter(grupo == 1) %>%
   ggplot2::ggplot(ggplot2::aes(
     axis1 = tonicidade_alvo, axis2 = tonicidade_producao, y = n
   )) +
